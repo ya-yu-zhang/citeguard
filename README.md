@@ -2,8 +2,7 @@
 
 > Agentic RAG for technical docs that answers **only with evidence**: every claim is cited, and it refuses when evidence is insufficient.
 
-**Live Demo:** _coming soon — Hugging Face Space not deployed yet._ <!-- TODO: Space URL -->  
-<!-- TODO: demo GIF (assets/demo.gif) -->
+**Demo:** no public hosted demo. Run locally (or with Docker Compose) — see [Quickstart](#quickstart).
 
 ## What it is
 CiteGuard answers questions about the **FastAPI, Pydantic and LangGraph docs** with a *cite-or-abstain* contract:
@@ -59,7 +58,9 @@ Week 1 retrieval numbers (Recall@5 / MRR): see [`docs/eval_week1.md`](docs/eval_
 
 ## Quickstart
 
-### Local (no Docker — embedded Qdrant)
+Interviewers: clone → install → ingest (or reuse existing `data/`) → `uvicorn`. Default LLM is local Ollama; OpenRouter is optional.
+
+### Local (embedded Qdrant — main path)
 
 ```bash
 cp .env.example .env
@@ -69,8 +70,16 @@ sed -i 's|^QDRANT_URL=.*|QDRANT_URL=|' .env
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"
 
-# Raw docs are expected under data/raw/ (see Data Sources). Then:
+# Prefer local indexes under data/:
+#   * if data/processed + data/indexes already exist → skip ingest
+#   * else put raw docs under data/raw/ (see Data Sources) and run:
 python scripts/ingest_docs.py          # chunk + BM25 + embeddings → Qdrant
+
+# Ollama (default in .env.example): pull the model first, e.g.
+#   ollama pull qwen2.5:3b-instruct
+# Or OpenRouter: set LLM_BASE_URL=https://openrouter.ai/api/v1,
+# LLM_MODEL=qwen/qwen3.7-flash, LLM_API_KEY=... (reasoning is off by default for openrouter.ai)
+
 uvicorn citeguard.api.app:app --host 0.0.0.0 --port 8000
 
 curl localhost:8000/health
@@ -83,7 +92,7 @@ curl -X POST localhost:8000/ask \
   -d '{"question":"How do I add CORS in FastAPI?"}'
 ```
 
-### Docker Compose
+### Docker Compose (optional)
 
 ```bash
 cp .env.example .env   # defaults to local Ollama (qwen2.5:3b-instruct)
@@ -94,7 +103,7 @@ curl -X POST localhost:8000/ask -H 'Content-Type: application/json' \
   -d '{"question":"How do I add CORS in FastAPI?"}'
 ```
 
-HF Spaces tip: unset `QDRANT_URL` so the API uses Qdrant embedded/local disk mode (single container).
+Leave `QDRANT_URL` empty for embedded/local-disk Qdrant (single-container friendly). Image build not verified on the original dev box (no Docker there).
 
 ## API
 
@@ -130,7 +139,7 @@ Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` 
 | Provider | `LLM_BASE_URL` | `LLM_MODEL` example | `LLM_API_KEY` |
 |---|---|---|---|
 | Ollama (default, free, local CPU) | `http://localhost:11434/v1` | `qwen2.5:3b-instruct` | not needed |
-| OpenRouter (planned) | `https://openrouter.ai/api/v1` | `qwen/qwen-2.5-7b-instruct` | required |
+| OpenRouter (tested) | `https://openrouter.ai/api/v1` | `qwen/qwen3.7-flash` | required |
 
 On OpenRouter (`LLM_BASE_URL` contains `openrouter.ai`) requests default to `"reasoning":{"enabled":false}`: reasoning models such as `qwen/qwen3.7-flash` otherwise spend `max_tokens` on reasoning and return empty content, so every answer would be refused as `ungrounded_answer:empty_answer`. Override or extend with `LLM_EXTRA_BODY` (JSON merged into the request, e.g. `{"usage":{"include":true}}`); `LLM_MAX_TOKENS` defaults to 400 (the week-3 Qwen runs used 300).
 
@@ -140,10 +149,10 @@ The LLM sees up to 1200 chars per retrieved chunk; the API response keeps the sh
 - **Hybrid retrieval (API default)**: BM25 + `bge-small-en-v1.5` vectors fused with RRF (`k=60`). Best MRR on the Week-1 30-query set; HTTP p95 ~0.04s on CPU.
 - **Opt-in rerank**: `method=hybrid+rerank` uses `ms-marco-MiniLM-L-6-v2` on the top-10 RRF hits (512-char truncate). Improves Recall@5 on this set but not MRR; HTTP p95 ~0.21s (clears &lt;1.5s). `bge-reranker-base` was too slow (~2.7s) on CPU.
 - **Local models only** for Week 1 (no paid embedding/LLM APIs).
-- **Qdrant URL optional**: empty → embedded path under `data/indexes/qdrant_local` (Spaces-friendly).
+- **Qdrant URL optional**: empty → embedded path under `data/indexes/qdrant_local` (no separate Qdrant process).
 - **Unique `chunk_id`**: `sha1(doc_id)[:12]-NNNN` (per-doc index) — no collisions.
 - **Cite-or-abstain `/ask` (LangGraph)**: evidence gate (top score &lt; 0.02 or top-3 chars &lt; 200) → generate with mandatory `[n]` citations → self-check.
-- **LLM optional**: stub without `LLM_MODEL`; any OpenAI-compatible endpoint (Ollama by default, OpenRouter next).
+- **LLM optional**: stub without `LLM_MODEL`; any OpenAI-compatible endpoint (Ollama by default; OpenRouter tested).
 
 ## Known Limitations
 
@@ -169,8 +178,8 @@ Local CPU model `qwen2.5:3b-instruct`. Same 20 answerable + 20 refuse questions 
 - [x] Week 1: ingest + hybrid `/search` + eval
 - [x] Week 2: cited `/ask` + refuse-when-unsure (LangGraph)
 - [~] Week 3 (partial): hard refuse set, ingest fix, OpenRouter comparison, and an **experimental** semantic judge (`JUDGE_MODE=veto`, default **off**; agreement with human labels is reported, but its acceptance gates are not all passed). RAGAS board (~100 Q) not done
-- [~] Week 4 (in progress): request tracing + JSON logs and README polish landed; clean-clone Docker bootstrap and rate limits landed (image build not verified); HF Space demo not deployed
-- [ ] MCP tool interface
+- [x] Week 4 (local demo): request tracing + JSON logs, rate limits, clean-clone Docker bootstrap, README polish. Dockerfile is for local / Compose use (image build not verified on the original box). **No public hosted demo** — Hugging Face Space hosting was dropped (free Docker Spaces need a paid HF PRO plan)
+- [ ] MCP tool interface (optional follow-up)
 
 ## Data Sources
 
@@ -190,14 +199,15 @@ Chunking: Markdown-heading-aware, ~500 tokens, 50-token overlap (`tiktoken` cl10
 MIT
 
 ## Docker (clean clone) and rate limits
-`data/processed` and `data/indexes` are gitignored and not baked into the image. At container start
-`python -m citeguard.bootstrap` checks for them; if missing it downloads from the HF dataset in
-`CITEGUARD_INDEX_DATASET` (optional; `HF_TOKEN` only for private datasets) or exits with code 2 and instructions
-(mount `-v $PWD/data:/app/data` or run `scripts/ingest_docs.py`). `CITEGUARD_DATA_DIR` overrides the data path.
+Prefer mounting or building local indexes: `data/processed` and `data/indexes` are gitignored and not baked into the image.
+At container start `python -m citeguard.bootstrap` checks for them; if missing it either:
+  * exits with code 2 and instructions (`mount -v $PWD/data:/app/data` or run `scripts/ingest_docs.py`), or
+  * **optionally** downloads from an HF dataset if `CITEGUARD_INDEX_DATASET` is set (`HF_TOKEN` only for private datasets).
+HF is not required for a normal local or Compose run. `CITEGUARD_DATA_DIR` overrides the data path.
 `/ask` and `/ask/stream` are rate limited in-process: `ASK_RATE_PER_MIN` per client IP (default 10),
 `ASK_DAILY_CAP` global per UTC day (default 500), 0 disables; `ASK_TRUST_PROXY=1` uses X-Forwarded-For.
 Over limit → HTTP 429 with JSON `{"error":"rate_limited","scope":...,"limit":...,"retry_after_s":...}`.
-Docker build not verified here (no docker on the dev box); startup check verified with python directly.
+Docker image build not verified on the original box (no Docker there); bootstrap was verified with Python against a private index snapshot.
 
 ## Observability (request tracing)
 Every request gets a `request_id` (12-hex uuid4, or the caller's `X-Request-ID` header if sent, max 64 chars). It is returned in the
