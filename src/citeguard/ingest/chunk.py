@@ -10,7 +10,7 @@ import tiktoken
 
 _ENC = tiktoken.get_encoding("cl100k_base")
 _HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
-_ANCHOR_RE = re.compile(r"\s*\{#[^}]+\}\s*")
+_ANCHOR_RE = re.compile(r"\s*\{\s*#[^}]+\}\s*")
 
 def _clean_heading(title: str) -> str:
     return _ANCHOR_RE.sub("", title).strip()
