@@ -6,9 +6,24 @@ from typing import Any, Iterator, Literal, TypedDict
 from langgraph.graph import END, START, StateGraph
 
 from citeguard.ask.evidence import evidence_gate, hits_to_citations
-from citeguard.ask.llm import generate_answer, self_check_answer, stream_generate
-from citeguard.config import ASK_TOP_K, get_settings
+from citeguard.ask.llm import generate_answer, llm_configured, normalize_citations, self_check_answer, stream_generate
+from citeguard.config import ASK_TOP_K, LLM_CONTEXT_CHARS, get_settings
 from citeguard.retrieval.hybrid import HybridRetriever
+
+
+def _contexts(hits: list[dict[str, Any]]) -> list[str]:
+    return [str(h.get("text") or "")[:LLM_CONTEXT_CHARS] for h in hits]
+
+
+def _check(answer: str, citations: list, question: str, hits: list) -> tuple[bool, str | None]:
+    """Citation self-check; lexical grounding only for live LLMs (stub is extractive)."""
+    if not llm_configured():
+        return self_check_answer(answer, citations)
+    return self_check_answer(answer, citations, question=question, contexts=_contexts(hits))
+
+
+_NO_REGEN = {"model_declared_insufficient_evidence", "empty_answer", "no_citations"}
+# low_grounding:* is also final (prefix-matched below): regenerating at T=0 gives the same text
 
 
 class AskState(TypedDict, total=False):
@@ -69,11 +84,13 @@ def build_ask_graph(retriever: HybridRetriever):
 
     def generate(state: AskState) -> dict[str, Any]:
         citations = state.get("citations") or []
-        answer = generate_answer(state["question"], citations)
+        answer = generate_answer(state["question"], citations, _contexts(state.get("hits") or []))
         return {"answer": answer}
 
     def self_check(state: AskState) -> dict[str, Any]:
-        ok, reason = self_check_answer(state.get("answer") or "", state.get("citations") or [])
+        ok, reason = _check(
+            state.get("answer") or "", state.get("citations") or [], state["question"], state.get("hits") or []
+        )
         if ok:
             return {
                 "self_check_ok": True,
@@ -83,11 +100,7 @@ def build_ask_graph(retriever: HybridRetriever):
             }
         # regenerate once, then refuse
         count = int(state.get("regenerate_count") or 0)
-        if count < 1 and reason not in {
-            "model_declared_insufficient_evidence",
-            "empty_answer",
-            "no_citations",
-        }:
+        if count < 1 and reason not in _NO_REGEN and not str(reason).startswith("low_grounding"):
             return {
                 "self_check_ok": False,
                 "self_check_reason": reason,
@@ -175,26 +188,26 @@ def stream_ask_events(
     yield {"event": "status", "data": {"stage": "generate", "n_citations": len(citations)}}
 
     answer_parts: list[str] = []
-    for tok in stream_generate(question, citations):
+    for tok in stream_generate(question, citations, _contexts(hits)):
         answer_parts.append(tok)
         yield {"event": "token", "data": {"text": tok}}
-    answer = "".join(answer_parts)
+    answer = normalize_citations("".join(answer_parts))
 
-    ok, reason = self_check_answer(answer, citations)
+    ok, reason = _check(answer, citations, question, hits)
+    if not ok and reason not in _NO_REGEN and not str(reason).startswith("low_grounding"):
+        # one regenerate attempt (non-stream full regen), mirrors the graph path
+        answer = generate_answer(question, citations, _contexts(hits))
+        ok, reason = _check(answer, citations, question, hits)
     if not ok:
-        # one regenerate attempt (non-stream stub/LLM full regen)
-        answer = generate_answer(question, citations)
-        ok, reason = self_check_answer(answer, citations)
-        if not ok:
-            final = {
-                "answer": "",
-                "refused": True,
-                "refusal_reason": f"self_check_failed:{reason}",
-                "citations": citations,
-                "method": method,
-            }
-            yield {"event": "final", "data": final}
-            return
+        final = {
+            "answer": "",
+            "refused": True,
+            "refusal_reason": f"self_check_failed:{reason}",
+            "citations": citations,
+            "method": method,
+        }
+        yield {"event": "final", "data": final}
+        return
 
     final = {
         "answer": answer,
