@@ -2,8 +2,17 @@
 
 > Agentic RAG for technical docs that answers **only with evidence**: every claim is cited, and it refuses when evidence is insufficient.
 
-**Live Demo:** <!-- TODO: Hugging Face Spaces URL -->  
+**Live Demo:** _coming soon — Hugging Face Space not deployed yet._ <!-- TODO: Space URL -->  
 <!-- TODO: demo GIF (assets/demo.gif) -->
+
+## What it is
+CiteGuard answers questions about the **FastAPI, Pydantic and LangGraph docs** with a *cite-or-abstain* contract:
+
+- Every sentence in an answer must be backed by a retrieved doc chunk, cited as `[n]` with a source URL.
+- If retrieval finds too little evidence, or the generated answer fails verification, the API **refuses** and says why (`refusal_reason`) instead of guessing.
+- `/ask` and `/ask/stream` always make the same decision (the stream is buffered until verification finishes).
+
+Stack: FastAPI · LangGraph · BM25 + `bge-small-en-v1.5` (RRF hybrid) · Qdrant (embedded) · any OpenAI-compatible LLM (local Ollama by default; OpenRouter tested).
 
 ## Architecture
 <!-- TODO: replace with final diagram (assets/architecture.png) -->
@@ -90,7 +99,7 @@ HF Spaces tip: unset `QDRANT_URL` so the API uses Qdrant embedded/local disk mod
 ## API
 
 ### `GET /health`
-`status`, `n_chunks`, `qdrant_mode`, `llm_configured`
+`status`, `n_chunks`, `qdrant_mode`, `llm_configured`, `version`, `judge_mode`
 
 ### `POST /search`
 Body: `query`, `top_k`, optional `method` (`bm25|vector|hybrid` **default** | `hybrid+rerank` opt-in).
@@ -104,16 +113,17 @@ Response fields (stable):
 |---|---|---|
 | `answer` | string | Cited answer, or `""` when refused |
 | `refused` | bool | `true` if abstained |
-| `refusal_reason` | string\|null | `<class>:<detail>`. Class `no_evidence` (retrieval gate, out-of-scope task, or model said the docs don't cover it), e.g. `no_evidence:top_score_below_threshold:…`, `no_evidence:out_of_scope_task`. Class `ungrounded_answer` (model answered but failed verification), e.g. `ungrounded_answer:retrieval_miss`, `ungrounded_answer:no_supported_sentences`, `ungrounded_answer:missing_citation_markers` |
+| `refusal_reason` | string\|null | `<class>:<detail>`. Class `no_evidence` (retrieval gate, out-of-scope task, or model said the docs don't cover it), e.g. `no_evidence:top_score_below_threshold:…`, `no_evidence:out_of_scope_task`. Class `ungrounded_answer` (model answered but failed verification), e.g. `ungrounded_answer:unsupported_citation` (formerly `retrieval_miss`), `ungrounded_answer:low_grounding`, `ungrounded_answer:judge_veto:*` (only with `JUDGE_MODE=veto`), `ungrounded_answer:no_supported_sentences`, `ungrounded_answer:missing_citation_markers` |
 | `citations` | list | `{ chunk_id, title_path, source_url, score, excerpt }` (empty on early refuse) |
 | `method` | string | Retrieval method used (`hybrid` by default; `hybrid+rerank` only if `ASK_USE_RERANK=true`) |
+| `request_id` | string | Per-request trace id (also in the `X-Request-ID` response header and the log line) |
 
 Evidence gate (before generation): refuse if RRF top score **&lt; 0.02** **or** total length of top-3 chunk texts **&lt; 200** characters.
 
 LangGraph path: `retrieve → evidence_judge → (refuse | generate) → self_check` (one regenerate, then refuse).
 
 ### `POST /ask/stream`
-Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` (`final.data` matches `/ask` JSON). **Buffer-then-stream:** the evidence judge, generation, citation repair and self-check all finish before the first `token` is sent. So the stream never shows text that is later retracted, and it refuses exactly when `/ask` does. The cost is that time-to-first-token equals the full generation time.
+Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` (`final.data` matches `/ask` JSON; every event's `data` includes `request_id`). **Buffer-then-stream:** the evidence judge, generation, citation repair and self-check all finish before the first `token` is sent. So the stream never shows text that is later retracted, and it refuses exactly when `/ask` does. The cost is that time-to-first-token equals the full generation time.
 
 **LLM (provider-agnostic, OpenAI-compatible):** configured by `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY` (optional for Ollama). Leave `LLM_MODEL` empty → deterministic **stub** generator (no network). CI/unit tests always use the stub; a live test is opt-in (`CITEGUARD_OLLAMA_TEST=1 pytest -m ollama`, auto-skips if Ollama is down).
 
@@ -156,8 +166,8 @@ Local CPU model `qwen2.5:3b-instruct`. Same 20 answerable + 20 refuse questions 
 ## Roadmap
 - [x] Week 1: ingest + hybrid `/search` + eval
 - [x] Week 2: cited `/ask` + refuse-when-unsure (LangGraph)
-- [ ] Week 3: RAGAS eval board (~100 Q)
-- [ ] Week 4: tracing, Docker demo, README polish
+- [~] Week 3 (partial): hard refuse set, ingest fix, OpenRouter comparison, and an **experimental** semantic judge (`JUDGE_MODE=veto`, default **off**; agreement with human labels is reported, but its acceptance gates are not all passed). RAGAS board (~100 Q) not done
+- [~] Week 4 (in progress): request tracing + JSON logs and README polish landed; clean-clone Docker bootstrap and rate limits landed (image build not verified); HF Space demo not deployed
 - [ ] MCP tool interface
 
 ## Data Sources
@@ -186,3 +196,20 @@ MIT
 `ASK_DAILY_CAP` global per UTC day (default 500), 0 disables; `ASK_TRUST_PROXY=1` uses X-Forwarded-For.
 Over limit → HTTP 429 with JSON `{"error":"rate_limited","scope":...,"limit":...,"retry_after_s":...}`.
 Docker build not verified here (no docker on the dev box); startup check verified with python directly.
+
+## Observability (request tracing)
+Every request gets a `request_id` (12-hex uuid4, or the caller's `X-Request-ID` header if sent, max 64 chars). It is returned in the
+`X-Request-ID` header, in the `/ask` JSON, and in every `/ask/stream` SSE event. Each completed `/ask` or `/ask/stream`
+writes one JSON line to stdout (logger `citeguard.request`); no extra dependencies, no metrics store:
+
+```json
+{"event": "ask_complete", "request_id": "c2868e9910d3", "path": "/ask", "latency_ms": 18.0, "outcome": "answered", "refusal_reason": null, "n_citations": 3, "model": "stub", "judge_mode": "off"}
+```
+
+```bash
+curl -si -X POST localhost:8000/ask -H 'Content-Type: application/json' \
+  -H 'X-Request-ID: demo-1' -d '{"question":"How do I add CORS in FastAPI?"}' | grep -i -e x-request-id -e request_id
+# then find the matching log line:  docker compose logs api | grep '"request_id": "demo-1"'
+```
+`model` is `LLM_MODEL` (`stub` when unset); `judge_mode` is `JUDGE_MODE` (`off`|`veto`). Rate-limited (429) responses also carry `X-Request-ID` but are not logged as completions.
+Eval scripts that hammer `/ask` should run with `ASK_RATE_PER_MIN=0`.
