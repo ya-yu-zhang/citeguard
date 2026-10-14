@@ -1,0 +1,2934 @@
+{
+  "sources": [
+    {
+      "name": "fastapi",
+      "repo": "fastapi/fastapi",
+      "path_in_repo": "docs/en",
+      "commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "note": ""
+    },
+    {
+      "name": "pydantic",
+      "repo": "pydantic/pydantic",
+      "path_in_repo": "docs",
+      "commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "note": ""
+    },
+    {
+      "name": "langgraph",
+      "repo": "langchain-ai/docs",
+      "path_in_repo": "src/oss/langgraph",
+      "commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "note": "Maintained LangGraph docs live in langchain-ai/docs; langchain-ai/langgraph/docs is not used."
+    }
+  ],
+  "n_docs": 290,
+  "n_chunks": 4100,
+  "chunk_target_tokens": 500,
+  "chunk_overlap_tokens": 50,
+  "docs": [
+    {
+      "doc_id": "fastapi:docs/en/docs/_llm-test.md",
+      "relpath": "docs/en/docs/_llm-test.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/_llm-test.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 19,
+      "bytes": 11247
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/about/index.md",
+      "relpath": "docs/en/docs/about/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/about/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 74
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/additional-responses.md",
+      "relpath": "docs/en/docs/advanced/additional-responses.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/additional-responses.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 9051
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/additional-status-codes.md",
+      "relpath": "docs/en/docs/advanced/additional-status-codes.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/additional-status-codes.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2002
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/advanced-dependencies.md",
+      "relpath": "docs/en/docs/advanced/advanced-dependencies.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/advanced-dependencies.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 9249
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/advanced-python-types.md",
+      "relpath": "docs/en/docs/advanced/advanced-python-types.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/advanced-python-types.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 2091
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/async-tests.md",
+      "relpath": "docs/en/docs/advanced/async-tests.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/async-tests.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 3873
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/behind-a-proxy.md",
+      "relpath": "docs/en/docs/advanced/behind-a-proxy.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/behind-a-proxy.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 19,
+      "bytes": 16202
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/custom-response.md",
+      "relpath": "docs/en/docs/advanced/custom-response.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/custom-response.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 19,
+      "bytes": 11291
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/dataclasses.md",
+      "relpath": "docs/en/docs/advanced/dataclasses.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/dataclasses.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 4104
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/events.md",
+      "relpath": "docs/en/docs/advanced/events.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/events.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 7985
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/generate-clients.md",
+      "relpath": "docs/en/docs/advanced/generate-clients.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/generate-clients.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 15,
+      "bytes": 8718
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/index.md",
+      "relpath": "docs/en/docs/advanced/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 757
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/json-base64-bytes.md",
+      "relpath": "docs/en/docs/advanced/json-base64-bytes.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/json-base64-bytes.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 2474
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/middleware.md",
+      "relpath": "docs/en/docs/advanced/middleware.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/middleware.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 4200
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/openapi-callbacks.md",
+      "relpath": "docs/en/docs/advanced/openapi-callbacks.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/openapi-callbacks.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 7857
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/openapi-webhooks.md",
+      "relpath": "docs/en/docs/advanced/openapi-webhooks.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/openapi-webhooks.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 2948
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/opentelemetry.md",
+      "relpath": "docs/en/docs/advanced/opentelemetry.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/opentelemetry.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 7988
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/path-operation-advanced-configuration.md",
+      "relpath": "docs/en/docs/advanced/path-operation-advanced-configuration.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/path-operation-advanced-configuration.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 7120
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/response-change-status-code.md",
+      "relpath": "docs/en/docs/advanced/response-change-status-code.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/response-change-status-code.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 1558
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/response-cookies.md",
+      "relpath": "docs/en/docs/advanced/response-cookies.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/response-cookies.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2228
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/response-directly.md",
+      "relpath": "docs/en/docs/advanced/response-directly.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/response-directly.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 4137
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/response-headers.md",
+      "relpath": "docs/en/docs/advanced/response-headers.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/response-headers.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2200
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/security/http-basic-auth.md",
+      "relpath": "docs/en/docs/advanced/security/http-basic-auth.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/security/http-basic-auth.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 5118
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/security/index.md",
+      "relpath": "docs/en/docs/advanced/security/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/security/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 648
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/security/oauth2-scopes.md",
+      "relpath": "docs/en/docs/advanced/security/oauth2-scopes.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/security/oauth2-scopes.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 15,
+      "bytes": 13769
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/settings.md",
+      "relpath": "docs/en/docs/advanced/settings.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/settings.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 19,
+      "bytes": 11816
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/stream-data.md",
+      "relpath": "docs/en/docs/advanced/stream-data.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/stream-data.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 5500
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/strict-content-type.md",
+      "relpath": "docs/en/docs/advanced/strict-content-type.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/strict-content-type.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 3292
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/sub-applications.md",
+      "relpath": "docs/en/docs/advanced/sub-applications.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/sub-applications.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 2956
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/templates.md",
+      "relpath": "docs/en/docs/advanced/templates.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/templates.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 3415
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/testing-dependencies.md",
+      "relpath": "docs/en/docs/advanced/testing-dependencies.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/testing-dependencies.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2413
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/testing-events.md",
+      "relpath": "docs/en/docs/advanced/testing-events.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/testing-events.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 624
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/testing-websockets.md",
+      "relpath": "docs/en/docs/advanced/testing-websockets.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/testing-websockets.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 407
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/using-request-directly.md",
+      "relpath": "docs/en/docs/advanced/using-request-directly.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/using-request-directly.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 2336
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/websockets.md",
+      "relpath": "docs/en/docs/advanced/websockets.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/websockets.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 5394
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/advanced/wsgi.md",
+      "relpath": "docs/en/docs/advanced/wsgi.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/advanced/wsgi.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 1478
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/alternatives.md",
+      "relpath": "docs/en/docs/alternatives.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/alternatives.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 23,
+      "bytes": 22663
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/async.md",
+      "relpath": "docs/en/docs/async.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/async.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 26,
+      "bytes": 23978
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/benchmarks.md",
+      "relpath": "docs/en/docs/benchmarks.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/benchmarks.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 3503
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/contributing.md",
+      "relpath": "docs/en/docs/contributing.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/contributing.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 271
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/cloud.md",
+      "relpath": "docs/en/docs/deployment/cloud.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/cloud.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 1090
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/concepts.md",
+      "relpath": "docs/en/docs/deployment/concepts.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/concepts.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 28,
+      "bytes": 18936
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/docker.md",
+      "relpath": "docs/en/docs/deployment/docker.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/docker.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 50,
+      "bytes": 28940
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/fastapicloud.md",
+      "relpath": "docs/en/docs/deployment/fastapicloud.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/fastapicloud.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 1757
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/https.md",
+      "relpath": "docs/en/docs/deployment/https.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/https.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 16,
+      "bytes": 14304
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/index.md",
+      "relpath": "docs/en/docs/deployment/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 1520
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/manually.md",
+      "relpath": "docs/en/docs/deployment/manually.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/manually.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 6603
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/server-workers.md",
+      "relpath": "docs/en/docs/deployment/server-workers.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/server-workers.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 8379
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/deployment/versions.md",
+      "relpath": "docs/en/docs/deployment/versions.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/deployment/versions.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 3510
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/editor-support.md",
+      "relpath": "docs/en/docs/editor-support.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/editor-support.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 2516
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/environment-variables.md",
+      "relpath": "docs/en/docs/environment-variables.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/environment-variables.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 771
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/external-links.md",
+      "relpath": "docs/en/docs/external-links.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/external-links.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 932
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/fastapi-cli.md",
+      "relpath": "docs/en/docs/fastapi-cli.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/fastapi-cli.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 6710
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/fastapi-people.md",
+      "relpath": "docs/en/docs/fastapi-people.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/fastapi-people.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 12,
+      "bytes": 6413
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/features.md",
+      "relpath": "docs/en/docs/features.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/features.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 15,
+      "bytes": 9139
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/help-fastapi.md",
+      "relpath": "docs/en/docs/help-fastapi.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/help-fastapi.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 3472
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/history-design-future.md",
+      "relpath": "docs/en/docs/history-design-future.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/history-design-future.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 4086
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/authentication-error-status-code.md",
+      "relpath": "docs/en/docs/how-to/authentication-error-status-code.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/authentication-error-status-code.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 1190
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/conditional-openapi.md",
+      "relpath": "docs/en/docs/how-to/conditional-openapi.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/conditional-openapi.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2436
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/configure-swagger-ui.md",
+      "relpath": "docs/en/docs/how-to/configure-swagger-ui.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/configure-swagger-ui.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 2891
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/custom-docs-ui-assets.md",
+      "relpath": "docs/en/docs/how-to/custom-docs-ui-assets.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/custom-docs-ui-assets.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 15,
+      "bytes": 7693
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/custom-request-and-route.md",
+      "relpath": "docs/en/docs/how-to/custom-request-and-route.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/custom-request-and-route.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 4552
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/extending-openapi.md",
+      "relpath": "docs/en/docs/how-to/extending-openapi.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/extending-openapi.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 3740
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/general.md",
+      "relpath": "docs/en/docs/how-to/general.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/general.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 2834
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/graphql.md",
+      "relpath": "docs/en/docs/how-to/graphql.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/graphql.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 2785
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/index.md",
+      "relpath": "docs/en/docs/how-to/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 582
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+      "relpath": "docs/en/docs/how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/migrate-from-pydantic-v1-to-pydantic-v2.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 6323
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/separate-openapi-schemas.md",
+      "relpath": "docs/en/docs/how-to/separate-openapi-schemas.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/separate-openapi-schemas.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 4656
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/how-to/testing-database.md",
+      "relpath": "docs/en/docs/how-to/testing-database.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/how-to/testing-database.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 393
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/index.md",
+      "relpath": "docs/en/docs/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 35,
+      "bytes": 25186
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/learn/index.md",
+      "relpath": "docs/en/docs/learn/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/learn/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 206
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/management.md",
+      "relpath": "docs/en/docs/management.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/management.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 640
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/newsletter.md",
+      "relpath": "docs/en/docs/newsletter.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/newsletter.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 305
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/project-generation.md",
+      "relpath": "docs/en/docs/project-generation.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/project-generation.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 1998
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/python-types.md",
+      "relpath": "docs/en/docs/python-types.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/python-types.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 18,
+      "bytes": 11214
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/apirouter.md",
+      "relpath": "docs/en/docs/reference/apirouter.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/apirouter.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 547
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/background.md",
+      "relpath": "docs/en/docs/reference/background.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/background.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 377
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/dependencies.md",
+      "relpath": "docs/en/docs/reference/dependencies.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/dependencies.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 671
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/encoders.md",
+      "relpath": "docs/en/docs/reference/encoders.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/encoders.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 71
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/exceptions.md",
+      "relpath": "docs/en/docs/reference/exceptions.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/exceptions.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 597
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/fastapi.md",
+      "relpath": "docs/en/docs/reference/fastapi.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/fastapi.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 724
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/httpconnection.md",
+      "relpath": "docs/en/docs/reference/httpconnection.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/httpconnection.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 359
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/index.md",
+      "relpath": "docs/en/docs/reference/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 285
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/middleware.md",
+      "relpath": "docs/en/docs/reference/middleware.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/middleware.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 845
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/openapi/docs.md",
+      "relpath": "docs/en/docs/reference/openapi/docs.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/openapi/docs.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 360
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/openapi/index.md",
+      "relpath": "docs/en/docs/reference/openapi/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/openapi/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 158
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/openapi/models.md",
+      "relpath": "docs/en/docs/reference/openapi/models.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/openapi/models.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 125
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/parameters.md",
+      "relpath": "docs/en/docs/reference/parameters.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/parameters.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 603
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/request.md",
+      "relpath": "docs/en/docs/reference/request.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/request.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 652
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/response.md",
+      "relpath": "docs/en/docs/reference/response.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/response.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 559
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/responses.md",
+      "relpath": "docs/en/docs/reference/responses.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/responses.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 4546
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/security/index.md",
+      "relpath": "docs/en/docs/reference/security/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/security/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 1778
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/sse.md",
+      "relpath": "docs/en/docs/reference/sse.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/sse.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 662
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/staticfiles.md",
+      "relpath": "docs/en/docs/reference/staticfiles.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/staticfiles.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 391
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/status.md",
+      "relpath": "docs/en/docs/reference/status.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/status.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 861
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/templating.md",
+      "relpath": "docs/en/docs/reference/templating.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/templating.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 365
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/testclient.md",
+      "relpath": "docs/en/docs/reference/testclient.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/testclient.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 450
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/uploadfile.md",
+      "relpath": "docs/en/docs/reference/uploadfile.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/uploadfile.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 472
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/reference/websockets.md",
+      "relpath": "docs/en/docs/reference/websockets.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/reference/websockets.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 2007
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/release-notes.md",
+      "relpath": "docs/en/docs/release-notes.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/release-notes.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 948,
+      "bytes": 711373
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/resources/index.md",
+      "relpath": "docs/en/docs/resources/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/resources/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 83
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/translation-banner.md",
+      "relpath": "docs/en/docs/translation-banner.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/translation-banner.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 379
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/translations.md",
+      "relpath": "docs/en/docs/translations.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/translations.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 1982
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/background-tasks.md",
+      "relpath": "docs/en/docs/tutorial/background-tasks.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/background-tasks.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 4786
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/bigger-applications.md",
+      "relpath": "docs/en/docs/tutorial/bigger-applications.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/bigger-applications.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 24,
+      "bytes": 20398
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/body-fields.md",
+      "relpath": "docs/en/docs/tutorial/body-fields.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/body-fields.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 2388
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/body-multiple-params.md",
+      "relpath": "docs/en/docs/tutorial/body-multiple-params.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/body-multiple-params.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 4932
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/body-nested-models.md",
+      "relpath": "docs/en/docs/tutorial/body-nested-models.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/body-nested-models.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 15,
+      "bytes": 6818
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/body-updates.md",
+      "relpath": "docs/en/docs/tutorial/body-updates.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/body-updates.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 4091
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/body.md",
+      "relpath": "docs/en/docs/tutorial/body.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/body.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 6611
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/cookie-param-models.md",
+      "relpath": "docs/en/docs/tutorial/cookie-param-models.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/cookie-param-models.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 3141
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/cookie-params.md",
+      "relpath": "docs/en/docs/tutorial/cookie-params.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/cookie-params.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 1602
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/cors.md",
+      "relpath": "docs/en/docs/tutorial/cors.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/cors.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 5370
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/debugging.md",
+      "relpath": "docs/en/docs/tutorial/debugging.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/debugging.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 2470
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/dependencies/classes-as-dependencies.md",
+      "relpath": "docs/en/docs/tutorial/dependencies/classes-as-dependencies.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/dependencies/classes-as-dependencies.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 6915
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+      "relpath": "docs/en/docs/tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/dependencies/dependencies-in-path-operation-decorators.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 2954
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/dependencies/dependencies-with-yield.md",
+      "relpath": "docs/en/docs/tutorial/dependencies/dependencies-with-yield.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/dependencies/dependencies-with-yield.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 13,
+      "bytes": 12857
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/dependencies/global-dependencies.md",
+      "relpath": "docs/en/docs/tutorial/dependencies/global-dependencies.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/dependencies/global-dependencies.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 1060
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+      "relpath": "docs/en/docs/tutorial/dependencies/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/dependencies/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 14,
+      "bytes": 9771
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/dependencies/sub-dependencies.md",
+      "relpath": "docs/en/docs/tutorial/dependencies/sub-dependencies.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/dependencies/sub-dependencies.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 3820
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/encoder.md",
+      "relpath": "docs/en/docs/tutorial/encoder.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/encoder.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 1608
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/extra-data-types.md",
+      "relpath": "docs/en/docs/tutorial/extra-data-types.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/extra-data-types.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2693
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/extra-models.md",
+      "relpath": "docs/en/docs/tutorial/extra-models.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/extra-models.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 12,
+      "bytes": 6886
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/first-steps.md",
+      "relpath": "docs/en/docs/tutorial/first-steps.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/first-steps.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 27,
+      "bytes": 14155
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/frontend.md",
+      "relpath": "docs/en/docs/tutorial/frontend.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/frontend.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 6418
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/handling-errors.md",
+      "relpath": "docs/en/docs/tutorial/handling-errors.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/handling-errors.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 13,
+      "bytes": 9156
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/header-param-models.md",
+      "relpath": "docs/en/docs/tutorial/header-param-models.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/header-param-models.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 2679
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/header-params.md",
+      "relpath": "docs/en/docs/tutorial/header-params.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/header-params.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 3032
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/index.md",
+      "relpath": "docs/en/docs/tutorial/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 7464
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/metadata.md",
+      "relpath": "docs/en/docs/tutorial/metadata.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/metadata.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 5974
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/middleware.md",
+      "relpath": "docs/en/docs/tutorial/middleware.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/middleware.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 3951
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/path-operation-configuration.md",
+      "relpath": "docs/en/docs/tutorial/path-operation-configuration.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/path-operation-configuration.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 4121
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/path-params-numeric-validations.md",
+      "relpath": "docs/en/docs/tutorial/path-params-numeric-validations.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/path-params-numeric-validations.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 6208
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/path-params.md",
+      "relpath": "docs/en/docs/tutorial/path-params.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/path-params.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 20,
+      "bytes": 9041
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/query-param-models.md",
+      "relpath": "docs/en/docs/tutorial/query-param-models.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/query-param-models.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 2224
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/query-params-str-validations.md",
+      "relpath": "docs/en/docs/tutorial/query-params-str-validations.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/query-params-str-validations.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 25,
+      "bytes": 16662
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/query-params.md",
+      "relpath": "docs/en/docs/tutorial/query-params.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/query-params.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 4596
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/request-files.md",
+      "relpath": "docs/en/docs/tutorial/request-files.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/request-files.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 7080
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/request-form-models.md",
+      "relpath": "docs/en/docs/tutorial/request-form-models.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/request-form-models.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 2055
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/request-forms-and-files.md",
+      "relpath": "docs/en/docs/tutorial/request-forms-and-files.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/request-forms-and-files.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 1352
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/request-forms.md",
+      "relpath": "docs/en/docs/tutorial/request-forms.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/request-forms.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 2524
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/response-model.md",
+      "relpath": "docs/en/docs/tutorial/response-model.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/response-model.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 22,
+      "bytes": 15824
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/response-status-code.md",
+      "relpath": "docs/en/docs/tutorial/response-status-code.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/response-status-code.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 3994
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/schema-extra-example.md",
+      "relpath": "docs/en/docs/tutorial/schema-extra-example.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/schema-extra-example.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 15,
+      "bytes": 8970
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/security/first-steps.md",
+      "relpath": "docs/en/docs/tutorial/security/first-steps.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/security/first-steps.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 8357
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/security/get-current-user.md",
+      "relpath": "docs/en/docs/tutorial/security/get-current-user.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/security/get-current-user.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 4117
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/security/index.md",
+      "relpath": "docs/en/docs/tutorial/security/index.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/security/index.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 4548
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/security/oauth2-jwt.md",
+      "relpath": "docs/en/docs/tutorial/security/oauth2-jwt.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/security/oauth2-jwt.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 14,
+      "bytes": 10762
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/security/simple-oauth2.md",
+      "relpath": "docs/en/docs/tutorial/security/simple-oauth2.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/security/simple-oauth2.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 17,
+      "bytes": 9589
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/server-sent-events.md",
+      "relpath": "docs/en/docs/tutorial/server-sent-events.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/server-sent-events.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 4704
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/sql-databases.md",
+      "relpath": "docs/en/docs/tutorial/sql-databases.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/sql-databases.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 27,
+      "bytes": 15620
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/static-files.md",
+      "relpath": "docs/en/docs/tutorial/static-files.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/static-files.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 1921
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/stream-json-lines.md",
+      "relpath": "docs/en/docs/tutorial/stream-json-lines.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/stream-json-lines.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 4452
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/tutorial/testing.md",
+      "relpath": "docs/en/docs/tutorial/testing.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/tutorial/testing.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 5624
+    },
+    {
+      "doc_id": "fastapi:docs/en/docs/virtual-environments.md",
+      "relpath": "docs/en/docs/virtual-environments.md",
+      "source_url": "https://github.com/fastapi/fastapi/blob/f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007/docs/en/docs/virtual-environments.md",
+      "source_repo": "fastapi/fastapi",
+      "source_commit": "f5c6e9b4f9cadc1bf0f9a1fd672e621206b63007",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 1140
+    },
+    {
+      "doc_id": "pydantic:docs/api/aliases.md",
+      "relpath": "docs/api/aliases.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/aliases.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 21
+    },
+    {
+      "doc_id": "pydantic:docs/api/annotated_handlers.md",
+      "relpath": "docs/api/annotated_handlers.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/annotated_handlers.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 32
+    },
+    {
+      "doc_id": "pydantic:docs/api/base_model.md",
+      "relpath": "docs/api/base_model.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/base_model.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 930
+    },
+    {
+      "doc_id": "pydantic:docs/api/config.md",
+      "relpath": "docs/api/config.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/config.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 239
+    },
+    {
+      "doc_id": "pydantic:docs/api/dataclasses.md",
+      "relpath": "docs/api/dataclasses.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/dataclasses.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 25
+    },
+    {
+      "doc_id": "pydantic:docs/api/errors.md",
+      "relpath": "docs/api/errors.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/errors.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 20
+    },
+    {
+      "doc_id": "pydantic:docs/api/experimental.md",
+      "relpath": "docs/api/experimental.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/experimental.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 265
+    },
+    {
+      "doc_id": "pydantic:docs/api/fields.md",
+      "relpath": "docs/api/fields.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/fields.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 430
+    },
+    {
+      "doc_id": "pydantic:docs/api/functional_serializers.md",
+      "relpath": "docs/api/functional_serializers.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/functional_serializers.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 36
+    },
+    {
+      "doc_id": "pydantic:docs/api/functional_validators.md",
+      "relpath": "docs/api/functional_validators.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/functional_validators.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 35
+    },
+    {
+      "doc_id": "pydantic:docs/api/json_schema.md",
+      "relpath": "docs/api/json_schema.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/json_schema.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 25
+    },
+    {
+      "doc_id": "pydantic:docs/api/networks.md",
+      "relpath": "docs/api/networks.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/networks.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 22
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_core.md",
+      "relpath": "docs/api/pydantic_core.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_core.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 706
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_core_schema.md",
+      "relpath": "docs/api/pydantic_core_schema.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_core_schema.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 30
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_color.md",
+      "relpath": "docs/api/pydantic_extra_types_color.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_color.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 31
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_coordinate.md",
+      "relpath": "docs/api/pydantic_extra_types_coordinate.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_coordinate.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 36
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_country.md",
+      "relpath": "docs/api/pydantic_extra_types_country.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_country.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 33
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_currency_code.md",
+      "relpath": "docs/api/pydantic_extra_types_currency_code.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_currency_code.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 39
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_isbn.md",
+      "relpath": "docs/api/pydantic_extra_types_isbn.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_isbn.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 30
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_language_code.md",
+      "relpath": "docs/api/pydantic_extra_types_language_code.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_language_code.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 39
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_mac_address.md",
+      "relpath": "docs/api/pydantic_extra_types_mac_address.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_mac_address.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 37
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_payment.md",
+      "relpath": "docs/api/pydantic_extra_types_payment.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_payment.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 33
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_pendulum_dt.md",
+      "relpath": "docs/api/pydantic_extra_types_pendulum_dt.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_pendulum_dt.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 37
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_phone_numbers.md",
+      "relpath": "docs/api/pydantic_extra_types_phone_numbers.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_phone_numbers.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 39
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_routing_numbers.md",
+      "relpath": "docs/api/pydantic_extra_types_routing_numbers.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_routing_numbers.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 40
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_script_code.md",
+      "relpath": "docs/api/pydantic_extra_types_script_code.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_script_code.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 37
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_semantic_version.md",
+      "relpath": "docs/api/pydantic_extra_types_semantic_version.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_semantic_version.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 42
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_timezone_name.md",
+      "relpath": "docs/api/pydantic_extra_types_timezone_name.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_timezone_name.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 39
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_extra_types_ulid.md",
+      "relpath": "docs/api/pydantic_extra_types_ulid.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_extra_types_ulid.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 30
+    },
+    {
+      "doc_id": "pydantic:docs/api/pydantic_settings.md",
+      "relpath": "docs/api/pydantic_settings.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/pydantic_settings.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 22
+    },
+    {
+      "doc_id": "pydantic:docs/api/root_model.md",
+      "relpath": "docs/api/root_model.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/root_model.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 24
+    },
+    {
+      "doc_id": "pydantic:docs/api/standard_library_types.md",
+      "relpath": "docs/api/standard_library_types.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/standard_library_types.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 53,
+      "bytes": 69979
+    },
+    {
+      "doc_id": "pydantic:docs/api/type_adapter.md",
+      "relpath": "docs/api/type_adapter.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/type_adapter.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 38
+    },
+    {
+      "doc_id": "pydantic:docs/api/types.md",
+      "relpath": "docs/api/types.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/types.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 101
+    },
+    {
+      "doc_id": "pydantic:docs/api/validate_call.md",
+      "relpath": "docs/api/validate_call.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/validate_call.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 37
+    },
+    {
+      "doc_id": "pydantic:docs/api/version.md",
+      "relpath": "docs/api/version.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/api/version.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 150
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/alias.md",
+      "relpath": "docs/concepts/alias.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/alias.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 16,
+      "bytes": 13902
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/config.md",
+      "relpath": "docs/concepts/config.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/config.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 7003
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/conversion_table.md",
+      "relpath": "docs/concepts/conversion_table.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/conversion_table.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 482
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/dataclasses.md",
+      "relpath": "docs/concepts/dataclasses.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/dataclasses.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 16,
+      "bytes": 13036
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/experimental.md",
+      "relpath": "docs/concepts/experimental.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/experimental.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 21,
+      "bytes": 19159
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/fields.md",
+      "relpath": "docs/concepts/fields.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/fields.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 26,
+      "bytes": 27984
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/forward_annotations.md",
+      "relpath": "docs/concepts/forward_annotations.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/forward_annotations.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 4373
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/json.md",
+      "relpath": "docs/concepts/json.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/json.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 8916
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/json_schema.md",
+      "relpath": "docs/concepts/json_schema.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/json_schema.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 30,
+      "bytes": 36052
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/models.md",
+      "relpath": "docs/concepts/models.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/models.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 53,
+      "bytes": 61790
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/performance.md",
+      "relpath": "docs/concepts/performance.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/performance.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 6276
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/pydantic_settings.md",
+      "relpath": "docs/concepts/pydantic_settings.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/pydantic_settings.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 684
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/serialization.md",
+      "relpath": "docs/concepts/serialization.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/serialization.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 34,
+      "bytes": 33174
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/strict_mode.md",
+      "relpath": "docs/concepts/strict_mode.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/strict_mode.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 6309
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/type_adapter.md",
+      "relpath": "docs/concepts/type_adapter.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/type_adapter.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 5474
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/types.md",
+      "relpath": "docs/concepts/types.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/types.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 31,
+      "bytes": 32512
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/unions.md",
+      "relpath": "docs/concepts/unions.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/unions.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 17,
+      "bytes": 22566
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/validation_decorator.md",
+      "relpath": "docs/concepts/validation_decorator.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/validation_decorator.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 14,
+      "bytes": 11536
+    },
+    {
+      "doc_id": "pydantic:docs/concepts/validators.md",
+      "relpath": "docs/concepts/validators.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/concepts/validators.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 21,
+      "bytes": 30386
+    },
+    {
+      "doc_id": "pydantic:docs/contributing.md",
+      "relpath": "docs/contributing.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/contributing.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 31,
+      "bytes": 12781
+    },
+    {
+      "doc_id": "pydantic:docs/enterprise-support.md",
+      "relpath": "docs/enterprise-support.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/enterprise-support.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 3742
+    },
+    {
+      "doc_id": "pydantic:docs/errors/errors.md",
+      "relpath": "docs/errors/errors.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/errors/errors.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 10382
+    },
+    {
+      "doc_id": "pydantic:docs/errors/troubleshooting.md",
+      "relpath": "docs/errors/troubleshooting.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/errors/troubleshooting.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 6341
+    },
+    {
+      "doc_id": "pydantic:docs/errors/usage_errors.md",
+      "relpath": "docs/errors/usage_errors.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/errors/usage_errors.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 75,
+      "bytes": 36287
+    },
+    {
+      "doc_id": "pydantic:docs/errors/validation_errors.md",
+      "relpath": "docs/errors/validation_errors.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/errors/validation_errors.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 117,
+      "bytes": 48073
+    },
+    {
+      "doc_id": "pydantic:docs/examples/custom_validators.md",
+      "relpath": "docs/examples/custom_validators.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/custom_validators.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 10681
+    },
+    {
+      "doc_id": "pydantic:docs/examples/cyclic_references.md",
+      "relpath": "docs/examples/cyclic_references.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/cyclic_references.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 4755
+    },
+    {
+      "doc_id": "pydantic:docs/examples/dynamic_models.md",
+      "relpath": "docs/examples/dynamic_models.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/dynamic_models.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 4,
+      "bytes": 6844
+    },
+    {
+      "doc_id": "pydantic:docs/examples/files.md",
+      "relpath": "docs/examples/files.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/files.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 8484
+    },
+    {
+      "doc_id": "pydantic:docs/examples/orms.md",
+      "relpath": "docs/examples/orms.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/orms.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 2374
+    },
+    {
+      "doc_id": "pydantic:docs/examples/pydantic_ai.md",
+      "relpath": "docs/examples/pydantic_ai.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/pydantic_ai.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 1806
+    },
+    {
+      "doc_id": "pydantic:docs/examples/queues.md",
+      "relpath": "docs/examples/queues.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/queues.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 6494
+    },
+    {
+      "doc_id": "pydantic:docs/examples/requests.md",
+      "relpath": "docs/examples/requests.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/examples/requests.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2342
+    },
+    {
+      "doc_id": "pydantic:docs/help_with_pydantic.md",
+      "relpath": "docs/help_with_pydantic.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/help_with_pydantic.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 1430
+    },
+    {
+      "doc_id": "pydantic:docs/index.md",
+      "relpath": "docs/index.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/index.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 7933
+    },
+    {
+      "doc_id": "pydantic:docs/install.md",
+      "relpath": "docs/install.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/install.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2256
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/aws_lambda.md",
+      "relpath": "docs/integrations/aws_lambda.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/aws_lambda.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 8,
+      "bytes": 7592
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/datamodel_code_generator.md",
+      "relpath": "docs/integrations/datamodel_code_generator.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/datamodel_code_generator.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 3188
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/devtools.md",
+      "relpath": "docs/integrations/devtools.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/devtools.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 1556
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/documentation.md",
+      "relpath": "docs/integrations/documentation.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/documentation.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 1494
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/hypothesis.md",
+      "relpath": "docs/integrations/hypothesis.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/hypothesis.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 982
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/linting.md",
+      "relpath": "docs/integrations/linting.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/linting.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 405
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/llms.md",
+      "relpath": "docs/integrations/llms.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/llms.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 1301
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/logfire.md",
+      "relpath": "docs/integrations/logfire.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/logfire.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 4877
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/mypy.md",
+      "relpath": "docs/integrations/mypy.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/mypy.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 13,
+      "bytes": 7128
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/pycharm.md",
+      "relpath": "docs/integrations/pycharm.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/pycharm.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 950
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/pyrefly.md",
+      "relpath": "docs/integrations/pyrefly.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/pyrefly.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2254
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/rich.md",
+      "relpath": "docs/integrations/rich.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/rich.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 1,
+      "bytes": 359
+    },
+    {
+      "doc_id": "pydantic:docs/integrations/visual_studio_code.md",
+      "relpath": "docs/integrations/visual_studio_code.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/integrations/visual_studio_code.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 17,
+      "bytes": 10821
+    },
+    {
+      "doc_id": "pydantic:docs/internals/architecture.md",
+      "relpath": "docs/internals/architecture.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/internals/architecture.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 9945
+    },
+    {
+      "doc_id": "pydantic:docs/internals/resolving_annotations.md",
+      "relpath": "docs/internals/resolving_annotations.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/internals/resolving_annotations.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 10787
+    },
+    {
+      "doc_id": "pydantic:docs/migration.md",
+      "relpath": "docs/migration.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/migration.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 52,
+      "bytes": 49971
+    },
+    {
+      "doc_id": "pydantic:docs/pydantic_people.md",
+      "relpath": "docs/pydantic_people.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/pydantic_people.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 1439
+    },
+    {
+      "doc_id": "pydantic:docs/version-policy.md",
+      "relpath": "docs/version-policy.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/version-policy.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 6635
+    },
+    {
+      "doc_id": "pydantic:docs/why.md",
+      "relpath": "docs/why.md",
+      "source_url": "https://github.com/pydantic/pydantic/blob/22c4317a5d51d71344275259b4e536c4a90fe53b/docs/why.md",
+      "source_repo": "pydantic/pydantic",
+      "source_commit": "22c4317a5d51d71344275259b4e536c4a90fe53b",
+      "license": "MIT",
+      "n_chunks": 12,
+      "bytes": 15204
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/add-memory.mdx",
+      "relpath": "src/oss/langgraph/add-memory.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/add-memory.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 69,
+      "bytes": 104485
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/agentic-rag.mdx",
+      "relpath": "src/oss/langgraph/agentic-rag.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/agentic-rag.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 18,
+      "bytes": 19777
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/application-structure.mdx",
+      "relpath": "src/oss/langgraph/application-structure.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/application-structure.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 6434
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/backward-compatibility.mdx",
+      "relpath": "src/oss/langgraph/backward-compatibility.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/backward-compatibility.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 11335
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/case-studies.mdx",
+      "relpath": "src/oss/langgraph/case-studies.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/case-studies.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 8617
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/changelog-js.mdx",
+      "relpath": "src/oss/langgraph/changelog-js.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/changelog-js.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 0,
+      "bytes": 93
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/changelog-py.mdx",
+      "relpath": "src/oss/langgraph/changelog-py.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/changelog-py.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 0,
+      "bytes": 89
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/checkpointers.mdx",
+      "relpath": "src/oss/langgraph/checkpointers.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/checkpointers.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 55,
+      "bytes": 51063
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/choosing-apis.mdx",
+      "relpath": "src/oss/langgraph/choosing-apis.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/choosing-apis.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 25,
+      "bytes": 18866
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/deploy.mdx",
+      "relpath": "src/oss/langgraph/deploy.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/deploy.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 5275
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/errors/GRAPH_RECURSION_LIMIT.mdx",
+      "relpath": "src/oss/langgraph/errors/GRAPH_RECURSION_LIMIT.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/errors/GRAPH_RECURSION_LIMIT.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 1525
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/errors/INVALID_CHAT_HISTORY.mdx",
+      "relpath": "src/oss/langgraph/errors/INVALID_CHAT_HISTORY.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/errors/INVALID_CHAT_HISTORY.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 3740
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE.mdx",
+      "relpath": "src/oss/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 3153
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/errors/INVALID_GRAPH_NODE_RETURN_VALUE.mdx",
+      "relpath": "src/oss/langgraph/errors/INVALID_GRAPH_NODE_RETURN_VALUE.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/errors/INVALID_GRAPH_NODE_RETURN_VALUE.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 2146
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/errors/MISSING_CHECKPOINTER.mdx",
+      "relpath": "src/oss/langgraph/errors/MISSING_CHECKPOINTER.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/errors/MISSING_CHECKPOINTER.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 5,
+      "bytes": 1785
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/errors/MULTIPLE_SUBGRAPHS.mdx",
+      "relpath": "src/oss/langgraph/errors/MULTIPLE_SUBGRAPHS.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/errors/MULTIPLE_SUBGRAPHS.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 2287
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/event-streaming.mdx",
+      "relpath": "src/oss/langgraph/event-streaming.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/event-streaming.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 27,
+      "bytes": 29688
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/fault-tolerance.mdx",
+      "relpath": "src/oss/langgraph/fault-tolerance.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/fault-tolerance.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 45,
+      "bytes": 44527
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/frontend/custom-stream-channels.mdx",
+      "relpath": "src/oss/langgraph/frontend/custom-stream-channels.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/frontend/custom-stream-channels.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 11,
+      "bytes": 12085
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/frontend/graph-execution.mdx",
+      "relpath": "src/oss/langgraph/frontend/graph-execution.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/frontend/graph-execution.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 13,
+      "bytes": 13525
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/frontend/overview.md",
+      "relpath": "src/oss/langgraph/frontend/overview.md",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/frontend/overview.md",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 6,
+      "bytes": 6039
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/functional-api.mdx",
+      "relpath": "src/oss/langgraph/functional-api.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/functional-api.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 29,
+      "bytes": 37384
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/graph-api.mdx",
+      "relpath": "src/oss/langgraph/graph-api.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/graph-api.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 76,
+      "bytes": 76721
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/install.mdx",
+      "relpath": "src/oss/langgraph/install.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/install.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 3,
+      "bytes": 1287
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/interrupts.mdx",
+      "relpath": "src/oss/langgraph/interrupts.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/interrupts.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 40,
+      "bytes": 60763
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/local-server.mdx",
+      "relpath": "src/oss/langgraph/local-server.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/local-server.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 13,
+      "bytes": 9283
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/observability.mdx",
+      "relpath": "src/oss/langgraph/observability.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/observability.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 6402
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/overview.mdx",
+      "relpath": "src/oss/langgraph/overview.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/overview.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 7,
+      "bytes": 7914
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/persistence.mdx",
+      "relpath": "src/oss/langgraph/persistence.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/persistence.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 4923
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/pregel.mdx",
+      "relpath": "src/oss/langgraph/pregel.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/pregel.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 26,
+      "bytes": 26882
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/quickstart.mdx",
+      "relpath": "src/oss/langgraph/quickstart.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/quickstart.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 51,
+      "bytes": 30832
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/sql-agent.mdx",
+      "relpath": "src/oss/langgraph/sql-agent.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/sql-agent.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 15,
+      "bytes": 16582
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/stores.mdx",
+      "relpath": "src/oss/langgraph/stores.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/stores.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 26,
+      "bytes": 21421
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/streaming.mdx",
+      "relpath": "src/oss/langgraph/streaming.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/streaming.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 54,
+      "bytes": 68321
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/studio.mdx",
+      "relpath": "src/oss/langgraph/studio.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/studio.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 10,
+      "bytes": 7044
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/test.mdx",
+      "relpath": "src/oss/langgraph/test.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/test.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 9,
+      "bytes": 10349
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/thinking-in-langgraph.mdx",
+      "relpath": "src/oss/langgraph/thinking-in-langgraph.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/thinking-in-langgraph.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 35,
+      "bytes": 40857
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/ui.mdx",
+      "relpath": "src/oss/langgraph/ui.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/ui.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 2,
+      "bytes": 1094
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/use-functional-api.mdx",
+      "relpath": "src/oss/langgraph/use-functional-api.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/use-functional-api.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 43,
+      "bytes": 49505
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/use-graph-api.mdx",
+      "relpath": "src/oss/langgraph/use-graph-api.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/use-graph-api.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 114,
+      "bytes": 127230
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/use-subgraphs.mdx",
+      "relpath": "src/oss/langgraph/use-subgraphs.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/use-subgraphs.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 43,
+      "bytes": 55522
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/use-time-travel.mdx",
+      "relpath": "src/oss/langgraph/use-time-travel.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/use-time-travel.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 34,
+      "bytes": 17029
+    },
+    {
+      "doc_id": "langgraph:src/oss/langgraph/workflows-agents.mdx",
+      "relpath": "src/oss/langgraph/workflows-agents.mdx",
+      "source_url": "https://github.com/langchain-ai/docs/blob/a28c75411093fdc0e57b03c1d6486ba78f005f51/src/oss/langgraph/workflows-agents.mdx",
+      "source_repo": "langchain-ai/docs",
+      "source_commit": "a28c75411093fdc0e57b03c1d6486ba78f005f51",
+      "license": "MIT",
+      "n_chunks": 107,
+      "bytes": 61811
+    }
+  ]
+}
