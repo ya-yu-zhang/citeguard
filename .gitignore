@@ -13,3 +13,8 @@ data/indexes/qdrant_local/
 dist/
 *.egg-info/
 docs/eval_week1.json
+
+# generated data
+data/raw/
+data/processed/
+data/indexes/
