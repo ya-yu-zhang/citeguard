@@ -132,6 +132,8 @@ Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` 
 | Ollama (default, free, local CPU) | `http://localhost:11434/v1` | `qwen2.5:3b-instruct` | not needed |
 | OpenRouter (planned) | `https://openrouter.ai/api/v1` | `qwen/qwen-2.5-7b-instruct` | required |
 
+On OpenRouter (`LLM_BASE_URL` contains `openrouter.ai`) requests default to `"reasoning":{"enabled":false}`: reasoning models such as `qwen/qwen3.7-flash` otherwise spend `max_tokens` on reasoning and return empty content, so every answer would be refused as `ungrounded_answer:empty_answer`. Override or extend with `LLM_EXTRA_BODY` (JSON merged into the request, e.g. `{"usage":{"include":true}}`); `LLM_MAX_TOKENS` defaults to 400 (the week-3 Qwen runs used 300).
+
 The LLM sees up to 1200 chars per retrieved chunk; the API response keeps the short `excerpt`. Live end-to-end results with Ollama: [`docs/e2e_week2_ollama.md`](docs/e2e_week2_ollama.md).
 
 ## Design Decisions

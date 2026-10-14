@@ -91,6 +91,10 @@ def _request(question, citations, contexts, stream: bool) -> tuple[str, dict, di
         "max_tokens": s.llm_max_tokens,
         "stream": stream,
     }
+    if "openrouter.ai" in s.llm_base_url:
+        # Reasoning models (e.g. qwen3.7-flash) otherwise spend max_tokens on reasoning and
+        # return empty content -> every answer refused as empty_answer. LLM_EXTRA_BODY can override.
+        payload["reasoning"] = {"enabled": False}
     if (s.llm_extra_body or "").strip():
         payload.update(json.loads(s.llm_extra_body))
     headers = {"Content-Type": "application/json"}
