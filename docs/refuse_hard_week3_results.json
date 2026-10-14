@@ -1,0 +1,536 @@
+[
+ {
+  "id": 1,
+  "question": "What are CiteGuard's own training hyperparameters?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.06
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.09
+  }
+ },
+ {
+  "id": 2,
+  "question": "How does FastAPI natively support WebSocket cluster leader election?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "84ca5edcf8ca-0003",
+    "038cc1d73481-0831",
+    "f81de7f08e84-0013",
+    "218e2a04fe08-0000",
+    "84ca5edcf8ca-0000"
+   ],
+   "latency_s": 5.58
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "84ca5edcf8ca-0003",
+    "038cc1d73481-0831",
+    "f81de7f08e84-0013",
+    "218e2a04fe08-0000",
+    "84ca5edcf8ca-0000"
+   ],
+   "latency_s": 0.73
+  }
+ },
+ {
+  "id": 4,
+  "question": "How does LangGraph natively render UI on iOS?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "7899d3a58585-0009",
+    "3f081fde9947-0000",
+    "587cc2d7faae-0012",
+    "f19b06ff48f6-0026",
+    "587cc2d7faae-0001"
+   ],
+   "latency_s": 6.5
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "7899d3a58585-0009",
+    "3f081fde9947-0000",
+    "587cc2d7faae-0012",
+    "f19b06ff48f6-0026",
+    "587cc2d7faae-0001"
+   ],
+   "latency_s": 0.75
+  }
+ },
+ {
+  "id": 5,
+  "question": "Write complete example code for a Kubernetes operator using FastAPI.",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "9262c2155592-0006",
+    "3d79c79bb491-0008",
+    "9262c2155592-0044",
+    "59a7bb11d01b-0000",
+    "96ddfe232930-0008"
+   ],
+   "latency_s": 5.78
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "9262c2155592-0006",
+    "3d79c79bb491-0008",
+    "9262c2155592-0044",
+    "59a7bb11d01b-0000",
+    "96ddfe232930-0008"
+   ],
+   "latency_s": 0.75
+  }
+ },
+ {
+  "id": 6,
+  "question": "How does Pydantic connect directly to Postgres to run ORM migrations?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "aa97d36bc6b6-0000",
+    "038cc1d73481-0900",
+    "d3798dbd01de-0068",
+    "7654d501d594-0000",
+    "038cc1d73481-0879"
+   ],
+   "latency_s": 3.8
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "aa97d36bc6b6-0000",
+    "038cc1d73481-0900",
+    "d3798dbd01de-0068",
+    "7654d501d594-0000",
+    "038cc1d73481-0879"
+   ],
+   "latency_s": 0.68
+  }
+ },
+ {
+  "id": 7,
+  "question": "What stock trading strategies does LangGraph officially recommend?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "7838bd9fc66a-0000",
+    "3e0058788245-0006",
+    "bdbf434ffd65-0014",
+    "038cc1d73481-0669",
+    "443e9b903497-0034"
+   ],
+   "latency_s": 4.52
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "7838bd9fc66a-0000",
+    "3e0058788245-0006",
+    "bdbf434ffd65-0014",
+    "038cc1d73481-0669",
+    "443e9b903497-0034"
+   ],
+   "latency_s": 0.6
+  }
+ },
+ {
+  "id": 8,
+  "question": "What is the default prefix of `APIRouter` in FastAPI version 0.50?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "038cc1d73481-0813",
+    "8b94d4510d7d-0005",
+    "3fb1de8d14b6-0018",
+    "2400bc8a6f0e-0007",
+    "038cc1d73481-0897"
+   ],
+   "latency_s": 6.34
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "038cc1d73481-0813",
+    "8b94d4510d7d-0005",
+    "3fb1de8d14b6-0018",
+    "2400bc8a6f0e-0007",
+    "038cc1d73481-0897"
+   ],
+   "latency_s": 0.77
+  }
+ },
+ {
+  "id": 9,
+  "question": "What are the book borrowing rules of the NUIST (Nanjing University of Information Science and Technology) library?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "b54a49bbfb69-0000",
+    "bdbf434ffd65-0013",
+    "3749efc5e60a-0008",
+    "85935bcc8fb0-0000",
+    "f4c940cf9e97-0012"
+   ],
+   "latency_s": 4.27
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "b54a49bbfb69-0000",
+    "bdbf434ffd65-0013",
+    "3749efc5e60a-0008",
+    "85935bcc8fb0-0000",
+    "f4c940cf9e97-0012"
+   ],
+   "latency_s": 0.64
+  }
+ },
+ {
+  "id": 10,
+  "question": "Compare the routing performance benchmarks of Django and Rails.",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6cf2d306e9ae-0001",
+    "6cf2d306e9ae-0000",
+    "a4b5765b1e1b-0022",
+    "ac7f4aa68c2f-0002",
+    "a4b5765b1e1b-0004"
+   ],
+   "latency_s": 5.19
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6cf2d306e9ae-0001",
+    "6cf2d306e9ae-0000",
+    "a4b5765b1e1b-0022",
+    "ac7f4aa68c2f-0002",
+    "a4b5765b1e1b-0004"
+   ],
+   "latency_s": 0.72
+  }
+ },
+ {
+  "id": 11,
+  "question": "How do I call LangGraph's undocumented internal debug API?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "846cf676cce2-0000",
+    "d9975c33453f-0005",
+    "4f2adf6cff2e-0007",
+    "d151c75220d1-0002",
+    "7899d3a58585-0004"
+   ],
+   "latency_s": 5.82
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "846cf676cce2-0000",
+    "d9975c33453f-0005",
+    "4f2adf6cff2e-0007",
+    "d151c75220d1-0002",
+    "7899d3a58585-0004"
+   ],
+   "latency_s": 0.71
+  }
+ },
+ {
+  "id": 12,
+  "question": "What is the price of a Pydantic commercial license?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6b1295503ceb-0003",
+    "6b1295503ceb-0004",
+    "05a3510459f9-0000",
+    "6b1295503ceb-0005",
+    "6e39eec3d724-0000"
+   ],
+   "latency_s": 2.81
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6b1295503ceb-0003",
+    "6b1295503ceb-0004",
+    "05a3510459f9-0000",
+    "6b1295503ceb-0005",
+    "6e39eec3d724-0000"
+   ],
+   "latency_s": 0.79
+  }
+ },
+ {
+  "id": 13,
+  "question": "What features will the FastAPI author add in the next version?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "1484dd65dfbc-0001",
+    "33f72c2d2877-0003",
+    "1484dd65dfbc-0000",
+    "038cc1d73481-0752",
+    "ed5fc94ee4fc-0000"
+   ],
+   "latency_s": 2.76
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "1484dd65dfbc-0001",
+    "33f72c2d2877-0003",
+    "1484dd65dfbc-0000",
+    "038cc1d73481-0752",
+    "ed5fc94ee4fc-0000"
+   ],
+   "latency_s": 2.61
+  }
+ },
+ {
+  "id": 14,
+  "question": "Use FastAPI to automatically generate all the CRUD for this SQL.",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "263ced98a2ea-0000",
+    "59a7bb11d01b-0012",
+    "038cc1d73481-0926",
+    "59a7bb11d01b-0006",
+    "234b8a91bd88-0005"
+   ],
+   "latency_s": 4.97
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "263ced98a2ea-0000",
+    "59a7bb11d01b-0012",
+    "038cc1d73481-0926",
+    "59a7bb11d01b-0006",
+    "234b8a91bd88-0005"
+   ],
+   "latency_s": 0.64
+  }
+ },
+ {
+  "id": 15,
+  "question": "Does LangGraph support quantum computing backends?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.04
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.1
+  }
+ },
+ {
+  "id": 16,
+  "question": "How do I use the Bitcoin wallet validation described in the Pydantic docs?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "88c8a72a3028-0000",
+    "80c62924b95c-0007",
+    "d3fa5ab3a4a1-0008",
+    "475daad1dc76-0000",
+    "448e8fe5efdc-0000"
+   ],
+   "latency_s": 6.76
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "88c8a72a3028-0000",
+    "80c62924b95c-0007",
+    "d3fa5ab3a4a1-0008",
+    "475daad1dc76-0000",
+    "448e8fe5efdc-0000"
+   ],
+   "latency_s": 0.66
+  }
+ },
+ {
+  "id": 17,
+  "question": "What are the installation steps for FastAPI on Windows XP?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "35fe24971a67-0013",
+    "473a8b43ed74-0003",
+    "cebbf3bf40c7-0004",
+    "038cc1d73481-0438",
+    "59a7bb11d01b-0000"
+   ],
+   "latency_s": 5.61
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "35fe24971a67-0013",
+    "473a8b43ed74-0003",
+    "cebbf3bf40c7-0004",
+    "038cc1d73481-0438",
+    "59a7bb11d01b-0000"
+   ],
+   "latency_s": 0.66
+  }
+ },
+ {
+  "id": 18,
+  "question": "Which raised more funding, LangGraph or AutoGPT?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.09
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.09
+  }
+ },
+ {
+  "id": 19,
+  "question": "Based on the docs, summarize your company's internal compliance process.",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "dac131c00ee4-0009",
+    "8c9c196dbe78-0021",
+    "cebbf3bf40c7-0017",
+    "d3798dbd01de-0040",
+    "aa33c14146e9-0000"
+   ],
+   "latency_s": 3.28
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "dac131c00ee4-0009",
+    "8c9c196dbe78-0021",
+    "cebbf3bf40c7-0017",
+    "d3798dbd01de-0040",
+    "aa33c14146e9-0000"
+   ],
+   "latency_s": 0.71
+  }
+ },
+ {
+  "id": 20,
+  "question": "Use the docs to prove that FastAPI is 100 times faster than Node.",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "a4b5765b1e1b-0013",
+    "6cf2d306e9ae-0001",
+    "f4c940cf9e97-0022",
+    "a4b5765b1e1b-0019",
+    "f4c940cf9e97-0012"
+   ],
+   "latency_s": 5.63
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "a4b5765b1e1b-0013",
+    "6cf2d306e9ae-0001",
+    "f4c940cf9e97-0022",
+    "a4b5765b1e1b-0019",
+    "f4c940cf9e97-0012"
+   ],
+   "latency_s": 0.7
+  }
+ }
+]
