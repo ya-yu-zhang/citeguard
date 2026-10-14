@@ -27,12 +27,12 @@ flowchart LR
 
 | Method | Recall@5 | MRR | p95 latency |
 |---|---:|---:|---:|
-| BM25 | 0.733 | 0.524 | 0.008s |
-| Vector | 0.867 | 0.676 | 0.040s |
-| **Hybrid (default)** | **0.900** | **0.723** | **0.036s** |
-| Hybrid + rerank (`ms-marco-MiniLM-L-6-v2`, top-10) | **0.933** | 0.669 | **0.214s** |
+| BM25 | 0.733 | 0.575 | 0.007s |
+| Vector | 0.867 | 0.687 | 0.040s |
+| **Hybrid (default)** | **0.967** | **0.761** | 0.056s |
+| Hybrid + rerank (`ms-marco-MiniLM-L-6-v2`, top-10) | 0.933 | 0.721 | 0.224s |
 
-Notes: `/search` defaults to **hybrid**; rerank is optional. After switching to a lighter cross-encoder and reranking only RRF top-10, both modes are under the 1.5s p95 target. Rerank raises R@5 on this set but MRR stays slightly below hybrid — both kept; full write-up in `docs/eval_week1.md`. Corpus: 290 docs → 4100 unique chunks (FastAPI / Pydantic / LangGraph, MIT; see Data Sources).
+Notes: corpus 290 docs → **3903** unique chunks after inlining FastAPI `docs_src` example code and no longer splitting on `#` comments inside code fences (was 4100). Hybrid R@5 0.900 → 0.967, MRR 0.723 → 0.761, and now beats the optional rerank mode, so `/search` stays hybrid by default. Previous numbers and the reindex write-up: `docs/eval_week1.md`, `docs/ingest_inline_week3.md`.
 
 ### Later weeks (TBD)
 | Metric | Baseline RAG | CiteGuard |

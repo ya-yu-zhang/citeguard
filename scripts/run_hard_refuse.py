@@ -18,6 +18,12 @@ BASE = "http://localhost:8000"
 
 
 def main() -> None:
+    import argparse
+
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--base", default=BASE)
+    ap.add_argument("--out", default=str(ROOT / "docs/refuse_hard_week3_results.json"))
+    a = ap.parse_args()
     qs = json.loads((ROOT / "docs/refuse_hard_week3.json").read_text())
     rows = []
     with httpx.Client(timeout=600) as c:
@@ -28,8 +34,8 @@ def main() -> None:
                 kind, question = "converted_answerable", q["converted_answerable"]["question"]
             else:
                 continue
-            res, lat = ask(c, BASE, question)
-            sres, slat, _, _ = ask_stream(c, BASE, question)
+            res, lat = ask(c, a.base, question)
+            sres, slat, _, _ = ask_stream(c, a.base, question)
             row = {"id": q["id"], "kind": kind, "question": question}
             for tag, r, l in (("ask", res, lat), ("stream", sres, slat)):
                 row[tag] = {"refused": r["refused"], "refusal_reason": r["refusal_reason"],
@@ -37,7 +43,7 @@ def main() -> None:
                             "latency_s": round(l, 2)}
             rows.append(row)
             print(q["id"], kind, "ask:", res["refusal_reason"] or "ANSWERED", "| stream:", sres["refusal_reason"] or "ANSWERED", flush=True)
-    (ROOT / "docs/refuse_hard_week3_results.json").write_text(json.dumps(rows, indent=1, ensure_ascii=False))
+    Path(a.out).write_text(json.dumps(rows, indent=1, ensure_ascii=False))
 
 
 if __name__ == "__main__":

@@ -13,7 +13,7 @@ MRR = mean reciprocal rank of first relevant doc.
 
 ## Notes
 
-- Numbers above are from an actual run on this box (CPU, local `bge-small-en-v1.5` + `bge-reranker-base` via fastembed, Qdrant embedded).
+- Numbers above are from an actual run on this box (CPU, local `bge-small-en-v1.5` + `Xenova/ms-marco-MiniLM-L-6-v2` cross-encoder reranker via fastembed (not bge-reranker-base), Qdrant embedded).
 - Expected doc paths were chosen from the pinned corpus; some queries may miss if headings/chunk boundaries differ — see JSON details.
 
 Raw details: `docs/eval_week1.json`

@@ -1,0 +1,8 @@
+{"ts": 1791963471.230849, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1350, "completion_tokens": 23, "cost": null, "latency_s": 11.768}
+{"ts": 1791963480.8707473, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1239, "completion_tokens": 60, "cost": null, "latency_s": 9.536}
+{"ts": 1791963492.8311195, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1549, "completion_tokens": 80, "cost": null, "latency_s": 11.852}
+{"ts": 1791963505.674174, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1573, "completion_tokens": 83, "cost": null, "latency_s": 12.74}
+{"ts": 1791963515.6528316, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1446, "completion_tokens": 48, "cost": null, "latency_s": 9.847}
+{"ts": 1791963525.79214, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1419, "completion_tokens": 61, "cost": null, "latency_s": 9.989}
+{"ts": 1791963535.941012, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1158, "completion_tokens": 77, "cost": null, "latency_s": 9.991}
+{"ts": 1791963548.0722737, "model": "qwen2.5:3b-instruct", "prompt_tokens": 1191, "completion_tokens": 99, "cost": null, "latency_s": 12.006}
