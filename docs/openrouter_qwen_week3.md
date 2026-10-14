@@ -72,3 +72,5 @@ Answer length barely changed either: median answer 224 → 243 chars.
 The ~3 s calls in the pre-inline run were the outlier, not the post-inline ones. The likely cause is box load or Ollama cache state rather than the index, but I can't confirm it without an alternating A/B in one session. **Not resolved; no truncation added.**
 
 Token usage is now logged per request when `LLM_USAGE_LOG` is set (`src/citeguard/ask/llm.py::_log_usage`; model, prompt/completion tokens, cost, latency, no text or keys).
+
+**Latency caveat:** 3B vs Qwen latency here is not comparable until 3B is rerun on an idle machine (the 3B 1.4→7.1 s jump is unexplained, likely box load).
