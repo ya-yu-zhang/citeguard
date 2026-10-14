@@ -6,7 +6,9 @@ LLM_MODEL unset → deterministic stub generator (no network). LLM_API_KEY is op
 from __future__ import annotations
 
 import json
+import os
 import re
+import time
 from collections.abc import Iterator, Sequence
 
 import httpx
@@ -89,6 +91,8 @@ def _request(question, citations, contexts, stream: bool) -> tuple[str, dict, di
         "max_tokens": s.llm_max_tokens,
         "stream": stream,
     }
+    if (s.llm_extra_body or "").strip():
+        payload.update(json.loads(s.llm_extra_body))
     headers = {"Content-Type": "application/json"}
     if (s.llm_api_key or "").strip():
         headers["Authorization"] = f"Bearer {s.llm_api_key}"
@@ -102,6 +106,23 @@ def normalize_citations(answer: str) -> str:
     return _MULTI_CITE_RE.sub(_sub, answer)
 
 
+def _log_usage(model: str, usage: dict, latency_s: float) -> None:
+    """Append token usage to $LLM_USAGE_LOG (JSONL) when set. Never logs keys or text."""
+    path = os.environ.get("LLM_USAGE_LOG")
+    if not path:
+        return
+    rec = {
+        "ts": time.time(),
+        "model": model,
+        "prompt_tokens": usage.get("prompt_tokens"),
+        "completion_tokens": usage.get("completion_tokens"),
+        "cost": usage.get("cost"),
+        "latency_s": round(latency_s, 3),
+    }
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(rec) + "\n")
+
+
 def generate_answer(
     question: str, citations: list[dict], contexts: Sequence[str] | None = None
 ) -> str:
@@ -110,10 +131,12 @@ def generate_answer(
     if not llm_configured():
         return stub_generate(question, citations)
     url, payload, headers = _request(question, citations, contexts, stream=False)
+    t0 = time.perf_counter()
     with httpx.Client(timeout=get_settings().llm_timeout_s) as client:
         r = client.post(url, headers=headers, json=payload)
         r.raise_for_status()
         data = r.json()
+    _log_usage(payload["model"], data.get("usage") or {}, time.perf_counter() - t0)
     return normalize_citations((data["choices"][0]["message"]["content"] or "").strip())
 
 

@@ -1,0 +1,598 @@
+[
+ {
+  "id": 1,
+  "kind": "refuse",
+  "question": "How many requests per second can FastAPI handle on a 4-core machine?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "f4c940cf9e97-0012",
+    "4c9442946531-0006",
+    "a5672a11d38f-0001",
+    "f81de7f08e84-0000",
+    "a5672a11d38f-0000"
+   ],
+   "latency_s": 4.34
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "f4c940cf9e97-0012",
+    "4c9442946531-0006",
+    "a5672a11d38f-0001",
+    "f81de7f08e84-0000",
+    "a5672a11d38f-0000"
+   ],
+   "latency_s": 0.65
+  }
+ },
+ {
+  "id": 2,
+  "kind": "refuse",
+  "question": "What is the maximum number of tasks BackgroundTasks can queue, and what happens when that limit is exceeded?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "de4625b764d1-0000",
+    "d151c75220d1-0061",
+    "8027ae2f3842-0006",
+    "8027ae2f3842-0005",
+    "248e17d7b2c9-0004"
+   ],
+   "latency_s": 5.5
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "de4625b764d1-0000",
+    "d151c75220d1-0061",
+    "8027ae2f3842-0006",
+    "8027ae2f3842-0005",
+    "248e17d7b2c9-0004"
+   ],
+   "latency_s": 0.72
+  }
+ },
+ {
+  "id": 3,
+  "kind": "refuse",
+  "question": "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?",
+  "ask": {
+   "refused": false,
+   "refusal_reason": null,
+   "answer": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application and take advantage of multiple cores in the CPU [3].",
+   "citations": [
+    "9262c2155592-0027",
+    "3e0058788245-0000",
+    "3e0058788245-0005",
+    "de9cd06037c6-0018",
+    "de9cd06037c6-0026"
+   ],
+   "latency_s": 8.11
+  },
+  "stream": {
+   "refused": false,
+   "refusal_reason": null,
+   "answer": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application, take advantage of multiple cores in the CPU, and handle more requests [3].",
+   "citations": [
+    "9262c2155592-0027",
+    "3e0058788245-0000",
+    "3e0058788245-0005",
+    "de9cd06037c6-0018",
+    "de9cd06037c6-0026"
+   ],
+   "latency_s": 3.61
+  }
+ },
+ {
+  "id": 4,
+  "kind": "refuse",
+  "question": "Which has better performance: FastAPI's dependency injection or NestJS's?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "a4b5765b1e1b-0012",
+    "6cf2d306e9ae-0002",
+    "a4b5765b1e1b-0017",
+    "ac7f4aa68c2f-0016",
+    "4f8ca7cbfe68-0009"
+   ],
+   "latency_s": 6.4
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "a4b5765b1e1b-0012",
+    "6cf2d306e9ae-0002",
+    "a4b5765b1e1b-0017",
+    "ac7f4aa68c2f-0016",
+    "4f8ca7cbfe68-0009"
+   ],
+   "latency_s": 0.76
+  }
+ },
+ {
+  "id": 5,
+  "kind": "converted_answerable",
+  "question": "How do I use GraphQL with FastAPI?",
+  "ask": {
+   "refused": false,
+   "refusal_reason": null,
+   "answer": "To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's [1]. Here's a small example of how to integrate Strawberry with FastAPI: [1] ```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```\n[1]",
+   "citations": [
+    "81142cbac393-0002",
+    "81142cbac393-0000",
+    "038cc1d73481-0939",
+    "038cc1d73481-0759",
+    "81142cbac393-0004"
+   ],
+   "latency_s": 14.1
+  },
+  "stream": {
+   "refused": false,
+   "refusal_reason": null,
+   "answer": "To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's [1]. Here's a small example of how to integrate Strawberry with FastAPI: [1] ```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```\n[1]",
+   "citations": [
+    "81142cbac393-0002",
+    "81142cbac393-0000",
+    "038cc1d73481-0939",
+    "038cc1d73481-0759",
+    "81142cbac393-0004"
+   ],
+   "latency_s": 10.25
+  }
+ },
+ {
+  "id": 6,
+  "kind": "converted_answerable",
+  "question": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?",
+  "ask": {
+   "refused": false,
+   "refusal_reason": null,
+   "answer": "The result of a FastAPI dependency (Depends) is cached per request [1]. For the scope, if a dependency is declared with `scope=\"function\"` it is closed after the path operation function returns but before the response is sent [4].",
+   "citations": [
+    "667e40148410-0004",
+    "8ae3a6c03c9b-0006",
+    "d3fa5ab3a4a1-0014",
+    "bcebd3100db8-0009",
+    "038cc1d73481-0904"
+   ],
+   "latency_s": 10.0
+  },
+  "stream": {
+   "refused": false,
+   "refusal_reason": null,
+   "answer": "The result of a FastAPI dependency (Depends) is cached per request [1]. For the scope, if you use `Depends(scope=\"function\")`, the exit code after `yield` is executed right after the path operation function is finished, before the response is sent back to the client [2].",
+   "citations": [
+    "667e40148410-0004",
+    "8ae3a6c03c9b-0006",
+    "d3fa5ab3a4a1-0014",
+    "bcebd3100db8-0009",
+    "038cc1d73481-0904"
+   ],
+   "latency_s": 4.96
+  }
+ },
+ {
+  "id": 7,
+  "kind": "refuse",
+  "question": "Which ORM does FastAPI officially recommend for connecting to MongoDB?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.07
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.13
+  }
+ },
+ {
+  "id": 8,
+  "kind": "refuse",
+  "question": "How many times faster is Pydantic v2 than v1? Please give concrete benchmark data.",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "038cc1d73481-0254",
+    "038cc1d73481-0585",
+    "2c2675a3b653-0002",
+    "db74625f93b2-0005",
+    "db74625f93b2-0009"
+   ],
+   "latency_s": 8.09
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "038cc1d73481-0254",
+    "038cc1d73481-0585",
+    "2c2675a3b653-0002",
+    "db74625f93b2-0005",
+    "db74625f93b2-0009"
+   ],
+   "latency_s": 0.85
+  }
+ },
+ {
+  "id": 9,
+  "kind": "refuse",
+  "question": "How long does model_validate take to validate 100,000 records?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.1
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+   "answer": "",
+   "citations": [],
+   "latency_s": 0.12
+  }
+ },
+ {
+  "id": 10,
+  "kind": "refuse",
+  "question": "What unsafe code does Pydantic's Rust core use?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "cebbf3bf40c7-0014",
+    "88c8a72a3028-0000",
+    "2c2675a3b653-0002",
+    "c6c71f8db483-0000",
+    "cebbf3bf40c7-0007"
+   ],
+   "latency_s": 6.38
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "cebbf3bf40c7-0014",
+    "88c8a72a3028-0000",
+    "2c2675a3b653-0002",
+    "c6c71f8db483-0000",
+    "cebbf3bf40c7-0007"
+   ],
+   "latency_s": 0.81
+  }
+ },
+ {
+  "id": 11,
+  "kind": "refuse",
+  "question": "How does Pydantic validate the check digit of a Chinese national ID number?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "2c59c94555ea-0015",
+    "6abe05815c50-0005",
+    "6abe05815c50-0004",
+    "127678ca8c13-0003",
+    "d3fa5ab3a4a1-0026"
+   ],
+   "latency_s": 7.07
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "2c59c94555ea-0015",
+    "6abe05815c50-0005",
+    "6abe05815c50-0004",
+    "127678ca8c13-0003",
+    "d3fa5ab3a4a1-0026"
+   ],
+   "latency_s": 0.65
+  }
+ },
+ {
+  "id": 12,
+  "kind": "refuse",
+  "question": "Can the result of a computed_field be persisted to a database?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "ungrounded_answer:no_supported_sentences",
+   "answer": "",
+   "citations": [
+    "bc9c8dfb40a5-0024",
+    "bc9c8dfb40a5-0025",
+    "bdbf434ffd65-0007",
+    "443e9b903497-0009",
+    "4a50ddd9115d-0002"
+   ],
+   "latency_s": 11.33
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "bc9c8dfb40a5-0024",
+    "bc9c8dfb40a5-0025",
+    "bdbf434ffd65-0007",
+    "443e9b903497-0009",
+    "4a50ddd9115d-0002"
+   ],
+   "latency_s": 3.49
+  }
+ },
+ {
+  "id": 13,
+  "kind": "refuse",
+  "question": "Which APIs will be removed in Pydantic v3?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6f621e822874-0003",
+    "f079dbbcf226-0016",
+    "c28fef63e4cf-0013",
+    "038cc1d73481-0832",
+    "6f621e822874-0005"
+   ],
+   "latency_s": 5.43
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6f621e822874-0003",
+    "f079dbbcf226-0016",
+    "c28fef63e4cf-0013",
+    "038cc1d73481-0832",
+    "6f621e822874-0005"
+   ],
+   "latency_s": 0.64
+  }
+ },
+ {
+  "id": 14,
+  "kind": "refuse",
+  "question": "What is the maximum number of thread states a LangGraph checkpointer can store?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "cc0bd87d2064-0000",
+    "cc0bd87d2064-0002",
+    "4a50ddd9115d-0002",
+    "cc0bd87d2064-0001",
+    "48765dfb2043-0007"
+   ],
+   "latency_s": 6.64
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "cc0bd87d2064-0000",
+    "cc0bd87d2064-0002",
+    "4a50ddd9115d-0002",
+    "cc0bd87d2064-0001",
+    "48765dfb2043-0007"
+   ],
+   "latency_s": 0.73
+  }
+ },
+ {
+  "id": 15,
+  "kind": "refuse",
+  "question": "In multi-agent scenarios, which has lower latency: LangGraph or CrewAI?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "d3798dbd01de-0000",
+    "fc7345b02696-0001",
+    "4f2adf6cff2e-0007",
+    "4a50ddd9115d-0020",
+    "7838bd9fc66a-0004"
+   ],
+   "latency_s": 6.05
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "d3798dbd01de-0000",
+    "fc7345b02696-0001",
+    "4f2adf6cff2e-0007",
+    "4a50ddd9115d-0020",
+    "7838bd9fc66a-0004"
+   ],
+   "latency_s": 0.66
+  }
+ },
+ {
+  "id": 16,
+  "kind": "refuse",
+  "question": "How is the enterprise edition of LangGraph Platform priced?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "7838bd9fc66a-0000",
+    "7899d3a58585-0006",
+    "6b1295503ceb-0000",
+    "d3798dbd01de-0028",
+    "632f5cc274f9-0001"
+   ],
+   "latency_s": 6.39
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "7838bd9fc66a-0000",
+    "7899d3a58585-0006",
+    "6b1295503ceb-0000",
+    "d3798dbd01de-0028",
+    "632f5cc274f9-0001"
+   ],
+   "latency_s": 0.77
+  }
+ },
+ {
+  "id": 17,
+  "kind": "refuse",
+  "question": "What is the maximum number of nodes a StateGraph can hold, and will it crash if that is exceeded?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6bc259477f79-0000",
+    "76cb74b55737-0000",
+    "8c9c196dbe78-0054",
+    "96ddfe232930-0018",
+    "de9cd06037c6-0015"
+   ],
+   "latency_s": 7.5
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "6bc259477f79-0000",
+    "76cb74b55737-0000",
+    "8c9c196dbe78-0054",
+    "96ddfe232930-0018",
+    "de9cd06037c6-0015"
+   ],
+   "latency_s": 0.67
+  }
+ },
+ {
+  "id": 18,
+  "kind": "refuse",
+  "question": "How does LangGraph natively integrate with Kafka for event-driven processing?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "7838bd9fc66a-0004",
+    "88aef6b0f5bf-0034",
+    "846cf676cce2-0000",
+    "7838bd9fc66a-0000",
+    "7b81f6d704ec-0000"
+   ],
+   "latency_s": 6.03
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "7838bd9fc66a-0004",
+    "88aef6b0f5bf-0034",
+    "846cf676cce2-0000",
+    "7838bd9fc66a-0000",
+    "7b81f6d704ec-0000"
+   ],
+   "latency_s": 0.62
+  }
+ },
+ {
+  "id": 19,
+  "kind": "refuse",
+  "question": "For a service built with FastAPI, Pydantic and LangGraph, how many nines of SLA can it achieve in production?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "f4c940cf9e97-0012",
+    "abe35d2f0bb4-0014",
+    "6b1295503ceb-0000",
+    "ed5fc94ee4fc-0000",
+    "de9cd06037c6-0023"
+   ],
+   "latency_s": 3.13
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "f4c940cf9e97-0012",
+    "abe35d2f0bb4-0014",
+    "6b1295503ceb-0000",
+    "ed5fc94ee4fc-0000",
+    "de9cd06037c6-0023"
+   ],
+   "latency_s": 0.63
+  }
+ },
+ {
+  "id": 20,
+  "kind": "refuse",
+  "question": "Among the maintainers of these three libraries, who has contributed the most to async support?",
+  "ask": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "3a5385ca18c9-0001",
+    "f4c940cf9e97-0001",
+    "f4c940cf9e97-0000",
+    "31b86d4c95c1-0004",
+    "f4c940cf9e97-0015"
+   ],
+   "latency_s": 4.45
+  },
+  "stream": {
+   "refused": true,
+   "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+   "answer": "",
+   "citations": [
+    "3a5385ca18c9-0001",
+    "f4c940cf9e97-0001",
+    "f4c940cf9e97-0000",
+    "31b86d4c95c1-0004",
+    "f4c940cf9e97-0015"
+   ],
+   "latency_s": 0.63
+  }
+ }
+]

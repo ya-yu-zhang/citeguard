@@ -1,0 +1,3645 @@
+{
+ "judged": {
+  "How do I declare a path parameter in FastAPI?\u0000To declare a path parameter in FastAPI, you can use a URL like this: `files/{file_path:path}` [3]. This tells FastAPI that the parameter `file_path` should match any path [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows exact URL pattern.",
+     "sentence": "To declare a path parameter in FastAPI, you can use a URL like this: `files/{file_path:path}` .",
+     "cites": [
+      3
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text states `:path` matches any path.",
+     "sentence": "This tells FastAPI that the parameter `file_path` should match any path .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 742,
+    "completion_tokens": 54,
+    "total_tokens": 796,
+    "cost": 7.021e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.021e-05,
+     "upstream_inference_prompt_cost": 6.12892e-05,
+     "upstream_inference_completions_cost": 8.9208e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.5
+  },
+  "How do I declare a path parameter in FastAPI?\u0000For example, you can use a URL like this: `files/{file_path:path}` [3]. This tells FastAPI that the `file_path` parameter should match any path [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows the same URL pattern.",
+     "sentence": "For example, you can use a URL like this: `files/{file_path:path}` .",
+     "cites": [
+      3
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says ':path' tells it to match any path.",
+     "sentence": "This tells FastAPI that the `file_path` parameter should match any path .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 736,
+    "completion_tokens": 57,
+    "total_tokens": 793,
+    "cost": 0.000119,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.000119,
+     "upstream_inference_prompt_cost": 0.00010304,
+     "upstream_inference_completions_cost": 1.596e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.14
+  },
+  "How does FastAPI treat function parameters that are not part of the path?\u0000FastAPI treats function parameters that are not part of the path as query parameters [1]. When you declare these parameters, they are automatically interpreted as query parameters and can be of any type, including integers, as shown in the example where `skip` and `limit` are declared as `int` types [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states non-path parameters are interpreted as query parameters.",
+     "sentence": "FastAPI treats function parameters that are not part of the path as query parameters .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text shows int types and conversion from strings.",
+     "sentence": "When you declare these parameters, they are automatically interpreted as query parameters and can be of any type, including integers, as shown in the example where `skip` and `limit` are declared as `int` types .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 986,
+    "completion_tokens": 69,
+    "total_tokens": 1055,
+    "cost": 0.00010116,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00010116,
+     "upstream_inference_prompt_cost": 8.874e-05,
+     "upstream_inference_completions_cost": 1.242e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 1.93
+  },
+  "How do I declare a request body in FastAPI?\u0000To declare a request body in FastAPI, you can use Pydantic models as parameters in your function [5]. Additionally, you can mix `Path`, `Query`, and request body parameters, and declare body parameters as optional by setting the default to `None` [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows Pydantic models as parameters.",
+     "sentence": "To declare a request body in FastAPI, you can use Pydantic models as parameters in your function .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text shows mixing Path, Query, body and optional body.",
+     "sentence": "Additionally, you can mix `Path`, `Query`, and request body parameters, and declare body parameters as optional by setting the default to `None` .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1072,
+    "completion_tokens": 70,
+    "total_tokens": 1142,
+    "cost": 9.73182e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.73182e-05,
+     "upstream_inference_prompt_cost": 8.38432e-05,
+     "upstream_inference_completions_cost": 1.3475e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.4
+  },
+  "How do I return a custom HTTP error with a status code in FastAPI?\u0000To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code as a parameter [4]. Additionally, you can customize the detail of the error response [4].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows HTTPException with status code.",
+     "sentence": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code as a parameter .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited tip says you can pass any JSON value as detail.",
+     "sentence": "Additionally, you can customize the detail of the error response .",
+     "cites": [
+      4
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 725,
+    "completion_tokens": 57,
+    "total_tokens": 782,
+    "cost": 6.93014e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.93014e-05,
+     "upstream_inference_prompt_cost": 5.9885e-05,
+     "upstream_inference_completions_cost": 9.4164e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.66
+  },
+  "How do I return a custom HTTP error with a status code in FastAPI?\u0000To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code and detail as parameters [4]. For example, to return a 404 status code with a custom detail message, you would write:   `raise HTTPException(status_code=404, detail=\"Item not found\")` [4]": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows HTTPException with status_code and detail",
+     "sentence": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code and detail as parameters .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text shows 404 with detail 'Item not found'",
+     "sentence": "For example, to return a 404 status code with a custom detail message, you would write:   `raise HTTPException(status_code=404, detail=\"Item not found\")`",
+     "cites": [
+      4
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 774,
+    "completion_tokens": 59,
+    "total_tokens": 833,
+    "cost": 8.1172e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 8.1172e-05,
+     "upstream_inference_prompt_cost": 7.0434e-05,
+     "upstream_inference_completions_cost": 1.0738e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.01
+  },
+  "What is Depends used for in FastAPI?\u0000Dependencies are used to declare function parameters that are not path parameters, such as query parameters, request bodies, and sub-dependencies [1]. They are handled with the `Depends()` function, which takes a callable as a parameter [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": false,
+     "reason": "Cited text says Depends declares dependencies, not that it declares non-path parameters.",
+     "sentence": "Dependencies are used to declare function parameters that are not path parameters, such as query parameters, request bodies, and sub-dependencies .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text states Depends takes a single parameter like a function.",
+     "sentence": "They are handled with the `Depends()` function, which takes a callable as a parameter .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1314,
+    "completion_tokens": 65,
+    "total_tokens": 1379,
+    "cost": 0.00020216,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00020216,
+     "upstream_inference_prompt_cost": 0.00018396,
+     "upstream_inference_completions_cost": 1.82e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.28
+  },
+  "How do I run a function after returning a response in FastAPI?\u0000To run a function after returning a response in FastAPI, you can use the `response_class` parameter in the path operation decorator to specify a custom response class [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": false,
+     "reason": "Cited text is about response_class for custom responses, not running a function after response.",
+     "sentence": "To run a function after returning a response in FastAPI, you can use the `response_class` parameter in the path operation decorator to specify a custom response class .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 559,
+    "completion_tokens": 42,
+    "total_tokens": 601,
+    "cost": 2.31322e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 486,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.31322e-05,
+     "upstream_inference_prompt_cost": 1.54882e-05,
+     "upstream_inference_completions_cost": 7.644e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.28
+  },
+  "How do I run a function after returning a response in FastAPI?\u0000You can run a function after returning a response in FastAPI by using the `response_class` parameter in the path operation decorator to return a custom `Response` class directly [1]. Additionally, you can add code to be run with the request before any path operation receives it, and after the response is generated, before returning it [4].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": false,
+     "reason": "Cited text does not mention response_class for running code after response.",
+     "sentence": "You can run a function after returning a response in FastAPI by using the `response_class` parameter in the path operation decorator to return a custom `Response` class directly .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text describes middleware that runs after response generation.",
+     "sentence": "Additionally, you can add code to be run with the request before any path operation receives it, and after the response is generated, before returning it .",
+     "cites": [
+      4
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 711,
+    "completion_tokens": 59,
+    "total_tokens": 770,
+    "cost": 0.00011606,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00011606,
+     "upstream_inference_prompt_cost": 9.954e-05,
+     "upstream_inference_completions_cost": 1.652e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.1
+  },
+  "How can I add CORS support to a FastAPI application?\u0000You can add CORS support to a FastAPI application by importing `CORSMiddleware` and adding it as a middleware to your FastAPI application [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states importing CORSMiddleware and adding it as middleware.",
+     "sentence": "You can add CORS support to a FastAPI application by importing `CORSMiddleware` and adding it as a middleware to your FastAPI application .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 828,
+    "completion_tokens": 39,
+    "total_tokens": 867,
+    "cost": 0.00012684,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00012684,
+     "upstream_inference_prompt_cost": 0.00011592,
+     "upstream_inference_completions_cost": 1.092e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 1.85
+  },
+  "How can I add CORS support to a FastAPI application?\u0000To add CORS support to a FastAPI application, you can configure the `CORSMiddleware` middleware by importing it and specifying the allowed origins, credentials, methods, and headers [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text directly describes configuring CORSMiddleware with origins, credentials, methods, headers.",
+     "sentence": "To add CORS support to a FastAPI application, you can configure the `CORSMiddleware` middleware by importing it and specifying the allowed origins, credentials, methods, and headers .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 858,
+    "completion_tokens": 43,
+    "total_tokens": 901,
+    "cost": 3.40704e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 712,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 3.40704e-05,
+     "upstream_inference_prompt_cost": 2.62444e-05,
+     "upstream_inference_completions_cost": 7.826e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 13.38
+  },
+  "How do I test a FastAPI app with TestClient?\u0000To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` [3]. Then, create a `TestClient` object by passing your FastAPI application to it [2]. Write test functions with a name that starts with `test_` [2]. Use the `TestClient` object to make requests to your FastAPI application, and write assertions to check the responses [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text explicitly shows importing TestClient from fastapi.testclient.",
+     "sentence": "To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` .",
+     "cites": [
+      3
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text instructs creating TestClient by passing the FastAPI app.",
+     "sentence": "Then, create a `TestClient` object by passing your FastAPI application to it .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text says create functions starting with test_.",
+     "sentence": "Write test functions with a name that starts with `test_` .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 4,
+     "supported": true,
+     "reason": "Cited text shows using client to make requests and assert responses.",
+     "sentence": "Use the `TestClient` object to make requests to your FastAPI application, and write assertions to check the responses .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1697,
+    "completion_tokens": 107,
+    "total_tokens": 1804,
+    "cost": 6.27354e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1527,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.27354e-05,
+     "upstream_inference_prompt_cost": 4.32614e-05,
+     "upstream_inference_completions_cost": 1.9474e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.34
+  },
+  "How do I test a FastAPI app with TestClient?\u0000To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` [3]. Then, create a `TestClient` object by passing your FastAPI application to it [2]. Write test functions with a name that starts with `test_`, and use the `TestClient` object to make calls to your FastAPI application, just as you would with `httpx` [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text explicitly shows importing TestClient from fastapi.testclient.",
+     "sentence": "To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` .",
+     "cites": [
+      3
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text instructs creating TestClient by passing the FastAPI app.",
+     "sentence": "Then, create a `TestClient` object by passing your FastAPI application to it .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text says to use test_ prefix and use client like httpx.",
+     "sentence": "Write test functions with a name that starts with `test_`, and use the `TestClient` object to make calls to your FastAPI application, just as you would with `httpx` .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1293,
+    "completion_tokens": 89,
+    "total_tokens": 1382,
+    "cost": 5.0141e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1150,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.0141e-05,
+     "upstream_inference_prompt_cost": 3.3943e-05,
+     "upstream_inference_completions_cost": 1.6198e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.24
+  },
+  "How do I set the response_model of a FastAPI path operation?\u0000To set the response_model of a FastAPI path operation, declare the path operation function with the `response_model` parameter [1]. If you want to exclude unset values from the response, you can use `response_model_exclude_unset=True` [5].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows response_model parameter usage.",
+     "sentence": "To set the response_model of a FastAPI path operation, declare the path operation function with the `response_model` parameter .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": false,
+     "reason": "Sentence describes excluding unset values, not setting response_model.",
+     "sentence": "If you want to exclude unset values from the response, you can use `response_model_exclude_unset=True` .",
+     "cites": [
+      5
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 880,
+    "completion_tokens": 84,
+    "total_tokens": 964,
+    "cost": 0.00014672,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00014672,
+     "upstream_inference_prompt_cost": 0.0001232,
+     "upstream_inference_completions_cost": 2.352e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.4
+  },
+  "How do I organize a bigger FastAPI application into multiple files with APIRouter?\u0000To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class [1]. Then, you include the `APIRouter` instances from submodules using `app.include_router()` [2]. Each `APIRouter` can be included with a prefix to organize routes under specific paths [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows importing and creating FastAPI instance.",
+     "sentence": "To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text explicitly shows app.include_router() for submodule routers.",
+     "sentence": "Then, you include the `APIRouter` instances from submodules using `app.include_router()` .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited example includes admin.router with prefix='/admin'.",
+     "sentence": "Each `APIRouter` can be included with a prefix to organize routes under specific paths .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1381,
+    "completion_tokens": 84,
+    "total_tokens": 1465,
+    "cost": 5.6511e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1160,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.6511e-05,
+     "upstream_inference_prompt_cost": 4.1223e-05,
+     "upstream_inference_completions_cost": 1.5288e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.02
+  },
+  "How do I organize a bigger FastAPI application into multiple files with APIRouter?\u0000To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class [1]. Then, you include the `APIRouter`s from submodules using `app.include_router()` [2]. Each `APIRouter` can be included with a prefix to organize routes under specific paths [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows importing and creating FastAPI instance.",
+     "sentence": "To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text explicitly shows app.include_router() for submodule routers.",
+     "sentence": "Then, you include the `APIRouter`s from submodules using `app.include_router()` .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited example includes admin.router with prefix='/admin'.",
+     "sentence": "Each `APIRouter` can be included with a prefix to organize routes under specific paths .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1380,
+    "completion_tokens": 84,
+    "total_tokens": 1464,
+    "cost": 6.04968e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1104,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.04968e-05,
+     "upstream_inference_prompt_cost": 4.52088e-05,
+     "upstream_inference_completions_cost": 1.5288e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.01
+  },
+  "How do I define a custom validator on a field in Pydantic v2?\u0000To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator [1]. Additionally, you can access metadata about the field being validated through the `info` parameter, which includes `info.field_name` to get the field name [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows @field_validator usage for custom validation.",
+     "sentence": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text mentions info.field_name for accessing field name.",
+     "sentence": "Additionally, you can access metadata about the field being validated through the `info` parameter, which includes `info.field_name` to get the field name .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 930,
+    "completion_tokens": 59,
+    "total_tokens": 989,
+    "cost": 3.44344e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 837,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 3.44344e-05,
+     "upstream_inference_prompt_cost": 2.36964e-05,
+     "upstream_inference_completions_cost": 1.0738e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.98
+  },
+  "How do I define a custom validator on a field in Pydantic v2?\u0000To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator [1]. Additionally, you can access metadata about the field being validated using the `info` parameter, such as `info.field_name` to get the field name [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows @field_validator for custom validation in V2.",
+     "sentence": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text shows info.field_name accesses field name.",
+     "sentence": "Additionally, you can access metadata about the field being validated using the `info` parameter, such as `info.field_name` to get the field name .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 930,
+    "completion_tokens": 60,
+    "total_tokens": 990,
+    "cost": 4.13868e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 744,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.13868e-05,
+     "upstream_inference_prompt_cost": 3.04668e-05,
+     "upstream_inference_completions_cost": 1.092e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.49
+  },
+  "How do I serialize a Pydantic model to a dict?\u0000To serialize a Pydantic model to a Python `dict`, you can use the `model_dump` method and specify the `mode` parameter to customize the output [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text confirms model_dump for dict serialization with mode parameter.",
+     "sentence": "To serialize a Pydantic model to a Python `dict`, you can use the `model_dump` method and specify the `mode` parameter to customize the output .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 630,
+    "completion_tokens": 45,
+    "total_tokens": 675,
+    "cost": 4.98085e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.98085e-05,
+     "upstream_inference_prompt_cost": 4.1146e-05,
+     "upstream_inference_completions_cost": 8.6625e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 1.84
+  },
+  "How do I serialize a Pydantic model to a dict?\u0000To serialize a Pydantic model to a dict, you can use the `model_dump` method and specify the mode as 'json' [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": false,
+     "reason": "Cited text shows model_dump with mode='json' but not as the way to serialize to dict; default mode is for dict.",
+     "sentence": "To serialize a Pydantic model to a dict, you can use the `model_dump` method and specify the mode as 'json' .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 648,
+    "completion_tokens": 52,
+    "total_tokens": 700,
+    "cost": 2.78824e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 557,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.78824e-05,
+     "upstream_inference_prompt_cost": 1.84184e-05,
+     "upstream_inference_completions_cost": 9.464e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.27
+  },
+  "How do I generate a JSON Schema from a Pydantic model?\u0000Use the `BaseModel.model_json_schema()` method to generate a JSON schema from a Pydantic model [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states BaseModel.model_json_schema returns JSON schema.",
+     "sentence": "Use the `BaseModel.model_json_schema()` method to generate a JSON schema from a Pydantic model .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 781,
+    "completion_tokens": 44,
+    "total_tokens": 825,
+    "cost": 6.42026e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.42026e-05,
+     "upstream_inference_prompt_cost": 5.57326e-05,
+     "upstream_inference_completions_cost": 8.47e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.63
+  },
+  "What does Field(default_factory=...) do in Pydantic?\u0000Field(default_factory=...) in Pydantic allows you to specify a callable that will be used to generate a default value for a field [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text explicitly states default_factory takes a callable to generate a default value.",
+     "sentence": "Field(default_factory=...) in Pydantic allows you to specify a callable that will be used to generate a default value for a field .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 785,
+    "completion_tokens": 42,
+    "total_tokens": 827,
+    "cost": 3.16862e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 651,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 3.16862e-05,
+     "upstream_inference_prompt_cost": 2.40422e-05,
+     "upstream_inference_completions_cost": 7.644e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.13
+  },
+  "What does Field(default_factory=...) do in Pydantic?\u0000Field(default_factory=...) in Pydantic allows you to specify a function that will be called to generate a default value for a field [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text explicitly states default_factory generates default values.",
+     "sentence": "Field(default_factory=...) in Pydantic allows you to specify a function that will be called to generate a default value for a field .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 784,
+    "completion_tokens": 36,
+    "total_tokens": 820,
+    "cost": 2.77368e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 689,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.77368e-05,
+     "upstream_inference_prompt_cost": 2.11848e-05,
+     "upstream_inference_completions_cost": 6.552e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.46
+  },
+  "How do I configure a Pydantic model to forbid extra fields?\u0000To configure a Pydantic model to forbid extra fields, use the `model_config = {\"extra\": \"forbid\"}` in your Pydantic model definition [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows exactly this configuration.",
+     "sentence": "To configure a Pydantic model to forbid extra fields, use the `model_config = {\"extra\": \"forbid\"}` in your Pydantic model definition .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 490,
+    "completion_tokens": 38,
+    "total_tokens": 528,
+    "cost": 3.4937e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 3.4937e-05,
+     "upstream_inference_prompt_cost": 2.7622e-05,
+     "upstream_inference_completions_cost": 7.315e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.21
+  },
+  "What is a TypeAdapter in Pydantic used for?\u0000A TypeAdapter in Pydantic is used for parsing data into a specified type in a more ad-hoc way, especially useful when the data comes from a source you don't control, like an API call, and validation can fail long after the code has shipped [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states TypeAdapter applies parsing logic ad-hoc, useful for external data like API calls, and validation can fail after shipping.",
+     "sentence": "A TypeAdapter in Pydantic is used for parsing data into a specified type in a more ad-hoc way, especially useful when the data comes from a source you don't control, like an API call, and validation can fail long after the code has shipped .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 769,
+    "completion_tokens": 57,
+    "total_tokens": 826,
+    "cost": 6.55459e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.55459e-05,
+     "upstream_inference_prompt_cost": 5.45734e-05,
+     "upstream_inference_completions_cost": 1.09725e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 1.75
+  },
+  "What is a StateGraph in LangGraph?\u0000A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications [2]. It allows you to define a graph of nodes and edges [2]. When you compile the graph, the StateGraph API automatically creates the Pregel application for you [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states StateGraph is a higher-level abstraction that simplifies Pregel creation.",
+     "sentence": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says it allows you to define a graph of nodes and edges.",
+     "sentence": "It allows you to define a graph of nodes and edges .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text says when you compile, it automatically creates the Pregel application.",
+     "sentence": "When you compile the graph, the StateGraph API automatically creates the Pregel application for you .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1855,
+    "completion_tokens": 134,
+    "total_tokens": 1989,
+    "cost": 0.0001753598,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001753598,
+     "upstream_inference_prompt_cost": 0.000153223,
+     "upstream_inference_completions_cost": 2.21368e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.01
+  },
+  "What is a checkpointer in LangGraph and why use one?\u0000A checkpointer in LangGraph persists a thread's graph state as checkpoints, allowing state accumulation across calls on the same thread [1]. Use a checkpointer for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states checkpointer persists thread state and accumulates across calls.",
+     "sentence": "A checkpointer in LangGraph persists a thread's graph state as checkpoints, allowing state accumulation across calls on the same thread .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text lists exactly these uses for checkpointers.",
+     "sentence": "Use a checkpointer for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1050,
+    "completion_tokens": 59,
+    "total_tokens": 1109,
+    "cost": 4.36072e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 861,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.36072e-05,
+     "upstream_inference_prompt_cost": 3.28692e-05,
+     "upstream_inference_completions_cost": 1.0738e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.14
+  },
+  "How does human-in-the-loop interrupt work in LangGraph?\u0000Human-in-the-loop interrupts in LangGraph work by using the `@[`interrupt`]` function to pause execution at specific points, allowing for human review or input [4]. This is demonstrated in the code examples where interrupts are called in a specific order, ensuring consistent execution across node executions [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states interrupt pauses execution for human review.",
+     "sentence": "Human-in-the-loop interrupts in LangGraph work by using the `@[`interrupt`]` function to pause execution at specific points, allowing for human review or input .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": false,
+     "reason": "Cited text does not mention 'specific order' in the SQL example.",
+     "sentence": "This is demonstrated in the code examples where interrupts are called in a specific order, ensuring consistent execution across node executions .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1324,
+    "completion_tokens": 88,
+    "total_tokens": 1412,
+    "cost": 0.0001239,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001239,
+     "upstream_inference_prompt_cost": 0.0001093624,
+     "upstream_inference_completions_cost": 1.45376e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.69
+  },
+  "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?\u0000Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application and take advantage of multiple cores in the CPU [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": false,
+     "reason": "Cited text mentions parallelizing with workers but not setting workers to CPU cores count.",
+     "sentence": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application and take advantage of multiple cores in the CPU .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 481,
+    "completion_tokens": 41,
+    "total_tokens": 522,
+    "cost": 2.21858e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 399,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.21858e-05,
+     "upstream_inference_prompt_cost": 1.47238e-05,
+     "upstream_inference_completions_cost": 7.462e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.26
+  },
+  "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?\u0000Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application, take advantage of multiple cores in the CPU, and handle more requests [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": false,
+     "reason": "Cited text mentions multiple workers for parallelization but not setting workers to number of CPU cores.",
+     "sentence": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application, take advantage of multiple cores in the CPU, and handle more requests .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": null,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 486,
+    "completion_tokens": 37,
+    "total_tokens": 523,
+    "cost": 2.27136e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 388,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 2.27136e-05,
+     "upstream_inference_prompt_cost": 1.59796e-05,
+     "upstream_inference_completions_cost": 6.734e-06
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.14
+  },
+  "How do I use GraphQL with FastAPI?\u0000To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's [1]. Here's a small example of how to integrate Strawberry with FastAPI: [1] ```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```\n[1]": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text recommends Strawberry and states it has the design closest to FastAPI's.",
+     "sentence": "To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text provides a small preview of integration.",
+     "sentence": "Here's a small example of how to integrate Strawberry with FastAPI:",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": false,
+     "reason": "No cited text provided for this sentence.",
+     "sentence": "```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```",
+     "cites": []
+    }
+   ],
+   "answers_question": true,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1045,
+    "completion_tokens": 97,
+    "total_tokens": 1142,
+    "cost": 9.99075e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.99075e-05,
+     "upstream_inference_prompt_cost": 8.1235e-05,
+     "upstream_inference_completions_cost": 1.86725e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.05
+  },
+  "Is the result of a FastAPI dependency (Depends) cached, and for what scope?\u0000The result of a FastAPI dependency (Depends) is cached per request [1]. For the scope, if a dependency is declared with `scope=\"function\"` it is closed after the path operation function returns but before the response is sent [4].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states caching per request for same path operation.",
+     "sentence": "The result of a FastAPI dependency (Depends) is cached per request .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text describes scope='function' closing after path op before response.",
+     "sentence": "For the scope, if a dependency is declared with `scope=\"function\"` it is closed after the path operation function returns but before the response is sent .",
+     "cites": [
+      4
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1030,
+    "completion_tokens": 61,
+    "total_tokens": 1091,
+    "cost": 4.48448e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 824,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.48448e-05,
+     "upstream_inference_prompt_cost": 3.37428e-05,
+     "upstream_inference_completions_cost": 1.1102e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.36
+  },
+  "Is the result of a FastAPI dependency (Depends) cached, and for what scope?\u0000The result of a FastAPI dependency (Depends) is cached per request [1]. For the scope, if you use `Depends(scope=\"function\")`, the exit code after `yield` is executed right after the path operation function is finished, before the response is sent back to the client [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states dependency called once per request and cached.",
+     "sentence": "The result of a FastAPI dependency (Depends) is cached per request .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text explicitly describes scope='function' exit timing.",
+     "sentence": "For the scope, if you use `Depends(scope=\"function\")`, the exit code after `yield` is executed right after the path operation function is finished, before the response is sent back to the client .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 828,
+    "completion_tokens": 58,
+    "total_tokens": 886,
+    "cost": 3.58904e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 687,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 3.58904e-05,
+     "upstream_inference_prompt_cost": 2.53344e-05,
+     "upstream_inference_completions_cost": 1.0556e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.41
+  },
+  "How does FastAPI treat function parameters that are not part of the path?\u0000FastAPI automatically interprets function parameters that are not part of the path as query parameters [1]. These parameters are extracted from the key-value pairs in the URL's query string [1]. They undergo type conversion, validation, and automatic documentation similar to path parameters [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states they are automatically interpreted as query parameters.",
+     "sentence": "FastAPI automatically interprets function parameters that are not part of the path as query parameters .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text describes query as key-value pairs after '?'.",
+     "sentence": "These parameters are extracted from the key-value pairs in the URL's query string .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text lists parsing, validation, and automatic documentation.",
+     "sentence": "They undergo type conversion, validation, and automatic documentation similar to path parameters .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1298,
+    "completion_tokens": 120,
+    "total_tokens": 1418,
+    "cost": 0.0001270388,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001270388,
+     "upstream_inference_prompt_cost": 0.0001072148,
+     "upstream_inference_completions_cost": 1.9824e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.9
+  },
+  "How do I declare a request body in FastAPI?\u0000To declare a request body in FastAPI, you can use Pydantic models as function parameters [5]. You can also declare singular values to be received as part of the body [1]. Additionally, you can mix path, query, and body parameters freely within your path operation function [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows Pydantic models as body parameters.",
+     "sentence": "To declare a request body in FastAPI, you can use Pydantic models as function parameters .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text explicitly states singular values can be in body.",
+     "sentence": "You can also declare singular values to be received as part of the body .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text confirms mixing Path, Query, and body parameters.",
+     "sentence": "Additionally, you can mix path, query, and body parameters freely within your path operation function .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1203,
+    "completion_tokens": 81,
+    "total_tokens": 1284,
+    "cost": 4.71926e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1058,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.71926e-05,
+     "upstream_inference_prompt_cost": 3.24506e-05,
+     "upstream_inference_completions_cost": 1.4742e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.56
+  },
+  "How do I declare a request body in FastAPI?\u0000To declare a request body in FastAPI, you can use Pydantic models as function parameters [5]. You can also declare singular values to be received as part of the body or mix path and query parameters with body parameters [2]. If multiple body parameters are declared, FastAPI uses their names as keys in the JSON body [5]. Additionally, you can instruct FastAPI to embed the body in a specific key even with a single parameter [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows Pydantic models as body parameters.",
+     "sentence": "To declare a request body in FastAPI, you can use Pydantic models as function parameters .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text mentions mixing Path, Query, and body parameters.",
+     "sentence": "You can also declare singular values to be received as part of the body or mix path and query parameters with body parameters .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text states parameter names used as keys for multiple body params.",
+     "sentence": "If multiple body parameters are declared, FastAPI uses their names as keys in the JSON body .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 4,
+     "supported": true,
+     "reason": "Cited text explicitly says can embed body in a key with single parameter.",
+     "sentence": "Additionally, you can instruct FastAPI to embed the body in a specific key even with a single parameter .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1696,
+    "completion_tokens": 108,
+    "total_tokens": 1804,
+    "cost": 7.28e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1390,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.28e-05,
+     "upstream_inference_prompt_cost": 5.3144e-05,
+     "upstream_inference_completions_cost": 1.9656e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.3
+  },
+  "How do I return a custom HTTP error with a status code in FastAPI?\u0000You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail [4]. Alternatively, you can return a response object like `JSONResponse` directly and set the `status_code` parameter to specify the code [2]. You can also use named constants from the `fastapi.status` module for better readability when defining these codes [5].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows raising HTTPException with status code and detail.",
+     "sentence": "You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text shows returning JSONResponse with status_code parameter.",
+     "sentence": "Alternatively, you can return a response object like `JSONResponse` directly and set the `status_code` parameter to specify the code .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text describes using named constants from fastapi.status.",
+     "sentence": "You can also use named constants from the `fastapi.status` module for better readability when defining these codes .",
+     "cites": [
+      5
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1222,
+    "completion_tokens": 97,
+    "total_tokens": 1319,
+    "cost": 0.0001170057,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001170057,
+     "upstream_inference_prompt_cost": 9.83332e-05,
+     "upstream_inference_completions_cost": 1.86725e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.02
+  },
+  "How do I return a custom HTTP error with a status code in FastAPI?\u0000You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail message [4]. Alternatively, you can return a response object like `JSONResponse` directly and set the specific `status_code` parameter on it [2]. You can also define the primary status code for a path operation using the `status_code` parameter in decorators like `@app.get()` or `@app.post()` [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows raising HTTPException for 404 error.",
+     "sentence": "You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail message .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text shows returning JSONResponse with status_code.",
+     "sentence": "Alternatively, you can return a response object like `JSONResponse` directly and set the specific `status_code` parameter on it .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": false,
+     "reason": "Question asks for custom error; this sets default success status.",
+     "sentence": "You can also define the primary status code for a path operation using the `status_code` parameter in decorators like `@app.get()` or `@app.post()` .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1407,
+    "completion_tokens": 96,
+    "total_tokens": 1503,
+    "cost": 0.0001346842,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001346842,
+     "upstream_inference_prompt_cost": 0.0001162042,
+     "upstream_inference_completions_cost": 1.848e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.73
+  },
+  "How can I add CORS support to a FastAPI application?\u0000You can add CORS support by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it to your FastAPI application as a middleware [1]. You must configure specific settings such as allowed origins, credentials, methods, and headers using the parameters provided by `CORSMiddleware` [1]. Alternatively, you can import it directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` [5].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text describes importing CORSMiddleware and adding it as middleware.",
+     "sentence": "You can add CORS support by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it to your FastAPI application as a middleware .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text lists allowed origins, credentials, methods, headers as configurable parameters.",
+     "sentence": "You must configure specific settings such as allowed origins, credentials, methods, and headers using the parameters provided by `CORSMiddleware` .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text explicitly mentions importing from starlette.middleware.cors.",
+     "sentence": "Alternatively, you can import it directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` .",
+     "cites": [
+      5
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1532,
+    "completion_tokens": 91,
+    "total_tokens": 1623,
+    "cost": 0.00019308,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00019308,
+     "upstream_inference_prompt_cost": 7.66e-05,
+     "upstream_inference_completions_cost": 0.00011648
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 1.66
+  },
+  "How can I add CORS support to a FastAPI application?\u0000You can add CORS support to a FastAPI application by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it as middleware using `app.add_middleware()` [1]. You must configure specific settings such as allowed origins, credentials, HTTP methods, and headers to enable cross-origin requests [1]. Alternatively, you can import the middleware directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` [5].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states importing CORSMiddleware and adding as middleware.",
+     "sentence": "You can add CORS support to a FastAPI application by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it as middleware using `app.add_middleware()` .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says you need to explicitly enable origins, methods, headers.",
+     "sentence": "You must configure specific settings such as allowed origins, credentials, HTTP methods, and headers to enable cross-origin requests .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text mentions using from starlette.middleware.cors import CORSMiddleware.",
+     "sentence": "Alternatively, you can import the middleware directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` .",
+     "cites": [
+      5
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1536,
+    "completion_tokens": 131,
+    "total_tokens": 1667,
+    "cost": 0.00025172,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00025172,
+     "upstream_inference_prompt_cost": 0.00021504,
+     "upstream_inference_completions_cost": 3.668e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.92
+  },
+  "How do I set the response_model of a FastAPI path operation?\u0000You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response [2]. If you also specify a return type annotation, the `response_model` takes priority and is used by FastAPI for validation and documentation [1]. Additionally, you can set `response_model=None` to disable creating a response model for that specific path operation [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text confirms declaring response_model in decorator for main response metadata.",
+     "sentence": "You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text states response_model takes priority and is used for validation and documentation.",
+     "sentence": "If you also specify a return type annotation, the `response_model` takes priority and is used by FastAPI for validation and documentation .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text explicitly mentions using response_model=None to disable response model.",
+     "sentence": "Additionally, you can set `response_model=None` to disable creating a response model for that specific path operation .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 754,
+    "completion_tokens": 89,
+    "total_tokens": 843,
+    "cost": 7.69832e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.69832e-05,
+     "upstream_inference_prompt_cost": 6.22804e-05,
+     "upstream_inference_completions_cost": 1.47028e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.49
+  },
+  "How do I set the response_model of a FastAPI path operation?\u0000You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response [2]. If you also specify a return type annotation, the `response_model` takes priority for validation and documentation [1]. Additionally, you can set it to `None` to disable creating a response model for that specific path operation [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text confirms declaring response_model in path operation decorator.",
+     "sentence": "You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text states response_model takes priority over return type.",
+     "sentence": "If you also specify a return type annotation, the `response_model` takes priority for validation and documentation .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text says you can use response_model=None to disable.",
+     "sentence": "Additionally, you can set it to `None` to disable creating a response model for that specific path operation .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 748,
+    "completion_tokens": 98,
+    "total_tokens": 846,
+    "cost": 7.14098e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.14098e-05,
+     "upstream_inference_prompt_cost": 5.25448e-05,
+     "upstream_inference_completions_cost": 1.8865e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.28
+  },
+  "What is a TypeAdapter in Pydantic used for?\u0000TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types [1]. It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists or other complex structures [1]. Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text directly states this.",
+     "sentence": "TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text explicitly mentions non-BaseModel types like lists.",
+     "sentence": "It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists or other complex structures .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text says it handles any Pydantic field type.",
+     "sentence": "Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": null,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1706,
+    "completion_tokens": 71,
+    "total_tokens": 1777,
+    "cost": 5.88952e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1501,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.88952e-05,
+     "upstream_inference_prompt_cost": 4.59732e-05,
+     "upstream_inference_completions_cost": 1.2922e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.6
+  },
+  "What is a StateGraph in LangGraph?\u0000A StateGraph is a high-level API in LangGraph used for creating Pregel applications [2]. It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges [2]. When the graph is compiled, the StateGraph API automatically creates the underlying Pregel application for you [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states StateGraph is a high-level API for Pregel applications.",
+     "sentence": "A StateGraph is a high-level API in LangGraph used for creating Pregel applications .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says it simplifies creation and allows defining nodes and edges.",
+     "sentence": "It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text: 'When you compile the graph, the StateGraph API automatically creates the Pregel application for you.'",
+     "sentence": "When the graph is compiled, the StateGraph API automatically creates the underlying Pregel application for you .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1862,
+    "completion_tokens": 140,
+    "total_tokens": 2002,
+    "cost": 0.0002723,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0002723,
+     "upstream_inference_prompt_cost": 9.31e-05,
+     "upstream_inference_completions_cost": 0.0001792
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.03
+  },
+  "What is a StateGraph in LangGraph?\u0000A StateGraph is a high-level API in LangGraph used for creating Pregel applications [2]. It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges, automatically generating the underlying Pregel application upon compilation [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states StateGraph is a high-level API for creating Pregel applications.",
+     "sentence": "A StateGraph is a high-level API in LangGraph used for creating Pregel applications .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text confirms it simplifies creation, allows nodes/edges, and auto-creates Pregel on compile.",
+     "sentence": "It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges, automatically generating the underlying Pregel application upon compilation .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1342,
+    "completion_tokens": 75,
+    "total_tokens": 1417,
+    "cost": 0.0001232392,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001232392,
+     "upstream_inference_prompt_cost": 0.0001108492,
+     "upstream_inference_completions_cost": 1.239e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.42
+  },
+  "What is a checkpointer in LangGraph and why use one?\u0000A checkpointer is a persistence system in LangGraph that persists a thread's graph state as checkpoints [2]. It is used to enable short-term, thread-scoped memory features such as conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [5]. Additionally, it allows applications to resume execution after interruptions or recover from failures by storing state snapshots at super-step boundaries [4].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text defines checkpointer as persisting thread's graph state as checkpoints.",
+     "sentence": "A checkpointer is a persistence system in LangGraph that persists a thread's graph state as checkpoints .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Table lists these exact use cases for checkpointer.",
+     "sentence": "It is used to enable short-term, thread-scoped memory features such as conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Text states checkpoints at super-step boundaries enable fault tolerance and resume.",
+     "sentence": "Additionally, it allows applications to resume execution after interruptions or recover from failures by storing state snapshots at super-step boundaries .",
+     "cites": [
+      4
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1202,
+    "completion_tokens": 103,
+    "total_tokens": 1305,
+    "cost": 0.0001162287,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001162287,
+     "upstream_inference_prompt_cost": 9.64012e-05,
+     "upstream_inference_completions_cost": 1.98275e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.77
+  },
+  "What is a checkpointer in LangGraph and why use one?\u0000A checkpointer is a persistence system in LangGraph that saves a thread's graph state as checkpoints [2]. It is used to enable short-term, thread-scoped memory for features like conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [5]. Additionally, it supports subgraph persistence by controlling whether internal data accumulates across calls or starts fresh [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text defines checkpointer as persisting thread's graph state as checkpoints.",
+     "sentence": "A checkpointer is a persistence system in LangGraph that saves a thread's graph state as checkpoints .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Table lists exactly those use cases for checkpointer.",
+     "sentence": "It is used to enable short-term, thread-scoped memory for features like conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text explains subgraph persistence and checkpointer parameter controlling it.",
+     "sentence": "Additionally, it supports subgraph persistence by controlling whether internal data accumulates across calls or starts fresh .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1193,
+    "completion_tokens": 102,
+    "total_tokens": 1295,
+    "cost": 0.0001151668,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001151668,
+     "upstream_inference_prompt_cost": 9.55318e-05,
+     "upstream_inference_completions_cost": 1.9635e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 5.95
+  },
+  "How do I declare a path parameter in FastAPI?\u0000You can declare a path parameter by including it in the route path string, such as `/items/{item_id}` [4]. FastAPI automatically extracts and validates these parameters based on their names and types defined in the function signature [4]. If you need a parameter to contain a full path, you can append `:path` to the parameter name in the route definition [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows path parameter in route string.",
+     "sentence": "You can declare a path parameter by including it in the route path string, such as `/items/{item_id}` .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text states extraction, validation, conversion, annotation.",
+     "sentence": "FastAPI automatically extracts and validates these parameters based on their names and types defined in the function signature .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text explicitly describes :path syntax.",
+     "sentence": "If you need a parameter to contain a full path, you can append `:path` to the parameter name in the route definition .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1031,
+    "completion_tokens": 75,
+    "total_tokens": 1106,
+    "cost": 4.14414e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 907,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 4.14414e-05,
+     "upstream_inference_prompt_cost": 2.77914e-05,
+     "upstream_inference_completions_cost": 1.365e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.42
+  },
+  "What is Depends used for in FastAPI?\u0000`Depends` is used to declare dependencies in FastAPI path operation function parameters, similar to how `Body` or `Query` are used [1]. It takes a callable, such as a function or class, which FastAPI will call to provide the dependency value [5]. This mechanism allows for code reuse and handling of common logic across multiple endpoints [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text confirms Depends usage like Body/Query",
+     "sentence": "`Depends` is used to declare dependencies in FastAPI path operation function parameters, similar to how `Body` or `Query` are used .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says Depends takes a callable",
+     "sentence": "It takes a callable, such as a function or class, which FastAPI will call to provide the dependency value .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text describes code reuse and caching",
+     "sentence": "This mechanism allows for code reuse and handling of common logic across multiple endpoints .",
+     "cites": [
+      3
+     ]
+    },
+    {
+     "i": 4,
+     "supported": false,
+     "reason": "No cited text mentions classes as callable"
+    }
+   ],
+   "answers_question": true,
+   "flagged": true,
+   "error": "verdict_count_mismatch",
+   "usage": {
+    "prompt_tokens": 1212,
+    "completion_tokens": 95,
+    "total_tokens": 1307,
+    "cost": 0.0001158052,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001158052,
+     "upstream_inference_prompt_cost": 0.0001001112,
+     "upstream_inference_completions_cost": 1.5694e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 3.15
+  },
+  "How do I run a function after returning a response in FastAPI?\u0000You can add code to be run after the response is generated by creating an HTTP middleware that modifies and returns the response object [4]. Alternatively, you can use dependencies with `yield` where the cleanup code executes after the path operation function ends but before the response is sent to the client [5].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows middleware runs after response is generated.",
+     "sentence": "You can add code to be run after the response is generated by creating an HTTP middleware that modifies and returns the response object .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": false,
+     "reason": "Cited text says yield cleanup runs before response is sent, not after.",
+     "sentence": "Alternatively, you can use dependencies with `yield` where the cleanup code executes after the path operation function ends but before the response is sent to the client .",
+     "cites": [
+      5
+     ]
+    }
+   ],
+   "answers_question": false,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 943,
+    "completion_tokens": 88,
+    "total_tokens": 1031,
+    "cost": 9.24294e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 9.24294e-05,
+     "upstream_inference_prompt_cost": 7.78918e-05,
+     "upstream_inference_completions_cost": 1.45376e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.53
+  },
+  "How do I test a FastAPI app with TestClient?\u0000To test a FastAPI app, first install the `httpx` library and import `TestClient` from `fastapi.testclient` [2]. Create a `TestClient` instance by passing your FastAPI application to it, then use it in standard `pytest` functions starting with `test_` to make requests and write assertions [2]. This allows you to communicate directly with the application code without needing an actual HTTP connection [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text instructs installing httpx and importing TestClient.",
+     "sentence": "To test a FastAPI app, first install the `httpx` library and import `TestClient` from `fastapi.testclient` .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text shows creating TestClient with app and using pytest functions.",
+     "sentence": "Create a `TestClient` instance by passing your FastAPI application to it, then use it in standard `pytest` functions starting with `test_` to make requests and write assertions .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text states direct communication without actual HTTP/socket connection.",
+     "sentence": "This allows you to communicate directly with the application code without needing an actual HTTP connection .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1298,
+    "completion_tokens": 84,
+    "total_tokens": 1382,
+    "cost": 5.78396e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1038,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.78396e-05,
+     "upstream_inference_prompt_cost": 4.25516e-05,
+     "upstream_inference_completions_cost": 1.5288e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.92
+  },
+  "How do I organize a bigger FastAPI application into multiple files with APIRouter?\u0000To organize a bigger FastAPI application, you can create separate submodules containing `APIRouter` instances for different parts of your app [4]. You then import these routers and use the `app.include_router()` method to add their routes to the main `FastAPI` application instance [2]. Additionally, you can define path operations directly on the main app alongside the included routers [5].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows submodules with APIRouter instances.",
+     "sentence": "To organize a bigger FastAPI application, you can create separate submodules containing `APIRouter` instances for different parts of your app .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text explicitly describes include_router adding routes.",
+     "sentence": "You then import these routers and use the `app.include_router()` method to add their routes to the main `FastAPI` application instance .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text shows direct path operations alongside included routers.",
+     "sentence": "Additionally, you can define path operations directly on the main app alongside the included routers .",
+     "cites": [
+      5
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1348,
+    "completion_tokens": 78,
+    "total_tokens": 1426,
+    "cost": 5.3508e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1145,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 5.3508e-05,
+     "upstream_inference_prompt_cost": 3.9312e-05,
+     "upstream_inference_completions_cost": 1.4196e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.75
+  },
+  "How do I define a custom validator on a field in Pydantic v2?\u0000You can define a custom field validator in Pydantic V2 using the `@field_validator` decorator [1]. This decorator replaces the older `@validator` and allows you to access validation metadata through a `ValidationInfo` object passed as an argument [1]. For more extensive customization, you can implement the `__get_pydantic_core_schema__` method on a custom type or metadata [4].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows @field_validator decorator usage.",
+     "sentence": "You can define a custom field validator in Pydantic V2 using the `@field_validator` decorator .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text confirms @field_validator replaces @validator and uses ValidationInfo.",
+     "sentence": "This decorator replaces the older `@validator` and allows you to access validation metadata through a `ValidationInfo` object passed as an argument .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": false,
+     "reason": "Cited text describes __get_pydantic_core_schema__ for custom types, not field validators.",
+     "sentence": "For more extensive customization, you can implement the `__get_pydantic_core_schema__` method on a custom type or metadata .",
+     "cites": [
+      4
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1259,
+    "completion_tokens": 111,
+    "total_tokens": 1370,
+    "cost": 0.0001232749,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 256,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001232749,
+     "upstream_inference_prompt_cost": 0.0001019074,
+     "upstream_inference_completions_cost": 2.13675e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.92
+  },
+  "How do I serialize a Pydantic model to a dict?\u0000You can serialize a Pydantic model to a Python dictionary by calling the `model_dump` method on the model instance [1]. This method converts the model into a dict made up of associated Python objects or only \"jsonable\" types depending on the mode specified [1]. Additionally, Pydantic uses the terms \"serialize\" and \"dump\" interchangeably when referring to this conversion process [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows model_dump method and example.",
+     "sentence": "You can serialize a Pydantic model to a Python dictionary by calling the `model_dump` method on the model instance .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text describes dict of Python objects or jsonable types.",
+     "sentence": "This method converts the model into a dict made up of associated Python objects or only \"jsonable\" types depending on the mode specified .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text states serialize and dump are used interchangeably.",
+     "sentence": "Additionally, Pydantic uses the terms \"serialize\" and \"dump\" interchangeably when referring to this conversion process .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1383,
+    "completion_tokens": 118,
+    "total_tokens": 1501,
+    "cost": 0.0001337294,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001337294,
+     "upstream_inference_prompt_cost": 0.0001142358,
+     "upstream_inference_completions_cost": 1.94936e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.9
+  },
+  "How do I generate a JSON Schema from a Pydantic model?\u0000You can generate a JSON schema from a Pydantic model by calling the `model_json_schema` method on your `BaseModel` instance [1]. Alternatively, you can use the `TypeAdapter.json_schema` method if you are working with an adapted type rather than a specific model instance [1]. For generating a top-level schema that includes multiple models and their sub-models in `$defs`, you should use the `models_json_schema` function [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states model_json_schema returns schema dict.",
+     "sentence": "You can generate a JSON schema from a Pydantic model by calling the `model_json_schema` method on your `BaseModel` instance .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text describes TypeAdapter.json_schema for adapted types.",
+     "sentence": "Alternatively, you can use the `TypeAdapter.json_schema` method if you are working with an adapted type rather than a specific model instance .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text shows models_json_schema for top-level schema with $defs.",
+     "sentence": "For generating a top-level schema that includes multiple models and their sub-models in `$defs`, you should use the `models_json_schema` function .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1672,
+    "completion_tokens": 86,
+    "total_tokens": 1758,
+    "cost": 0.00019368,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00019368,
+     "upstream_inference_prompt_cost": 8.36e-05,
+     "upstream_inference_completions_cost": 0.00011008
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.1
+  },
+  "What does Field(default_factory=...) do in Pydantic?\u0000The `default_factory` argument in Pydantic's `Field` accepts a callable that is invoked to generate a default value for the field [1]. This factory can optionally take validated data from previous fields as an argument, which is passed as a dictionary [1]. If validation fails on prior fields before the factory is called, a `default_factory_not_called` error is raised [3]. Additionally, using both `default` and `default_factory` simultaneously results in a static checking error [2].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text explicitly states default_factory accepts a callable to generate a default value.",
+     "sentence": "The `default_factory` argument in Pydantic's `Field` accepts a callable that is invoked to generate a default value for the field .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says factory can take validated data as a dictionary.",
+     "sentence": "This factory can optionally take validated data from previous fields as an argument, which is passed as a dictionary .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text describes default_factory_not_called error when validation fails on previous fields.",
+     "sentence": "If validation fails on prior fields before the factory is called, a `default_factory_not_called` error is raised .",
+     "cites": [
+      3
+     ]
+    },
+    {
+     "i": 4,
+     "supported": true,
+     "reason": "Cited text states using both default and default_factory results in static checking error.",
+     "sentence": "Additionally, using both `default` and `default_factory` simultaneously results in a static checking error .",
+     "cites": [
+      2
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1577,
+    "completion_tokens": 120,
+    "total_tokens": 1697,
+    "cost": 7.12166e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1293,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 7.12166e-05,
+     "upstream_inference_prompt_cost": 4.93766e-05,
+     "upstream_inference_completions_cost": 2.184e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.86
+  },
+  "How do I configure a Pydantic model to forbid extra fields?\u0000To forbid extra fields in a Pydantic model, set the `model_config` dictionary to `{\"extra\": \"forbid\"}` [1]. This configuration ensures that any additional data sent in the request will result in an error response rather than being ignored or allowed [2]. This feature is supported in FastAPI version 0.114.0 and later for form models, and version 0.115.0 for query, header, and cookie parameters [3].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text shows model_config = {\"extra\": \"forbid\"}.",
+     "sentence": "To forbid extra fields in a Pydantic model, set the `model_config` dictionary to `{\"extra\": \"forbid\"}` .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says extra data yields an error response.",
+     "sentence": "This configuration ensures that any additional data sent in the request will result in an error response rather than being ignored or allowed .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 3,
+     "supported": false,
+     "reason": "Cited text only mentions FastAPI 0.114.0, not 0.115.0 for others.",
+     "sentence": "This feature is supported in FastAPI version 0.114.0 and later for form models, and version 0.115.0 for query, header, and cookie parameters .",
+     "cites": [
+      3
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1029,
+    "completion_tokens": 135,
+    "total_tokens": 1164,
+    "cost": 0.0001072974,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001072974,
+     "upstream_inference_prompt_cost": 8.49954e-05,
+     "upstream_inference_completions_cost": 2.2302e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 5.29
+  },
+  "What is a TypeAdapter in Pydantic used for?\u0000TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types [1]. It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists of models or forward references [1]. Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text directly states TypeAdapter applies parsing logic ad-hoc, similar to model_validate.",
+     "sentence": "TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text says useful for non-BaseModel types, example shows list of models.",
+     "sentence": "It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists of models or forward references .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text explicitly states it can parse any type Pydantic handles as fields.",
+     "sentence": "Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": null,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1707,
+    "completion_tokens": 92,
+    "total_tokens": 1799,
+    "cost": 6.02602e-05,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 1536,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 6.02602e-05,
+     "upstream_inference_prompt_cost": 4.35162e-05,
+     "upstream_inference_completions_cost": 1.6744e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 2.55
+  },
+  "How does human-in-the-loop interrupt work in LangGraph?\u0000LangGraph supports human-in-the-loop workflows using the `interrupt` function and the `Command` primitive [1]. When an interrupt is triggered, the run pauses to wait for human input, which can be provided via a `Command(resume=...)` object [5]. This mechanism allows developers to pause execution before critical actions, such as SQL queries, for review or approval [4]. If time travel is used, interrupts are re-triggered, causing the node to re-execute and pause again for new input [5].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text states exactly this.",
+     "sentence": "LangGraph supports human-in-the-loop workflows using the `interrupt` function and the `Command` primitive .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text confirms interrupt pauses for Command(resume=...).",
+     "sentence": "When an interrupt is triggered, the run pauses to wait for human input, which can be provided via a `Command(resume=...)` object .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text describes pausing before SQL queries for review.",
+     "sentence": "This mechanism allows developers to pause execution before critical actions, such as SQL queries, for review or approval .",
+     "cites": [
+      4
+     ]
+    },
+    {
+     "i": 4,
+     "supported": true,
+     "reason": "Cited text confirms interrupts re-trigger during time travel.",
+     "sentence": "If time travel is used, interrupts are re-triggered, causing the node to re-execute and pause again for new input .",
+     "cites": [
+      5
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 2022,
+    "completion_tokens": 150,
+    "total_tokens": 2172,
+    "cost": 0.0001917972,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001917972,
+     "upstream_inference_prompt_cost": 0.0001670172,
+     "upstream_inference_completions_cost": 2.478e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 4.17
+  },
+  "How do I use GraphQL with FastAPI?\u0000To use GraphQL with FastAPI, the recommended library is Strawberry, which integrates closely with FastAPI's design using type annotations [1]. You can install Strawberry and create a `GraphQLRouter` to include in your FastAPI application under a specific prefix [1]. Since FastAPI is based on the ASGI standard, it allows for easy integration of any ASGI-compatible GraphQL library [2]. Note that previous support for Graphene was removed, so Strawberry is now the suggested choice [4].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text recommends Strawberry and mentions its design based on type annotations.",
+     "sentence": "To use GraphQL with FastAPI, the recommended library is Strawberry, which integrates closely with FastAPI's design using type annotations .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited code shows GraphQLRouter creation and inclusion with prefix.",
+     "sentence": "You can install Strawberry and create a `GraphQLRouter` to include in your FastAPI application under a specific prefix .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text states FastAPI is ASGI-based and easy to integrate ASGI-compatible GraphQL libraries.",
+     "sentence": "Since FastAPI is based on the ASGI standard, it allows for easy integration of any ASGI-compatible GraphQL library .",
+     "cites": [
+      2
+     ]
+    },
+    {
+     "i": 4,
+     "supported": false,
+     "reason": "Cited text says graphene was removed as optional dependency, not that previous support was removed.",
+     "sentence": "Note that previous support for Graphene was removed, so Strawberry is now the suggested choice .",
+     "cites": [
+      4
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": true,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1305,
+    "completion_tokens": 172,
+    "total_tokens": 1477,
+    "cost": 0.00023086,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.00023086,
+     "upstream_inference_prompt_cost": 0.0001827,
+     "upstream_inference_completions_cost": 4.816e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 4.91
+  },
+  "Is the result of a FastAPI dependency (Depends) cached, and for what scope?\u0000Yes, FastAPI caches the result of a dependency for the scope of a single request [1]. This caching mechanism ensures that if a dependency is declared multiple times within the same path operation, it is called only once and its value is reused [5]. The cache can be disabled for specific dependencies by setting `use_cache=False` in the `Depends` call [1].": {
+   "verdicts": [
+    {
+     "i": 1,
+     "supported": true,
+     "reason": "Cited text confirms caching per request.",
+     "sentence": "Yes, FastAPI caches the result of a dependency for the scope of a single request .",
+     "cites": [
+      1
+     ]
+    },
+    {
+     "i": 2,
+     "supported": true,
+     "reason": "Cited text states dependency called once per request.",
+     "sentence": "This caching mechanism ensures that if a dependency is declared multiple times within the same path operation, it is called only once and its value is reused .",
+     "cites": [
+      5
+     ]
+    },
+    {
+     "i": 3,
+     "supported": true,
+     "reason": "Cited text shows use_cache=False disables cache.",
+     "sentence": "The cache can be disabled for specific dependencies by setting `use_cache=False` in the `Depends` call .",
+     "cites": [
+      1
+     ]
+    }
+   ],
+   "answers_question": true,
+   "flagged": false,
+   "error": null,
+   "usage": {
+    "prompt_tokens": 1230,
+    "completion_tokens": 112,
+    "total_tokens": 1342,
+    "cost": 0.0001201004,
+    "is_byok": false,
+    "prompt_tokens_details": {
+     "cached_tokens": 0,
+     "cache_write_tokens": 0,
+     "audio_tokens": 0,
+     "video_tokens": 0
+    },
+    "cost_details": {
+     "upstream_inference_cost": 0.0001201004,
+     "upstream_inference_prompt_cost": 0.000101598,
+     "upstream_inference_completions_cost": 1.85024e-05
+    },
+    "completion_tokens_details": {
+     "reasoning_tokens": 0,
+     "image_tokens": 0,
+     "audio_tokens": 0
+    }
+   },
+   "latency_s": 5.29
+  }
+ },
+ "cases": [
+  {
+   "case": "3B/w2/answerable/Q1/ask",
+   "wrong": true,
+   "flagged": false,
+   "key_q": "How do I declare a path parameter in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q1/stream",
+   "wrong": true,
+   "flagged": false,
+   "key_q": "How do I declare a path parameter in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q2/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How does FastAPI treat function parameters that are not part of the path?"
+  },
+  {
+   "case": "3B/w2/answerable/Q2/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How does FastAPI treat function parameters that are not part of the path?"
+  },
+  {
+   "case": "3B/w2/answerable/Q3/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I declare a request body in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q3/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I declare a request body in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q4/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I return a custom HTTP error with a status code in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q4/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I return a custom HTTP error with a status code in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q5/ask",
+   "wrong": true,
+   "flagged": true,
+   "key_q": "What is Depends used for in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q5/stream",
+   "wrong": true,
+   "flagged": true,
+   "key_q": "What is Depends used for in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q6/ask",
+   "wrong": true,
+   "flagged": true,
+   "key_q": "How do I run a function after returning a response in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q6/stream",
+   "wrong": true,
+   "flagged": true,
+   "key_q": "How do I run a function after returning a response in FastAPI?"
+  },
+  {
+   "case": "3B/w2/answerable/Q7/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How can I add CORS support to a FastAPI application?"
+  },
+  {
+   "case": "3B/w2/answerable/Q7/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How can I add CORS support to a FastAPI application?"
+  },
+  {
+   "case": "3B/w2/answerable/Q8/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I test a FastAPI app with TestClient?"
+  },
+  {
+   "case": "3B/w2/answerable/Q8/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I test a FastAPI app with TestClient?"
+  },
+  {
+   "case": "3B/w2/answerable/Q9/stream",
+   "wrong": true,
+   "flagged": true,
+   "key_q": "How do I set the response_model of a FastAPI path operation?"
+  },
+  {
+   "case": "3B/w2/answerable/Q10/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I organize a bigger FastAPI application into multiple files with APIRouter?"
+  },
+  {
+   "case": "3B/w2/answerable/Q10/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I organize a bigger FastAPI application into multiple files with APIRouter?"
+  },
+  {
+   "case": "3B/w2/answerable/Q11/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I define a custom validator on a field in Pydantic v2?"
+  },
+  {
+   "case": "3B/w2/answerable/Q11/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I define a custom validator on a field in Pydantic v2?"
+  },
+  {
+   "case": "3B/w2/answerable/Q12/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I serialize a Pydantic model to a dict?"
+  },
+  {
+   "case": "3B/w2/answerable/Q12/stream",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I serialize a Pydantic model to a dict?"
+  },
+  {
+   "case": "3B/w2/answerable/Q13/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I generate a JSON Schema from a Pydantic model?"
+  },
+  {
+   "case": "3B/w2/answerable/Q13/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I generate a JSON Schema from a Pydantic model?"
+  },
+  {
+   "case": "3B/w2/answerable/Q14/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What does Field(default_factory=...) do in Pydantic?"
+  },
+  {
+   "case": "3B/w2/answerable/Q14/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What does Field(default_factory=...) do in Pydantic?"
+  },
+  {
+   "case": "3B/w2/answerable/Q15/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I configure a Pydantic model to forbid extra fields?"
+  },
+  {
+   "case": "3B/w2/answerable/Q15/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I configure a Pydantic model to forbid extra fields?"
+  },
+  {
+   "case": "3B/w2/answerable/Q16/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a TypeAdapter in Pydantic used for?"
+  },
+  {
+   "case": "3B/w2/answerable/Q16/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a TypeAdapter in Pydantic used for?"
+  },
+  {
+   "case": "3B/w2/answerable/Q17/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a StateGraph in LangGraph?"
+  },
+  {
+   "case": "3B/w2/answerable/Q17/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a StateGraph in LangGraph?"
+  },
+  {
+   "case": "3B/w2/answerable/Q19/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a checkpointer in LangGraph and why use one?"
+  },
+  {
+   "case": "3B/w2/answerable/Q19/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a checkpointer in LangGraph and why use one?"
+  },
+  {
+   "case": "3B/w2/answerable/Q20/ask",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How does human-in-the-loop interrupt work in LangGraph?"
+  },
+  {
+   "case": "3B/hard/refuse/Q3/ask",
+   "wrong": true,
+   "flagged": true,
+   "key_q": "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?"
+  },
+  {
+   "case": "3B/hard/refuse/Q3/stream",
+   "wrong": true,
+   "flagged": true,
+   "key_q": "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?"
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q5/ask",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I use GraphQL with FastAPI?"
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q5/stream",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I use GraphQL with FastAPI?"
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q6/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?"
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q6/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q2/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How does FastAPI treat function parameters that are not part of the path?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q3/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I declare a request body in FastAPI?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q3/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I declare a request body in FastAPI?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q4/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I return a custom HTTP error with a status code in FastAPI?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q4/stream",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I return a custom HTTP error with a status code in FastAPI?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q7/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How can I add CORS support to a FastAPI application?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q7/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How can I add CORS support to a FastAPI application?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q9/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I set the response_model of a FastAPI path operation?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q9/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I set the response_model of a FastAPI path operation?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q16/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a TypeAdapter in Pydantic used for?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q17/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a StateGraph in LangGraph?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q17/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a StateGraph in LangGraph?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q19/ask",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a checkpointer in LangGraph and why use one?"
+  },
+  {
+   "case": "Qwen/w2/answerable/Q19/stream",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a checkpointer in LangGraph and why use one?"
+  },
+  {
+   "case": "Qwen/draft/Q1",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I declare a path parameter in FastAPI?"
+  },
+  {
+   "case": "Qwen/draft/Q5",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "What is Depends used for in FastAPI?"
+  },
+  {
+   "case": "Qwen/draft/Q6",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I run a function after returning a response in FastAPI?"
+  },
+  {
+   "case": "Qwen/draft/Q8",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I test a FastAPI app with TestClient?"
+  },
+  {
+   "case": "Qwen/draft/Q10",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I organize a bigger FastAPI application into multiple files with APIRouter?"
+  },
+  {
+   "case": "Qwen/draft/Q11",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I define a custom validator on a field in Pydantic v2?"
+  },
+  {
+   "case": "Qwen/draft/Q12",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I serialize a Pydantic model to a dict?"
+  },
+  {
+   "case": "Qwen/draft/Q13",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How do I generate a JSON Schema from a Pydantic model?"
+  },
+  {
+   "case": "Qwen/draft/Q14",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What does Field(default_factory=...) do in Pydantic?"
+  },
+  {
+   "case": "Qwen/draft/Q15",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I configure a Pydantic model to forbid extra fields?"
+  },
+  {
+   "case": "Qwen/draft/Q16",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "What is a TypeAdapter in Pydantic used for?"
+  },
+  {
+   "case": "Qwen/draft/Q20",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "How does human-in-the-loop interrupt work in LangGraph?"
+  },
+  {
+   "case": "Qwen/draft/QH5",
+   "wrong": false,
+   "flagged": true,
+   "key_q": "How do I use GraphQL with FastAPI?"
+  },
+  {
+   "case": "Qwen/draft/QH6",
+   "wrong": false,
+   "flagged": false,
+   "key_q": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?"
+  }
+ ],
+ "prompt": "v2",
+ "spent_reported": 0.005734042000000001
+}

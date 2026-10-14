@@ -210,3 +210,16 @@ def test_self_check_rejects_not_in_evidence_phrasing():
         "The password is not provided in the given evidence [1].", [{"chunk_id": "a"}]
     )
     assert not ok and reason == "model_declared_insufficient_evidence"
+
+
+def test_unsupported_citation_reason_name(monkeypatch):
+    from citeguard.ask import graph
+
+    monkeypatch.setattr(graph, "llm_configured", lambda: True)
+    hits = [{"text": "Use model_dump() to convert a model instance into a Python dictionary.", "chunk_id": "a"}]
+    ans, ok, reason = graph._check(
+        "Use the orjson serializer with custom encoders and streaming [1].",
+        [{"chunk_id": "a"}], "How do I serialize?", hits,
+    )
+    assert not ok and reason == "unsupported_citation"
+    assert graph.refusal_reason(reason) == "ungrounded_answer:unsupported_citation"

@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from citeguard.api.app import build_retriever
+from citeguard.config import EMBED_MODEL, RERANK_MODEL
 
 # Hand-written queries with expected doc_id prefixes (source:relpath).
 # Expected match = any retrieved hit whose doc_id starts with or equals expected.
@@ -127,7 +128,7 @@ def main() -> None:
         "",
         "## Notes",
         "",
-        "- Numbers above are from an actual run on this box (CPU, local `bge-small-en-v1.5` + `bge-reranker-base` via fastembed, Qdrant embedded).",
+        f"- Numbers above are from an actual run on this box (CPU, local `{EMBED_MODEL}` + `{RERANK_MODEL}` cross-encoder reranker via fastembed, Qdrant embedded).",
         "- Expected doc paths were chosen from the pinned corpus; some queries may miss if headings/chunk boundaries differ — see JSON details.",
         "",
         f"Raw details: `docs/eval_week1.json`",

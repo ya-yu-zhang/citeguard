@@ -1,0 +1,1947 @@
+{
+ "status": "pending Thursday human review",
+ "labeler": "agent draft of zhang yu's answer-level hand labels; sentence labels for wrong answers are agent-proposed",
+ "note": "answer_label wrong = should be flagged; sentence supported=false marks the offending sentence(s)",
+ "cases": [
+  {
+   "case": "3B/w2/answerable/Q1/ask",
+   "model": "3B",
+   "question": "How do I declare a path parameter in FastAPI?",
+   "answer": "To declare a path parameter in FastAPI, you can use a URL like this: `files/{file_path:path}` [3]. This tells FastAPI that the parameter `file_path` should match any path [3].",
+   "chunk_ids": [
+    "c3fbe41174be-0017",
+    "234b8a91bd88-0005",
+    "c3fbe41174be-0018",
+    "26d162630452-0002",
+    "80c62924b95c-0008"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To declare a path parameter in FastAPI, you can use a URL like this: `files/{file_path:path}` .",
+     "supported": false
+    },
+    {
+     "i": 2,
+     "sentence": "This tells FastAPI that the parameter `file_path` should match any path .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q1/stream",
+   "model": "3B",
+   "question": "How do I declare a path parameter in FastAPI?",
+   "answer": "For example, you can use a URL like this: `files/{file_path:path}` [3]. This tells FastAPI that the `file_path` parameter should match any path [3].",
+   "chunk_ids": [
+    "c3fbe41174be-0017",
+    "234b8a91bd88-0005",
+    "c3fbe41174be-0018",
+    "26d162630452-0002",
+    "80c62924b95c-0008"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "For example, you can use a URL like this: `files/{file_path:path}` .",
+     "supported": false
+    },
+    {
+     "i": 2,
+     "sentence": "This tells FastAPI that the `file_path` parameter should match any path .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q2/ask",
+   "model": "3B",
+   "question": "How does FastAPI treat function parameters that are not part of the path?",
+   "answer": "FastAPI treats function parameters that are not part of the path as query parameters [1]. When you declare these parameters, they are automatically interpreted as query parameters and can be of any type, including integers, as shown in the example where `skip` and `limit` are declared as `int` types [1].",
+   "chunk_ids": [
+    "a5290b01d8ee-0000",
+    "1a5eac750e39-0008",
+    "4f8ca7cbfe68-0009",
+    "aa2fcd3d0d74-0006",
+    "c3fbe41174be-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "FastAPI treats function parameters that are not part of the path as query parameters .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "When you declare these parameters, they are automatically interpreted as query parameters and can be of any type, including integers, as shown in the example where `skip` and `limit` are declared as `int` types .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q2/stream",
+   "model": "3B",
+   "question": "How does FastAPI treat function parameters that are not part of the path?",
+   "answer": "FastAPI treats function parameters that are not part of the path as query parameters [1]. When you declare these parameters, they are automatically interpreted as query parameters and can be of any type, including integers, as shown in the example where `skip` and `limit` are declared as `int` types [1].",
+   "chunk_ids": [
+    "a5290b01d8ee-0000",
+    "1a5eac750e39-0008",
+    "4f8ca7cbfe68-0009",
+    "aa2fcd3d0d74-0006",
+    "c3fbe41174be-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "FastAPI treats function parameters that are not part of the path as query parameters .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "When you declare these parameters, they are automatically interpreted as query parameters and can be of any type, including integers, as shown in the example where `skip` and `limit` are declared as `int` types .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q3/ask",
+   "model": "3B",
+   "question": "How do I declare a request body in FastAPI?",
+   "answer": "To declare a request body in FastAPI, you can use Pydantic models as parameters in your function [5]. Additionally, you can mix `Path`, `Query`, and request body parameters, and declare body parameters as optional by setting the default to `None` [2].",
+   "chunk_ids": [
+    "aa2fcd3d0d74-0006",
+    "aa2fcd3d0d74-0001",
+    "234b8a91bd88-0007",
+    "69fdecda4939-0006",
+    "aa2fcd3d0d74-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To declare a request body in FastAPI, you can use Pydantic models as parameters in your function .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Additionally, you can mix `Path`, `Query`, and request body parameters, and declare body parameters as optional by setting the default to `None` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q3/stream",
+   "model": "3B",
+   "question": "How do I declare a request body in FastAPI?",
+   "answer": "To declare a request body in FastAPI, you can use Pydantic models as parameters in your function [5]. Additionally, you can mix `Path`, `Query`, and request body parameters, and declare body parameters as optional by setting the default to `None` [2].",
+   "chunk_ids": [
+    "aa2fcd3d0d74-0006",
+    "aa2fcd3d0d74-0001",
+    "234b8a91bd88-0007",
+    "69fdecda4939-0006",
+    "aa2fcd3d0d74-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To declare a request body in FastAPI, you can use Pydantic models as parameters in your function .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Additionally, you can mix `Path`, `Query`, and request body parameters, and declare body parameters as optional by setting the default to `None` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q4/ask",
+   "model": "3B",
+   "question": "How do I return a custom HTTP error with a status code in FastAPI?",
+   "answer": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code as a parameter [4]. Additionally, you can customize the detail of the error response [4].",
+   "chunk_ids": [
+    "957a98389641-0000",
+    "21ea5c028c93-0001",
+    "30754270c092-0000",
+    "b05842751c15-0004",
+    "cbbd7d36f7da-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code as a parameter .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Additionally, you can customize the detail of the error response .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q4/stream",
+   "model": "3B",
+   "question": "How do I return a custom HTTP error with a status code in FastAPI?",
+   "answer": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code and detail as parameters [4]. For example, to return a 404 status code with a custom detail message, you would write:   `raise HTTPException(status_code=404, detail=\"Item not found\")` [4]",
+   "chunk_ids": [
+    "957a98389641-0000",
+    "21ea5c028c93-0001",
+    "30754270c092-0000",
+    "b05842751c15-0004",
+    "cbbd7d36f7da-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class and pass the status code and detail as parameters .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "For example, to return a 404 status code with a custom detail message, you would write:   `raise HTTPException(status_code=404, detail=\"Item not found\")`",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q5/ask",
+   "model": "3B",
+   "question": "What is Depends used for in FastAPI?",
+   "answer": "Dependencies are used to declare function parameters that are not path parameters, such as query parameters, request bodies, and sub-dependencies [1]. They are handled with the `Depends()` function, which takes a callable as a parameter [1].",
+   "chunk_ids": [
+    "4f8ca7cbfe68-0005",
+    "8ae3a6c03c9b-0006",
+    "667e40148410-0004",
+    "ebb4f9a7b125-0006",
+    "c961e5d4cf6b-0000"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Dependencies are used to declare function parameters that are not path parameters, such as query parameters, request bodies, and sub-dependencies .",
+     "supported": false
+    },
+    {
+     "i": 2,
+     "sentence": "They are handled with the `Depends()` function, which takes a callable as a parameter .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q5/stream",
+   "model": "3B",
+   "question": "What is Depends used for in FastAPI?",
+   "answer": "Dependencies are used to declare function parameters that are not path parameters, such as query parameters, request bodies, and sub-dependencies [1]. They are handled with the `Depends()` function, which takes a callable as a parameter [1].",
+   "chunk_ids": [
+    "4f8ca7cbfe68-0005",
+    "8ae3a6c03c9b-0006",
+    "667e40148410-0004",
+    "ebb4f9a7b125-0006",
+    "c961e5d4cf6b-0000"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Dependencies are used to declare function parameters that are not path parameters, such as query parameters, request bodies, and sub-dependencies .",
+     "supported": false
+    },
+    {
+     "i": 2,
+     "sentence": "They are handled with the `Depends()` function, which takes a callable as a parameter .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q6/ask",
+   "model": "3B",
+   "question": "How do I run a function after returning a response in FastAPI?",
+   "answer": "To run a function after returning a response in FastAPI, you can use the `response_class` parameter in the path operation decorator to specify a custom response class [2].",
+   "chunk_ids": [
+    "ab0525419e2d-0000",
+    "ac7f4aa68c2f-0000",
+    "ac7f4aa68c2f-0004",
+    "7fe0a2b56890-0002",
+    "bcebd3100db8-0009"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To run a function after returning a response in FastAPI, you can use the `response_class` parameter in the path operation decorator to specify a custom response class .",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q6/stream",
+   "model": "3B",
+   "question": "How do I run a function after returning a response in FastAPI?",
+   "answer": "You can run a function after returning a response in FastAPI by using the `response_class` parameter in the path operation decorator to return a custom `Response` class directly [1]. Additionally, you can add code to be run with the request before any path operation receives it, and after the response is generated, before returning it [4].",
+   "chunk_ids": [
+    "ab0525419e2d-0000",
+    "ac7f4aa68c2f-0000",
+    "ac7f4aa68c2f-0004",
+    "7fe0a2b56890-0002",
+    "bcebd3100db8-0009"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can run a function after returning a response in FastAPI by using the `response_class` parameter in the path operation decorator to return a custom `Response` class directly .",
+     "supported": false
+    },
+    {
+     "i": 2,
+     "sentence": "Additionally, you can add code to be run with the request before any path operation receives it, and after the response is generated, before returning it .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q7/ask",
+   "model": "3B",
+   "question": "How can I add CORS support to a FastAPI application?",
+   "answer": "You can add CORS support to a FastAPI application by importing `CORSMiddleware` and adding it as a middleware to your FastAPI application [1].",
+   "chunk_ids": [
+    "0e60b3828d2a-0004",
+    "7fe0a2b56890-0001",
+    "3f77cbd4da36-0000",
+    "e6446728219e-0002",
+    "0e60b3828d2a-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can add CORS support to a FastAPI application by importing `CORSMiddleware` and adding it as a middleware to your FastAPI application .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q7/stream",
+   "model": "3B",
+   "question": "How can I add CORS support to a FastAPI application?",
+   "answer": "To add CORS support to a FastAPI application, you can configure the `CORSMiddleware` middleware by importing it and specifying the allowed origins, credentials, methods, and headers [1].",
+   "chunk_ids": [
+    "0e60b3828d2a-0004",
+    "7fe0a2b56890-0001",
+    "3f77cbd4da36-0000",
+    "e6446728219e-0002",
+    "0e60b3828d2a-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To add CORS support to a FastAPI application, you can configure the `CORSMiddleware` middleware by importing it and specifying the allowed origins, credentials, methods, and headers .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q8/ask",
+   "model": "3B",
+   "question": "How do I test a FastAPI app with TestClient?",
+   "answer": "To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` [3]. Then, create a `TestClient` object by passing your FastAPI application to it [2]. Write test functions with a name that starts with `test_` [2]. Use the `TestClient` object to make requests to your FastAPI application, and write assertions to check the responses [2].",
+   "chunk_ids": [
+    "adb29fe0abee-0000",
+    "80c62924b95c-0001",
+    "192ba115005d-0000",
+    "083a313d635d-0000",
+    "083a313d635d-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Then, create a `TestClient` object by passing your FastAPI application to it .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Write test functions with a name that starts with `test_` .",
+     "supported": true
+    },
+    {
+     "i": 4,
+     "sentence": "Use the `TestClient` object to make requests to your FastAPI application, and write assertions to check the responses .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q8/stream",
+   "model": "3B",
+   "question": "How do I test a FastAPI app with TestClient?",
+   "answer": "To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` [3]. Then, create a `TestClient` object by passing your FastAPI application to it [2]. Write test functions with a name that starts with `test_`, and use the `TestClient` object to make calls to your FastAPI application, just as you would with `httpx` [2].",
+   "chunk_ids": [
+    "adb29fe0abee-0000",
+    "80c62924b95c-0001",
+    "192ba115005d-0000",
+    "083a313d635d-0000",
+    "083a313d635d-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To test a FastAPI app with `TestClient`, first import it from `fastapi.testclient` .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Then, create a `TestClient` object by passing your FastAPI application to it .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Write test functions with a name that starts with `test_`, and use the `TestClient` object to make calls to your FastAPI application, just as you would with `httpx` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q9/stream",
+   "model": "3B",
+   "question": "How do I set the response_model of a FastAPI path operation?",
+   "answer": "To set the response_model of a FastAPI path operation, declare the path operation function with the `response_model` parameter [1]. If you want to exclude unset values from the response, you can use `response_model_exclude_unset=True` [5].",
+   "chunk_ids": [
+    "3749efc5e60a-0003",
+    "234b8a91bd88-0004",
+    "e6446728219e-0000",
+    "6305766fa547-0002",
+    "3749efc5e60a-0017"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To set the response_model of a FastAPI path operation, declare the path operation function with the `response_model` parameter .",
+     "supported": false
+    },
+    {
+     "i": 2,
+     "sentence": "If you want to exclude unset values from the response, you can use `response_model_exclude_unset=True` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q10/ask",
+   "model": "3B",
+   "question": "How do I organize a bigger FastAPI application into multiple files with APIRouter?",
+   "answer": "To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class [1]. Then, you include the `APIRouter` instances from submodules using `app.include_router()` [2]. Each `APIRouter` can be included with a prefix to organize routes under specific paths [2].",
+   "chunk_ids": [
+    "3fb1de8d14b6-0013",
+    "3fb1de8d14b6-0017",
+    "2400bc8a6f0e-0007",
+    "3fb1de8d14b6-0014",
+    "3fb1de8d14b6-0020"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Then, you include the `APIRouter` instances from submodules using `app.include_router()` .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Each `APIRouter` can be included with a prefix to organize routes under specific paths .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q10/stream",
+   "model": "3B",
+   "question": "How do I organize a bigger FastAPI application into multiple files with APIRouter?",
+   "answer": "To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class [1]. Then, you include the `APIRouter`s from submodules using `app.include_router()` [2]. Each `APIRouter` can be included with a prefix to organize routes under specific paths [2].",
+   "chunk_ids": [
+    "3fb1de8d14b6-0013",
+    "3fb1de8d14b6-0017",
+    "2400bc8a6f0e-0007",
+    "3fb1de8d14b6-0014",
+    "3fb1de8d14b6-0020"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To organize a bigger FastAPI application into multiple files with APIRouter, you import and create an instance of the `FastAPI` class .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Then, you include the `APIRouter`s from submodules using `app.include_router()` .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Each `APIRouter` can be included with a prefix to organize routes under specific paths .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q11/ask",
+   "model": "3B",
+   "question": "How do I define a custom validator on a field in Pydantic v2?",
+   "answer": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator [1]. Additionally, you can access metadata about the field being validated through the `info` parameter, which includes `info.field_name` to get the field name [1].",
+   "chunk_ids": [
+    "c28fef63e4cf-0017",
+    "13b45477775a-0017",
+    "6abe05815c50-0000",
+    "77bc935b52f9-0014",
+    "77bc935b52f9-0026"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Additionally, you can access metadata about the field being validated through the `info` parameter, which includes `info.field_name` to get the field name .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q11/stream",
+   "model": "3B",
+   "question": "How do I define a custom validator on a field in Pydantic v2?",
+   "answer": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator [1]. Additionally, you can access metadata about the field being validated using the `info` parameter, such as `info.field_name` to get the field name [1].",
+   "chunk_ids": [
+    "c28fef63e4cf-0017",
+    "13b45477775a-0017",
+    "6abe05815c50-0000",
+    "77bc935b52f9-0014",
+    "77bc935b52f9-0026"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Additionally, you can access metadata about the field being validated using the `info` parameter, such as `info.field_name` to get the field name .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q12/ask",
+   "model": "3B",
+   "question": "How do I serialize a Pydantic model to a dict?",
+   "answer": "To serialize a Pydantic model to a Python `dict`, you can use the `model_dump` method and specify the `mode` parameter to customize the output [1].",
+   "chunk_ids": [
+    "2c2675a3b653-0004",
+    "558298ec345e-0000",
+    "f76521d19932-0011",
+    "558298ec345e-0001",
+    "80c62924b95c-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To serialize a Pydantic model to a Python `dict`, you can use the `model_dump` method and specify the `mode` parameter to customize the output .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q12/stream",
+   "model": "3B",
+   "question": "How do I serialize a Pydantic model to a dict?",
+   "answer": "To serialize a Pydantic model to a dict, you can use the `model_dump` method and specify the mode as 'json' [1].",
+   "chunk_ids": [
+    "2c2675a3b653-0004",
+    "558298ec345e-0000",
+    "f76521d19932-0011",
+    "558298ec345e-0001",
+    "80c62924b95c-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To serialize a Pydantic model to a dict, you can use the `model_dump` method and specify the mode as 'json' .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q13/ask",
+   "model": "3B",
+   "question": "How do I generate a JSON Schema from a Pydantic model?",
+   "answer": "Use the `BaseModel.model_json_schema()` method to generate a JSON schema from a Pydantic model [1].",
+   "chunk_ids": [
+    "f76521d19932-0001",
+    "f76521d19932-0024",
+    "f079dbbcf226-0018",
+    "f76521d19932-0025",
+    "4ca4bbad66d2-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Use the `BaseModel.model_json_schema()` method to generate a JSON schema from a Pydantic model .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q13/stream",
+   "model": "3B",
+   "question": "How do I generate a JSON Schema from a Pydantic model?",
+   "answer": "Use the `BaseModel.model_json_schema()` method to generate a JSON schema from a Pydantic model [1].",
+   "chunk_ids": [
+    "f76521d19932-0001",
+    "f76521d19932-0024",
+    "f079dbbcf226-0018",
+    "f76521d19932-0025",
+    "4ca4bbad66d2-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Use the `BaseModel.model_json_schema()` method to generate a JSON schema from a Pydantic model .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q14/ask",
+   "model": "3B",
+   "question": "What does Field(default_factory=...) do in Pydantic?",
+   "answer": "Field(default_factory=...) in Pydantic allows you to specify a callable that will be used to generate a default value for a field [1].",
+   "chunk_ids": [
+    "bc9c8dfb40a5-0004",
+    "7e4ffe37a6a4-0006",
+    "8555df178cda-0032",
+    "f079dbbcf226-0040",
+    "6e7a3d3db562-0004"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Field(default_factory=...) in Pydantic allows you to specify a callable that will be used to generate a default value for a field .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q14/stream",
+   "model": "3B",
+   "question": "What does Field(default_factory=...) do in Pydantic?",
+   "answer": "Field(default_factory=...) in Pydantic allows you to specify a function that will be called to generate a default value for a field [1].",
+   "chunk_ids": [
+    "bc9c8dfb40a5-0004",
+    "7e4ffe37a6a4-0006",
+    "8555df178cda-0032",
+    "f079dbbcf226-0040",
+    "6e7a3d3db562-0004"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Field(default_factory=...) in Pydantic allows you to specify a function that will be called to generate a default value for a field .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q15/ask",
+   "model": "3B",
+   "question": "How do I configure a Pydantic model to forbid extra fields?",
+   "answer": "To configure a Pydantic model to forbid extra fields, use the `model_config = {\"extra\": \"forbid\"}` in your Pydantic model definition [1].",
+   "chunk_ids": [
+    "038cc1d73481-0407",
+    "2336775b9d81-0003",
+    "8555df178cda-0037",
+    "13b45477775a-0007",
+    "038cc1d73481-0396"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To configure a Pydantic model to forbid extra fields, use the `model_config = {\"extra\": \"forbid\"}` in your Pydantic model definition .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q15/stream",
+   "model": "3B",
+   "question": "How do I configure a Pydantic model to forbid extra fields?",
+   "answer": "To configure a Pydantic model to forbid extra fields, use the `model_config = {\"extra\": \"forbid\"}` in your Pydantic model definition [1].",
+   "chunk_ids": [
+    "038cc1d73481-0407",
+    "2336775b9d81-0003",
+    "8555df178cda-0037",
+    "13b45477775a-0007",
+    "038cc1d73481-0396"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To configure a Pydantic model to forbid extra fields, use the `model_config = {\"extra\": \"forbid\"}` in your Pydantic model definition .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q16/ask",
+   "model": "3B",
+   "question": "What is a TypeAdapter in Pydantic used for?",
+   "answer": "A TypeAdapter in Pydantic is used for parsing data into a specified type in a more ad-hoc way, especially useful when the data comes from a source you don't control, like an API call, and validation can fail long after the code has shipped [1].",
+   "chunk_ids": [
+    "95908caa2a19-0002",
+    "95908caa2a19-0003",
+    "8484900589c8-0002",
+    "95908caa2a19-0001",
+    "fc3ef15941dc-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A TypeAdapter in Pydantic is used for parsing data into a specified type in a more ad-hoc way, especially useful when the data comes from a source you don't control, like an API call, and validation can fail long after the code has shipped .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q16/stream",
+   "model": "3B",
+   "question": "What is a TypeAdapter in Pydantic used for?",
+   "answer": "A TypeAdapter in Pydantic is used for parsing data into a specified type in a more ad-hoc way, especially useful when the data comes from a source you don't control, like an API call, and validation can fail long after the code has shipped [1].",
+   "chunk_ids": [
+    "95908caa2a19-0002",
+    "95908caa2a19-0003",
+    "8484900589c8-0002",
+    "95908caa2a19-0001",
+    "fc3ef15941dc-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A TypeAdapter in Pydantic is used for parsing data into a specified type in a more ad-hoc way, especially useful when the data comes from a source you don't control, like an API call, and validation can fail long after the code has shipped .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q17/ask",
+   "model": "3B",
+   "question": "What is a StateGraph in LangGraph?",
+   "answer": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications [2]. It allows you to define a graph of nodes and edges [2]. When you compile the graph, the StateGraph API automatically creates the Pregel application for you [2].",
+   "chunk_ids": [
+    "76cb74b55737-0000",
+    "96ddfe232930-0018",
+    "abcf1ff89c7b-0000",
+    "d151c75220d1-0023",
+    "a3d4b62223de-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It allows you to define a graph of nodes and edges .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "When you compile the graph, the StateGraph API automatically creates the Pregel application for you .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q17/stream",
+   "model": "3B",
+   "question": "What is a StateGraph in LangGraph?",
+   "answer": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications [2]. It allows you to define a graph of nodes and edges [2]. When you compile the graph, the StateGraph API automatically creates the Pregel application for you [2].",
+   "chunk_ids": [
+    "76cb74b55737-0000",
+    "96ddfe232930-0018",
+    "abcf1ff89c7b-0000",
+    "d151c75220d1-0023",
+    "a3d4b62223de-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It allows you to define a graph of nodes and edges .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "When you compile the graph, the StateGraph API automatically creates the Pregel application for you .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q19/ask",
+   "model": "3B",
+   "question": "What is a checkpointer in LangGraph and why use one?",
+   "answer": "A checkpointer in LangGraph persists a thread's graph state as checkpoints, allowing state accumulation across calls on the same thread [1]. Use a checkpointer for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [2].",
+   "chunk_ids": [
+    "88aef6b0f5bf-0015",
+    "cc0bd87d2064-0000",
+    "abcf1ff89c7b-0000",
+    "4a50ddd9115d-0004",
+    "cc0bd87d2064-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A checkpointer in LangGraph persists a thread's graph state as checkpoints, allowing state accumulation across calls on the same thread .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Use a checkpointer for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q19/stream",
+   "model": "3B",
+   "question": "What is a checkpointer in LangGraph and why use one?",
+   "answer": "A checkpointer in LangGraph persists a thread's graph state as checkpoints, allowing state accumulation across calls on the same thread [1]. Use a checkpointer for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [2].",
+   "chunk_ids": [
+    "88aef6b0f5bf-0015",
+    "cc0bd87d2064-0000",
+    "abcf1ff89c7b-0000",
+    "4a50ddd9115d-0004",
+    "cc0bd87d2064-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A checkpointer in LangGraph persists a thread's graph state as checkpoints, allowing state accumulation across calls on the same thread .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Use a checkpointer for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/w2/answerable/Q20/ask",
+   "model": "3B",
+   "question": "How does human-in-the-loop interrupt work in LangGraph?",
+   "answer": "Human-in-the-loop interrupts in LangGraph work by using the `@[`interrupt`]` function to pause execution at specific points, allowing for human review or input [4]. This is demonstrated in the code examples where interrupts are called in a specific order, ensuring consistent execution across node executions [3].",
+   "chunk_ids": [
+    "cfdf5cebb128-0017",
+    "2bec62bef058-0000",
+    "2bec62bef058-0026",
+    "bdbf434ffd65-0012",
+    "7078933d5603-0005"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Human-in-the-loop interrupts in LangGraph work by using the `@[`interrupt`]` function to pause execution at specific points, allowing for human review or input .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "This is demonstrated in the code examples where interrupts are called in a specific order, ensuring consistent execution across node executions .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/hard/refuse/Q3/ask",
+   "model": "3B",
+   "question": "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?",
+   "answer": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application and take advantage of multiple cores in the CPU [3].",
+   "chunk_ids": [
+    "9262c2155592-0027",
+    "3e0058788245-0000",
+    "3e0058788245-0005",
+    "de9cd06037c6-0018",
+    "de9cd06037c6-0026"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application and take advantage of multiple cores in the CPU .",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "case": "3B/hard/refuse/Q3/stream",
+   "model": "3B",
+   "question": "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?",
+   "answer": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application, take advantage of multiple cores in the CPU, and handle more requests [3].",
+   "chunk_ids": [
+    "9262c2155592-0027",
+    "3e0058788245-0000",
+    "3e0058788245-0005",
+    "de9cd06037c6-0018",
+    "de9cd06037c6-0026"
+   ],
+   "answer_label": "wrong",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Answer: When deploying, the number of Uvicorn workers should be set to the number of CPU cores to parallelize the execution of the application, take advantage of multiple cores in the CPU, and handle more requests .",
+     "supported": false
+    }
+   ]
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q5/ask",
+   "model": "3B",
+   "question": "How do I use GraphQL with FastAPI?",
+   "answer": "To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's [1]. Here's a small example of how to integrate Strawberry with FastAPI: [1] ```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```\n[1]",
+   "chunk_ids": [
+    "81142cbac393-0002",
+    "81142cbac393-0000",
+    "038cc1d73481-0939",
+    "038cc1d73481-0759",
+    "81142cbac393-0004"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Here's a small example of how to integrate Strawberry with FastAPI:",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q5/stream",
+   "model": "3B",
+   "question": "How do I use GraphQL with FastAPI?",
+   "answer": "To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's [1]. Here's a small example of how to integrate Strawberry with FastAPI: [1] ```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```\n[1]",
+   "chunk_ids": [
+    "81142cbac393-0002",
+    "81142cbac393-0000",
+    "038cc1d73481-0939",
+    "038cc1d73481-0759",
+    "81142cbac393-0004"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To use GraphQL with FastAPI, you can integrate Strawberry, which is recommended and has a design closest to FastAPI's .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Here's a small example of how to integrate Strawberry with FastAPI:",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "```python\nimport strawberry\nfrom fastapi import FastAPI\nfrom strawberry.fastapi import GraphQLRouter\n\n@strawberry.type\nclass User:\n    name: str\n    age: int\n\n@strawberry.type\nclass Query:\n    @strawberry.field\n    def user(self) -> User:\n        return User(name=\"Patrick\", age=100)\n\nschema = strawberry.Schema(query=Query)\n\ngraphql_app = GraphQLRouter(schema)\n\napp = FastAPI()\napp.include_router(graphql_app, prefix=\"/graphql\")\n```",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q6/ask",
+   "model": "3B",
+   "question": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?",
+   "answer": "The result of a FastAPI dependency (Depends) is cached per request [1]. For the scope, if a dependency is declared with `scope=\"function\"` it is closed after the path operation function returns but before the response is sent [4].",
+   "chunk_ids": [
+    "667e40148410-0004",
+    "8ae3a6c03c9b-0006",
+    "d3fa5ab3a4a1-0014",
+    "bcebd3100db8-0009",
+    "038cc1d73481-0904"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "The result of a FastAPI dependency (Depends) is cached per request .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "For the scope, if a dependency is declared with `scope=\"function\"` it is closed after the path operation function returns but before the response is sent .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "3B/hard/converted_answerable/Q6/stream",
+   "model": "3B",
+   "question": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?",
+   "answer": "The result of a FastAPI dependency (Depends) is cached per request [1]. For the scope, if you use `Depends(scope=\"function\")`, the exit code after `yield` is executed right after the path operation function is finished, before the response is sent back to the client [2].",
+   "chunk_ids": [
+    "667e40148410-0004",
+    "8ae3a6c03c9b-0006",
+    "d3fa5ab3a4a1-0014",
+    "bcebd3100db8-0009",
+    "038cc1d73481-0904"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "The result of a FastAPI dependency (Depends) is cached per request .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "For the scope, if you use `Depends(scope=\"function\")`, the exit code after `yield` is executed right after the path operation function is finished, before the response is sent back to the client .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q2/ask",
+   "model": "Qwen",
+   "question": "How does FastAPI treat function parameters that are not part of the path?",
+   "answer": "FastAPI automatically interprets function parameters that are not part of the path as query parameters [1]. These parameters are extracted from the key-value pairs in the URL's query string [1]. They undergo type conversion, validation, and automatic documentation similar to path parameters [1].",
+   "chunk_ids": [
+    "a5290b01d8ee-0000",
+    "1a5eac750e39-0008",
+    "4f8ca7cbfe68-0009",
+    "aa2fcd3d0d74-0006",
+    "c3fbe41174be-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "FastAPI automatically interprets function parameters that are not part of the path as query parameters .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "These parameters are extracted from the key-value pairs in the URL's query string .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "They undergo type conversion, validation, and automatic documentation similar to path parameters .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q3/ask",
+   "model": "Qwen",
+   "question": "How do I declare a request body in FastAPI?",
+   "answer": "To declare a request body in FastAPI, you can use Pydantic models as function parameters [5]. You can also declare singular values to be received as part of the body [1]. Additionally, you can mix path, query, and body parameters freely within your path operation function [2].",
+   "chunk_ids": [
+    "aa2fcd3d0d74-0006",
+    "aa2fcd3d0d74-0001",
+    "234b8a91bd88-0007",
+    "69fdecda4939-0006",
+    "aa2fcd3d0d74-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To declare a request body in FastAPI, you can use Pydantic models as function parameters .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "You can also declare singular values to be received as part of the body .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, you can mix path, query, and body parameters freely within your path operation function .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q3/stream",
+   "model": "Qwen",
+   "question": "How do I declare a request body in FastAPI?",
+   "answer": "To declare a request body in FastAPI, you can use Pydantic models as function parameters [5]. You can also declare singular values to be received as part of the body or mix path and query parameters with body parameters [2]. If multiple body parameters are declared, FastAPI uses their names as keys in the JSON body [5]. Additionally, you can instruct FastAPI to embed the body in a specific key even with a single parameter [1].",
+   "chunk_ids": [
+    "aa2fcd3d0d74-0006",
+    "aa2fcd3d0d74-0001",
+    "234b8a91bd88-0007",
+    "69fdecda4939-0006",
+    "aa2fcd3d0d74-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To declare a request body in FastAPI, you can use Pydantic models as function parameters .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "You can also declare singular values to be received as part of the body or mix path and query parameters with body parameters .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "If multiple body parameters are declared, FastAPI uses their names as keys in the JSON body .",
+     "supported": true
+    },
+    {
+     "i": 4,
+     "sentence": "Additionally, you can instruct FastAPI to embed the body in a specific key even with a single parameter .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q4/ask",
+   "model": "Qwen",
+   "question": "How do I return a custom HTTP error with a status code in FastAPI?",
+   "answer": "You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail [4]. Alternatively, you can return a response object like `JSONResponse` directly and set the `status_code` parameter to specify the code [2]. You can also use named constants from the `fastapi.status` module for better readability when defining these codes [5].",
+   "chunk_ids": [
+    "957a98389641-0000",
+    "21ea5c028c93-0001",
+    "30754270c092-0000",
+    "b05842751c15-0004",
+    "cbbd7d36f7da-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Alternatively, you can return a response object like `JSONResponse` directly and set the `status_code` parameter to specify the code .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "You can also use named constants from the `fastapi.status` module for better readability when defining these codes .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q4/stream",
+   "model": "Qwen",
+   "question": "How do I return a custom HTTP error with a status code in FastAPI?",
+   "answer": "You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail message [4]. Alternatively, you can return a response object like `JSONResponse` directly and set the specific `status_code` parameter on it [2]. You can also define the primary status code for a path operation using the `status_code` parameter in decorators like `@app.get()` or `@app.post()` [1].",
+   "chunk_ids": [
+    "957a98389641-0000",
+    "21ea5c028c93-0001",
+    "30754270c092-0000",
+    "b05842751c15-0004",
+    "cbbd7d36f7da-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can return a custom HTTP error by raising an `HTTPException` with the desired status code and detail message .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Alternatively, you can return a response object like `JSONResponse` directly and set the specific `status_code` parameter on it .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "You can also define the primary status code for a path operation using the `status_code` parameter in decorators like `@app.get()` or `@app.post()` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q7/ask",
+   "model": "Qwen",
+   "question": "How can I add CORS support to a FastAPI application?",
+   "answer": "You can add CORS support by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it to your FastAPI application as a middleware [1]. You must configure specific settings such as allowed origins, credentials, methods, and headers using the parameters provided by `CORSMiddleware` [1]. Alternatively, you can import it directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` [5].",
+   "chunk_ids": [
+    "0e60b3828d2a-0004",
+    "7fe0a2b56890-0001",
+    "3f77cbd4da36-0000",
+    "e6446728219e-0002",
+    "0e60b3828d2a-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can add CORS support by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it to your FastAPI application as a middleware .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "You must configure specific settings such as allowed origins, credentials, methods, and headers using the parameters provided by `CORSMiddleware` .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Alternatively, you can import it directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q7/stream",
+   "model": "Qwen",
+   "question": "How can I add CORS support to a FastAPI application?",
+   "answer": "You can add CORS support to a FastAPI application by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it as middleware using `app.add_middleware()` [1]. You must configure specific settings such as allowed origins, credentials, HTTP methods, and headers to enable cross-origin requests [1]. Alternatively, you can import the middleware directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` [5].",
+   "chunk_ids": [
+    "0e60b3828d2a-0004",
+    "7fe0a2b56890-0001",
+    "3f77cbd4da36-0000",
+    "e6446728219e-0002",
+    "0e60b3828d2a-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can add CORS support to a FastAPI application by importing `CORSMiddleware` from `fastapi.middleware.cors` and adding it as middleware using `app.add_middleware()` .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "You must configure specific settings such as allowed origins, credentials, HTTP methods, and headers to enable cross-origin requests .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Alternatively, you can import the middleware directly from Starlette using `from starlette.middleware.cors import CORSMiddleware` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q9/ask",
+   "model": "Qwen",
+   "question": "How do I set the response_model of a FastAPI path operation?",
+   "answer": "You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response [2]. If you also specify a return type annotation, the `response_model` takes priority and is used by FastAPI for validation and documentation [1]. Additionally, you can set `response_model=None` to disable creating a response model for that specific path operation [1].",
+   "chunk_ids": [
+    "3749efc5e60a-0003",
+    "234b8a91bd88-0004",
+    "e6446728219e-0000",
+    "6305766fa547-0002",
+    "3749efc5e60a-0017"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "If you also specify a return type annotation, the `response_model` takes priority and is used by FastAPI for validation and documentation .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, you can set `response_model=None` to disable creating a response model for that specific path operation .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q9/stream",
+   "model": "Qwen",
+   "question": "How do I set the response_model of a FastAPI path operation?",
+   "answer": "You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response [2]. If you also specify a return type annotation, the `response_model` takes priority for validation and documentation [1]. Additionally, you can set it to `None` to disable creating a response model for that specific path operation [1].",
+   "chunk_ids": [
+    "3749efc5e60a-0003",
+    "234b8a91bd88-0004",
+    "e6446728219e-0000",
+    "6305766fa547-0002",
+    "3749efc5e60a-0017"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can declare the `response_model` parameter in your path operation decorator to define the metadata for the main response .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "If you also specify a return type annotation, the `response_model` takes priority for validation and documentation .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, you can set it to `None` to disable creating a response model for that specific path operation .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q16/stream",
+   "model": "Qwen",
+   "question": "What is a TypeAdapter in Pydantic used for?",
+   "answer": "TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types [1]. It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists or other complex structures [1]. Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` [1].",
+   "chunk_ids": [
+    "95908caa2a19-0002",
+    "95908caa2a19-0003",
+    "8484900589c8-0002",
+    "95908caa2a19-0001",
+    "fc3ef15941dc-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists or other complex structures .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q17/ask",
+   "model": "Qwen",
+   "question": "What is a StateGraph in LangGraph?",
+   "answer": "A StateGraph is a high-level API in LangGraph used for creating Pregel applications [2]. It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges [2]. When the graph is compiled, the StateGraph API automatically creates the underlying Pregel application for you [2].",
+   "chunk_ids": [
+    "76cb74b55737-0000",
+    "96ddfe232930-0018",
+    "abcf1ff89c7b-0000",
+    "d151c75220d1-0023",
+    "a3d4b62223de-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A StateGraph is a high-level API in LangGraph used for creating Pregel applications .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "When the graph is compiled, the StateGraph API automatically creates the underlying Pregel application for you .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q17/stream",
+   "model": "Qwen",
+   "question": "What is a StateGraph in LangGraph?",
+   "answer": "A StateGraph is a high-level API in LangGraph used for creating Pregel applications [2]. It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges, automatically generating the underlying Pregel application upon compilation [2].",
+   "chunk_ids": [
+    "76cb74b55737-0000",
+    "96ddfe232930-0018",
+    "abcf1ff89c7b-0000",
+    "d151c75220d1-0023",
+    "a3d4b62223de-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A StateGraph is a high-level API in LangGraph used for creating Pregel applications .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It serves as a higher-level abstraction that simplifies graph creation by allowing users to define nodes and edges, automatically generating the underlying Pregel application upon compilation .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q19/ask",
+   "model": "Qwen",
+   "question": "What is a checkpointer in LangGraph and why use one?",
+   "answer": "A checkpointer is a persistence system in LangGraph that persists a thread's graph state as checkpoints [2]. It is used to enable short-term, thread-scoped memory features such as conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [5]. Additionally, it allows applications to resume execution after interruptions or recover from failures by storing state snapshots at super-step boundaries [4].",
+   "chunk_ids": [
+    "88aef6b0f5bf-0015",
+    "cc0bd87d2064-0000",
+    "abcf1ff89c7b-0000",
+    "4a50ddd9115d-0004",
+    "cc0bd87d2064-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A checkpointer is a persistence system in LangGraph that persists a thread's graph state as checkpoints .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It is used to enable short-term, thread-scoped memory features such as conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, it allows applications to resume execution after interruptions or recover from failures by storing state snapshots at super-step boundaries .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/w2/answerable/Q19/stream",
+   "model": "Qwen",
+   "question": "What is a checkpointer in LangGraph and why use one?",
+   "answer": "A checkpointer is a persistence system in LangGraph that saves a thread's graph state as checkpoints [2]. It is used to enable short-term, thread-scoped memory for features like conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [5]. Additionally, it supports subgraph persistence by controlling whether internal data accumulates across calls or starts fresh [1].",
+   "chunk_ids": [
+    "88aef6b0f5bf-0015",
+    "cc0bd87d2064-0000",
+    "abcf1ff89c7b-0000",
+    "4a50ddd9115d-0004",
+    "cc0bd87d2064-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "A checkpointer is a persistence system in LangGraph that saves a thread's graph state as checkpoints .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It is used to enable short-term, thread-scoped memory for features like conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, it supports subgraph persistence by controlling whether internal data accumulates across calls or starts fresh .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q1",
+   "model": "Qwen-draft",
+   "question": "How do I declare a path parameter in FastAPI?",
+   "answer": "You can declare a path parameter by including it in the route path string, such as `/items/{item_id}` [4]. FastAPI automatically extracts and validates these parameters based on their names and types defined in the function signature [4]. If you need a parameter to contain a full path, you can append `:path` to the parameter name in the route definition [3].",
+   "chunk_ids": [
+    "c3fbe41174be-0017",
+    "234b8a91bd88-0005",
+    "c3fbe41174be-0018",
+    "26d162630452-0002",
+    "80c62924b95c-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can declare a path parameter by including it in the route path string, such as `/items/{item_id}` .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "FastAPI automatically extracts and validates these parameters based on their names and types defined in the function signature .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "If you need a parameter to contain a full path, you can append `:path` to the parameter name in the route definition .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q5",
+   "model": "Qwen-draft",
+   "question": "What is Depends used for in FastAPI?",
+   "answer": "`Depends` is used to declare dependencies in FastAPI path operation function parameters, similar to how `Body` or `Query` are used [1]. It takes a callable, such as a function or class, which FastAPI will call to provide the dependency value [5]. This mechanism allows for code reuse and handling of common logic across multiple endpoints [3].",
+   "chunk_ids": [
+    "4f8ca7cbfe68-0005",
+    "8ae3a6c03c9b-0006",
+    "667e40148410-0004",
+    "ebb4f9a7b125-0006",
+    "c961e5d4cf6b-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "`Depends` is used to declare dependencies in FastAPI path operation function parameters, similar to how `Body` or `Query` are used .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It takes a callable, such as a function or class, which FastAPI will call to provide the dependency value .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "This mechanism allows for code reuse and handling of common logic across multiple endpoints .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q6",
+   "model": "Qwen-draft",
+   "question": "How do I run a function after returning a response in FastAPI?",
+   "answer": "You can add code to be run after the response is generated by creating an HTTP middleware that modifies and returns the response object [4]. Alternatively, you can use dependencies with `yield` where the cleanup code executes after the path operation function ends but before the response is sent to the client [5].",
+   "chunk_ids": [
+    "ab0525419e2d-0000",
+    "ac7f4aa68c2f-0000",
+    "ac7f4aa68c2f-0004",
+    "7fe0a2b56890-0002",
+    "bcebd3100db8-0009"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can add code to be run after the response is generated by creating an HTTP middleware that modifies and returns the response object .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Alternatively, you can use dependencies with `yield` where the cleanup code executes after the path operation function ends but before the response is sent to the client .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q8",
+   "model": "Qwen-draft",
+   "question": "How do I test a FastAPI app with TestClient?",
+   "answer": "To test a FastAPI app, first install the `httpx` library and import `TestClient` from `fastapi.testclient` [2]. Create a `TestClient` instance by passing your FastAPI application to it, then use it in standard `pytest` functions starting with `test_` to make requests and write assertions [2]. This allows you to communicate directly with the application code without needing an actual HTTP connection [3].",
+   "chunk_ids": [
+    "adb29fe0abee-0000",
+    "80c62924b95c-0001",
+    "192ba115005d-0000",
+    "083a313d635d-0000",
+    "083a313d635d-0002"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To test a FastAPI app, first install the `httpx` library and import `TestClient` from `fastapi.testclient` .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Create a `TestClient` instance by passing your FastAPI application to it, then use it in standard `pytest` functions starting with `test_` to make requests and write assertions .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "This allows you to communicate directly with the application code without needing an actual HTTP connection .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q10",
+   "model": "Qwen-draft",
+   "question": "How do I organize a bigger FastAPI application into multiple files with APIRouter?",
+   "answer": "To organize a bigger FastAPI application, you can create separate submodules containing `APIRouter` instances for different parts of your app [4]. You then import these routers and use the `app.include_router()` method to add their routes to the main `FastAPI` application instance [2]. Additionally, you can define path operations directly on the main app alongside the included routers [5].",
+   "chunk_ids": [
+    "3fb1de8d14b6-0013",
+    "3fb1de8d14b6-0017",
+    "2400bc8a6f0e-0007",
+    "3fb1de8d14b6-0014",
+    "3fb1de8d14b6-0020"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To organize a bigger FastAPI application, you can create separate submodules containing `APIRouter` instances for different parts of your app .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "You then import these routers and use the `app.include_router()` method to add their routes to the main `FastAPI` application instance .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, you can define path operations directly on the main app alongside the included routers .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q11",
+   "model": "Qwen-draft",
+   "question": "How do I define a custom validator on a field in Pydantic v2?",
+   "answer": "You can define a custom field validator in Pydantic V2 using the `@field_validator` decorator [1]. This decorator replaces the older `@validator` and allows you to access validation metadata through a `ValidationInfo` object passed as an argument [1]. For more extensive customization, you can implement the `__get_pydantic_core_schema__` method on a custom type or metadata [4].",
+   "chunk_ids": [
+    "c28fef63e4cf-0017",
+    "13b45477775a-0017",
+    "6abe05815c50-0000",
+    "77bc935b52f9-0014",
+    "77bc935b52f9-0026"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can define a custom field validator in Pydantic V2 using the `@field_validator` decorator .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "This decorator replaces the older `@validator` and allows you to access validation metadata through a `ValidationInfo` object passed as an argument .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "For more extensive customization, you can implement the `__get_pydantic_core_schema__` method on a custom type or metadata .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q12",
+   "model": "Qwen-draft",
+   "question": "How do I serialize a Pydantic model to a dict?",
+   "answer": "You can serialize a Pydantic model to a Python dictionary by calling the `model_dump` method on the model instance [1]. This method converts the model into a dict made up of associated Python objects or only \"jsonable\" types depending on the mode specified [1]. Additionally, Pydantic uses the terms \"serialize\" and \"dump\" interchangeably when referring to this conversion process [2].",
+   "chunk_ids": [
+    "2c2675a3b653-0004",
+    "558298ec345e-0000",
+    "f76521d19932-0011",
+    "558298ec345e-0001",
+    "80c62924b95c-0008"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can serialize a Pydantic model to a Python dictionary by calling the `model_dump` method on the model instance .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "This method converts the model into a dict made up of associated Python objects or only \"jsonable\" types depending on the mode specified .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, Pydantic uses the terms \"serialize\" and \"dump\" interchangeably when referring to this conversion process .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q13",
+   "model": "Qwen-draft",
+   "question": "How do I generate a JSON Schema from a Pydantic model?",
+   "answer": "You can generate a JSON schema from a Pydantic model by calling the `model_json_schema` method on your `BaseModel` instance [1]. Alternatively, you can use the `TypeAdapter.json_schema` method if you are working with an adapted type rather than a specific model instance [1]. For generating a top-level schema that includes multiple models and their sub-models in `$defs`, you should use the `models_json_schema` function [2].",
+   "chunk_ids": [
+    "f76521d19932-0001",
+    "f76521d19932-0024",
+    "f079dbbcf226-0018",
+    "f76521d19932-0025",
+    "4ca4bbad66d2-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "You can generate a JSON schema from a Pydantic model by calling the `model_json_schema` method on your `BaseModel` instance .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "Alternatively, you can use the `TypeAdapter.json_schema` method if you are working with an adapted type rather than a specific model instance .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "For generating a top-level schema that includes multiple models and their sub-models in `$defs`, you should use the `models_json_schema` function .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q14",
+   "model": "Qwen-draft",
+   "question": "What does Field(default_factory=...) do in Pydantic?",
+   "answer": "The `default_factory` argument in Pydantic's `Field` accepts a callable that is invoked to generate a default value for the field [1]. This factory can optionally take validated data from previous fields as an argument, which is passed as a dictionary [1]. If validation fails on prior fields before the factory is called, a `default_factory_not_called` error is raised [3]. Additionally, using both `default` and `default_factory` simultaneously results in a static checking error [2].",
+   "chunk_ids": [
+    "bc9c8dfb40a5-0004",
+    "7e4ffe37a6a4-0006",
+    "8555df178cda-0032",
+    "f079dbbcf226-0040",
+    "6e7a3d3db562-0004"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "The `default_factory` argument in Pydantic's `Field` accepts a callable that is invoked to generate a default value for the field .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "This factory can optionally take validated data from previous fields as an argument, which is passed as a dictionary .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "If validation fails on prior fields before the factory is called, a `default_factory_not_called` error is raised .",
+     "supported": true
+    },
+    {
+     "i": 4,
+     "sentence": "Additionally, using both `default` and `default_factory` simultaneously results in a static checking error .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q15",
+   "model": "Qwen-draft",
+   "question": "How do I configure a Pydantic model to forbid extra fields?",
+   "answer": "To forbid extra fields in a Pydantic model, set the `model_config` dictionary to `{\"extra\": \"forbid\"}` [1]. This configuration ensures that any additional data sent in the request will result in an error response rather than being ignored or allowed [2]. This feature is supported in FastAPI version 0.114.0 and later for form models, and version 0.115.0 for query, header, and cookie parameters [3].",
+   "chunk_ids": [
+    "038cc1d73481-0407",
+    "2336775b9d81-0003",
+    "8555df178cda-0037",
+    "13b45477775a-0007",
+    "038cc1d73481-0396"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To forbid extra fields in a Pydantic model, set the `model_config` dictionary to `{\"extra\": \"forbid\"}` .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "This configuration ensures that any additional data sent in the request will result in an error response rather than being ignored or allowed .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "This feature is supported in FastAPI version 0.114.0 and later for form models, and version 0.115.0 for query, header, and cookie parameters .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q16",
+   "model": "Qwen-draft",
+   "question": "What is a TypeAdapter in Pydantic used for?",
+   "answer": "TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types [1]. It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists of models or forward references [1]. Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` [1].",
+   "chunk_ids": [
+    "95908caa2a19-0002",
+    "95908caa2a19-0003",
+    "8484900589c8-0002",
+    "95908caa2a19-0001",
+    "fc3ef15941dc-0000"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "TypeAdapter is used to apply parsing logic to populate Pydantic models in an ad-hoc manner, similar to `BaseModel.model_validate` but for arbitrary types .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "It is particularly useful for parsing data into types that are not direct subclasses of `BaseModel`, such as lists of models or forward references .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Additionally, it can parse data into any type that Pydantic handles as fields within a `BaseModel` .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/Q20",
+   "model": "Qwen-draft",
+   "question": "How does human-in-the-loop interrupt work in LangGraph?",
+   "answer": "LangGraph supports human-in-the-loop workflows using the `interrupt` function and the `Command` primitive [1]. When an interrupt is triggered, the run pauses to wait for human input, which can be provided via a `Command(resume=...)` object [5]. This mechanism allows developers to pause execution before critical actions, such as SQL queries, for review or approval [4]. If time travel is used, interrupts are re-triggered, causing the node to re-execute and pause again for new input [5].",
+   "chunk_ids": [
+    "cfdf5cebb128-0017",
+    "2bec62bef058-0000",
+    "2bec62bef058-0026",
+    "bdbf434ffd65-0012",
+    "7078933d5603-0005"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "LangGraph supports human-in-the-loop workflows using the `interrupt` function and the `Command` primitive .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "When an interrupt is triggered, the run pauses to wait for human input, which can be provided via a `Command(resume=...)` object .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "This mechanism allows developers to pause execution before critical actions, such as SQL queries, for review or approval .",
+     "supported": true
+    },
+    {
+     "i": 4,
+     "sentence": "If time travel is used, interrupts are re-triggered, causing the node to re-execute and pause again for new input .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/QH5",
+   "model": "Qwen-draft",
+   "question": "How do I use GraphQL with FastAPI?",
+   "answer": "To use GraphQL with FastAPI, the recommended library is Strawberry, which integrates closely with FastAPI's design using type annotations [1]. You can install Strawberry and create a `GraphQLRouter` to include in your FastAPI application under a specific prefix [1]. Since FastAPI is based on the ASGI standard, it allows for easy integration of any ASGI-compatible GraphQL library [2]. Note that previous support for Graphene was removed, so Strawberry is now the suggested choice [4].",
+   "chunk_ids": [
+    "81142cbac393-0002",
+    "81142cbac393-0000",
+    "038cc1d73481-0939",
+    "038cc1d73481-0759",
+    "81142cbac393-0004"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "To use GraphQL with FastAPI, the recommended library is Strawberry, which integrates closely with FastAPI's design using type annotations .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "You can install Strawberry and create a `GraphQLRouter` to include in your FastAPI application under a specific prefix .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "Since FastAPI is based on the ASGI standard, it allows for easy integration of any ASGI-compatible GraphQL library .",
+     "supported": true
+    },
+    {
+     "i": 4,
+     "sentence": "Note that previous support for Graphene was removed, so Strawberry is now the suggested choice .",
+     "supported": true
+    }
+   ]
+  },
+  {
+   "case": "Qwen/draft/QH6",
+   "model": "Qwen-draft",
+   "question": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?",
+   "answer": "Yes, FastAPI caches the result of a dependency for the scope of a single request [1]. This caching mechanism ensures that if a dependency is declared multiple times within the same path operation, it is called only once and its value is reused [5]. The cache can be disabled for specific dependencies by setting `use_cache=False` in the `Depends` call [1].",
+   "chunk_ids": [
+    "667e40148410-0004",
+    "8ae3a6c03c9b-0006",
+    "d3fa5ab3a4a1-0014",
+    "bcebd3100db8-0009",
+    "038cc1d73481-0904"
+   ],
+   "answer_label": "correct",
+   "sentences": [
+    {
+     "i": 1,
+     "sentence": "Yes, FastAPI caches the result of a dependency for the scope of a single request .",
+     "supported": true
+    },
+    {
+     "i": 2,
+     "sentence": "This caching mechanism ensures that if a dependency is declared multiple times within the same path operation, it is called only once and its value is reused .",
+     "supported": true
+    },
+    {
+     "i": 3,
+     "sentence": "The cache can be disabled for specific dependencies by setting `use_cache=False` in the `Depends` call .",
+     "supported": true
+    }
+   ]
+  }
+ ]
+}

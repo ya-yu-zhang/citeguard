@@ -57,6 +57,8 @@ class Settings(BaseSettings):
     llm_base_url: str = LLM_BASE_URL
     llm_model: str = LLM_MODEL
     llm_max_tokens: int = LLM_MAX_TOKENS
+    # Extra JSON merged into the chat request, e.g. '{"reasoning": {"enabled": false}}' for OpenRouter
+    llm_extra_body: str = ""
     llm_timeout_s: float = LLM_TIMEOUT_S
     ask_use_rerank: bool = ASK_USE_RERANK
 
