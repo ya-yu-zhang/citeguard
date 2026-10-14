@@ -1,12 +1,14 @@
 """LangGraph: retrieve → evidence_judge → (refuse | generate) → self_check."""
 from __future__ import annotations
 
+import re
 from typing import Any, Iterator, Literal, TypedDict
 
 from langgraph.graph import END, START, StateGraph
 
+from citeguard.ask.attribution import is_out_of_scope_task, repair_citations
 from citeguard.ask.evidence import evidence_gate, hits_to_citations
-from citeguard.ask.llm import generate_answer, llm_configured, normalize_citations, self_check_answer, stream_generate
+from citeguard.ask.llm import generate_answer, llm_configured, self_check_answer
 from citeguard.config import ASK_TOP_K, LLM_CONTEXT_CHARS, get_settings
 from citeguard.retrieval.hybrid import HybridRetriever
 
@@ -15,14 +17,36 @@ def _contexts(hits: list[dict[str, Any]]) -> list[str]:
     return [str(h.get("text") or "")[:LLM_CONTEXT_CHARS] for h in hits]
 
 
-def _check(answer: str, citations: list, question: str, hits: list) -> tuple[bool, str | None]:
-    """Citation self-check; lexical grounding only for live LLMs (stub is extractive)."""
+def _check(answer: str, citations: list, question: str, hits: list) -> tuple[str, bool, str | None]:
+    """Live LLM: repair/verify citations per sentence, then self-check.
+    Stub: plain self-check (it is extractive by construction)."""
     if not llm_configured():
-        return self_check_answer(answer, citations)
-    return self_check_answer(answer, citations, question=question, contexts=_contexts(hits))
+        ok, reason = self_check_answer(answer, citations)
+        return answer, ok, reason
+    ok0, reason0 = self_check_answer(answer, citations)
+    if not ok0 and reason0 in {"model_declared_insufficient_evidence", "empty_answer", "no_citations"}:
+        return answer, ok0, reason0
+    rep = repair_citations(answer, question, _contexts(hits))
+    if rep.wrong_source:
+        return "", False, "retrieval_miss"
+    if rep.supported == 0:
+        return "", False, "no_supported_sentences"
+    ok, reason = self_check_answer(rep.answer, citations, question=question, contexts=_contexts(hits))
+    return rep.answer, ok, reason
 
 
-_NO_REGEN = {"model_declared_insufficient_evidence", "empty_answer", "no_citations"}
+_NO_EVIDENCE_DETAILS = ("no_retrieval_hits", "top_score_below_threshold", "top3_chars_below_threshold",
+                        "out_of_scope_task", "model_declared_insufficient_evidence", "no_citations")
+
+
+def refusal_reason(detail: str) -> str:
+    """Two top-level classes: no_evidence (gate/model said not in docs) vs
+    ungrounded_answer (model answered but it failed citation/grounding checks)."""
+    head = "no_evidence" if detail.startswith(_NO_EVIDENCE_DETAILS) else "ungrounded_answer"
+    return f"{head}:{detail}"
+
+
+_NO_REGEN = {"model_declared_insufficient_evidence", "empty_answer", "no_citations", "no_supported_sentences", "retrieval_miss"}
 # low_grounding:* is also final (prefix-matched below): regenerating at T=0 gives the same text
 
 
@@ -56,12 +80,15 @@ def build_ask_graph(retriever: HybridRetriever):
         }
 
     def evidence_judge(state: AskState) -> dict[str, Any]:
+        if is_out_of_scope_task(state["question"]):
+            return {"evidence_ok": False, "refused": True, "refusal_reason": refusal_reason("out_of_scope_task"),
+                    "answer": "", "citations": []}
         decision = evidence_gate(state.get("hits") or [])
         if not decision.ok:
             return {
                 "evidence_ok": False,
                 "refused": True,
-                "refusal_reason": decision.reason,
+                "refusal_reason": refusal_reason(decision.reason or "no_retrieval_hits"),
                 "answer": "",
                 "citations": [],
             }
@@ -88,11 +115,12 @@ def build_ask_graph(retriever: HybridRetriever):
         return {"answer": answer}
 
     def self_check(state: AskState) -> dict[str, Any]:
-        ok, reason = _check(
+        checked, ok, reason = _check(
             state.get("answer") or "", state.get("citations") or [], state["question"], state.get("hits") or []
         )
         if ok:
             return {
+                "answer": checked,
                 "self_check_ok": True,
                 "self_check_reason": None,
                 "refused": False,
@@ -111,7 +139,7 @@ def build_ask_graph(retriever: HybridRetriever):
             "self_check_ok": False,
             "self_check_reason": reason,
             "refused": True,
-            "refusal_reason": f"self_check_failed:{reason}",
+            "refusal_reason": refusal_reason(str(reason)),
             "answer": "",
         }
 
@@ -168,52 +196,17 @@ def stream_ask_events(
     *,
     method: str | None = None,
 ) -> Iterator[dict[str, Any]]:
-    """Yield SSE-friendly event dicts: status / token / final."""
+    """Yield SSE events: status / token / final.
+
+    Buffer-then-stream: the full graph (evidence judge + generation + citation repair +
+    self-check) runs BEFORE any token reaches the client, so /ask/stream refuses exactly
+    when /ask does and never streams text it later retracts. Trade-off: time-to-first-token
+    equals full generation time.
+    """
     method = method or _ask_method()
-    yield {"event": "status", "data": {"stage": "retrieve", "method": method}}
-    hits = [h.to_dict() for h in retriever.search(question, top_k=ASK_TOP_K, method=method)]
-    decision = evidence_gate(hits)
-    if not decision.ok:
-        final = {
-            "answer": "",
-            "refused": True,
-            "refusal_reason": decision.reason,
-            "citations": [],
-            "method": method,
-        }
-        yield {"event": "final", "data": final}
-        return
-
-    citations = hits_to_citations(hits)
-    yield {"event": "status", "data": {"stage": "generate", "n_citations": len(citations)}}
-
-    answer_parts: list[str] = []
-    for tok in stream_generate(question, citations, _contexts(hits)):
-        answer_parts.append(tok)
-        yield {"event": "token", "data": {"text": tok}}
-    answer = normalize_citations("".join(answer_parts))
-
-    ok, reason = _check(answer, citations, question, hits)
-    if not ok and reason not in _NO_REGEN and not str(reason).startswith("low_grounding"):
-        # one regenerate attempt (non-stream full regen), mirrors the graph path
-        answer = generate_answer(question, citations, _contexts(hits))
-        ok, reason = _check(answer, citations, question, hits)
-    if not ok:
-        final = {
-            "answer": "",
-            "refused": True,
-            "refusal_reason": f"self_check_failed:{reason}",
-            "citations": citations,
-            "method": method,
-        }
-        yield {"event": "final", "data": final}
-        return
-
-    final = {
-        "answer": answer,
-        "refused": False,
-        "refusal_reason": None,
-        "citations": citations,
-        "method": method,
-    }
+    yield {"event": "status", "data": {"stage": "retrieve+generate+verify", "method": method}}
+    final = run_ask(retriever, question, method=method)
+    if not final["refused"]:
+        for tok in re.findall(r"\S+\s*", final["answer"]):
+            yield {"event": "token", "data": {"text": tok}}
     yield {"event": "final", "data": final}
