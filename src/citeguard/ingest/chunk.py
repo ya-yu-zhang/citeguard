@@ -12,9 +12,9 @@ _ENC = tiktoken.get_encoding("cl100k_base")
 _HEADING_RE = re.compile(r"^(#{1,6})\s+(.+)$", re.MULTILINE)
 _ANCHOR_RE = re.compile(r"\s*\{\s*#[^}]+\}\s*")
 
+
 def _clean_heading(title: str) -> str:
     return _ANCHOR_RE.sub("", title).strip()
-
 
 
 def count_tokens(text: str) -> int:
@@ -39,6 +39,12 @@ def _split_tokens(text: str, max_tokens: int, overlap: int) -> list[str]:
     return chunks
 
 
+def make_chunk_id(doc_id: str, chunk_index: int) -> str:
+    """Stable unique id: hash(doc_id) + per-doc monotonic index (no content hash → no collisions)."""
+    digest = hashlib.sha1(doc_id.encode("utf-8")).hexdigest()[:12]
+    return f"{digest}-{chunk_index:04d}"
+
+
 @dataclass
 class Chunk:
     doc_id: str
@@ -50,6 +56,7 @@ class Chunk:
     source_commit: str
     heading: str
     token_count: int
+    chunk_index: int = 0
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -71,7 +78,6 @@ def iter_sections(md: str) -> Iterator[tuple[str, str]]:
         yield ("", md.strip())
         return
 
-    # preamble before first heading
     if matches[0].start() > 0:
         preamble = md[: matches[0].start()].strip()
         if preamble:
@@ -103,18 +109,17 @@ def chunk_markdown(
     overlap_tokens: int = 50,
 ) -> list[Chunk]:
     chunks: list[Chunk] = []
+    chunk_index = 0
     for title_path, body in iter_sections(md):
         pieces = _split_tokens(body, target_tokens, overlap_tokens)
-        for i, piece in enumerate(pieces):
+        for piece in pieces:
             text = piece.strip()
             if not text:
                 continue
-            raw_id = f"{doc_id}::{title_path}::{i}::{text[:64]}"
-            chunk_id = hashlib.sha1(raw_id.encode()).hexdigest()[:16]
             chunks.append(
                 Chunk(
                     doc_id=doc_id,
-                    chunk_id=chunk_id,
+                    chunk_id=make_chunk_id(doc_id, chunk_index),
                     text=text,
                     title_path=title_path or "(root)",
                     source_url=source_url,
@@ -122,6 +127,8 @@ def chunk_markdown(
                     source_commit=source_commit,
                     heading=title_path.split(" > ")[-1] if title_path else "(root)",
                     token_count=count_tokens(text),
+                    chunk_index=chunk_index,
                 )
             )
+            chunk_index += 1
     return chunks

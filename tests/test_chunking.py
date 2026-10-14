@@ -42,3 +42,15 @@ def test_frontmatter_stripped():
 
 def test_count_tokens_positive():
     assert count_tokens("hello world") > 0
+
+
+def test_chunk_ids_unique_within_and_across_docs():
+    from citeguard.ingest.chunk import chunk_markdown, make_chunk_id
+
+    md = "# A\n\n" + ("word " * 800) + "\n\n# B\n\n" + ("other " * 800)
+    a = chunk_markdown(md, doc_id="repo:a.md", source_url="u", source_repo="r", source_commit="c", target_tokens=50, overlap_tokens=5)
+    b = chunk_markdown(md, doc_id="repo:b.md", source_url="u", source_repo="r", source_commit="c", target_tokens=50, overlap_tokens=5)
+    ids = [c.chunk_id for c in a] + [c.chunk_id for c in b]
+    assert len(ids) == len(set(ids))
+    assert a[0].chunk_id == make_chunk_id("repo:a.md", 0)
+    assert a[1].chunk_id == make_chunk_id("repo:a.md", 1)

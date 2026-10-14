@@ -7,8 +7,8 @@ class SearchRequest(BaseModel):
     query: str = Field(..., min_length=1)
     top_k: int = Field(5, ge=1, le=50)
     method: str = Field(
-        "hybrid+rerank",
-        description="bm25 | vector | hybrid | hybrid+rerank",
+        "hybrid",
+        description="bm25 | vector | hybrid (default) | hybrid+rerank (opt-in)",
     )
 
 

@@ -22,12 +22,25 @@ flowchart LR
 ```
 
 ## Evaluation
+
+### Week 1 — Retrieval (30 handwritten queries)
+
+| Method | Recall@5 | MRR | p95 latency |
+|---|---:|---:|---:|
+| BM25 | 0.733 | 0.524 | 0.008s |
+| Vector | 0.867 | 0.676 | 0.040s |
+| **Hybrid (default)** | **0.900** | **0.723** | **0.049s** |
+| Hybrid + rerank (`bge-reranker-base`, CPU) | 0.900 | 0.637 | 2.853s |
+
+Notes: hybrid beats pure vector on R@5/MRR. Rerank is **optional** (no R@5 gain on this set; CPU p95 ~2.7s exceeds the 1.5s target — to be fixed). Corpus: 290 docs → 4100 chunks (FastAPI / Pydantic / LangGraph, MIT; see Data Sources).
+
+### Later weeks (TBD)
 | Metric | Baseline RAG | CiteGuard |
 |---|---|---|
 | Faithfulness (RAGAS) | TBD | TBD |
 | Context Recall (RAGAS) | TBD | TBD |
 | Refusal Accuracy | TBD | TBD |
-| p95 Latency | TBD | TBD |
+| p95 Latency (`/ask`) | TBD | TBD |
 
 Test set: ~100 Q&A pairs incl. unanswerable questions. <!-- TODO: link eval/ -->
 
@@ -70,14 +83,16 @@ curl -X POST localhost:8000/search -H 'Content-Type: application/json' \
 HF Spaces tip: unset `QDRANT_URL` so the API uses Qdrant embedded/local disk mode (single container).
 
 ## API
-- `POST /search` hybrid retrieval results (`query`, `top_k`, optional `method`: `bm25|vector|hybrid|hybrid+rerank`)
+- `POST /search` hybrid retrieval results (`query`, `top_k`, optional `method`: `bm25|vector|hybrid` **default** `|hybrid+rerank` opt-in)
 - `POST /ask` cited answer or refusal (streaming) — Week 2
 - `GET /health`
 
 ## Design Decisions
-- **Hybrid retrieval**: BM25 + `bge-small-en-v1.5` vectors fused with RRF (`k=60`), then `bge-reranker-base` cross-encoder.
+- **Hybrid retrieval (API default)**: BM25 + `bge-small-en-v1.5` vectors fused with RRF (`k=60`). Best MRR on the Week-1 30-query set; HTTP p95 ~0.04s on CPU.
+- **Opt-in rerank**: `method=hybrid+rerank` uses `ms-marco-MiniLM-L-6-v2` on the top-10 RRF hits (512-char truncate). Improves Recall@5 on this set but not MRR; HTTP p95 ~0.21s (clears &lt;1.5s). `bge-reranker-base` was too slow (~2.7s) on CPU.
 - **Local models only** for Week 1 (no paid embedding/LLM APIs).
 - **Qdrant URL optional**: empty → embedded path under `data/indexes/qdrant_local` (Spaces-friendly).
+- **Unique `chunk_id`**: `sha1(doc_id)[:12]-NNNN` (per-doc index) — no collisions.
 - Refusal threshold / LangGraph `/ask` — Week 2.
 
 ## Roadmap

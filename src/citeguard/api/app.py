@@ -84,8 +84,11 @@ def search(req: SearchRequest) -> SearchResponse:
     if retriever is None:
         raise HTTPException(503, detail=f"Retriever not ready: {_state.get('error')}")
     method = req.method
-    if method not in {"bm25", "vector", "hybrid", "hybrid+rerank"}:
+    allowed = {"bm25", "vector", "hybrid", "hybrid+rerank", "hybrid_rerank"}
+    if method not in allowed:
         raise HTTPException(400, detail="method must be bm25|vector|hybrid|hybrid+rerank")
+    if method == "hybrid_rerank":
+        method = "hybrid+rerank"
     hits = retriever.search(req.query, top_k=req.top_k, method=method)
     return SearchResponse(
         query=req.query,

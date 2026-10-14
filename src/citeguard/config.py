@@ -18,12 +18,16 @@ COLLECTION_NAME = "citeguard_chunks"
 
 # Retrieval defaults
 EMBED_MODEL = "BAAI/bge-small-en-v1.5"
-RERANK_MODEL = "BAAI/bge-reranker-base"
+# Lighter CPU cross-encoder (0.08 GB). bge-reranker-base (~1 GB) missed p95<1.5s (~2.7s).
+RERANK_MODEL = "Xenova/ms-marco-MiniLM-L-6-v2"
 RRF_K = 60
 CHUNK_TARGET_TOKENS = 500
 CHUNK_OVERLAP_TOKENS = 50
 DEFAULT_TOP_K = 5
-RETRIEVE_CANDIDATES = 20  # before rerank
+RETRIEVE_CANDIDATES = 20  # BM25/vector pool before RRF
+RERANK_CANDIDATES = 10  # only top-N after RRF go to cross-encoder
+RERANK_MAX_CHARS = 512  # truncate passage text for faster rerank
+DEFAULT_SEARCH_METHOD = "hybrid"  # hybrid+rerank is opt-in
 
 
 class Settings(BaseSettings):

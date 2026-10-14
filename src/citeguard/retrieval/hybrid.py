@@ -4,7 +4,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-from citeguard.config import DEFAULT_TOP_K, RETRIEVE_CANDIDATES, RRF_K
+from citeguard.config import (
+    DEFAULT_SEARCH_METHOD,
+    DEFAULT_TOP_K,
+    RERANK_CANDIDATES,
+    RETRIEVE_CANDIDATES,
+    RRF_K,
+)
 from citeguard.index.store import search_vectors
 from citeguard.retrieval.bm25 import BM25Index
 from citeguard.retrieval.embedder import embed_query
@@ -77,7 +83,13 @@ class HybridRetriever:
                 hits.append(h)
         return hits
 
-    def search_hybrid(self, query: str, top_k: int = DEFAULT_TOP_K, *, candidates: int = RETRIEVE_CANDIDATES) -> list[SearchHit]:
+    def search_hybrid(
+        self,
+        query: str,
+        top_k: int = DEFAULT_TOP_K,
+        *,
+        candidates: int = RETRIEVE_CANDIDATES,
+    ) -> list[SearchHit]:
         bm25_ids = [cid for cid, _ in self.bm25.search(query, top_k=candidates)]
         qv = embed_query(query)
         vec_ids = [cid for cid, _, _ in search_vectors(self.client, qv, top_k=candidates)]
@@ -95,9 +107,10 @@ class HybridRetriever:
         top_k: int = DEFAULT_TOP_K,
         *,
         candidates: int = RETRIEVE_CANDIDATES,
+        rerank_n: int = RERANK_CANDIDATES,
     ) -> list[SearchHit]:
-        # RRF over larger pool, then cross-encoder rerank
-        pool = self.search_hybrid(query, top_k=candidates, candidates=candidates)
+        # RRF pool, then cross-encoder only on top rerank_n
+        pool = self.search_hybrid(query, top_k=rerank_n, candidates=candidates)
         passages = [(h.chunk_id, h.text) for h in pool]
         ranked = rerank(query, passages, top_k=top_k)
         hits = []
@@ -107,11 +120,16 @@ class HybridRetriever:
                 hits.append(h)
         return hits
 
-    def search(self, query: str, top_k: int = DEFAULT_TOP_K, method: str = "hybrid+rerank") -> list[SearchHit]:
+    def search(
+        self,
+        query: str,
+        top_k: int = DEFAULT_TOP_K,
+        method: str = DEFAULT_SEARCH_METHOD,
+    ) -> list[SearchHit]:
         if method == "bm25":
             return self.search_bm25(query, top_k)
         if method == "vector":
             return self.search_vector(query, top_k)
-        if method == "hybrid":
-            return self.search_hybrid(query, top_k)
-        return self.search_hybrid_rerank(query, top_k)
+        if method in {"hybrid+rerank", "hybrid_rerank"}:
+            return self.search_hybrid_rerank(query, top_k)
+        return self.search_hybrid(query, top_k)
