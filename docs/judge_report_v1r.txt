@@ -1,0 +1,10 @@
+[original   standalone] per-answer 62/70  TP=6 FN=3 FP=5 TN=56 | per-sentence 156/164
+[original   veto      ] per-answer 50/70  TP=6 FN=3 FP=17 TN=44
+    false refusals: 3B/w2/answerable/Q20/ask, 3B/hard/converted_answerable/Q5/ask, 3B/hard/converted_answerable/Q5/stream, Qwen/draft/Q1, Qwen/draft/Q5, Qwen/draft/Q6, Qwen/draft/Q8, Qwen/draft/Q10, Qwen/draft/Q11, Qwen/draft/Q12, Qwen/draft/Q13, Qwen/draft/Q14, Qwen/draft/Q15, Qwen/draft/Q16, Qwen/draft/Q20, Qwen/draft/QH5, Qwen/draft/QH6
+[incomplete standalone] per-answer 64/70  TP=6 FN=1 FP=5 TN=58 | per-sentence 158/164
+[incomplete veto      ] per-answer 52/70  TP=6 FN=1 FP=17 TN=46
+    false refusals: 3B/w2/answerable/Q20/ask, 3B/hard/converted_answerable/Q5/ask, 3B/hard/converted_answerable/Q5/stream, Qwen/draft/Q1, Qwen/draft/Q5, Qwen/draft/Q6, Qwen/draft/Q8, Qwen/draft/Q10, Qwen/draft/Q11, Qwen/draft/Q12, Qwen/draft/Q13, Qwen/draft/Q14, Qwen/draft/Q15, Qwen/draft/Q16, Qwen/draft/Q20, Qwen/draft/QH5, Qwen/draft/QH6
+[post-review standalone] per-answer 66/70  TP=8 FN=1 FP=3 TN=58 | per-sentence 158/162
+[post-review veto      ] per-answer 54/70  TP=8 FN=1 FP=15 TN=46
+    false refusals: 3B/w2/answerable/Q20/ask, 3B/hard/converted_answerable/Q5/ask, 3B/hard/converted_answerable/Q5/stream, Qwen/draft/Q1, Qwen/draft/Q5, Qwen/draft/Q8, Qwen/draft/Q10, Qwen/draft/Q11, Qwen/draft/Q12, Qwen/draft/Q13, Qwen/draft/Q14, Qwen/draft/Q16, Qwen/draft/Q20, Qwen/draft/QH5, Qwen/draft/QH6
+calls=61 retried=0 final_errors=[] reported_cost=0.00643

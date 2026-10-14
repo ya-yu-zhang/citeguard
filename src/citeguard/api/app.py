@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import StreamingResponse
 
 from citeguard.api.schemas import (
@@ -18,6 +18,7 @@ from citeguard.api.schemas import (
     SearchResponse,
     SearchResult,
 )
+from citeguard.api.ratelimit import RateLimiter, client_ip, limited_response
 from citeguard.ask.graph import run_ask, stream_ask_events
 from citeguard.ask.llm import llm_configured
 from citeguard.config import BM25_PATH, CHUNKS_PATH, get_settings
@@ -78,6 +79,16 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="CiteGuard", version="0.2.0", lifespan=lifespan)
+app.state.limiter = RateLimiter()
+
+
+@app.middleware("http")
+async def ask_rate_limit(request: Request, call_next):
+    if request.method == "POST" and request.url.path in ("/ask", "/ask/stream"):
+        ok, info = request.app.state.limiter.check(client_ip(request))
+        if not ok:
+            return limited_response(info)
+    return await call_next(request)
 
 
 @app.get("/health", response_model=HealthResponse)

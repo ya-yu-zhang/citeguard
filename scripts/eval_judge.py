@@ -74,11 +74,12 @@ def main() -> None:
     ap.add_argument("--cap", type=float, default=0.05)
     ap.add_argument("--base", default="http://localhost:8000")
     ap.add_argument("--prompt", default="v1", choices=["v1", "v2"])
+    ap.add_argument("--tag", default="", help="output suffix (default = prompt)")
     a = ap.parse_args()
     import os
     os.environ["JUDGE_PROMPT"] = a.prompt
     global OUT
-    OUT = ROOT / f"docs/judge_eval_week3_{a.prompt}.json"
+    OUT = ROOT / f"docs/judge_eval_week3_{a.tag or a.prompt}.json"
     cache = json.loads(OUT.read_text()) if OUT.exists() else {"judged": {}, "cases": []}
     judged = cache["judged"]
     spent = sum((j.get("usage") or {}).get("cost") or 0 for j in judged.values())

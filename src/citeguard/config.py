@@ -1,12 +1,13 @@
 """Runtime configuration. QDRANT_URL unset → local embedded Qdrant (HF Spaces friendly)."""
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT / "data"
+DATA_DIR = Path(os.environ["CITEGUARD_DATA_DIR"]) if os.environ.get("CITEGUARD_DATA_DIR") else ROOT / "data"
 RAW_DIR = DATA_DIR / "raw"
 PROCESSED_DIR = DATA_DIR / "processed"
 INDEX_DIR = DATA_DIR / "indexes"

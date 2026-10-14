@@ -1,0 +1,8 @@
+.venv
+.env
+.git
+deploy/
+data/raw
+data/processed
+data/indexes
+**/__pycache__

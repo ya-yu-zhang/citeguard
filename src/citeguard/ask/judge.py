@@ -99,9 +99,30 @@ def judge_answer(
     chunk_texts: Sequence[str],
     *,
     max_chunk_chars: int = 2000,
-    max_tokens: int = 300,
+    max_tokens: int = 800,
+    retries: int = 1,
     timeout_s: float = 60.0,
 ) -> JudgeResult:
+    """Retries once (by default) on bad_json / verdict_count_mismatch; usage is summed."""
+    res = _judge_once(question, answer, chunk_texts, max_chunk_chars, max_tokens, timeout_s)
+    tries = 0
+    while res.error in ("bad_json", "verdict_count_mismatch") and tries < retries:
+        tries += 1
+        prev = res
+        res = _judge_once(question, answer, chunk_texts, max_chunk_chars, max_tokens, timeout_s)
+        res.usage = {"cost": (prev.usage.get("cost") or 0) + (res.usage.get("cost") or 0),
+                     "retried_after": prev.error}
+        res.latency_s += prev.latency_s
+    return res
+
+
+def judge_mode() -> str:
+    """JUDGE_MODE=off (default) | veto: after the overlap rule passes, the judge may veto."""
+    m = os.environ.get("JUDGE_MODE", "off").strip().lower()
+    return m if m in ("off", "veto") else "off"
+
+
+def _judge_once(question, answer, chunk_texts, max_chunk_chars, max_tokens, timeout_s) -> JudgeResult:
     items = build_items(answer, chunk_texts)
     if not items:
         return JudgeResult([], None, error="no_sentences")

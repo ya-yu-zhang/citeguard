@@ -53,3 +53,40 @@ Neither prompt meets the gates, so **do not wire it as-is.** If wiring is pursue
 
 ## Latency note
 3B vs Qwen latency is **not comparable** until 3B is rerun on an idle machine (3B 1.4→7.1 s jump is unexplained, likely box load).
+
+## Update (Oct 14 PM): max_tokens 800 + one retry, veto mode, post-review basis
+
+Changes: `max_tokens` 300→800, one retry on `bad_json`/`verdict_count_mismatch`; `JUDGE_MODE=off|veto`
+(default **off**; veto = overlap rule unchanged runs first, then the judge may refuse with
+`ungrounded_answer:judge_veto:*`). Same v1 prompt, all 70 cases rerun → `docs/judge_eval_week3_v1r.json`,
+report `docs/judge_report_v1r.txt` (`scripts/judge_report.py`). 0 format errors and 0 retries needed this run
+(the v1 bad_json cases now parse: Qwen Q7 ask and draft Q11 now pass).
+
+Agreement with human labels (standalone = judge alone on all 70; per-sentence over 164 sentences):
+
+| Label basis | v1 (300 tok) per-answer | v1r per-answer | v1r per-sentence | v1r TP/FN/FP/TN |
+|---|---|---|---|---|
+| Original gold file | 61/70 | **62/70** | 156/164 | 6/3/5/56 |
+| Q1 ask/stream = incomplete (not wrong) | 63/70 | 64/70 | 158/164 | 6/1/5/58 |
+| Post-review (below) | 65/70 | **66/70** | 158/162 | 8/1/3/58 |
+
+**Both alternative bases are post-hoc** (decided after seeing judge output) and are not independent evidence.
+Post-review basis = Q1 ask/stream and 3B Q20 ask → incomplete (not wrong); Qwen draft Q6 → wrong (teammate:
+no BackgroundTasks, middleware claim wrong; its sentences excluded from per-sentence, not reviewed); Qwen draft Q15
+→ wrong because of sentence 3 (see check). The gold file itself is unchanged (frozen for review).
+
+Check of Qwen draft Q15 sentence 3 ("supported in FastAPI 0.114.0 and later for form models, and 0.115.0 for
+query, header, cookie parameters [3]"): **unsupported by its cited chunk.** Chunk [3] (8555df178cda-0037, Pydantic
+`extra_forbidden` error doc) contains no version numbers. "0.114.0 … form models" is in chunk [2] (2336775b9d81-0003);
+"0.115.0 for query/header/cookie" appears in none of the 5 retrieved chunks. The judge flagged exactly this sentence.
+
+Remaining disagreements (post-review, standalone): FN = 3B Q9 stream; FP = 3B Q20 ask (incomplete, counted
+not-wrong, judge flagged it), 3B converted Q5 ask + stream.
+
+**Veto mode, system level** (drafts are refused by the overlap rule before the judge sees them, so all 14
+are refusals — that is the overlap rule's behaviour, unchanged): original basis 50/70, post-review 54/70.
+Judge's marginal effect on the 56 served answers (original labels): vetoes 6 of 9 wrong answers (misses Q1 ask/stream,
+Q9 stream) and 3 of 47 correct (3B Q20 ask, 3B converted Q5 ask+stream). Answer-rate effect on this set:
+3B loses 9 of its 42 served answers (6 wrong + 3 correct); Qwen Week 2 loses 0 of 14.
+Recommendation unchanged: keep `JUDGE_MODE=off` by default; veto is reasonable to trial for 3B where it removes
+6 known wrong answers at the cost of 3 correct ones. Gate (a) still fails (Q1 is arguably incomplete; Q9 stream is a true miss).

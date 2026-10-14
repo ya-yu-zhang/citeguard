@@ -8,6 +8,7 @@ from langgraph.graph import END, START, StateGraph
 
 from citeguard.ask.attribution import is_out_of_scope_task, repair_citations
 from citeguard.ask.evidence import evidence_gate, hits_to_citations
+from citeguard.ask.judge import judge_answer, judge_mode
 from citeguard.ask.llm import generate_answer, llm_configured, self_check_answer
 from citeguard.config import ASK_TOP_K, LLM_CONTEXT_CHARS, get_settings
 from citeguard.retrieval.hybrid import HybridRetriever
@@ -32,6 +33,10 @@ def _check(answer: str, citations: list, question: str, hits: list) -> tuple[str
     if rep.supported == 0:
         return "", False, "no_supported_sentences"
     ok, reason = self_check_answer(rep.answer, citations, question=question, contexts=_contexts(hits))
+    if ok and judge_mode() == "veto":  # opt-in; overlap rule above is unchanged and runs first
+        jr = judge_answer(question, rep.answer, [str(h.get("text") or "") for h in hits])
+        if jr.flagged:
+            return "", False, f"judge_veto:{jr.error or 'unsupported'}"
     return rep.answer, ok, reason
 
 
@@ -47,6 +52,7 @@ def refusal_reason(detail: str) -> str:
 
 
 _NO_REGEN = {"model_declared_insufficient_evidence", "empty_answer", "no_citations", "no_supported_sentences", "unsupported_citation"}
+# judge_veto:* is also final (prefix-matched below)
 # low_grounding:* is also final (prefix-matched below): regenerating at T=0 gives the same text
 
 
@@ -128,7 +134,7 @@ def build_ask_graph(retriever: HybridRetriever):
             }
         # regenerate once, then refuse
         count = int(state.get("regenerate_count") or 0)
-        if count < 1 and reason not in _NO_REGEN and not str(reason).startswith("low_grounding"):
+        if count < 1 and reason not in _NO_REGEN and not str(reason).startswith(("low_grounding", "judge_veto")):
             return {
                 "self_check_ok": False,
                 "self_check_reason": reason,

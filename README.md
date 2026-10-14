@@ -176,3 +176,13 @@ Chunking: Markdown-heading-aware, ~500 tokens, 50-token overlap (`tiktoken` cl10
 
 ## License
 MIT
+
+## Docker (clean clone) and rate limits
+`data/processed` and `data/indexes` are gitignored and not baked into the image. At container start
+`python -m citeguard.bootstrap` checks for them; if missing it downloads from the HF dataset in
+`CITEGUARD_INDEX_DATASET` (optional; `HF_TOKEN` only for private datasets) or exits with code 2 and instructions
+(mount `-v $PWD/data:/app/data` or run `scripts/ingest_docs.py`). `CITEGUARD_DATA_DIR` overrides the data path.
+`/ask` and `/ask/stream` are rate limited in-process: `ASK_RATE_PER_MIN` per client IP (default 10),
+`ASK_DAILY_CAP` global per UTC day (default 500), 0 disables; `ASK_TRUST_PROXY=1` uses X-Forwarded-For.
+Over limit → HTTP 429 with JSON `{"error":"rate_limited","scope":...,"limit":...,"retry_after_s":...}`.
+Docker build not verified here (no docker on the dev box); startup check verified with python directly.

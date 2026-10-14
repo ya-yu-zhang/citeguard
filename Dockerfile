@@ -7,14 +7,14 @@ COPY pyproject.toml README.md ./
 COPY src ./src
 COPY scripts ./scripts
 COPY data/manifest.json ./data/manifest.json
-# optional prebuilt indexes — rebuild at runtime if missing
-COPY data/processed ./data/processed
-COPY data/indexes ./data/indexes
+# data/processed and data/indexes are gitignored: they are NOT copied. At startup
+# citeguard.bootstrap checks for them and either downloads them from the optional HF dataset
+# CITEGUARD_INDEX_DATASET or exits with instructions (mount ./data or run scripts/ingest_docs.py).
 
-RUN pip install --no-cache-dir .
+RUN pip install --no-cache-dir . huggingface_hub
 
 ENV PORT=8000
-ENV QDRANT_URL=http://qdrant:6333
+ENV CITEGUARD_DATA_DIR=/app/data
 EXPOSE 8000
 
-CMD ["sh", "-c", "uvicorn citeguard.api.app:app --host 0.0.0.0 --port ${PORT}"]
+CMD ["sh", "-c", "python -m citeguard.bootstrap && exec uvicorn citeguard.api.app:app --host 0.0.0.0 --port ${PORT}"]
