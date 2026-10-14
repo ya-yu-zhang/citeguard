@@ -75,7 +75,7 @@ def test_run_ask_refuses_empty_retrieval():
     r = ScriptedRetriever([])
     out = run_ask(r, "Anything?")  # type: ignore[arg-type]
     assert out["refused"] is True
-    assert out["refusal_reason"] == "no_retrieval_hits"
+    assert out["refusal_reason"] == "no_evidence:no_retrieval_hits"
     assert out["answer"] == ""
     assert out["method"] == "hybrid"
 

@@ -104,7 +104,7 @@ Response fields (stable):
 |---|---|---|
 | `answer` | string | Cited answer, or `""` when refused |
 | `refused` | bool | `true` if abstained |
-| `refusal_reason` | string\|null | e.g. `no_retrieval_hits`, `top_score_below_threshold:…`, `top3_chars_below_threshold:…`, `self_check_failed:…` |
+| `refusal_reason` | string\|null | `<class>:<detail>`. Class `no_evidence` (retrieval gate, out-of-scope task, or model said the docs don't cover it), e.g. `no_evidence:top_score_below_threshold:…`, `no_evidence:out_of_scope_task`. Class `ungrounded_answer` (model answered but failed verification), e.g. `ungrounded_answer:retrieval_miss`, `ungrounded_answer:no_supported_sentences`, `ungrounded_answer:missing_citation_markers` |
 | `citations` | list | `{ chunk_id, title_path, source_url, score, excerpt }` (empty on early refuse) |
 | `method` | string | Retrieval method used (`hybrid` by default; `hybrid+rerank` only if `ASK_USE_RERANK=true`) |
 
@@ -113,7 +113,7 @@ Evidence gate (before generation): refuse if RRF top score **&lt; 0.02** **or** 
 LangGraph path: `retrieve → evidence_judge → (refuse | generate) → self_check` (one regenerate, then refuse).
 
 ### `POST /ask/stream`
-Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` (`final.data` matches `/ask` JSON).
+Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` (`final.data` matches `/ask` JSON). **Buffer-then-stream:** the evidence judge, generation, citation repair and self-check all finish before the first `token` is sent. So the stream never shows text that is later retracted, and it refuses exactly when `/ask` does. The cost is that time-to-first-token equals the full generation time.
 
 **LLM (provider-agnostic, OpenAI-compatible):** configured by `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY` (optional for Ollama). Leave `LLM_MODEL` empty → deterministic **stub** generator (no network). CI/unit tests always use the stub; a live test is opt-in (`CITEGUARD_OLLAMA_TEST=1 pytest -m ollama`, auto-skips if Ollama is down).
 
@@ -132,6 +132,23 @@ The LLM sees up to 1200 chars per retrieved chunk; the API response keeps the sh
 - **Unique `chunk_id`**: `sha1(doc_id)[:12]-NNNN` (per-doc index) — no collisions.
 - **Cite-or-abstain `/ask` (LangGraph)**: evidence gate (top score &lt; 0.02 or top-3 chars &lt; 200) → generate with mandatory `[n]` citations → self-check.
 - **LLM optional**: stub without `LLM_MODEL`; any OpenAI-compatible endpoint (Ollama by default, OpenRouter next).
+
+## Known Limitations
+
+Local CPU model `qwen2.5:3b-instruct`. Same 20 answerable + 20 refuse questions throughout. "Before" = first live run, "after" = citation repair + wrong-source refusal + task filter + buffered stream. Details: [`docs/e2e_week2_ollama.md`](docs/e2e_week2_ollama.md).
+
+| Issue | Before | After | Status |
+|---|---|---|---|
+| Over-refusal from missing or literal `[n]` markers | 4/20 answerable refused (`/ask`) | 0/20 (sentences are mapped to their best-matching retrieved chunk; unmatched ones are dropped) | fixed |
+| Answer rate (`/ask` / stream) | 0.55 / 0.45 | 0.75 / 0.75 | improved |
+| Wrong-source citations (correct fact, unrelated chunk, e.g. Q4 HTTPException) | answered, with 24 % of cited sentences failing the source check | refused as `ungrounded_answer:retrieval_miss` (Q1, Q4, Q7, Q15) | fixed by refusing. The root cause is retrieval recall: the right page isn't in the top 5, so answerable questions are still lost |
+| Prompt-echo false answer (refuse #7, toaster poem, stream only) | 1/20 false answer on stream | refused on both paths (`no_evidence:out_of_scope_task`) | fixed (narrow regex for creative-writing requests) |
+| `/ask` vs stream disagreement | refusal accuracy 1.00 vs 0.95; 2/20 answerable decisions differ | identical decisions on all 40 questions | fixed (buffer-then-stream) |
+| Factually wrong but uses the chunk's words (Q9 `response_model` described as a function parameter; it is a decorator argument) | answered | still answered | **unfixed**: the lexical check can't detect it; needs a semantic faithfulness check (RAGAS / NLI, week 3) |
+| Dropping sentences can leave dangling references (Q20 starts with "This is achieved…") | n/a | 1/15 answers | **unfixed**, cosmetic |
+| Sentence citation validity reads 1.00 after the fix | 0.76 | 1.00 | **partly circular**: the metric uses the same lexical rule as the repair step. Only a semantic or human check is independent; manual review found 13/15 answers clean |
+| Calibration evidence is thin | n/a | only 6 of 20 refuse questions get past the retrieval gate to the LLM, so the threshold sweep can't show the refusal side | **open**: needs more hard (in-domain but unanswerable) refuse questions |
+| Streaming time-to-first-token | 0.25 s | 4.1 s p50 | trade-off accepted for consistency |
 
 ## Roadmap
 - [x] Week 1: ingest + hybrid `/search` + eval

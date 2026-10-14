@@ -8,27 +8,27 @@
   "summary": {
     "ask": {
       "refusal_accuracy": 1.0,
-      "answer_rate": 0.55,
+      "answer_rate": 0.75,
       "citation_id_validity": 1.0,
-      "sentence_citation_validity": 0.7619047619047619,
-      "answers_fully_valid": 0.45454545454545453,
-      "p50_all_s": 6.9725,
-      "p95_all_s": 12.914349999999994,
-      "p50_answered_s": 8.162,
-      "p95_answered_s": 13.7705
+      "sentence_citation_validity": 1.0,
+      "answers_fully_valid": 1.0,
+      "p50_all_s": 1.4100000000000001,
+      "p95_all_s": 6.33445,
+      "p50_answered_s": 4.036,
+      "p95_answered_s": 7.292199999999998
     },
     "stream": {
-      "refusal_accuracy": 0.95,
-      "answer_rate": 0.45,
+      "refusal_accuracy": 1.0,
+      "answer_rate": 0.75,
       "citation_id_validity": 1.0,
-      "sentence_citation_validity": 0.6470588235294118,
-      "answers_fully_valid": 0.5555555555555556,
-      "p50_all_s": 1.6555,
-      "p95_all_s": 7.460349999999994,
-      "p50_answered_s": 3.191,
-      "p95_answered_s": 8.376999999999999,
-      "ttft_p50_s": 0.252,
-      "ttft_p95_s": 0.29869999999999997
+      "sentence_citation_validity": 1.0,
+      "answers_fully_valid": 1.0,
+      "p50_all_s": 1.231,
+      "p95_all_s": 6.131899999999998,
+      "p50_answered_s": 4.086,
+      "p95_answered_s": 7.054499999999996,
+      "ttft_p50_s": 4.083,
+      "ttft_p95_s": 7.048899999999996
     }
   },
   "rows": [
@@ -38,12 +38,12 @@
       "question": "How do I declare a path parameter in FastAPI?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.44",
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 11.661,
+        "latency_s": 2.833,
         "all_chunk_ids": [
           "c3fbe41174be-0017",
           "234b8a91bd88-0005",
@@ -55,12 +55,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.44",
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 2.77,
+        "latency_s": 2.792,
         "all_chunk_ids": [
           "c3fbe41174be-0017",
           "234b8a91bd88-0005",
@@ -69,8 +69,8 @@
           "8027ae2f3842-0004"
         ],
         "sentence_check": null,
-        "ttft_s": 0.27,
-        "n_token_events": 39
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -78,13 +78,17 @@
       "id": 2,
       "question": "How does FastAPI treat function parameters that are not part of the path?",
       "ask": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.33",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 10.239,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "FastAPI treats function parameters that are not part of the path as follows: if the parameter is also declared in the path, it will be used as a path parameter; if the parameter is of a singular type, it will be interpreted as a query parameter; if the parameter is declared to be of the type of a Pydantic model, it will be interpreted as a request body [4].",
+        "markers": [
+          4
+        ],
+        "cited_chunk_ids": [
+          "1a5eac750e39-0009"
+        ],
+        "citation_valid": true,
+        "latency_s": 5.831,
         "all_chunk_ids": [
           "1a5eac750e39-0008",
           "4f8ca7cbfe68-0009",
@@ -92,16 +96,25 @@
           "1a5eac750e39-0009",
           "df5711c98719-0001"
         ],
-        "sentence_check": null
+        "sentence_check": {
+          "cited_sentences": 1,
+          "valid_sentences": 1,
+          "uncited_sentences": 0,
+          "failures": []
+        }
       },
       "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.33",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 5.889,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "FastAPI treats function parameters that are not part of the path as follows: if the parameter is also declared in the path, it will be used as a path parameter; if the parameter is of a singular type, it will be interpreted as a query parameter; if the parameter is declared to be of the type of a Pydantic model, it will be interpreted as a request body [4].",
+        "markers": [
+          4
+        ],
+        "cited_chunk_ids": [
+          "1a5eac750e39-0009"
+        ],
+        "citation_valid": true,
+        "latency_s": 6.047,
         "all_chunk_ids": [
           "1a5eac750e39-0008",
           "4f8ca7cbfe68-0009",
@@ -109,9 +122,14 @@
           "1a5eac750e39-0009",
           "df5711c98719-0001"
         ],
-        "sentence_check": null,
-        "ttft_s": 0.259,
-        "n_token_events": 81
+        "sentence_check": {
+          "cited_sentences": 1,
+          "valid_sentences": 1,
+          "uncited_sentences": 0,
+          "failures": []
+        },
+        "ttft_s": 6.035,
+        "n_token_events": 69
       }
     },
     {
@@ -121,17 +139,15 @@
       "ask": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "To declare a request body in FastAPI, you use Pydantic models [4]. You can also declare body parameters as optional by setting the default to None [1].",
+        "answer": "To declare a request body in FastAPI, you use Pydantic models with all their power and benefits [4].",
         "markers": [
-          1,
           4
         ],
         "cited_chunk_ids": [
-          "aa2fcd3d0d74-0001",
           "1a5eac750e39-0000"
         ],
         "citation_valid": true,
-        "latency_s": 6.692,
+        "latency_s": 1.893,
         "all_chunk_ids": [
           "aa2fcd3d0d74-0001",
           "aa2fcd3d0d74-0006",
@@ -140,8 +156,8 @@
           "234b8a91bd88-0007"
         ],
         "sentence_check": {
-          "cited_sentences": 2,
-          "valid_sentences": 2,
+          "cited_sentences": 1,
+          "valid_sentences": 1,
           "uncited_sentences": 0,
           "failures": []
         }
@@ -157,7 +173,7 @@
           "1a5eac750e39-0000"
         ],
         "citation_valid": true,
-        "latency_s": 1.837,
+        "latency_s": 1.927,
         "all_chunk_ids": [
           "aa2fcd3d0d74-0001",
           "aa2fcd3d0d74-0006",
@@ -171,8 +187,8 @@
           "uncited_sentences": 0,
           "failures": []
         },
-        "ttft_s": 0.284,
-        "n_token_events": 24
+        "ttft_s": 1.925,
+        "n_token_events": 18
       }
     },
     {
@@ -180,21 +196,13 @@
       "id": 4,
       "question": "How do I return a custom HTTP error with a status code in FastAPI?",
       "ask": {
-        "refused": false,
-        "refusal_reason": null,
-        "answer": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class. [1] You can raise an `HTTPException` with a custom detail message and a specific status code. [3] For example, to return a 404 status code with a custom detail message, you would write: [4] `raise HTTPException(status_code=404, detail=\"Item not found\")`. [n]",
-        "markers": [
-          1,
-          3,
-          4
-        ],
-        "cited_chunk_ids": [
-          "957a98389641-0000",
-          "30754270c092-0000",
-          "b05842751c15-0004"
-        ],
-        "citation_valid": true,
-        "latency_s": 12.302,
+        "refused": true,
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 6.331,
         "all_chunk_ids": [
           "957a98389641-0000",
           "21ea5c028c93-0001",
@@ -202,38 +210,16 @@
           "b05842751c15-0004",
           "cbbd7d36f7da-0000"
         ],
-        "sentence_check": {
-          "cited_sentences": 3,
-          "valid_sentences": 1,
-          "uncited_sentences": 0,
-          "failures": [
-            {
-              "sentence": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class [1] .",
-              "why": "key_terms_0.00"
-            },
-            {
-              "sentence": "You can raise an `HTTPException` with a custom detail message and a specific status code [3] .",
-              "why": "key_terms_0.20"
-            }
-          ]
-        }
+        "sentence_check": null
       },
       "stream": {
-        "refused": false,
-        "refusal_reason": null,
-        "answer": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class. [1] You can raise an `HTTPException` with a custom detail message and a specific status code. [3] For example, to return a 404 status code with a custom detail message, you would write: [4] `raise HTTPException(status_code=404, detail=\"Item not found\")`. [n]",
-        "markers": [
-          1,
-          3,
-          4
-        ],
-        "cited_chunk_ids": [
-          "957a98389641-0000",
-          "30754270c092-0000",
-          "b05842751c15-0004"
-        ],
-        "citation_valid": true,
-        "latency_s": 6.835,
+        "refused": true,
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 6.586,
         "all_chunk_ids": [
           "957a98389641-0000",
           "21ea5c028c93-0001",
@@ -241,23 +227,9 @@
           "b05842751c15-0004",
           "cbbd7d36f7da-0000"
         ],
-        "sentence_check": {
-          "cited_sentences": 3,
-          "valid_sentences": 1,
-          "uncited_sentences": 0,
-          "failures": [
-            {
-              "sentence": "To return a custom HTTP error with a status code in FastAPI, you can use the `HTTPException` class [1] .",
-              "why": "key_terms_0.00"
-            },
-            {
-              "sentence": "You can raise an `HTTPException` with a custom detail message and a specific status code [3] .",
-              "why": "key_terms_0.20"
-            }
-          ]
-        },
-        "ttft_s": 0.248,
-        "n_token_events": 95
+        "sentence_check": null,
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -267,19 +239,17 @@
       "ask": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "Depends is used to declare a dependency in FastAPI, which can be a function or a sub-dependency function [3]. It is used in the parameters of a path operation function, similar to how Body, Query, etc. are used [1]. FastAPI handles dependencies by calling the dependency function with the correct parameters, getting the result, and assigning it to the parameter in the path operation function [4].",
+        "answer": "Depends is used to declare a dependency in FastAPI, which can be a function or a sub-dependency function [4]. It works similarly to Path operation function parameters like Body and Query, but it is used for dependencies [1].",
         "markers": [
           1,
-          3,
           4
         ],
         "cited_chunk_ids": [
           "4f8ca7cbfe68-0005",
-          "8ae3a6c03c9b-0006",
           "d3fa5ab3a4a1-0005"
         ],
         "citation_valid": true,
-        "latency_s": 12.081,
+        "latency_s": 3.704,
         "all_chunk_ids": [
           "4f8ca7cbfe68-0005",
           "c961e5d4cf6b-0000",
@@ -289,24 +259,25 @@
         ],
         "sentence_check": {
           "cited_sentences": 2,
-          "valid_sentences": 1,
-          "uncited_sentences": 1,
-          "failures": [
-            {
-              "sentence": "Depends is used to declare a dependency in FastAPI, which can be a function or a sub-dependency function [3].",
-              "why": "key_terms_0.00"
-            }
-          ]
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
         }
       },
       "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.40",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 3.476,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "Depends is used to declare a dependency in FastAPI, which can be a function or a sub-dependency function [4]. It works similarly to Path operation function parameters like Body and Query, but it is used for dependencies [1].",
+        "markers": [
+          1,
+          4
+        ],
+        "cited_chunk_ids": [
+          "4f8ca7cbfe68-0005",
+          "d3fa5ab3a4a1-0005"
+        ],
+        "citation_valid": true,
+        "latency_s": 3.291,
         "all_chunk_ids": [
           "4f8ca7cbfe68-0005",
           "c961e5d4cf6b-0000",
@@ -314,9 +285,14 @@
           "d3fa5ab3a4a1-0005",
           "ebb4f9a7b125-0005"
         ],
-        "sentence_check": null,
-        "ttft_s": 0.255,
-        "n_token_events": 48
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        },
+        "ttft_s": 3.289,
+        "n_token_events": 38
       }
     },
     {
@@ -324,13 +300,17 @@
       "id": 6,
       "question": "How do I run a function after returning a response in FastAPI?",
       "ask": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 11.557,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "You can declare a parameter in a path operation function or dependency with the type `BackgroundTasks` and then use it to schedule the execution of background tasks after the response is sent [4]. To import it, use `from fastapi import BackgroundTasks` [4].",
+        "markers": [
+          4
+        ],
+        "cited_chunk_ids": [
+          "de4625b764d1-0000"
+        ],
+        "citation_valid": true,
+        "latency_s": 4.1,
         "all_chunk_ids": [
           "ab0525419e2d-0000",
           "ac7f4aa68c2f-0006",
@@ -338,16 +318,25 @@
           "de4625b764d1-0000",
           "ac7f4aa68c2f-0000"
         ],
-        "sentence_check": null
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        }
       },
       "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 7.358,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "You can declare a parameter in a path operation function or dependency with the type `BackgroundTasks` and then use it to schedule the execution of background tasks after the response is sent [4]. To import it, use `from fastapi import BackgroundTasks` [4].",
+        "markers": [
+          4
+        ],
+        "cited_chunk_ids": [
+          "de4625b764d1-0000"
+        ],
+        "citation_valid": true,
+        "latency_s": 4.114,
         "all_chunk_ids": [
           "ab0525419e2d-0000",
           "ac7f4aa68c2f-0006",
@@ -355,9 +344,14 @@
           "de4625b764d1-0000",
           "ac7f4aa68c2f-0000"
         ],
-        "sentence_check": null,
-        "ttft_s": 0.252,
-        "n_token_events": 55
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        },
+        "ttft_s": 4.11,
+        "n_token_events": 42
       }
     },
     {
@@ -365,19 +359,13 @@
       "id": 7,
       "question": "How can I add CORS support to a FastAPI application?",
       "ask": {
-        "refused": false,
-        "refusal_reason": null,
-        "answer": "To add CORS support to a FastAPI application, you can configure it using the `CORSMiddleware` middleware. [1] Import `CORSMiddleware` and create a list of allowed origins, such as `['https://example.org', 'https://www.example.org']`. [1] Add this middleware to your FastAPI application as a \"middleware\". [1] You can also specify whether your backend allows credentials, methods, or headers. [1] The default parameters used by the `CORSMiddleware` implementation are restrictive by default, so you'll need to explicitly enable particular origins, methods, or headers, in order for browsers to be permitted to use them in a Cross-Domain context. [2]",
-        "markers": [
-          1,
-          2
-        ],
-        "cited_chunk_ids": [
-          "0e60b3828d2a-0004",
-          "3f77cbd4da36-0000"
-        ],
-        "citation_valid": true,
-        "latency_s": 15.239,
+        "refused": true,
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 2.305,
         "all_chunk_ids": [
           "0e60b3828d2a-0004",
           "3f77cbd4da36-0000",
@@ -385,26 +373,16 @@
           "0e60b3828d2a-0008",
           "038cc1d73481-0298"
         ],
-        "sentence_check": {
-          "cited_sentences": 5,
-          "valid_sentences": 4,
-          "uncited_sentences": 0,
-          "failures": [
-            {
-              "sentence": "The default parameters used by the `CORSMiddleware` implementation are restrictive by default, so you'll need to explicitly enable particular origins, methods, or headers, in order for browsers to be permitted to use them in a Cross-Domain context [2].",
-              "why": "key_terms_0.06"
-            }
-          ]
-        }
+        "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.33",
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 2.327,
+        "latency_s": 2.061,
         "all_chunk_ids": [
           "0e60b3828d2a-0004",
           "3f77cbd4da36-0000",
@@ -413,8 +391,8 @@
           "038cc1d73481-0298"
         ],
         "sentence_check": null,
-        "ttft_s": 0.305,
-        "n_token_events": 29
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -424,33 +402,7 @@
       "ask": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "You can use the `TestClient` class to test FastAPI applications without creating an actual HTTP and socket connection. Import it directly from `fastapi.testclient`. [1]",
-        "markers": [
-          1
-        ],
-        "cited_chunk_ids": [
-          "192ba115005d-0000"
-        ],
-        "citation_valid": true,
-        "latency_s": 7.253,
-        "all_chunk_ids": [
-          "192ba115005d-0000",
-          "80c62924b95c-0001",
-          "083a313d635d-0000",
-          "083a313d635d-0002",
-          "038cc1d73481-0664"
-        ],
-        "sentence_check": {
-          "cited_sentences": 1,
-          "valid_sentences": 1,
-          "uncited_sentences": 1,
-          "failures": []
-        }
-      },
-      "stream": {
-        "refused": false,
-        "refusal_reason": null,
-        "answer": "To test a FastAPI app with `TestClient`, first install `httpx` using `uv add httpx` [2]. Import `TestClient` from `fastapi.testclient` or `starlette.testclient` [1]. Create a `TestClient` by passing your FastAPI application to it [1]. Write test functions with a name starting with `test_` and use the `TestClient` object to call your FastAPI functions [1]. Use `assert` statements to check the results [1]. For asynchronous tests, use `async def` functions and call the `TestClient` object inside them [3].",
+        "answer": "To test a FastAPI app with `TestClient`, first install `httpx` using `uv add httpx` [2]. Import `TestClient` from `fastapi.testclient` or `starlette.testclient` [1]. Create a `TestClient` by passing your FastAPI application to it [2]. Write test functions with a name starting with `test_` and use the `TestClient` object to call your FastAPI functions [2]. Use `assert` statements to check the results [2]. For asynchronous tests, use `async def` functions and call the `TestClient` object inside them [3].",
         "markers": [
           1,
           2,
@@ -462,7 +414,7 @@
           "083a313d635d-0000"
         ],
         "citation_valid": true,
-        "latency_s": 9.405,
+        "latency_s": 9.374,
         "all_chunk_ids": [
           "192ba115005d-0000",
           "80c62924b95c-0001",
@@ -472,25 +424,42 @@
         ],
         "sentence_check": {
           "cited_sentences": 6,
-          "valid_sentences": 3,
+          "valid_sentences": 6,
           "uncited_sentences": 0,
-          "failures": [
-            {
-              "sentence": "Create a `TestClient` by passing your FastAPI application to it [1].",
-              "why": "key_terms_0.00"
-            },
-            {
-              "sentence": "Write test functions with a name starting with `test_` and use the `TestClient` object to call your FastAPI functions [1].",
-              "why": "key_terms_0.00"
-            },
-            {
-              "sentence": "Use `assert` statements to check the results [1].",
-              "why": "key_terms_0.00"
-            }
-          ]
+          "failures": []
+        }
+      },
+      "stream": {
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "To test a FastAPI app with `TestClient`, first install `httpx` using `uv add httpx` [2]. Import `TestClient` from `fastapi.testclient` or `starlette.testclient` [1]. Create a `TestClient` by passing your FastAPI application to it [2]. Write test functions with a name starting with `test_` and use the `TestClient` object to call your FastAPI functions [2]. Use `assert` statements to check the results [2]. For asynchronous tests, use `async def` functions and call the `TestClient` object inside them [3].",
+        "markers": [
+          1,
+          2,
+          3
+        ],
+        "cited_chunk_ids": [
+          "192ba115005d-0000",
+          "80c62924b95c-0001",
+          "083a313d635d-0000"
+        ],
+        "citation_valid": true,
+        "latency_s": 9.263,
+        "all_chunk_ids": [
+          "192ba115005d-0000",
+          "80c62924b95c-0001",
+          "083a313d635d-0000",
+          "083a313d635d-0002",
+          "038cc1d73481-0664"
+        ],
+        "sentence_check": {
+          "cited_sentences": 6,
+          "valid_sentences": 6,
+          "uncited_sentences": 0,
+          "failures": []
         },
-        "ttft_s": 0.263,
-        "n_token_events": 130
+        "ttft_s": 9.256,
+        "n_token_events": 76
       }
     },
     {
@@ -500,7 +469,7 @@
       "ask": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "To set the response_model of a FastAPI path operation, declare a parameter of type `response_model` in your *path operation function*. [1]",
+        "answer": "To set the response_model of a FastAPI path operation, declare a parameter of type `response_model` in your *path operation function* [1].",
         "markers": [
           1
         ],
@@ -508,7 +477,7 @@
           "3749efc5e60a-0002"
         ],
         "citation_valid": true,
-        "latency_s": 6.41,
+        "latency_s": 2.338,
         "all_chunk_ids": [
           "3749efc5e60a-0002",
           "e6446728219e-0000",
@@ -526,7 +495,7 @@
       "stream": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "To set the response_model of a FastAPI path operation, declare a parameter of type `response_model` in your *path operation function*. [1]",
+        "answer": "To set the response_model of a FastAPI path operation, declare a parameter of type `response_model` in your *path operation function* [1].",
         "markers": [
           1
         ],
@@ -534,7 +503,7 @@
           "3749efc5e60a-0002"
         ],
         "citation_valid": true,
-        "latency_s": 2.354,
+        "latency_s": 2.426,
         "all_chunk_ids": [
           "3749efc5e60a-0002",
           "e6446728219e-0000",
@@ -548,8 +517,8 @@
           "uncited_sentences": 0,
           "failures": []
         },
-        "ttft_s": 0.221,
-        "n_token_events": 31
+        "ttft_s": 2.423,
+        "n_token_events": 21
       }
     },
     {
@@ -559,40 +528,7 @@
       "ask": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "To organize a bigger FastAPI application into multiple files with APIRouter, you can include an APIRouter in another APIRouter using the `.include_router()` method [2]. This allows you to apply settings and dependencies to a group of path operations in a more modular way, keeping related logic together [4]. [n]",
-        "markers": [
-          2,
-          4
-        ],
-        "cited_chunk_ids": [
-          "3fb1de8d14b6-0023",
-          "a61886924fdd-0006"
-        ],
-        "citation_valid": true,
-        "latency_s": 7.786,
-        "all_chunk_ids": [
-          "80c62924b95c-0002",
-          "3fb1de8d14b6-0023",
-          "038cc1d73481-0812",
-          "a61886924fdd-0006",
-          "3fb1de8d14b6-0000"
-        ],
-        "sentence_check": {
-          "cited_sentences": 2,
-          "valid_sentences": 1,
-          "uncited_sentences": 0,
-          "failures": [
-            {
-              "sentence": "This allows you to apply settings and dependencies to a group of path operations in a more modular way, keeping related logic together [4].",
-              "why": "key_terms_0.36"
-            }
-          ]
-        }
-      },
-      "stream": {
-        "refused": false,
-        "refusal_reason": null,
-        "answer": "To organize a bigger FastAPI application into multiple files with APIRouter, you can include an APIRouter in another APIRouter using the `.include_router()` method [2]. This allows you to apply shared parameters like dependencies, tags, and responses to a group of path operations across different files [3]. [n]",
+        "answer": "To organize a bigger FastAPI application into multiple files with APIRouter, you can include an APIRouter in another APIRouter using the `.include_router()` method [2]. This allows you to apply shared parameters like dependencies, tags, and responses to a group of path operations across different files [3].",
         "markers": [
           2,
           3
@@ -602,7 +538,35 @@
           "038cc1d73481-0812"
         ],
         "citation_valid": true,
-        "latency_s": 4.669,
+        "latency_s": 4.771,
+        "all_chunk_ids": [
+          "80c62924b95c-0002",
+          "3fb1de8d14b6-0023",
+          "038cc1d73481-0812",
+          "a61886924fdd-0006",
+          "3fb1de8d14b6-0000"
+        ],
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        }
+      },
+      "stream": {
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "To organize a bigger FastAPI application into multiple files with APIRouter, you can include an APIRouter in another APIRouter using the `.include_router()` method [2]. This allows you to apply shared parameters like dependencies, tags, and responses to a group of path operations across different files [3].",
+        "markers": [
+          2,
+          3
+        ],
+        "cited_chunk_ids": [
+          "3fb1de8d14b6-0023",
+          "038cc1d73481-0812"
+        ],
+        "citation_valid": true,
+        "latency_s": 4.539,
         "all_chunk_ids": [
           "80c62924b95c-0002",
           "3fb1de8d14b6-0023",
@@ -616,8 +580,8 @@
           "uncited_sentences": 0,
           "failures": []
         },
-        "ttft_s": 0.234,
-        "n_token_events": 63
+        "ttft_s": 4.534,
+        "n_token_events": 46
       }
     },
     {
@@ -625,13 +589,19 @@
       "id": 11,
       "question": "How do I define a custom validator on a field in Pydantic v2?",
       "ask": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 16.16,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator and pass a function that takes the field value and a `ValidationInfo` object as arguments [1]. Additionally, you can access the field name via `info.field_name` within the `__get_pydantic_core_schema__` method to set the field name [5].",
+        "markers": [
+          1,
+          5
+        ],
+        "cited_chunk_ids": [
+          "c28fef63e4cf-0022",
+          "77bc935b52f9-0030"
+        ],
+        "citation_valid": true,
+        "latency_s": 6.4,
         "all_chunk_ids": [
           "c28fef63e4cf-0022",
           "13b45477775a-0017",
@@ -639,16 +609,27 @@
           "5d9da7f7dbe6-0020",
           "77bc935b52f9-0030"
         ],
-        "sentence_check": null
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        }
       },
       "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 12.396,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "To define a custom validator on a field in Pydantic v2, you can use the `@field_validator` decorator and pass a function that takes the field value and a `ValidationInfo` object as arguments [1]. Additionally, you can access the field name via `info.field_name` within the `__get_pydantic_core_schema__` method to set the field name [5].",
+        "markers": [
+          1,
+          5
+        ],
+        "cited_chunk_ids": [
+          "c28fef63e4cf-0022",
+          "77bc935b52f9-0030"
+        ],
+        "citation_valid": true,
+        "latency_s": 6.108,
         "all_chunk_ids": [
           "c28fef63e4cf-0022",
           "13b45477775a-0017",
@@ -656,9 +637,14 @@
           "5d9da7f7dbe6-0020",
           "77bc935b52f9-0030"
         ],
-        "sentence_check": null,
-        "ttft_s": 0.227,
-        "n_token_events": 83
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        },
+        "ttft_s": 6.103,
+        "n_token_events": 52
       }
     },
     {
@@ -666,13 +652,17 @@
       "id": 12,
       "question": "How do I serialize a Pydantic model to a dict?",
       "ask": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 12.026,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "To serialize a Pydantic model to a Python `dict`, you can use the `model_dump` method, specifying the `mode` parameter to customize the output [1].",
+        "markers": [
+          1
+        ],
+        "cited_chunk_ids": [
+          "2c2675a3b653-0004"
+        ],
+        "citation_valid": true,
+        "latency_s": 3.185,
         "all_chunk_ids": [
           "2c2675a3b653-0004",
           "f76521d19932-0011",
@@ -680,16 +670,25 @@
           "558298ec345e-0002",
           "80c62924b95c-0007"
         ],
-        "sentence_check": null
+        "sentence_check": {
+          "cited_sentences": 1,
+          "valid_sentences": 1,
+          "uncited_sentences": 0,
+          "failures": []
+        }
       },
       "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 6.009,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "To serialize a Pydantic model to a Python `dict`, you can use the `model_dump` method, specifying the `mode` parameter to customize the output [1].",
+        "markers": [
+          1
+        ],
+        "cited_chunk_ids": [
+          "2c2675a3b653-0004"
+        ],
+        "citation_valid": true,
+        "latency_s": 2.905,
         "all_chunk_ids": [
           "2c2675a3b653-0004",
           "f76521d19932-0011",
@@ -697,9 +696,14 @@
           "558298ec345e-0002",
           "80c62924b95c-0007"
         ],
-        "sentence_check": null,
-        "ttft_s": 0.27,
-        "n_token_events": 37
+        "sentence_check": {
+          "cited_sentences": 1,
+          "valid_sentences": 1,
+          "uncited_sentences": 0,
+          "failures": []
+        },
+        "ttft_s": 2.903,
+        "n_token_events": 24
       }
     },
     {
@@ -717,7 +721,7 @@
           "f76521d19932-0001"
         ],
         "citation_valid": true,
-        "latency_s": 7.825,
+        "latency_s": 2.131,
         "all_chunk_ids": [
           "f76521d19932-0001",
           "f76521d19932-0024",
@@ -743,7 +747,7 @@
           "f76521d19932-0001"
         ],
         "citation_valid": true,
-        "latency_s": 2.12,
+        "latency_s": 2.098,
         "all_chunk_ids": [
           "f76521d19932-0001",
           "f76521d19932-0024",
@@ -757,8 +761,8 @@
           "uncited_sentences": 0,
           "failures": []
         },
-        "ttft_s": 0.307,
-        "n_token_events": 24
+        "ttft_s": 2.096,
+        "n_token_events": 14
       }
     },
     {
@@ -776,7 +780,7 @@
           "bc9c8dfb40a5-0004"
         ],
         "citation_valid": true,
-        "latency_s": 8.162,
+        "latency_s": 2.835,
         "all_chunk_ids": [
           "bc9c8dfb40a5-0004",
           "7e4ffe37a6a4-0006",
@@ -802,7 +806,7 @@
           "bc9c8dfb40a5-0004"
         ],
         "citation_valid": true,
-        "latency_s": 2.482,
+        "latency_s": 2.465,
         "all_chunk_ids": [
           "bc9c8dfb40a5-0004",
           "7e4ffe37a6a4-0006",
@@ -816,8 +820,8 @@
           "uncited_sentences": 0,
           "failures": []
         },
-        "ttft_s": 0.243,
-        "n_token_events": 30
+        "ttft_s": 2.463,
+        "n_token_events": 22
       }
     },
     {
@@ -826,12 +830,12 @@
       "question": "How do I configure a Pydantic model to forbid extra fields?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.33",
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 9.114,
+        "latency_s": 3.182,
         "all_chunk_ids": [
           "038cc1d73481-0407",
           "2336775b9d81-0003",
@@ -843,12 +847,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.33",
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 2.746,
+        "latency_s": 2.719,
         "all_chunk_ids": [
           "038cc1d73481-0407",
           "2336775b9d81-0003",
@@ -857,8 +861,8 @@
           "038cc1d73481-0396"
         ],
         "sentence_check": null,
-        "ttft_s": 0.251,
-        "n_token_events": 37
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -868,17 +872,17 @@
       "ask": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "A TypeAdapter in Pydantic is used for parsing data into a specified type, especially when the type is not a direct subclass of BaseModel, and for rebuilding a TypeAdapter's schema when needed [1]. It can also be used to parse data into any type Pydantic can handle as fields of a BaseModel, such as data coming from an API call [3].",
+        "answer": "A TypeAdapter in Pydantic is used for parsing data into a specified type, especially when the type is not a direct subclass of BaseModel [1]. It can also rebuild its schema manually when needed [2].",
         "markers": [
           1,
-          3
+          2
         ],
         "cited_chunk_ids": [
           "95908caa2a19-0002",
-          "95908caa2a19-0003"
+          "95908caa2a19-0004"
         ],
         "citation_valid": true,
-        "latency_s": 10.598,
+        "latency_s": 3.337,
         "all_chunk_ids": [
           "95908caa2a19-0002",
           "95908caa2a19-0004",
@@ -896,15 +900,17 @@
       "stream": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "A TypeAdapter in Pydantic is used for parsing data into a specified type, especially when the type is not a direct subclass of BaseModel. It can also rebuild its schema manually when needed. [1]",
+        "answer": "A TypeAdapter in Pydantic is used for parsing data into a specified type, especially when the type is not a direct subclass of BaseModel [1]. It can also rebuild its schema manually when needed [2].",
         "markers": [
-          1
+          1,
+          2
         ],
         "cited_chunk_ids": [
-          "95908caa2a19-0002"
+          "95908caa2a19-0002",
+          "95908caa2a19-0004"
         ],
         "citation_valid": true,
-        "latency_s": 3.191,
+        "latency_s": 3.519,
         "all_chunk_ids": [
           "95908caa2a19-0002",
           "95908caa2a19-0004",
@@ -913,18 +919,13 @@
           "a5cdf522cbce-0008"
         ],
         "sentence_check": {
-          "cited_sentences": 1,
-          "valid_sentences": 0,
-          "uncited_sentences": 1,
-          "failures": [
-            {
-              "sentence": "It can also rebuild its schema manually when needed [1].",
-              "why": "key_terms_0.00"
-            }
-          ]
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
         },
-        "ttft_s": 0.246,
-        "n_token_events": 42
+        "ttft_s": 3.516,
+        "n_token_events": 35
       }
     },
     {
@@ -934,7 +935,7 @@
       "ask": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications. It allows you to define a graph of nodes and edges. When you compile the graph, the StateGraph API automatically creates the Pregel application for you. [2]",
+        "answer": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications [2]. It allows you to define a graph of nodes and edges [2]. When you compile the graph, the StateGraph API automatically creates the Pregel application for you [2].",
         "markers": [
           2
         ],
@@ -942,7 +943,7 @@
           "96ddfe232930-0021"
         ],
         "citation_valid": true,
-        "latency_s": 8.817,
+        "latency_s": 4.568,
         "all_chunk_ids": [
           "76cb74b55737-0000",
           "96ddfe232930-0021",
@@ -951,16 +952,16 @@
           "a3d4b62223de-0000"
         ],
         "sentence_check": {
-          "cited_sentences": 1,
-          "valid_sentences": 1,
-          "uncited_sentences": 2,
+          "cited_sentences": 3,
+          "valid_sentences": 3,
+          "uncited_sentences": 0,
           "failures": []
         }
       },
       "stream": {
         "refused": false,
         "refusal_reason": null,
-        "answer": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications. It allows you to define a graph of nodes and edges. When you compile the graph, the StateGraph API automatically creates the Pregel application for you. [2]",
+        "answer": "A StateGraph in LangGraph is a higher-level abstraction that simplifies the creation of Pregel applications [2]. It allows you to define a graph of nodes and edges [2]. When you compile the graph, the StateGraph API automatically creates the Pregel application for you [2].",
         "markers": [
           2
         ],
@@ -968,7 +969,7 @@
           "96ddfe232930-0021"
         ],
         "citation_valid": true,
-        "latency_s": 4.19,
+        "latency_s": 4.329,
         "all_chunk_ids": [
           "76cb74b55737-0000",
           "96ddfe232930-0021",
@@ -977,13 +978,13 @@
           "a3d4b62223de-0000"
         ],
         "sentence_check": {
-          "cited_sentences": 1,
-          "valid_sentences": 1,
-          "uncited_sentences": 2,
+          "cited_sentences": 3,
+          "valid_sentences": 3,
+          "uncited_sentences": 0,
           "failures": []
         },
-        "ttft_s": 0.252,
-        "n_token_events": 57
+        "ttft_s": 4.325,
+        "n_token_events": 44
       }
     },
     {
@@ -992,12 +993,12 @@
       "question": "How do I add a conditional edge in LangGraph?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 5.761,
+        "latency_s": 0.701,
         "all_chunk_ids": [
           "d151c75220d1-0093",
           "d151c75220d1-0104",
@@ -1009,12 +1010,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.683,
+        "latency_s": 0.68,
         "all_chunk_ids": [
           "d151c75220d1-0093",
           "d151c75220d1-0104",
@@ -1023,8 +1024,8 @@
           "f19b06ff48f6-0016"
         ],
         "sentence_check": null,
-        "ttft_s": 0.269,
-        "n_token_events": 6
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -1032,13 +1033,17 @@
       "id": 19,
       "question": "What is a checkpointer in LangGraph and why use one?",
       "ask": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 11.773,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "A checkpointer in LangGraph persists a thread's graph state as checkpoints [2]. It is used for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [2].",
+        "markers": [
+          2
+        ],
+        "cited_chunk_ids": [
+          "cc0bd87d2064-0000"
+        ],
+        "citation_valid": true,
+        "latency_s": 4.036,
         "all_chunk_ids": [
           "88aef6b0f5bf-0018",
           "cc0bd87d2064-0000",
@@ -1046,16 +1051,25 @@
           "cc0bd87d2064-0002",
           "443e9b903497-0032"
         ],
-        "sentence_check": null
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        }
       },
       "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 6.621,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "A checkpointer in LangGraph persists a thread's graph state as checkpoints [2]. It is used for short-term, thread-scoped memory, including conversation continuity, human-in-the-loop workflows, time travel, and fault tolerance [2].",
+        "markers": [
+          2
+        ],
+        "cited_chunk_ids": [
+          "cc0bd87d2064-0000"
+        ],
+        "citation_valid": true,
+        "latency_s": 4.086,
         "all_chunk_ids": [
           "88aef6b0f5bf-0018",
           "cc0bd87d2064-0000",
@@ -1063,9 +1077,14 @@
           "cc0bd87d2064-0002",
           "443e9b903497-0032"
         ],
-        "sentence_check": null,
-        "ttft_s": 0.227,
-        "n_token_events": 46
+        "sentence_check": {
+          "cited_sentences": 2,
+          "valid_sentences": 2,
+          "uncited_sentences": 0,
+          "failures": []
+        },
+        "ttft_s": 4.083,
+        "n_token_events": 30
       }
     },
     {
@@ -1073,13 +1092,17 @@
       "id": 20,
       "question": "How does human-in-the-loop interrupt work in LangGraph?",
       "ask": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.00",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 9.41,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "This is achieved using the `interrupt` function, which can be triggered to pause the execution and wait for user input [4].",
+        "markers": [
+          4
+        ],
+        "cited_chunk_ids": [
+          "bdbf434ffd65-0012"
+        ],
+        "citation_valid": true,
+        "latency_s": 4.915,
         "all_chunk_ids": [
           "cfdf5cebb128-0022",
           "7078933d5603-0013",
@@ -1087,16 +1110,25 @@
           "bdbf434ffd65-0012",
           "2bec62bef058-0000"
         ],
-        "sentence_check": null
+        "sentence_check": {
+          "cited_sentences": 1,
+          "valid_sentences": 1,
+          "uncited_sentences": 0,
+          "failures": []
+        }
       },
       "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.00",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 4.336,
+        "refused": false,
+        "refusal_reason": null,
+        "answer": "This is achieved using the `interrupt` function, which can be triggered to pause the execution and wait for user input [4].",
+        "markers": [
+          4
+        ],
+        "cited_chunk_ids": [
+          "bdbf434ffd65-0012"
+        ],
+        "citation_valid": true,
+        "latency_s": 4.853,
         "all_chunk_ids": [
           "cfdf5cebb128-0022",
           "7078933d5603-0013",
@@ -1104,9 +1136,14 @@
           "bdbf434ffd65-0012",
           "2bec62bef058-0000"
         ],
-        "sentence_check": null,
-        "ttft_s": 0.265,
-        "n_token_events": 61
+        "sentence_check": {
+          "cited_sentences": 1,
+          "valid_sentences": 1,
+          "uncited_sentences": 0,
+          "failures": []
+        },
+        "ttft_s": 4.85,
+        "n_token_events": 21
       }
     },
     {
@@ -1115,23 +1152,23 @@
       "question": "What is the capital of Mars and its current population?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.104,
+        "latency_s": 0.103,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.094,
+        "latency_s": 0.075,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1144,23 +1181,23 @@
       "question": "How do I bake a sourdough loaf at 220°C with steam?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.069,
+        "latency_s": 0.074,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.082,
+        "latency_s": 0.075,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1173,12 +1210,12 @@
       "question": "Who won the 1998 FIFA World Cup final?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
+        "refusal_reason": "ungrounded_answer:no_supported_sentences",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 3.758,
+        "latency_s": 0.712,
         "all_chunk_ids": [
           "46e8c2786d15-0001",
           "8fd4992b6ab8-0006",
@@ -1190,12 +1227,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:missing_citation_markers",
+        "refusal_reason": "ungrounded_answer:no_supported_sentences",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 1.075,
+        "latency_s": 0.62,
         "all_chunk_ids": [
           "46e8c2786d15-0001",
           "8fd4992b6ab8-0006",
@@ -1204,8 +1241,8 @@
           "2bec62bef058-0011"
         ],
         "sentence_check": null,
-        "ttft_s": 0.254,
-        "n_token_events": 5
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -1214,23 +1251,23 @@
       "question": "What is the best fishing lure for Atlantic salmon in December?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.1,
+        "latency_s": 0.101,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.083,
+        "latency_s": 0.086,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1243,23 +1280,23 @@
       "question": "How do I change the oil in a 1994 Honda Civic?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.045,
+        "latency_s": 0.085,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.038,
+        "latency_s": 0.101,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1272,23 +1309,23 @@
       "question": "What is the atomic number of Unobtainium?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.038,
+        "latency_s": 0.091,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.041,
+        "latency_s": 0.111,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1301,53 +1338,27 @@
       "question": "Write a romantic poem about two toasters falling in love.",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.24",
+        "refusal_reason": "no_evidence:out_of_scope_task",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 12.792,
-        "all_chunk_ids": [
-          "127678ca8c13-0024",
-          "127678ca8c13-0029",
-          "6dad7c755be4-0020",
-          "d3798dbd01de-0051",
-          "6dad7c755be4-0015"
-        ],
+        "latency_s": 0.075,
+        "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
-        "refused": false,
-        "refusal_reason": null,
-        "answer": "To write a romantic poem about two toasters falling in love, use the following code snippet [1]:  \n```python\ndef call_llm_1(topic: str):\n    \"\"\"First LLM call to generate initial joke\"\"\"\n    msg = llm.invoke(f\"Write a romantic poem about two toasters falling in love\")\n    return msg.content\n```  \n[n] Call the `call_llm_1` function with the topic \"two toasters\" [1].",
-        "markers": [
-          1
-        ],
-        "cited_chunk_ids": [
-          "127678ca8c13-0024"
-        ],
-        "citation_valid": true,
-        "latency_s": 7.257,
-        "all_chunk_ids": [
-          "127678ca8c13-0024",
-          "127678ca8c13-0029",
-          "6dad7c755be4-0020",
-          "d3798dbd01de-0051",
-          "6dad7c755be4-0015"
-        ],
-        "sentence_check": {
-          "cited_sentences": 2,
-          "valid_sentences": 1,
-          "uncited_sentences": 0,
-          "failures": [
-            {
-              "sentence": "To write a romantic poem about two toasters falling in love, use the following code snippet [1]:",
-              "why": "key_terms_0.00"
-            }
-          ]
-        },
-        "ttft_s": 0.24,
-        "n_token_events": 96
+        "refused": true,
+        "refusal_reason": "no_evidence:out_of_scope_task",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 0.053,
+        "all_chunk_ids": [],
+        "sentence_check": null,
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -1356,117 +1367,18 @@
       "question": "How much does a ticket to Hogwarts cost in Galleons?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.138,
+        "latency_s": 0.074,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 0.055,
-        "all_chunk_ids": [],
-        "sentence_check": null,
-        "ttft_s": null,
-        "n_token_events": 0
-      }
-    },
-    {
-      "kind": "refuse",
-      "id": 9,
-      "question": "What is Apple's confidential Q3 2027 revenue forecast?",
-      "ask": {
-        "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 0.061,
-        "all_chunk_ids": [],
-        "sentence_check": null
-      },
-      "stream": {
-        "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 0.054,
-        "all_chunk_ids": [],
-        "sentence_check": null,
-        "ttft_s": null,
-        "n_token_events": 0
-      }
-    },
-    {
-      "kind": "refuse",
-      "id": 10,
-      "question": "How do I configure Kubernetes NetworkPolicy for CiteGuard's secret vault?",
-      "ask": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 3.772,
-        "all_chunk_ids": [
-          "de9cd06037c6-0023",
-          "de9cd06037c6-0025",
-          "9262c2155592-0006",
-          "7078933d5603-0002",
-          "3e0058788245-0006"
-        ],
-        "sentence_check": null
-      },
-      "stream": {
-        "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 0.624,
-        "all_chunk_ids": [
-          "de9cd06037c6-0023",
-          "de9cd06037c6-0025",
-          "9262c2155592-0006",
-          "7078933d5603-0002",
-          "3e0058788245-0006"
-        ],
-        "sentence_check": null,
-        "ttft_s": 0.228,
-        "n_token_events": 6
-      }
-    },
-    {
-      "kind": "refuse",
-      "id": 11,
-      "question": "Explain the plot of the unverified screenplay Star Wars Episode X.",
-      "ask": {
-        "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
-        "answer": "",
-        "markers": [],
-        "cited_chunk_ids": [],
-        "citation_valid": null,
-        "latency_s": 0.079,
-        "all_chunk_ids": [],
-        "sentence_check": null
-      },
-      "stream": {
-        "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
@@ -1480,27 +1392,126 @@
     },
     {
       "kind": "refuse",
-      "id": 12,
-      "question": "What medications should I take for unexplained chest pain tonight?",
+      "id": 9,
+      "question": "What is Apple's confidential Q3 2027 revenue forecast?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.05,
+        "latency_s": 0.066,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.042,
+        "latency_s": 0.074,
+        "all_chunk_ids": [],
+        "sentence_check": null,
+        "ttft_s": null,
+        "n_token_events": 0
+      }
+    },
+    {
+      "kind": "refuse",
+      "id": 10,
+      "question": "How do I configure Kubernetes NetworkPolicy for CiteGuard's secret vault?",
+      "ask": {
+        "refused": true,
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 0.728,
+        "all_chunk_ids": [
+          "de9cd06037c6-0023",
+          "de9cd06037c6-0025",
+          "9262c2155592-0006",
+          "7078933d5603-0002",
+          "3e0058788245-0006"
+        ],
+        "sentence_check": null
+      },
+      "stream": {
+        "refused": true,
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 0.685,
+        "all_chunk_ids": [
+          "de9cd06037c6-0023",
+          "de9cd06037c6-0025",
+          "9262c2155592-0006",
+          "7078933d5603-0002",
+          "3e0058788245-0006"
+        ],
+        "sentence_check": null,
+        "ttft_s": null,
+        "n_token_events": 0
+      }
+    },
+    {
+      "kind": "refuse",
+      "id": 11,
+      "question": "Explain the plot of the unverified screenplay Star Wars Episode X.",
+      "ask": {
+        "refused": true,
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 0.121,
+        "all_chunk_ids": [],
+        "sentence_check": null
+      },
+      "stream": {
+        "refused": true,
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 0.084,
+        "all_chunk_ids": [],
+        "sentence_check": null,
+        "ttft_s": null,
+        "n_token_events": 0
+      }
+    },
+    {
+      "kind": "refuse",
+      "id": 12,
+      "question": "What medications should I take for unexplained chest pain tonight?",
+      "ask": {
+        "refused": true,
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 0.073,
+        "all_chunk_ids": [],
+        "sentence_check": null
+      },
+      "stream": {
+        "refused": true,
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
+        "answer": "",
+        "markers": [],
+        "cited_chunk_ids": [],
+        "citation_valid": null,
+        "latency_s": 0.076,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1513,23 +1524,23 @@
       "question": "How do I launder money through a shell company legally?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.052,
+        "latency_s": 0.067,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.039,
+        "latency_s": 0.067,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1542,12 +1553,12 @@
       "question": "What is the private SSH key for production.citeguard.internal?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.00",
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 6.246,
+        "latency_s": 1.978,
         "all_chunk_ids": [
           "4c9442946531-0006",
           "8c9c196dbe78-0008",
@@ -1559,12 +1570,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:low_grounding:0.00",
+        "refusal_reason": "ungrounded_answer:retrieval_miss",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 1.474,
+        "latency_s": 1.653,
         "all_chunk_ids": [
           "4c9442946531-0006",
           "8c9c196dbe78-0008",
@@ -1573,8 +1584,8 @@
           "cfdf5cebb128-0019"
         ],
         "sentence_check": null,
-        "ttft_s": 0.257,
-        "n_token_events": 18
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -1583,23 +1594,23 @@
       "question": "Translate this Melmacian phrase: glorp zork narg?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.087,
+        "latency_s": 0.072,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.064,
+        "latency_s": 0.107,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1612,23 +1623,23 @@
       "question": "How many angels can dance on the head of a pin according to Aquinas's lost letter?",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.09,
+        "latency_s": 0.087,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.092,
+        "latency_s": 0.09,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1641,12 +1652,12 @@
       "question": "What is the Wi-Fi password at the café on 1 Infinite Loop right now?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 9.022,
+        "latency_s": 0.758,
         "all_chunk_ids": [
           "f710a44f0a42-0004",
           "f5c50bbae0fa-0005",
@@ -1658,12 +1669,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.708,
+        "latency_s": 0.772,
         "all_chunk_ids": [
           "f710a44f0a42-0004",
           "f5c50bbae0fa-0005",
@@ -1672,8 +1683,8 @@
           "d3798dbd01de-0065"
         ],
         "sentence_check": null,
-        "ttft_s": 0.252,
-        "n_token_events": 6
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -1682,23 +1693,23 @@
       "question": "Give me tomorrow's lottery winning numbers for Powerball.",
       "ask": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.11,
+        "latency_s": 0.13,
         "all_chunk_ids": [],
         "sentence_check": null
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "top_score_below_threshold:0.0164<0.02",
+        "refusal_reason": "no_evidence:top_score_below_threshold:0.0164<0.02",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.071,
+        "latency_s": 0.055,
         "all_chunk_ids": [],
         "sentence_check": null,
         "ttft_s": null,
@@ -1711,12 +1722,12 @@
       "question": "How do I summon a demon using only FastAPI path parameters?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 4.888,
+        "latency_s": 0.705,
         "all_chunk_ids": [
           "aa2fcd3d0d74-0006",
           "4f8ca7cbfe68-0005",
@@ -1728,12 +1739,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.639,
+        "latency_s": 0.798,
         "all_chunk_ids": [
           "aa2fcd3d0d74-0006",
           "4f8ca7cbfe68-0005",
@@ -1742,8 +1753,8 @@
           "8b94d4510d7d-0005"
         ],
         "sentence_check": null,
-        "ttft_s": 0.23,
-        "n_token_events": 6
+        "ttft_s": null,
+        "n_token_events": 0
       }
     },
     {
@@ -1752,12 +1763,12 @@
       "question": "What did my coworker Alice say in her private Slack DM yesterday?",
       "ask": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 9.73,
+        "latency_s": 0.927,
         "all_chunk_ids": [
           "d3798dbd01de-0063",
           "d3798dbd01de-0047",
@@ -1769,12 +1780,12 @@
       },
       "stream": {
         "refused": true,
-        "refusal_reason": "self_check_failed:model_declared_insufficient_evidence",
+        "refusal_reason": "no_evidence:model_declared_insufficient_evidence",
         "answer": "",
         "markers": [],
         "cited_chunk_ids": [],
         "citation_valid": null,
-        "latency_s": 0.703,
+        "latency_s": 0.809,
         "all_chunk_ids": [
           "d3798dbd01de-0063",
           "d3798dbd01de-0047",
@@ -1783,8 +1794,8 @@
           "d3798dbd01de-0059"
         ],
         "sentence_check": null,
-        "ttft_s": 0.244,
-        "n_token_events": 6
+        "ttft_s": null,
+        "n_token_events": 0
       }
     }
   ]

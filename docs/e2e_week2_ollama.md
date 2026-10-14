@@ -1,5 +1,64 @@
 # Week 2 — live end-to-end `/ask` with a free local LLM (Ollama, CPU)
 
+## v2 (current): citation repair, wrong-source refusal, task filter, buffered stream
+
+Model `qwen2.5:3b-instruct`, same box, same 20 + 20 questions, same script (`scripts/e2e_ask.py`).
+Raw results: `docs/e2e_week2_ollama.json`; v1 3B raw: `docs/e2e_week2_ollama_3b_v1.json`.
+
+### Before / after (3B)
+
+| Metric | v1 `/ask` | v1 stream | **v2 `/ask`** | **v2 stream** |
+|---|---|---|---|---|
+| Refusal accuracy (20 refuse) | 1.00 | 0.95 | **1.00** | **1.00** |
+| Answer rate (20 answerable) | 0.55 | 0.45 | **0.75** | **0.75** |
+| Citation ID validity | 1.00 | 1.00 | 1.00 | 1.00 |
+| Sentence citation validity (lexical, ≥ 0.5 key terms) | 0.76 | 0.65 | 1.00* | 1.00* |
+| Answers fully valid | 0.45 | 0.56 | 1.00* | 1.00* |
+| Latency p50 / p95, all questions | 6.97 / 12.9 s | 1.66 / 7.46 s | 1.41 / 6.33 s | 1.23 / 6.13 s |
+| Latency p50 / p95, answered | 8.16 / 13.8 s | 3.19 / 8.38 s | 4.04 / 7.29 s | 4.09 / 7.05 s |
+| Time to first token p50 / p95 | — | 0.25 / 0.30 s | — | 4.08 / 7.05 s |
+
+\* **Not independent.** The repair step enforces the same lexical rule the metric measures, so 1.00 is guaranteed by construction. Independent check: I read all 15 v2 answers by hand. 13 are correct and supported. Q9 is **wrong** (it says `response_model` is a function parameter; it is a path-operation decorator argument). Q20 is correct but starts with a dangling "This is achieved…" because its first sentence was dropped. Latency is lower in v2 mainly because answers are shorter, and most refusals now happen before generation finishes or at the retrieval gate. Stream TTFT is now the full generation time, by design.
+
+### Why each refusal happened (v2, `/ask` = stream)
+- Answerable, 5 refused: `ungrounded_answer:retrieval_miss` ×4 (Q1, Q4, Q7, Q15) and `no_evidence:model_declared_insufficient_evidence` ×1 (Q18). Zero refusals were caused by missing markers (v1: 4).
+  - Q1: the model claimed path params are declared via the `Request` object, which is wrong and unsupported. Refusing is correct.
+  - Q4 (HTTPException) and Q7 (CORS): the facts are correct, but the retrieved top 5 doesn't contain them. These are retrieval-recall misses.
+  - Q15: ConfigDict `extra='forbid'`, same pattern.
+- Refuse, 20 refused: retrieval gate ×13, `out_of_scope_task` ×1 (#7 toaster poem, now refused on **both** paths), model said insufficient ×4, `ungrounded_answer` ×2 (#3 `no_supported_sentences`, #14 `retrieval_miss`).
+
+### What changed
+1. **Citation repair** (`src/citeguard/ask/attribution.py`). This replaces constrained JSON output: it is provider-agnostic, works with streaming, and needs no Ollama-specific `format`. The answer is split into sentences (code fences are one unit; "foo. [1]" is reattached; a literal `[n]` is stripped). Each sentence is scored against every retrieved chunk (share of its key terms, excluding question words). Rules:
+   - cited chunk supports it → keep;
+   - no marker, or wrong marker, but another retrieved chunk supports it → cite that chunk;
+   - unsupported and uncited → drop the sentence;
+   - **cites a chunk but no retrieved chunk supports it** → the model is answering from its own knowledge, so refuse the whole answer (`ungrounded_answer:retrieval_miss`);
+   - nothing supported left → refuse (`no_supported_sentences`).
+2. **Refusal reasons** are now `no_evidence:<detail>` or `ungrounded_answer:<detail>`.
+3. **Task filter**: a narrow regex refuses creative/generic tasks ("write/compose … poem/song/story/joke…") before retrieval. "Write a FastAPI test" is still allowed.
+4. **Buffer-then-stream**: `/ask/stream` runs the same graph as `/ask` and streams the verified answer afterwards, so refusal decisions are identical.
+
+### Threshold calibration (per-sentence support)
+`scripts/calibrate_grounding.py`: one cached raw generation per question (`docs/calibration_raw_week2.json`), then the exact `/ask` decision logic at each threshold.
+
+| threshold | answer rate | refusal accuracy | refuse ids answered |
+|---|---|---|---|
+| 0.1 | 0.95 | 1.00 | — |
+| 0.2 | 0.95 | 1.00 | — |
+| 0.3 | 0.95 | 1.00 | — |
+| 0.4 | 0.85 | 1.00 | — |
+| 0.5 | 0.75 | 1.00 | — |
+| 0.6 | 0.65 | 1.00 | — |
+| 0.7 | 0.65 | 1.00 | — |
+| 0.8 | 0.55 | 1.00 | — |
+
+Chosen: **0.5**. Below 0.4, the extra answers include sentences that share only generic words with the chunk (e.g. Q1's wrong `Request` claim survives at 0.3). Above 0.5, correct answers are lost. **Caveat:** only 6 of 20 refuse questions get past the retrieval gate to the LLM, so the refuse side of the curve stays flat at 1.00. That doesn't prove low thresholds are safe; it shows the refuse set needs harder in-domain unanswerable questions.
+
+---
+
+# v1 (previous run, kept for comparison)
+
+
 Run date: 2026-10-14. Box: 8 vCPU, 16 GB RAM (~4–5 GB free while the API, Chrome etc. run), no GPU.
 Ollama 0.40.4, Qwen2.5 Instruct GGUF Q4_K_M imported from Hugging Face (`ollama pull` was blocked by the box's
 network proxy, so `ollama create` from the official Qwen GGUF was used; same weights).
@@ -9,7 +68,7 @@ Temperature 0, `max_tokens` 400, up to 1200 chars per chunk sent to the LLM.
 Reproduce: `ollama serve` + `LLM_MODEL=qwen2.5:3b-instruct uvicorn citeguard.api.app:app --app-dir src`, then
 `python scripts/e2e_ask.py --out docs/e2e_week2_ollama.json`.
 Sets: 20 answerable questions (`docs/answerable_samples_week2.json`, written against the FastAPI / Pydantic / LangGraph docs in the corpus) + the 20 refuse samples (`docs/refuse_samples_week2.json`). Each question is sent once to `POST /ask` and once to `POST /ask/stream`.
-Raw per-question results: `docs/e2e_week2_ollama.json` (3B, primary) and `docs/e2e_week2_ollama_1.5b.json`.
+Raw per-question results: `docs/e2e_week2_ollama_3b_v1.json` (3B, primary) and `docs/e2e_week2_ollama_1.5b.json`.
 
 ## Metrics
 
