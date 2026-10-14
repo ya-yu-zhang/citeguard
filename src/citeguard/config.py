@@ -29,6 +29,16 @@ RERANK_CANDIDATES = 10  # only top-N after RRF go to cross-encoder
 RERANK_MAX_CHARS = 512  # truncate passage text for faster rerank
 DEFAULT_SEARCH_METHOD = "hybrid"  # hybrid+rerank is opt-in
 
+# Week 2 evidence gate (/ask)
+EVIDENCE_MIN_TOP_SCORE = 0.02  # refuse if RRF (or retrieval) top score below this
+EVIDENCE_MIN_TOP3_CHARS = 200  # refuse if sum of top-3 chunk text lengths < this
+ASK_TOP_K = 5
+ASK_USE_RERANK = False  # config-only; /ask always uses hybrid unless True
+
+# LLM (OpenAI-compatible). Empty key → deterministic stub generator (no paid API).
+LLM_BASE_URL = "https://api.openai.com/v1"
+LLM_MODEL = "gpt-4o-mini"
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
@@ -40,6 +50,9 @@ class Settings(BaseSettings):
     rerank_model: str = RERANK_MODEL
     collection_name: str = COLLECTION_NAME
     qdrant_path: str = str(QDRANT_PATH)
+    llm_base_url: str = LLM_BASE_URL
+    llm_model: str = LLM_MODEL
+    ask_use_rerank: bool = ASK_USE_RERANK
 
 
 def get_settings() -> Settings:

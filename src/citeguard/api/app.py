@@ -1,4 +1,4 @@
-"""FastAPI app: /health and /search."""
+"""FastAPI app: /health, /search, /ask (cite-or-abstain)."""
 from __future__ import annotations
 
 import json
@@ -7,8 +7,19 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import StreamingResponse
 
-from citeguard.api.schemas import HealthResponse, SearchRequest, SearchResponse, SearchResult
+from citeguard.api.schemas import (
+    AskRequest,
+    AskResponse,
+    Citation,
+    HealthResponse,
+    SearchRequest,
+    SearchResponse,
+    SearchResult,
+)
+from citeguard.ask.graph import run_ask, stream_ask_events
+from citeguard.ask.llm import llm_configured
 from citeguard.config import BM25_PATH, CHUNKS_PATH, get_settings
 from citeguard.index.store import make_client
 from citeguard.retrieval.bm25 import BM25Index
@@ -66,7 +77,7 @@ async def lifespan(app: FastAPI):
             pass
 
 
-app = FastAPI(title="CiteGuard", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="CiteGuard", version="0.2.0", lifespan=lifespan)
 
 
 @app.get("/health", response_model=HealthResponse)
@@ -75,7 +86,12 @@ def health() -> HealthResponse:
     mode = "remote" if settings.qdrant_url else "embedded"
     n = len(getattr(_state.get("retriever"), "chunk_by_id", {}) or {})
     status = "ok" if _state.get("ready") else f"degraded: {_state.get('error')}"
-    return HealthResponse(status=status, n_chunks=n, qdrant_mode=mode)
+    return HealthResponse(
+        status=status,
+        n_chunks=n,
+        qdrant_mode=mode,
+        llm_configured=llm_configured(),
+    )
 
 
 @app.post("/search", response_model=SearchResponse)
@@ -96,6 +112,40 @@ def search(req: SearchRequest) -> SearchResponse:
         method=method,
         results=[SearchResult(**h.to_dict()) for h in hits],
     )
+
+
+@app.post("/ask", response_model=AskResponse)
+def ask(req: AskRequest) -> AskResponse:
+    """Cite-or-abstain. Use stream=true for SSE (or POST /ask/stream)."""
+    if req.stream:
+        raise HTTPException(
+            400,
+            detail="For streaming use POST /ask/stream (text/event-stream), or set Accept accordingly",
+        )
+    retriever: HybridRetriever | None = _state.get("retriever")
+    if retriever is None:
+        raise HTTPException(503, detail=f"Retriever not ready: {_state.get('error')}")
+    result = run_ask(retriever, req.question)
+    return AskResponse(
+        answer=result["answer"],
+        refused=result["refused"],
+        refusal_reason=result["refusal_reason"],
+        citations=[Citation(**c) for c in result["citations"]],
+        method=result["method"],
+    )
+
+
+@app.post("/ask/stream")
+def ask_stream(req: AskRequest) -> StreamingResponse:
+    retriever: HybridRetriever | None = _state.get("retriever")
+    if retriever is None:
+        raise HTTPException(503, detail=f"Retriever not ready: {_state.get('error')}")
+
+    def event_gen():
+        for ev in stream_ask_events(retriever, req.question):
+            yield f"event: {ev['event']}\ndata: {json.dumps(ev['data'], ensure_ascii=False)}\n\n"
+
+    return StreamingResponse(event_gen(), media_type="text/event-stream")
 
 
 def create_app() -> FastAPI:

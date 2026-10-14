@@ -33,3 +33,26 @@ class HealthResponse(BaseModel):
     status: str
     n_chunks: int
     qdrant_mode: str
+    llm_configured: bool = False
+
+
+class Citation(BaseModel):
+    chunk_id: str
+    title_path: str
+    source_url: str
+    score: float
+    excerpt: str
+
+
+class AskRequest(BaseModel):
+    question: str = Field(..., min_length=1)
+    stream: bool = False
+    # method omitted on purpose for /ask — uses hybrid (or ASK_USE_RERANK config)
+
+
+class AskResponse(BaseModel):
+    answer: str
+    refused: bool
+    refusal_reason: str | None
+    citations: list[Citation]
+    method: str

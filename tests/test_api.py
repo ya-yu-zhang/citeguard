@@ -85,6 +85,7 @@ def test_health(client):
     body = r.json()
     assert body["status"] == "ok"
     assert body["n_chunks"] == 3
+    assert "llm_configured" in body
 
 
 def test_search_bm25(client):

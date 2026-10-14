@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "citeguard"
 version = "0.1.0"
-description = "CiteGuard — hybrid retrieval Week 1 (Agentic RAG portfolio)"
+description = "CiteGuard — Agentic RAG with cite-or-abstain /ask"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
@@ -21,6 +21,8 @@ dependencies = [
   "python-dotenv>=1.0.0",
   "numpy>=1.26.0",
   "tiktoken>=0.7.0",
+  "langgraph>=0.2.0",
+  "langchain-core>=0.3.0",
 ]
 
 [project.optional-dependencies]

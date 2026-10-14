@@ -29,10 +29,10 @@ flowchart LR
 |---|---:|---:|---:|
 | BM25 | 0.733 | 0.524 | 0.008s |
 | Vector | 0.867 | 0.676 | 0.040s |
-| **Hybrid (default)** | **0.900** | **0.723** | **0.049s** |
-| Hybrid + rerank (`bge-reranker-base`, CPU) | 0.900 | 0.637 | 2.853s |
+| **Hybrid (default)** | **0.900** | **0.723** | **0.036s** |
+| Hybrid + rerank (`ms-marco-MiniLM-L-6-v2`, top-10) | **0.933** | 0.669 | **0.214s** |
 
-Notes: hybrid beats pure vector on R@5/MRR. Rerank is **optional** (no R@5 gain on this set; CPU p95 ~2.7s exceeds the 1.5s target — to be fixed). Corpus: 290 docs → 4100 chunks (FastAPI / Pydantic / LangGraph, MIT; see Data Sources).
+Notes: `/search` defaults to **hybrid**; rerank is optional. After switching to a lighter cross-encoder and reranking only RRF top-10, both modes are under the 1.5s p95 target. Rerank raises R@5 on this set but MRR stays slightly below hybrid — both kept; full write-up in `docs/eval_week1.md`. Corpus: 290 docs → 4100 unique chunks (FastAPI / Pydantic / LangGraph, MIT; see Data Sources).
 
 ### Later weeks (TBD)
 | Metric | Baseline RAG | CiteGuard |
@@ -43,6 +43,8 @@ Notes: hybrid beats pure vector on R@5/MRR. Rerank is **optional** (no R@5 gain 
 | p95 Latency (`/ask`) | TBD | TBD |
 
 Test set: ~100 Q&A pairs incl. unanswerable questions. <!-- TODO: link eval/ -->
+
+Week 2 refuse fixture (20 questions, `expected_refused: true`): [`docs/refuse_samples_week2.json`](docs/refuse_samples_week2.json).
 
 Week 1 retrieval numbers (Recall@5 / MRR): see [`docs/eval_week1.md`](docs/eval_week1.md).
 
@@ -66,6 +68,10 @@ curl localhost:8000/health
 curl -X POST localhost:8000/search \
   -H 'Content-Type: application/json' \
   -d '{"query":"How do I add CORS in FastAPI?","top_k":5}'
+
+curl -X POST localhost:8000/ask \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"How do I add CORS in FastAPI?"}'
 ```
 
 ### Docker Compose
@@ -75,17 +81,41 @@ cp .env.example .env   # set LLM_API_KEY when Week 2 /ask lands
 docker compose up -d --build
 curl -X POST localhost:8000/search -H 'Content-Type: application/json' \
   -d '{"query":"How do I add CORS in FastAPI?","top_k":5}'
-# Week 2:
-# curl -X POST localhost:8000/ask -H 'Content-Type: application/json' \
-#   -d '{"question":"How do I add CORS in FastAPI?"}'
+curl -X POST localhost:8000/ask -H 'Content-Type: application/json' \
+  -d '{"question":"How do I add CORS in FastAPI?"}'
 ```
 
 HF Spaces tip: unset `QDRANT_URL` so the API uses Qdrant embedded/local disk mode (single container).
 
 ## API
-- `POST /search` hybrid retrieval results (`query`, `top_k`, optional `method`: `bm25|vector|hybrid` **default** `|hybrid+rerank` opt-in)
-- `POST /ask` cited answer or refusal (streaming) — Week 2
-- `GET /health`
+
+### `GET /health`
+`status`, `n_chunks`, `qdrant_mode`, `llm_configured`
+
+### `POST /search`
+Body: `query`, `top_k`, optional `method` (`bm25|vector|hybrid` **default** | `hybrid+rerank` opt-in).
+
+### `POST /ask` (Week 2 — cite-or-abstain)
+Non-streaming JSON. Body: `{ "question": "..." }`.
+
+Response fields (stable):
+
+| Field | Type | Meaning |
+|---|---|---|
+| `answer` | string | Cited answer, or `""` when refused |
+| `refused` | bool | `true` if abstained |
+| `refusal_reason` | string\|null | e.g. `no_retrieval_hits`, `top_score_below_threshold:…`, `top3_chars_below_threshold:…`, `self_check_failed:…` |
+| `citations` | list | `{ chunk_id, title_path, source_url, score, excerpt }` (empty on early refuse) |
+| `method` | string | Retrieval method used (`hybrid` by default; `hybrid+rerank` only if `ASK_USE_RERANK=true`) |
+
+Evidence gate (before generation): refuse if RRF top score **&lt; 0.02** **or** total length of top-3 chunk texts **&lt; 200** characters.
+
+LangGraph path: `retrieve → evidence_judge → (refuse | generate) → self_check` (one regenerate, then refuse).
+
+### `POST /ask/stream`
+Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` (`final.data` matches `/ask` JSON).
+
+**LLM:** leave `LLM_API_KEY` empty → deterministic **stub** generator (extractive quotes + `[n]` markers, no paid API). Set `LLM_API_KEY` (+ optional `LLM_BASE_URL` / `LLM_MODEL`) for an OpenAI-compatible chat model. CI tests never require a live key.
 
 ## Design Decisions
 - **Hybrid retrieval (API default)**: BM25 + `bge-small-en-v1.5` vectors fused with RRF (`k=60`). Best MRR on the Week-1 30-query set; HTTP p95 ~0.04s on CPU.
@@ -93,11 +123,12 @@ HF Spaces tip: unset `QDRANT_URL` so the API uses Qdrant embedded/local disk mod
 - **Local models only** for Week 1 (no paid embedding/LLM APIs).
 - **Qdrant URL optional**: empty → embedded path under `data/indexes/qdrant_local` (Spaces-friendly).
 - **Unique `chunk_id`**: `sha1(doc_id)[:12]-NNNN` (per-doc index) — no collisions.
-- Refusal threshold / LangGraph `/ask` — Week 2.
+- **Cite-or-abstain `/ask` (LangGraph)**: evidence gate (top score &lt; 0.02 or top-3 chars &lt; 200) → generate with mandatory `[n]` citations → self-check.
+- **LLM optional**: stub without `LLM_API_KEY`; OpenAI-compatible when set.
 
 ## Roadmap
 - [x] Week 1: ingest + hybrid `/search` + eval
-- [ ] Week 2: cited `/ask` + refuse-when-unsure (LangGraph)
+- [x] Week 2: cited `/ask` + refuse-when-unsure (LangGraph)
 - [ ] Week 3: RAGAS eval board (~100 Q)
 - [ ] Week 4: tracing, Docker demo, README polish
 - [ ] MCP tool interface
