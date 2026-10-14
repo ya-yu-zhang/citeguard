@@ -96,3 +96,51 @@ def test_search_bm25(client):
     assert data["results"][0]["doc_id"].endswith("cors.md")
     assert "source_url" in data["results"][0]
     assert "title_path" in data["results"][0]
+
+
+def _ask_lines(caplog):
+    out = []
+    for rec in caplog.records:
+        if rec.name == "citeguard.request":
+            out.append(json.loads(rec.getMessage()))
+    return out
+
+
+def test_ask_exposes_request_id_and_logs(client, caplog, monkeypatch):
+    monkeypatch.setenv("ASK_RATE_PER_MIN", "0")
+    caplog.set_level("INFO", logger="citeguard.request")
+    r = client.post("/ask", json={"question": "How do I enable CORS in FastAPI with CORSMiddleware?"})
+    assert r.status_code == 200
+    body = r.json()
+    rid = body["request_id"]
+    assert rid and r.headers["X-Request-ID"] == rid
+    lines = [l for l in _ask_lines(caplog) if l["request_id"] == rid]
+    assert len(lines) == 1
+    line = lines[0]
+    assert line["path"] == "/ask"
+    assert line["outcome"] in ("answered", "refused")
+    assert line["outcome"] == ("refused" if body["refused"] else "answered")
+    assert line["n_citations"] == len(body["citations"])
+    assert line["latency_ms"] >= 0
+    assert {"refusal_reason", "model", "judge_mode"} <= line.keys()
+
+
+def test_ask_honours_incoming_request_id(client):
+    r = client.post("/ask", json={"question": "Pydantic BaseModel validation"}, headers={"X-Request-ID": "demo-123"})
+    assert r.json()["request_id"] == "demo-123"
+    assert r.headers["X-Request-ID"] == "demo-123"
+
+
+def test_stream_events_carry_request_id(client, caplog):
+    caplog.set_level("INFO", logger="citeguard.request")
+    r = client.post("/ask/stream", json={"question": "LangGraph streaming tokens"})
+    assert r.status_code == 200
+    rid = r.headers["X-Request-ID"]
+    datas = [json.loads(l[6:]) for l in r.text.splitlines() if l.startswith("data: ")]
+    assert datas and all(d.get("request_id") == rid for d in datas)
+    assert any(l["path"] == "/ask/stream" and l["request_id"] == rid for l in _ask_lines(caplog))
+
+
+def test_health_has_version_and_judge_mode(client):
+    body = client.get("/health").json()
+    assert body["version"] and body["judge_mode"] in ("off", "veto")

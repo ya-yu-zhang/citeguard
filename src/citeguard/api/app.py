@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any
@@ -20,7 +21,9 @@ from citeguard.api.schemas import (
 )
 from citeguard.api.ratelimit import RateLimiter, client_ip, limited_response
 from citeguard.ask.graph import run_ask, stream_ask_events
+from citeguard.ask.judge import judge_mode
 from citeguard.ask.llm import llm_configured
+from citeguard.api.observability import current_request_id, log_ask, new_request_id, request_id_var
 from citeguard.config import BM25_PATH, CHUNKS_PATH, get_settings
 from citeguard.index.store import make_client
 from citeguard.retrieval.bm25 import BM25Index
@@ -82,6 +85,20 @@ app = FastAPI(title="CiteGuard", version="0.2.0", lifespan=lifespan)
 app.state.limiter = RateLimiter()
 
 
+def _log_completion(path: str, rid: str | None, t0: float, result: dict) -> None:
+    settings = _state.get("settings") or get_settings()
+    log_ask(
+        request_id=rid,
+        path=path,
+        latency_ms=round((time.perf_counter() - t0) * 1000, 1),
+        outcome="refused" if result.get("refused") else "answered",
+        refusal_reason=result.get("refusal_reason"),
+        n_citations=len(result.get("citations") or []),
+        model=settings.llm_model or "stub",
+        judge_mode=judge_mode(),
+    )
+
+
 @app.middleware("http")
 async def ask_rate_limit(request: Request, call_next):
     if request.method == "POST" and request.url.path in ("/ask", "/ask/stream"):
@@ -89,6 +106,19 @@ async def ask_rate_limit(request: Request, call_next):
         if not ok:
             return limited_response(info)
     return await call_next(request)
+
+
+@app.middleware("http")
+async def request_id_mw(request: Request, call_next):
+    rid = (request.headers.get("x-request-id") or new_request_id())[:64]
+    token = request_id_var.set(rid)
+    request.state.request_id = rid
+    try:
+        response = await call_next(request)
+    finally:
+        request_id_var.reset(token)
+    response.headers["X-Request-ID"] = rid
+    return response
 
 
 @app.get("/health", response_model=HealthResponse)
@@ -102,6 +132,8 @@ def health() -> HealthResponse:
         n_chunks=n,
         qdrant_mode=mode,
         llm_configured=llm_configured(),
+        version=app.version,
+        judge_mode=judge_mode(),
     )
 
 
@@ -136,13 +168,17 @@ def ask(req: AskRequest) -> AskResponse:
     retriever: HybridRetriever | None = _state.get("retriever")
     if retriever is None:
         raise HTTPException(503, detail=f"Retriever not ready: {_state.get('error')}")
+    rid = current_request_id()
+    t0 = time.perf_counter()
     result = run_ask(retriever, req.question)
+    _log_completion("/ask", rid, t0, result)
     return AskResponse(
         answer=result["answer"],
         refused=result["refused"],
         refusal_reason=result["refusal_reason"],
         citations=[Citation(**c) for c in result["citations"]],
         method=result["method"],
+        request_id=rid,
     )
 
 
@@ -152,8 +188,16 @@ def ask_stream(req: AskRequest) -> StreamingResponse:
     if retriever is None:
         raise HTTPException(503, detail=f"Retriever not ready: {_state.get('error')}")
 
+    rid = current_request_id()  # captured now; the generator runs after middleware returns
+
     def event_gen():
+        t0 = time.perf_counter()
+        # rid is closed over: contextvars do not survive threadpool iteration of sync generators
         for ev in stream_ask_events(retriever, req.question):
+            if isinstance(ev.get("data"), dict):
+                ev = {**ev, "data": {**ev["data"], "request_id": rid}}
+            if ev["event"] == "final":
+                _log_completion("/ask/stream", rid, t0, ev["data"])
             yield f"event: {ev['event']}\ndata: {json.dumps(ev['data'], ensure_ascii=False)}\n\n"
 
     return StreamingResponse(event_gen(), media_type="text/event-stream")

@@ -34,6 +34,8 @@ class HealthResponse(BaseModel):
     n_chunks: int
     qdrant_mode: str
     llm_configured: bool = False
+    version: str = ""
+    judge_mode: str = "off"
 
 
 class Citation(BaseModel):
@@ -56,3 +58,4 @@ class AskResponse(BaseModel):
     refusal_reason: str | None
     citations: list[Citation]
     method: str
+    request_id: str | None = None
