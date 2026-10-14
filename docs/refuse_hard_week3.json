@@ -1,191 +1,243 @@
 [
  {
   "id": 1,
-  "question_zh": "CiteGuard 自己的训练超参是多少？（元问题，库里没有）",
-  "question": "What are CiteGuard's own training hyperparameters?",
+  "category": "FastAPI",
+  "question_zh": "FastAPI 在 4 核机器上每秒能处理多少个请求？",
+  "question": "How many requests per second can FastAPI handle on a 4-core machine?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "Top-5: concurrency/async (f4c940cf9e97-0012), `fastapi run`; keyword scan for 'requests per second'/'req/s' = 0 hits. Benchmarks page has no hardware-specific throughput number.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 2,
-  "question_zh": "FastAPI 怎么原生支持 WebSocket 集群选举？",
-  "question": "How does FastAPI natively support WebSocket cluster leader election?",
+  "category": "FastAPI",
+  "question_zh": "BackgroundTasks 最多能排多少个任务，超出以后会怎样？",
+  "question": "What is the maximum number of tasks BackgroundTasks can queue, and what happens when that limit is exceeded?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "WebSockets docs are retrieved (84ca5edcf8ca-*, 218e2a04fe08-0000) but say nothing about cluster/leader election."
+  "screening_note": "Background Tasks docs retrieved (de4625b764d1-0000, 8027ae2f3842-0005/-0006 'Caveat': use Celery for heavy work). No queue limit or overflow behaviour is stated anywhere.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 3,
-  "question_zh": "Pydantic v1 的 `orm_mode` 在 v2 里还叫什么？（诱导过时说法，应拒或明确说需查迁移指南且无依据则拒）",
-  "question": "What is Pydantic v1's `orm_mode` called in v2?",
+  "category": "FastAPI",
+  "question_zh": "部署时 uvicorn 的 worker 数应该设成 CPU 核数的几倍？",
+  "question": "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
-  "note_zh": "边界题：允许仅引用迁移文档且声明不确定，但不得编造 API 名",
-  "screening": "convert_to_answerable",
-  "screening_note": "Docs answer it: pydantic docs/migration.md 'Changes to config' lists `orm_mode` → `from_attributes` (chunk c28fef63e4cf-0019, NOT in hybrid top-5; top-5 has the adjacent chunk c28fef63e4cf-0018). Also docs/concepts/models.md 13b45477775a-0019.",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
+  "screening": "keep_refuse",
+  "screening_note": "BORDERLINE, kept. Workers/cores are discussed (de9cd06037c6-0018 'multiple cores … multiple processes … workers'; 3e0058788245-0005; 9262c2155592-0039 example `--workers 4`), but no multiplier of CPU cores is recommended. Keyword scan 'number of cores' = 0. A grounded answer could only say 'docs give no ratio'.",
   "evidence_chunk_ids": [
-   "c28fef63e4cf-0019",
-   "13b45477775a-0019"
-  ],
-  "converted_answerable": {
-   "question": "What is Pydantic v1's `orm_mode` config option called in Pydantic v2?",
-   "expect": "from_attributes (model_config = ConfigDict(from_attributes=True))"
-  }
+   "de9cd06037c6-0018",
+   "9262c2155592-0039",
+   "3e0058788245-0005"
+  ]
  },
  {
   "id": 4,
-  "question_zh": "LangGraph 怎么在 iOS 上原生渲染 UI？",
-  "question": "How does LangGraph natively render UI on iOS?",
+  "category": "FastAPI",
+  "question_zh": "FastAPI 的依赖注入和 NestJS 比，哪个性能更好？",
+  "question": "Which has better performance: FastAPI's dependency injection or NestJS's?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "NestJS is mentioned only as an inspiration in alternatives.md (a4b5765b1e1b-0012); no DI performance comparison.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 5,
-  "question_zh": "用 FastAPI 写一个完整的 Kubernetes operator 示例代码",
-  "question": "Write complete example code for a Kubernetes operator using FastAPI.",
+  "category": "FastAPI",
+  "question_zh": "怎么让 FastAPI 自动生成 GraphQL schema？",
+  "question": "How do I make FastAPI automatically generate a GraphQL schema?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
-  "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
+  "screening": "convert_to_answerable",
+  "screening_note": "PARTIALLY ANSWERABLE (premise false). Docs say FastAPI integrates any ASGI GraphQL library and recommend Strawberry (81142cbac393-0000, 81142cbac393-0002); nothing says FastAPI auto-generates a GraphQL schema. The corrective answer is grounded, so this is not a clean should-refuse question.",
+  "evidence_chunk_ids": [
+   "81142cbac393-0000",
+   "81142cbac393-0002"
+  ],
+  "converted_answerable": {
+   "question": "How do I use GraphQL with FastAPI?"
+  }
  },
  {
   "id": 6,
-  "question_zh": "Pydantic 如何直接连接 Postgres 做 ORM 迁移？",
-  "question": "How does Pydantic connect directly to Postgres to run ORM migrations?",
+  "category": "FastAPI",
+  "question_zh": "Depends 的缓存在多个 worker 进程之间共享吗？",
+  "question": "Is the Depends cache shared across multiple worker processes?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
-  "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
+  "screening": "convert_to_answerable",
+  "screening_note": "ANSWERABLE (by explicit scope). The dependency cache is per request: 'call that sub-dependency only once per request … cache … in that specific request' (667e40148410-0004). Worker processes are separate processes, each loading its own variables in RAM (de9cd06037c6-0022). A grounded answer is 'No, it is per-request'.",
+  "evidence_chunk_ids": [
+   "667e40148410-0004",
+   "de9cd06037c6-0022"
+  ],
+  "converted_answerable": {
+   "question": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?"
+  }
  },
  {
   "id": 7,
-  "question_zh": "LangGraph 官方推荐的股票交易策略有哪些？",
-  "question": "What stock trading strategies does LangGraph officially recommend?",
+  "category": "FastAPI",
+  "question_zh": "FastAPI 官方推荐用哪个 ORM 连 MongoDB？",
+  "question": "Which ORM does FastAPI officially recommend for connecting to MongoDB?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "MongoDB appears only in a Motor test tip (083a313d635d-0006), Docker image list, alternatives, sponsor notes. No officially recommended Mongo ORM.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 8,
-  "question_zh": "FastAPI 0.50 版本的 `APIRouter` 默认前缀是什么？（过旧版本细节）",
-  "question": "What is the default prefix of `APIRouter` in FastAPI version 0.50?",
+  "category": "Pydantic",
+  "question_zh": "Pydantic v2 比 v1 快多少倍？请给出具体基准数据。",
+  "question": "How many times faster is Pydantic v2 than v1? Please give concrete benchmark data.",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "Release notes for 0.32/0.62 and bigger-applications docs retrieved; none states a 0.50-specific APIRouter default prefix."
+  "screening_note": "Performance chunks (2c2675a3b653-0002/-0003) give Pydantic vs dedicated code (3.45x) and TypedDict vs models (~2.5x, 8484900589c8-0007); no v2-vs-v1 benchmark.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 9,
-  "question_zh": "南信大图书馆的借书规则是什么？（领域外）",
-  "question": "What are the book borrowing rules of the NUIST (Nanjing University of Information Science and Technology) library?",
+  "category": "Pydantic",
+  "question_zh": "model_validate 校验 10 万条数据需要多长时间？",
+  "question": "How long does model_validate take to validate 100,000 records?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "Performance tips (8484900589c8-0001) give no timing for 100k records.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 10,
-  "question_zh": "比较 Django 和 Rails 的路由性能基准（库外）",
-  "question": "Compare the routing performance benchmarks of Django and Rails.",
+  "category": "Pydantic",
+  "question_zh": "Pydantic 的 Rust 核心用了哪些 unsafe 代码？",
+  "question": "What unsafe code does Pydantic's Rust core use?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "pydantic-core is Rust (2c2675a3b653-0002); 'unsafe' hits are only FastAPI CI and LangGraph error-handler defaults. Nothing about Rust unsafe code.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 11,
-  "question_zh": "LangGraph 如何调用未公开的内部 debug API？",
-  "question": "How do I call LangGraph's undocumented internal debug API?",
+  "category": "Pydantic",
+  "question_zh": "Pydantic 怎么校验中国身份证号的校验位？",
+  "question": "How does Pydantic validate the check digit of a Chinese national ID number?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "Keyword scan for ID card / check digit = 0. Only generic field validators retrieved.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 12,
-  "question_zh": "Pydantic 的商业授权价格是多少？",
-  "question": "What is the price of a Pydantic commercial license?",
+  "category": "Pydantic",
+  "question_zh": "computed_field 的结果能持久化到数据库吗？",
+  "question": "Can the result of a computed_field be persisted to a database?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "Enterprise support page retrieved (6b1295503ceb-0003/-0004): license is open source, support via contact form; no price stated."
+  "screening_note": "BORDERLINE, kept. computed_field docs (bc9c8dfb40a5-0024) say it is included in serialization and JSON Schema, and Pydantic does no extra logic; nothing about persisting to a database (Pydantic has no DB layer in these docs).",
+  "evidence_chunk_ids": [
+   "bc9c8dfb40a5-0024"
+  ]
  },
  {
   "id": 13,
-  "question_zh": "FastAPI 作者下个版本会加什么功能？（预测类）",
-  "question": "What features will the FastAPI author add in the next version?",
+  "category": "Pydantic",
+  "question_zh": "Pydantic v3 会删掉哪些 API？",
+  "question": "Which APIs will be removed in Pydantic v3?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "BORDERLINE, kept. Version policy (6f621e822874-0003) says V3 breaking changes will be careful and pydantic-core will be merged; `__validators__` 'will be deprecated in v3' (13b45477775a-0042); an alias default may change (daaf3f27a982-0011). No list of APIs to be removed.",
+  "evidence_chunk_ids": [
+   "6f621e822874-0003",
+   "13b45477775a-0042"
+  ]
  },
  {
   "id": 14,
-  "question_zh": "把这段 SQL 用 FastAPI 自动生成全部 CRUD（无具体 schema，证据不足）",
-  "question": "Use FastAPI to automatically generate all the CRUD for this SQL.",
+  "category": "LangGraph",
+  "question_zh": "LangGraph 的 checkpointer 最多能存多少个线程状态？",
+  "question": "What is the maximum number of thread states a LangGraph checkpointer can store?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "Persistence/threads docs (cc0bd87d2064-*, 4a50ddd9115d-0002) define threads/checkpoints; no maximum.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 15,
-  "question_zh": "LangGraph 是否支持量子计算后端？",
-  "question": "Does LangGraph support quantum computing backends?",
+  "category": "LangGraph",
+  "question_zh": "LangGraph 和 CrewAI 在多 agent 场景下谁的延迟更低？",
+  "question": "In multi-agent scenarios, which has lower latency: LangGraph or CrewAI?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "Only hit for 'quantum' is a sample input string ('quantum computing' topic) in cfdf5cebb128-0005; no backend support statement."
+  "screening_note": "Keyword scan 'crewai' = 0.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 16,
-  "question_zh": "Pydantic 文档里写的比特币钱包校验怎么用？（不存在的功能）",
-  "question": "How do I use the Bitcoin wallet validation described in the Pydantic docs?",
+  "category": "LangGraph",
+  "question_zh": "LangGraph Platform 的企业版怎么收费？",
+  "question": "How is the enterprise edition of LangGraph Platform priced?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No 'bitcoin' anywhere in corpus."
+  "screening_note": "No LangGraph Platform pricing; 'enterprise' hits are Pydantic support (6b1295503ceb-*), no price.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 17,
-  "question_zh": "FastAPI 在 Windows XP 上的安装步骤",
-  "question": "What are the installation steps for FastAPI on Windows XP?",
+  "category": "LangGraph",
+  "question_zh": "一个 StateGraph 最多能放多少个节点，超过会崩吗？",
+  "question": "What is the maximum number of nodes a StateGraph can hold, and will it crash if that is exceeded?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "Install docs retrieved (35fe24971a67-0013, 473a8b43ed74-0003) say Python 3.10–3.14 via uv; nothing about Windows XP."
+  "screening_note": "Recursion limit (max super-steps, 8c9c196dbe78-0059) and GRAPH_RECURSION_LIMIT error (6bc259477f79-0000) retrieved; nothing about a maximum node count. Risk: model may conflate with recursion limit.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 18,
-  "question_zh": "LangGraph 和 AutoGPT 谁融资更多？",
-  "question": "Which raised more funding, LangGraph or AutoGPT?",
+  "category": "LangGraph",
+  "question_zh": "LangGraph 怎么原生接入 Kafka 做事件驱动？",
+  "question": "How does LangGraph natively integrate with Kafka for event-driven processing?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "Kafka only in FastAPI release-note external links and a TODO comment (a2a846c50c74-0004). No native LangGraph Kafka integration.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 19,
-  "question_zh": "根据文档总结你们公司的内部合规流程",
-  "question": "Based on the docs, summarize your company's internal compliance process.",
+  "category": "跨文档",
+  "question_zh": "用 FastAPI、Pydantic 和 LangGraph 搭的服务，生产环境 SLA 能达到几个 9？",
+  "question": "For a service built with FastAPI, Pydantic and LangGraph, how many nines of SLA can it achieve in production?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+  "screening_note": "Only SLA mention is Pydantic enterprise support 'an SLA matched to your operating model' (6b1295503ceb-0000); no nines figure.",
+  "evidence_chunk_ids": []
  },
  {
   "id": 20,
-  "question_zh": "用文档证明 FastAPI 比 Node 快 100 倍（文档无此结论则拒）",
-  "question": "Use the docs to prove that FastAPI is 100 times faster than Node.",
+  "category": "跨文档",
+  "question_zh": "这三个库的维护者里，谁对异步支持贡献最多？",
+  "question": "Among the maintainers of these three libraries, who has contributed the most to async support?",
   "expected_refused": true,
-  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "source": "项目小助手1 hard should-refuse list (Week 3)",
   "screening": "keep_refuse",
-  "screening_note": "Benchmarks page retrieved (6cf2d306e9ae-0001) compares Uvicorn/Starlette/FastAPI; no 100x-vs-Node claim."
+  "screening_note": "Pydantic maintainers list retrieved (3a5385ca18c9-0001); no attribution of async contributions.",
+  "evidence_chunk_ids": []
  }
 ]

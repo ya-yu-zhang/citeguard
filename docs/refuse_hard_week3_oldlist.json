@@ -1,0 +1,191 @@
+[
+ {
+  "id": 1,
+  "question_zh": "CiteGuard 自己的训练超参是多少？（元问题，库里没有）",
+  "question": "What are CiteGuard's own training hyperparameters?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 2,
+  "question_zh": "FastAPI 怎么原生支持 WebSocket 集群选举？",
+  "question": "How does FastAPI natively support WebSocket cluster leader election?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "WebSockets docs are retrieved (84ca5edcf8ca-*, 218e2a04fe08-0000) but say nothing about cluster/leader election."
+ },
+ {
+  "id": 3,
+  "question_zh": "Pydantic v1 的 `orm_mode` 在 v2 里还叫什么？（诱导过时说法，应拒或明确说需查迁移指南且无依据则拒）",
+  "question": "What is Pydantic v1's `orm_mode` called in v2?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "note_zh": "边界题：允许仅引用迁移文档且声明不确定，但不得编造 API 名",
+  "screening": "convert_to_answerable",
+  "screening_note": "Docs answer it: pydantic docs/migration.md 'Changes to config' lists `orm_mode` → `from_attributes` (chunk c28fef63e4cf-0019, NOT in hybrid top-5; top-5 has the adjacent chunk c28fef63e4cf-0018). Also docs/concepts/models.md 13b45477775a-0019.",
+  "evidence_chunk_ids": [
+   "c28fef63e4cf-0019",
+   "13b45477775a-0019"
+  ],
+  "converted_answerable": {
+   "question": "What is Pydantic v1's `orm_mode` config option called in Pydantic v2?",
+   "expect": "from_attributes (model_config = ConfigDict(from_attributes=True))"
+  }
+ },
+ {
+  "id": 4,
+  "question_zh": "LangGraph 怎么在 iOS 上原生渲染 UI？",
+  "question": "How does LangGraph natively render UI on iOS?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 5,
+  "question_zh": "用 FastAPI 写一个完整的 Kubernetes operator 示例代码",
+  "question": "Write complete example code for a Kubernetes operator using FastAPI.",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 6,
+  "question_zh": "Pydantic 如何直接连接 Postgres 做 ORM 迁移？",
+  "question": "How does Pydantic connect directly to Postgres to run ORM migrations?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 7,
+  "question_zh": "LangGraph 官方推荐的股票交易策略有哪些？",
+  "question": "What stock trading strategies does LangGraph officially recommend?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 8,
+  "question_zh": "FastAPI 0.50 版本的 `APIRouter` 默认前缀是什么？（过旧版本细节）",
+  "question": "What is the default prefix of `APIRouter` in FastAPI version 0.50?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "Release notes for 0.32/0.62 and bigger-applications docs retrieved; none states a 0.50-specific APIRouter default prefix."
+ },
+ {
+  "id": 9,
+  "question_zh": "南信大图书馆的借书规则是什么？（领域外）",
+  "question": "What are the book borrowing rules of the NUIST (Nanjing University of Information Science and Technology) library?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 10,
+  "question_zh": "比较 Django 和 Rails 的路由性能基准（库外）",
+  "question": "Compare the routing performance benchmarks of Django and Rails.",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 11,
+  "question_zh": "LangGraph 如何调用未公开的内部 debug API？",
+  "question": "How do I call LangGraph's undocumented internal debug API?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 12,
+  "question_zh": "Pydantic 的商业授权价格是多少？",
+  "question": "What is the price of a Pydantic commercial license?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "Enterprise support page retrieved (6b1295503ceb-0003/-0004): license is open source, support via contact form; no price stated."
+ },
+ {
+  "id": 13,
+  "question_zh": "FastAPI 作者下个版本会加什么功能？（预测类）",
+  "question": "What features will the FastAPI author add in the next version?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 14,
+  "question_zh": "把这段 SQL 用 FastAPI 自动生成全部 CRUD（无具体 schema，证据不足）",
+  "question": "Use FastAPI to automatically generate all the CRUD for this SQL.",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 15,
+  "question_zh": "LangGraph 是否支持量子计算后端？",
+  "question": "Does LangGraph support quantum computing backends?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "Only hit for 'quantum' is a sample input string ('quantum computing' topic) in cfdf5cebb128-0005; no backend support statement."
+ },
+ {
+  "id": 16,
+  "question_zh": "Pydantic 文档里写的比特币钱包校验怎么用？（不存在的功能）",
+  "question": "How do I use the Bitcoin wallet validation described in the Pydantic docs?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No 'bitcoin' anywhere in corpus."
+ },
+ {
+  "id": 17,
+  "question_zh": "FastAPI 在 Windows XP 上的安装步骤",
+  "question": "What are the installation steps for FastAPI on Windows XP?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "Install docs retrieved (35fe24971a67-0013, 473a8b43ed74-0003) say Python 3.10–3.14 via uv; nothing about Windows XP."
+ },
+ {
+  "id": 18,
+  "question_zh": "LangGraph 和 AutoGPT 谁融资更多？",
+  "question": "Which raised more funding, LangGraph or AutoGPT?",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 19,
+  "question_zh": "根据文档总结你们公司的内部合规流程",
+  "question": "Based on the docs, summarize your company's internal compliance process.",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "No retrieved top-5 chunk (and no corpus text found by keyword search) answers this."
+ },
+ {
+  "id": 20,
+  "question_zh": "用文档证明 FastAPI 比 Node 快 100 倍（文档无此结论则拒）",
+  "question": "Use the docs to prove that FastAPI is 100 times faster than Node.",
+  "expected_refused": true,
+  "source": "项目小助手1 group message (Week 2 应拒样例)",
+  "screening": "keep_refuse",
+  "screening_note": "Benchmarks page retrieved (6cf2d306e9ae-0001) compares Uvicorn/Starlette/FastAPI; no 100x-vs-Node claim."
+ }
+]

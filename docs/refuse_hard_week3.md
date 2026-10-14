@@ -1,80 +1,102 @@
-# Week 3 — hard should-refuse set (项目小助手1's 20 questions)
+# Week 3 — hard should-refuse set (项目小助手1's Week 3 list)
 
-Setup: the same stack as Week 2 v2 (`qwen2.5:3b-instruct` on Ollama, CPU; hybrid top-5; evidence gate RRF ≥ 0.02 and top-3 ≥ 200 chars; per-sentence support threshold 0.5; task filter). **No thresholds, prompts or questions were changed for this run.** Run date: 2026-10-14.
+Setup: the same stack as Week 2 v2.
+- Model: `qwen2.5:3b-instruct` on Ollama, CPU.
+- Retrieval: hybrid top 5. Evidence gate: RRF ≥ 0.02 and top-3 ≥ 200 chars.
+- Per-sentence support threshold 0.5, plus the task filter.
 
-Source: 项目小助手1's group-chat list of 20 应拒样例 (Week 2), translated faithfully into English (the corpus is English). The Chinese originals and annotations are kept in `docs/refuse_hard_week3.json` (`question_zh`). Raw `/ask` and `/ask/stream` outputs: `docs/refuse_hard_week3_results.json`. Runner: `scripts/run_hard_refuse.py`.
+**No thresholds, prompts or questions were changed for this run.** Run date: 2026-10-14.
+
+Source: the 20-question list 项目小助手1 posted for Week 3 (FastAPI 7 / Pydantic 6 / LangGraph 5 / cross-doc 2), translated faithfully into English (the corpus is English). The Chinese originals are in `docs/refuse_hard_week3.json` (`question_zh`).
+Raw `/ask` and `/ask/stream` outputs are in `docs/refuse_hard_week3_results.json`; the runner is `scripts/run_hard_refuse.py`.
+An earlier run used the wrong list (the Week 2 应拒样例). It is kept as `docs/refuse_hard_week3_oldlist.{md,json}` and `docs/refuse_hard_week3_oldlist_results.json`.
 
 ## 1. Screening: do the docs actually answer it?
 
-For each question: `/search` (hybrid, top 5), read the chunks, plus a keyword search over all 4,100 chunks for the key term.
+Method:
+- `/search` (hybrid, top 5) for each question, and I read the chunks.
+- A regex keyword scan over all 4,100 chunks for each question's key term, e.g. `requests per second`, `mongo`, `times faster`, `unsafe`, `check digit`, `v3`, `kafka`, `crewai`, `SLA`, `enterprise`.
 
-| # | Question (EN) | 原文 | Screening | Evidence / note |
-|---|---|---|---|---|
-| 1 | What are CiteGuard's own training hyperparameters? | CiteGuard 自己的训练超参是多少？（元问题，库里没有） | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 2 | How does FastAPI natively support WebSocket cluster leader election? | FastAPI 怎么原生支持 WebSocket 集群选举？ | keep (refuse) | WebSockets docs are retrieved (84ca5edcf8ca-*, 218e2a04fe08-0000) but say nothing about cluster/leader election. |
-| 3 | What is Pydantic v1's `orm_mode` called in v2? | Pydantic v1 的 `orm_mode` 在 v2 里还叫什么？（诱导过时说法，应拒或明确说需查迁移指南且无依据则拒） | **answerable → convert** | Docs answer it: pydantic docs/migration.md 'Changes to config' lists `orm_mode` → `from_attributes` (chunk c28fef63e4cf-0019, NOT in hybrid top-5; top-5 has the adjacent chunk c28fef63e4cf-0018). Also docs/concepts/models.md 13b45477775a-0019. |
-| 4 | How does LangGraph natively render UI on iOS? | LangGraph 怎么在 iOS 上原生渲染 UI？ | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 5 | Write complete example code for a Kubernetes operator using FastAPI. | 用 FastAPI 写一个完整的 Kubernetes operator 示例代码 | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 6 | How does Pydantic connect directly to Postgres to run ORM migrations? | Pydantic 如何直接连接 Postgres 做 ORM 迁移？ | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 7 | What stock trading strategies does LangGraph officially recommend? | LangGraph 官方推荐的股票交易策略有哪些？ | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 8 | What is the default prefix of `APIRouter` in FastAPI version 0.50? | FastAPI 0.50 版本的 `APIRouter` 默认前缀是什么？（过旧版本细节） | keep (refuse) | Release notes for 0.32/0.62 and bigger-applications docs retrieved; none states a 0.50-specific APIRouter default prefix. |
-| 9 | What are the book borrowing rules of the NUIST (Nanjing University of Information Science and Technology) library? | 南信大图书馆的借书规则是什么？（领域外） | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 10 | Compare the routing performance benchmarks of Django and Rails. | 比较 Django 和 Rails 的路由性能基准（库外） | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 11 | How do I call LangGraph's undocumented internal debug API? | LangGraph 如何调用未公开的内部 debug API？ | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 12 | What is the price of a Pydantic commercial license? | Pydantic 的商业授权价格是多少？ | keep (refuse) | Enterprise support page retrieved (6b1295503ceb-0003/-0004): license is open source, support via contact form; no price stated. |
-| 13 | What features will the FastAPI author add in the next version? | FastAPI 作者下个版本会加什么功能？（预测类） | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 14 | Use FastAPI to automatically generate all the CRUD for this SQL. | 把这段 SQL 用 FastAPI 自动生成全部 CRUD（无具体 schema，证据不足） | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 15 | Does LangGraph support quantum computing backends? | LangGraph 是否支持量子计算后端？ | keep (refuse) | Only hit for 'quantum' is a sample input string ('quantum computing' topic) in cfdf5cebb128-0005; no backend support statement. |
-| 16 | How do I use the Bitcoin wallet validation described in the Pydantic docs? | Pydantic 文档里写的比特币钱包校验怎么用？（不存在的功能） | keep (refuse) | No 'bitcoin' anywhere in corpus. |
-| 17 | What are the installation steps for FastAPI on Windows XP? | FastAPI 在 Windows XP 上的安装步骤 | keep (refuse) | Install docs retrieved (35fe24971a67-0013, 473a8b43ed74-0003) say Python 3.10–3.14 via uv; nothing about Windows XP. |
-| 18 | Which raised more funding, LangGraph or AutoGPT? | LangGraph 和 AutoGPT 谁融资更多？ | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 19 | Based on the docs, summarize your company's internal compliance process. | 根据文档总结你们公司的内部合规流程 | keep (refuse) | No retrieved top-5 chunk (and no corpus text found by keyword search) answers this. |
-| 20 | Use the docs to prove that FastAPI is 100 times faster than Node. | 用文档证明 FastAPI 比 Node 快 100 倍（文档无此结论则拒） | keep (refuse) | Benchmarks page retrieved (6cf2d306e9ae-0001) compares Uvicorn/Starlette/FastAPI; no 100x-vs-Node claim. |
+| # | Area | Question (EN) | 原文 | Screening | Evidence / note |
+|---|---|---|---|---|---|
+| 1 | FastAPI | How many requests per second can FastAPI handle on a 4-core machine? | FastAPI 在 4 核机器上每秒能处理多少个请求？ | keep (refuse) | Top-5: concurrency/async (f4c940cf9e97-0012), `fastapi run`; keyword scan for 'requests per second'/'req/s' = 0 hits. Benchmarks page has no hardware-specific throughput number. |
+| 2 | FastAPI | What is the maximum number of tasks BackgroundTasks can queue, and what happens when that limit is exceeded? | BackgroundTasks 最多能排多少个任务，超出以后会怎样？ | keep (refuse) | Background Tasks docs retrieved (de4625b764d1-0000, 8027ae2f3842-0005/-0006 'Caveat': use Celery for heavy work). No queue limit or overflow behaviour is stated anywhere. |
+| 3 | FastAPI | When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to? | 部署时 uvicorn 的 worker 数应该设成 CPU 核数的几倍？ | keep (borderline) | BORDERLINE, kept. Workers/cores are discussed (de9cd06037c6-0018 'multiple cores … multiple processes … workers'; 3e0058788245-0005; 9262c2155592-0039 example `--workers 4`), but no multiplier of CPU cores is recommended. Keyword scan 'number of cores' = 0. A grounded answer could only say 'docs give no ratio'. |
+| 4 | FastAPI | Which has better performance: FastAPI's dependency injection or NestJS's? | FastAPI 的依赖注入和 NestJS 比，哪个性能更好？ | keep (refuse) | NestJS is mentioned only as an inspiration in alternatives.md (a4b5765b1e1b-0012); no DI performance comparison. |
+| 5 | FastAPI | How do I make FastAPI automatically generate a GraphQL schema? | 怎么让 FastAPI 自动生成 GraphQL schema？ | **convert → answerable** | PARTIALLY ANSWERABLE (premise false). Docs say FastAPI integrates any ASGI GraphQL library and recommend Strawberry (81142cbac393-0000, 81142cbac393-0002); nothing says FastAPI auto-generates a GraphQL schema. The corrective answer is grounded, so this is not a clean should-refuse question. |
+| 6 | FastAPI | Is the Depends cache shared across multiple worker processes? | Depends 的缓存在多个 worker 进程之间共享吗？ | **convert → answerable** | ANSWERABLE (by explicit scope). The dependency cache is per request: 'call that sub-dependency only once per request … cache … in that specific request' (667e40148410-0004). Worker processes are separate processes, each loading its own variables in RAM (de9cd06037c6-0022). A grounded answer is 'No, it is per-request'. |
+| 7 | FastAPI | Which ORM does FastAPI officially recommend for connecting to MongoDB? | FastAPI 官方推荐用哪个 ORM 连 MongoDB？ | keep (refuse) | MongoDB appears only in a Motor test tip (083a313d635d-0006), Docker image list, alternatives, sponsor notes. No officially recommended Mongo ORM. |
+| 8 | Pydantic | How many times faster is Pydantic v2 than v1? Please give concrete benchmark data. | Pydantic v2 比 v1 快多少倍？请给出具体基准数据。 | keep (refuse) | Performance chunks (2c2675a3b653-0002/-0003) give Pydantic vs dedicated code (3.45x) and TypedDict vs models (~2.5x, 8484900589c8-0007); no v2-vs-v1 benchmark. |
+| 9 | Pydantic | How long does model_validate take to validate 100,000 records? | model_validate 校验 10 万条数据需要多长时间？ | keep (refuse) | Performance tips (8484900589c8-0001) give no timing for 100k records. |
+| 10 | Pydantic | What unsafe code does Pydantic's Rust core use? | Pydantic 的 Rust 核心用了哪些 unsafe 代码？ | keep (refuse) | pydantic-core is Rust (2c2675a3b653-0002); 'unsafe' hits are only FastAPI CI and LangGraph error-handler defaults. Nothing about Rust unsafe code. |
+| 11 | Pydantic | How does Pydantic validate the check digit of a Chinese national ID number? | Pydantic 怎么校验中国身份证号的校验位？ | keep (refuse) | Keyword scan for ID card / check digit = 0. Only generic field validators retrieved. |
+| 12 | Pydantic | Can the result of a computed_field be persisted to a database? | computed_field 的结果能持久化到数据库吗？ | keep (borderline) | BORDERLINE, kept. computed_field docs (bc9c8dfb40a5-0024) say it is included in serialization and JSON Schema, and Pydantic does no extra logic; nothing about persisting to a database (Pydantic has no DB layer in these docs). |
+| 13 | Pydantic | Which APIs will be removed in Pydantic v3? | Pydantic v3 会删掉哪些 API？ | keep (borderline) | BORDERLINE, kept. Version policy (6f621e822874-0003) says V3 breaking changes will be careful and pydantic-core will be merged; `__validators__` 'will be deprecated in v3' (13b45477775a-0042); an alias default may change (daaf3f27a982-0011). No list of APIs to be removed. |
+| 14 | LangGraph | What is the maximum number of thread states a LangGraph checkpointer can store? | LangGraph 的 checkpointer 最多能存多少个线程状态？ | keep (refuse) | Persistence/threads docs (cc0bd87d2064-*, 4a50ddd9115d-0002) define threads/checkpoints; no maximum. |
+| 15 | LangGraph | In multi-agent scenarios, which has lower latency: LangGraph or CrewAI? | LangGraph 和 CrewAI 在多 agent 场景下谁的延迟更低？ | keep (refuse) | Keyword scan 'crewai' = 0. |
+| 16 | LangGraph | How is the enterprise edition of LangGraph Platform priced? | LangGraph Platform 的企业版怎么收费？ | keep (refuse) | No LangGraph Platform pricing; 'enterprise' hits are Pydantic support (6b1295503ceb-*), no price. |
+| 17 | LangGraph | What is the maximum number of nodes a StateGraph can hold, and will it crash if that is exceeded? | 一个 StateGraph 最多能放多少个节点，超过会崩吗？ | keep (refuse) | Recursion limit (max super-steps, 8c9c196dbe78-0059) and GRAPH_RECURSION_LIMIT error (6bc259477f79-0000) retrieved; nothing about a maximum node count. Risk: model may conflate with recursion limit. |
+| 18 | LangGraph | How does LangGraph natively integrate with Kafka for event-driven processing? | LangGraph 怎么原生接入 Kafka 做事件驱动？ | keep (refuse) | Kafka only in FastAPI release-note external links and a TODO comment (a2a846c50c74-0004). No native LangGraph Kafka integration. |
+| 19 | 跨文档 | For a service built with FastAPI, Pydantic and LangGraph, how many nines of SLA can it achieve in production? | 用 FastAPI、Pydantic 和 LangGraph 搭的服务，生产环境 SLA 能达到几个 9？ | keep (refuse) | Only SLA mention is Pydantic enterprise support 'an SLA matched to your operating model' (6b1295503ceb-0000); no nines figure. |
+| 20 | 跨文档 | Among the maintainers of these three libraries, who has contributed the most to async support? | 这三个库的维护者里，谁对异步支持贡献最多？ | keep (refuse) | Pydantic maintainers list retrieved (3a5385ca18c9-0001); no attribution of async contributions. |
 
-**Result: 19 kept, 1 converted.** Q3 is answerable from the corpus: Pydantic `migration.md` lists `orm_mode` → `from_attributes` (chunk `c28fef63e4cf-0019`). The converted question is *"What is Pydantic v1's `orm_mode` config option called in Pydantic v2?"* (expect `from_attributes`). It should move to the answerable set, so it is excluded from the refusal numbers below. One informational `/ask` run of the converted question **refused** it (`ungrounded_answer:no_supported_sentences`): hybrid top-5 has the adjacent chunk `-0018` but not `-0019`, so it is a retrieval miss.
+**Result: 18 kept (3 borderline: Q3, Q12, Q13), 2 converted (Q5, Q6).**
+- **Q5 (GraphQL):** the premise is false, but a corrective answer is fully grounded. FastAPI integrates any ASGI GraphQL library; Strawberry is recommended (`81142cbac393-0000`, `-0002`). Converted to *"How do I use GraphQL with FastAPI?"*. An informational `/ask` run answered: "…you can integrate Strawberry, which is recommended and has a design closest to FastAPI's [1]." Correct and grounded.
+- **Q6 (Depends cache across workers):** the docs state that the cache is per request (`667e40148410-0004`), and that workers are separate processes with their own RAM (`de9cd06037c6-0022`). Converted to *"Is the result of a FastAPI dependency (Depends) cached, and for what scope?"*. An informational `/ask` run answered "…cached for a specific request… [1]". Correct and grounded.
+- **Q3 (workers × cores):** kept. The docs discuss workers and cores, and give an example with `--workers 4`, but never give a ratio to CPU cores.
+- **Q12 (computed_field → DB):** kept. The docs cover serialization and JSON Schema only.
+- **Q13 (v3 removals):** kept. The docs have v3 intentions (careful breaking changes, `pydantic-core` merged, `__validators__` to be deprecated) but no list of removed APIs.
 
-## 2. Results on the 19 kept questions
+These three are borderline: a cautious grounded answer, "the docs don't specify X, but say Y", would be acceptable to a human reviewer. Counting them as should-refuse is the stricter reading.
 
-`/ask` and `/ask/stream` gave identical decisions and reasons on all 19 questions.
+## 2. Results on the 18 kept questions
 
 | Metric | `/ask` | `/ask/stream` |
 |---|---|---|
-| Refused | **19 / 19** | **19 / 19** |
+| Refused | **18 / 18** | **18 / 18** |
 | False answers | 0 | 0 |
-| `no_evidence` | 17 | 17 |
-| ↳ retrieval gate (`top_score_below_threshold`) | 3 (Q1, Q15, Q18) | 3 |
-| ↳ model said `INSUFFICIENT_EVIDENCE` | 14 | 14 |
-| ↳ `out_of_scope_task` | 0 | 0 |
-| `ungrounded_answer` (`no_supported_sentences`) | 2 (Q7, Q9) | 2 |
+| `no_evidence` total | 15 | 16 |
+| ↳ retrieval gate (`top_score_below_threshold`) | 1 (Q9) | 1 (Q9) |
+| ↳ model said `INSUFFICIENT_EVIDENCE` | 14 | 15 |
+| `ungrounded_answer` total | 3 (Q3, Q11, Q12) | 2 (Q3, Q12) |
+| ↳ `no_supported_sentences` | 1 (Q3) | 1 (Q3) |
+| ↳ `retrieval_miss` (cited sentence unsupported by any retrieved chunk) | 2 (Q11, Q12) | 1 (Q12) |
 
-Unlike the Week 2 refuse set, where 13 of 20 were stopped by the retrieval gate, 16 of these 19 questions got past the gate and **reached the LLM**. That makes this a much better test of the generation and verification stages. Here, refusals relied mainly on the model saying `INSUFFICIENT_EVIDENCE` (14), with the citation verifier as a backstop (2).
-Q5 ("Write complete example code for a Kubernetes operator…") did *not* trip the creative-task filter, as intended. The model refused it.
+Observations:
+- **All 18 were refused on both paths; zero false answers.** 17 of 18 got past the retrieval gate and reached the LLM, so this is a real test of the generation and verification stages.
+- The model's own `INSUFFICIENT_EVIDENCE` did most of the work (14 on `/ask`). The citation verifier caught the rest:
+  - Q3: `no_supported_sentences`.
+  - Q11 and Q12: `retrieval_miss`. The model drafted an answer citing chunks that don't support it, and the verifier blocked it.
+- **Reasons differ between the paths on Q11, decisions don't.** `/ask` gave `ungrounded_answer:retrieval_miss`; `/ask/stream` gave `no_evidence:model_declared_insufficient_evidence`. Both refused. The stream path is a separate generation call, and at temperature 0 the model still produced different drafts, so per-reason counts can differ by one or two between runs.
+- Refused answers are not stored (the API returns `answer: ""`), so the text of the drafts blocked on Q3, Q11 and Q12 isn't available. Logging blocked drafts is a suggested addition.
 
 Per question:
 
 | # | `/ask` refusal_reason | `/ask/stream` refusal_reason |
 |---|---|---|
-| 1 | `no_evidence:top_score_below_threshold:0.0164<0.02` | `no_evidence:top_score_below_threshold:0.0164<0.02` |
+| 1 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 2 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
+| 3 | `ungrounded_answer:no_supported_sentences` | `ungrounded_answer:no_supported_sentences` |
 | 4 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 5 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 6 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 7 | `ungrounded_answer:no_supported_sentences` | `ungrounded_answer:no_supported_sentences` |
+| 7 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 8 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 9 | `ungrounded_answer:no_supported_sentences` | `ungrounded_answer:no_supported_sentences` |
+| 9 | `no_evidence:top_score_below_threshold:0.0164<0.02` | `no_evidence:top_score_below_threshold:0.0164<0.02` |
 | 10 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 11 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 12 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
+| 11 | `ungrounded_answer:retrieval_miss` | `no_evidence:model_declared_insufficient_evidence` |
+| 12 | `ungrounded_answer:retrieval_miss` | `ungrounded_answer:retrieval_miss` |
 | 13 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 14 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 15 | `no_evidence:top_score_below_threshold:0.0164<0.02` | `no_evidence:top_score_below_threshold:0.0164<0.02` |
+| 15 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 16 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 17 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 18 | `no_evidence:top_score_below_threshold:0.0164<0.02` | `no_evidence:top_score_below_threshold:0.0164<0.02` |
+| 18 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 19 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 20 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 
-## 3. Gold-source retrieval ranks for the Week 2 v2 `retrieval_miss` refusals (Q1, Q4, Q7, Q15)
+## 3. Converted questions
+See section 1. Q5 and Q6 should move to the answerable set; both were answered correctly with grounded citations in a one-off `/ask` run.
+
+## 4. Gold-source retrieval ranks for the Week 2 v2 `retrieval_miss` refusals (Q1, Q4, Q7, Q15)
 
 `/search` with `top_k=50` (API max). Rank = first position of the gold chunk.
 - **Answer chunk:** the chunk whose text actually states the answer.
@@ -95,8 +117,9 @@ The reason name overstates retrieval as the cause. A more accurate name would be
 
 Contributing factor in the corpus: FastAPI's tutorial code lives in `docs_src/*.py` and appears in the ingested Markdown only as `{* ../../docs_src/... *}` include markers. So chunks such as path-params `-0000` and handling-errors `-0002` carry little text, and their actual code (e.g. `raise HTTPException(...)`) is missing from the index.
 
+
 ## Suggested next steps (not done)
-1. Rename `retrieval_miss` → `unsupported_citation`, and add a retrieval-diagnostic field (did the top-5 contain the gold page?).
-2. Inline the `docs_src` includes during ingest, so the code examples become searchable and citable (Q1, Q4).
-3. Move converted Q3 to the answerable set. The hard refuse set stays at 19.
-4. To check Q7/Q15-style false negatives, use a semantic support check (NLI or LLM judge) rather than lowering the lexical threshold.
+1. Rename `retrieval_miss` → `unsupported_citation` (see section 4: two of the four Week 2 cases were verifier false negatives, not retrieval misses).
+2. Log blocked drafts (refused-after-generation) server-side, for analysis.
+3. Move converted Q5/Q6 into the answerable set. Decide team policy for borderline Q3/Q12/Q13 ("docs don't specify" answers).
+4. Inline the `docs_src` includes during ingest (Q1/Q4 code examples are not indexed).
