@@ -1,5 +1,8 @@
 # Week 3 — hard should-refuse set (项目小助手1's Week 3 list)
 
+> Note (2026-10-14): refusal reason `retrieval_miss` was renamed to `unsupported_citation`; this doc was updated to the new name. Raw JSON from runs before the rename still contains `retrieval_miss`.
+> Update: `docs/refuse_hard_week3_results.json` now holds the post-inline rerun (see `docs/ingest_inline_week3.md`); the numbers in this file are from the pre-inline index, whose raw output is `docs/refuse_hard_week3_results_pre_inline.json`.
+
 Setup: the same stack as Week 2 v2.
 - Model: `qwen2.5:3b-instruct` on Ollama, CPU.
 - Retrieval: hybrid top 5. Evidence gate: RRF ≥ 0.02 and top-3 ≥ 200 chars.
@@ -60,14 +63,14 @@ These three are borderline: a cautious grounded answer, "the docs don't specify 
 | ↳ model said `INSUFFICIENT_EVIDENCE` | 14 | 15 |
 | `ungrounded_answer` total | 3 (Q3, Q11, Q12) | 2 (Q3, Q12) |
 | ↳ `no_supported_sentences` | 1 (Q3) | 1 (Q3) |
-| ↳ `retrieval_miss` (cited sentence unsupported by any retrieved chunk) | 2 (Q11, Q12) | 1 (Q12) |
+| ↳ `unsupported_citation` (cited sentence unsupported by any retrieved chunk) | 2 (Q11, Q12) | 1 (Q12) |
 
 Observations:
 - **All 18 were refused on both paths; zero false answers.** 17 of 18 got past the retrieval gate and reached the LLM, so this is a real test of the generation and verification stages.
 - The model's own `INSUFFICIENT_EVIDENCE` did most of the work (14 on `/ask`). The citation verifier caught the rest:
   - Q3: `no_supported_sentences`.
-  - Q11 and Q12: `retrieval_miss`. The model drafted an answer citing chunks that don't support it, and the verifier blocked it.
-- **Reasons differ between the paths on Q11, decisions don't.** `/ask` gave `ungrounded_answer:retrieval_miss`; `/ask/stream` gave `no_evidence:model_declared_insufficient_evidence`. Both refused. The stream path is a separate generation call, and at temperature 0 the model still produced different drafts, so per-reason counts can differ by one or two between runs.
+  - Q11 and Q12: `unsupported_citation`. The model drafted an answer citing chunks that don't support it, and the verifier blocked it.
+- **Reasons differ between the paths on Q11, decisions don't.** `/ask` gave `ungrounded_answer:unsupported_citation`; `/ask/stream` gave `no_evidence:model_declared_insufficient_evidence`. Both refused. The stream path is a separate generation call, and at temperature 0 the model still produced different drafts, so per-reason counts can differ by one or two between runs.
 - Refused answers are not stored (the API returns `answer: ""`), so the text of the drafts blocked on Q3, Q11 and Q12 isn't available. Logging blocked drafts is a suggested addition.
 
 Per question:
@@ -82,8 +85,8 @@ Per question:
 | 8 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 9 | `no_evidence:top_score_below_threshold:0.0164<0.02` | `no_evidence:top_score_below_threshold:0.0164<0.02` |
 | 10 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
-| 11 | `ungrounded_answer:retrieval_miss` | `no_evidence:model_declared_insufficient_evidence` |
-| 12 | `ungrounded_answer:retrieval_miss` | `ungrounded_answer:retrieval_miss` |
+| 11 | `ungrounded_answer:unsupported_citation` | `no_evidence:model_declared_insufficient_evidence` |
+| 12 | `ungrounded_answer:unsupported_citation` | `ungrounded_answer:unsupported_citation` |
 | 13 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 14 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 15 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
@@ -96,7 +99,7 @@ Per question:
 ## 3. Converted questions
 See section 1. Q5 and Q6 should move to the answerable set; both were answered correctly with grounded citations in a one-off `/ask` run.
 
-## 4. Gold-source retrieval ranks for the Week 2 v2 `retrieval_miss` refusals (Q1, Q4, Q7, Q15)
+## 4. Gold-source retrieval ranks for the Week 2 v2 `unsupported_citation` (then `retrieval_miss`) refusals (Q1, Q4, Q7, Q15)
 
 `/search` with `top_k=50` (API max). Rank = first position of the gold chunk.
 - **Answer chunk:** the chunk whose text actually states the answer.
@@ -109,17 +112,17 @@ See section 1. Q5 and Q6 should move to the answerable set; both were answered c
 | 7 | Add CORS | `0e60b3828d2a-0004` (cors.md, "Use `CORSMiddleware`") | **1** | 3 | 1 | 1 |
 | 15 | Forbid extra fields | `8555df178cda-0037` (validation_errors.md `extra_forbidden`, only chunk with `extra='forbid'`) | **3** | 5 | 4 | — |
 
-**Finding (correction to Week 2).** The Week 2 label `ungrounded_answer:retrieval_miss` is only accurate for **Q1 and Q4**: their answer chunks are not in the top 50. For **Q7 and Q15** the gold chunk was retrieved (ranks 1 and 3), so those refusals are **verifier false negatives**.
+**Finding (correction to Week 2).** The Week 2 label (then named `retrieval_miss`) is only accurate for **Q1 and Q4**: their answer chunks are not in the top 50. For **Q7 and Q15** the gold chunk was retrieved (ranks 1 and 3), so those refusals are **verifier false negatives**.
 - Q7: the model's sentence ("by importing `CORSMiddleware` and configuring it …") didn't reach 50 % lexical overlap with its cited chunk.
 - Q15: the answer's key terms (`model_config`, "option", "definition") aren't in the cited chunk. "extra" and "forbid" don't count because they are question words.
 
-The reason name overstates retrieval as the cause. A more accurate name would be `unsupported_citation`. I didn't rename it or change thresholds in this run (out of scope; would shift the stage).
+The old name (`retrieval_miss`) overstated retrieval as the cause; it has since been renamed to `unsupported_citation`.
 
 Contributing factor in the corpus: FastAPI's tutorial code lives in `docs_src/*.py` and appears in the ingested Markdown only as `{* ../../docs_src/... *}` include markers. So chunks such as path-params `-0000` and handling-errors `-0002` carry little text, and their actual code (e.g. `raise HTTPException(...)`) is missing from the index.
 
 
 ## Suggested next steps (not done)
-1. Rename `retrieval_miss` → `unsupported_citation` (see section 4: two of the four Week 2 cases were verifier false negatives, not retrieval misses).
+1. ~~Rename `retrieval_miss` → `unsupported_citation`~~ (done) (see section 4: two of the four Week 2 cases were verifier false negatives, not retrieval misses).
 2. Log blocked drafts (refused-after-generation) server-side, for analysis.
 3. Move converted Q5/Q6 into the answerable set. Decide team policy for borderline Q3/Q12/Q13 ("docs don't specify" answers).
 4. Inline the `docs_src` includes during ingest (Q1/Q4 code examples are not indexed).

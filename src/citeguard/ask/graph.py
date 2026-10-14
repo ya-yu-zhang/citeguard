@@ -28,7 +28,7 @@ def _check(answer: str, citations: list, question: str, hits: list) -> tuple[str
         return answer, ok0, reason0
     rep = repair_citations(answer, question, _contexts(hits))
     if rep.wrong_source:
-        return "", False, "retrieval_miss"
+        return "", False, "unsupported_citation"
     if rep.supported == 0:
         return "", False, "no_supported_sentences"
     ok, reason = self_check_answer(rep.answer, citations, question=question, contexts=_contexts(hits))
@@ -46,7 +46,7 @@ def refusal_reason(detail: str) -> str:
     return f"{head}:{detail}"
 
 
-_NO_REGEN = {"model_declared_insufficient_evidence", "empty_answer", "no_citations", "no_supported_sentences", "retrieval_miss"}
+_NO_REGEN = {"model_declared_insufficient_evidence", "empty_answer", "no_citations", "no_supported_sentences", "unsupported_citation"}
 # low_grounding:* is also final (prefix-matched below): regenerating at T=0 gives the same text
 
 

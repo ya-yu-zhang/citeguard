@@ -54,3 +54,24 @@ def test_chunk_ids_unique_within_and_across_docs():
     assert len(ids) == len(set(ids))
     assert a[0].chunk_id == make_chunk_id("repo:a.md", 0)
     assert a[1].chunk_id == make_chunk_id("repo:a.md", 1)
+
+
+def test_hash_comments_in_code_fences_are_not_headings():
+    from citeguard.ingest.chunk import iter_sections
+
+    md = "# Title\n\nText.\n\n```python\n# a comment\nx = 1\n```\n\nMore."
+    secs = list(iter_sections(md))
+    assert [t for t, _ in secs] == ["Title"]
+
+
+def test_resolve_includes(tmp_path):
+    from citeguard.ingest.pipeline import resolve_includes
+
+    (tmp_path / "docs_src").mkdir()
+    (tmp_path / "docs_src" / "a.py").write_text("raise HTTPException(status_code=404)\n")
+    base = tmp_path / "docs" / "en"
+    base.mkdir(parents=True)
+    out, ok, miss = resolve_includes(
+        'X\n{* ../../docs_src/a.py hl[1] title["a.py"] *}\n{* ../../docs_src/none.py *}', base
+    )
+    assert ok == 1 and miss == 1 and "raise HTTPException" in out and "```python" in out

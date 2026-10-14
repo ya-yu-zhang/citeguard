@@ -141,7 +141,8 @@ Local CPU model `qwen2.5:3b-instruct`. Same 20 answerable + 20 refuse questions 
 |---|---|---|---|
 | Over-refusal from missing or literal `[n]` markers | 4/20 answerable refused (`/ask`) | 0/20 (sentences are mapped to their best-matching retrieved chunk; unmatched ones are dropped) | fixed |
 | Answer rate (`/ask` / stream) | 0.55 / 0.45 | 0.75 / 0.75 | improved |
-| Wrong-source citations (correct fact, unrelated chunk, e.g. Q4 HTTPException) | answered, with 24 % of cited sentences failing the source check | refused as `ungrounded_answer:retrieval_miss` (Q1, Q4, Q7, Q15) | fixed by refusing. The root cause is retrieval recall: the right page isn't in the top 5, so answerable questions are still lost |
+| Wrong-source citations (correct fact, unrelated chunk, e.g. Q4 HTTPException) | answered, with 24 % of cited sentences failing the source check | refused as `ungrounded_answer:retrieval_miss` (Q1, Q4, Q7, Q15; reason since renamed `unsupported_citation`) | fixed by refusing. The root cause is retrieval recall: the right page isn't in the top 5, so answerable questions are still lost |
+| ↳ correction to the row above | — | — | This was first thought to be a retrieval-recall problem for all four. Gold-chunk ranks later showed only Q1 and Q4 were recall misses (answer chunks ranked >50). **Q7 and Q15 had the gold chunk at hybrid rank 1 and 3: those were citation-check false rejections.** See `docs/refuse_hard_week3.md` §4 |
 | Prompt-echo false answer (refuse #7, toaster poem, stream only) | 1/20 false answer on stream | refused on both paths (`no_evidence:out_of_scope_task`) | fixed (narrow regex for creative-writing requests) |
 | `/ask` vs stream disagreement | refusal accuracy 1.00 vs 0.95; 2/20 answerable decisions differ | identical decisions on all 40 questions | fixed (buffer-then-stream) |
 | Factually wrong but uses the chunk's words (Q9 `response_model` described as a function parameter; it is a decorator argument) | answered | still answered | **unfixed**: the lexical check can't detect it; needs a semantic faithfulness check (RAGAS / NLI, week 3) |
@@ -149,6 +150,8 @@ Local CPU model `qwen2.5:3b-instruct`. Same 20 answerable + 20 refuse questions 
 | Sentence citation validity reads 1.00 after the fix | 0.76 | 1.00 | **partly circular**: the metric uses the same lexical rule as the repair step. Only a semantic or human check is independent; manual review found 13/15 answers clean |
 | Calibration evidence is thin | n/a | only 6 of 20 refuse questions get past the retrieval gate to the LLM, so the threshold sweep can't show the refusal side | **open**: needs more hard (in-domain but unanswerable) refuse questions |
 | Streaming time-to-first-token | 0.25 s | 4.1 s p50 | trade-off accepted for consistency |
+| After inlining FastAPI `docs_src` code (`docs/ingest_inline_week3.md`): answer rate | 0.75 | 0.90 (18/20) | improved, but **3 of 18 answers are wrong or off-target** (Q1 cites the `{file_path:path}` section; Q5 mis-describes Depends; Q6 says `response_class` instead of `BackgroundTasks`), vs 1 of 15 before. The lexical check can't catch these |
+| Hard refuse set (18): false answers after inlining | 0/18 | 1/18 (Q3 "workers = number of CPU cores", not stated in docs; both paths) | **unfixed**: plausible-sounding claim that reuses the chunk's words |
 
 ## Roadmap
 - [x] Week 1: ingest + hybrid `/search` + eval

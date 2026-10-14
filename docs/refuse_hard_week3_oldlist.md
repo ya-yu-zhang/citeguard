@@ -1,5 +1,7 @@
 # Week 3 — hard should-refuse set (项目小助手1's 20 questions)
 
+> Note (2026-10-14): refusal reason `retrieval_miss` was renamed to `unsupported_citation`; this doc was updated to the new name. Raw JSON from runs before the rename still contains `retrieval_miss`.
+
 > **Superseded:** this run used the wrong list (项目小助手1’s Week 2 应拒样例, not the Week 3 hard list). Kept for reference; the current results are in `refuse_hard_week3.md`. File references below to `refuse_hard_week3*.json` now correspond to `refuse_hard_week3_oldlist*.json`.
 
 Setup: the same stack as Week 2 v2 (`qwen2.5:3b-instruct` on Ollama, CPU; hybrid top-5; evidence gate RRF ≥ 0.02 and top-3 ≥ 200 chars; per-sentence support threshold 0.5; task filter). **No thresholds, prompts or questions were changed for this run.** Run date: 2026-10-14.
@@ -76,7 +78,7 @@ Per question:
 | 19 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 | 20 | `no_evidence:model_declared_insufficient_evidence` | `no_evidence:model_declared_insufficient_evidence` |
 
-## 3. Gold-source retrieval ranks for the Week 2 v2 `retrieval_miss` refusals (Q1, Q4, Q7, Q15)
+## 3. Gold-source retrieval ranks for the Week 2 v2 `unsupported_citation` (then `retrieval_miss`) refusals (Q1, Q4, Q7, Q15)
 
 `/search` with `top_k=50` (API max). Rank = first position of the gold chunk.
 - **Answer chunk:** the chunk whose text actually states the answer.
@@ -89,16 +91,16 @@ Per question:
 | 7 | Add CORS | `0e60b3828d2a-0004` (cors.md, "Use `CORSMiddleware`") | **1** | 3 | 1 | 1 |
 | 15 | Forbid extra fields | `8555df178cda-0037` (validation_errors.md `extra_forbidden`, only chunk with `extra='forbid'`) | **3** | 5 | 4 | — |
 
-**Finding (correction to Week 2).** The Week 2 label `ungrounded_answer:retrieval_miss` is only accurate for **Q1 and Q4**: their answer chunks are not in the top 50. For **Q7 and Q15** the gold chunk was retrieved (ranks 1 and 3), so those refusals are **verifier false negatives**.
+**Finding (correction to Week 2).** The Week 2 label (then named `retrieval_miss`) is only accurate for **Q1 and Q4**: their answer chunks are not in the top 50. For **Q7 and Q15** the gold chunk was retrieved (ranks 1 and 3), so those refusals are **verifier false negatives**.
 - Q7: the model's sentence ("by importing `CORSMiddleware` and configuring it …") didn't reach 50 % lexical overlap with its cited chunk.
 - Q15: the answer's key terms (`model_config`, "option", "definition") aren't in the cited chunk. "extra" and "forbid" don't count because they are question words.
 
-The reason name overstates retrieval as the cause. A more accurate name would be `unsupported_citation`. I didn't rename it or change thresholds in this run (out of scope; would shift the stage).
+The old name (`retrieval_miss`) overstated retrieval as the cause; it has since been renamed to `unsupported_citation`.
 
 Contributing factor in the corpus: FastAPI's tutorial code lives in `docs_src/*.py` and appears in the ingested Markdown only as `{* ../../docs_src/... *}` include markers. So chunks such as path-params `-0000` and handling-errors `-0002` carry little text, and their actual code (e.g. `raise HTTPException(...)`) is missing from the index.
 
 ## Suggested next steps (not done)
-1. Rename `retrieval_miss` → `unsupported_citation`, and add a retrieval-diagnostic field (did the top-5 contain the gold page?).
+1. ~~Rename `retrieval_miss` → `unsupported_citation`~~ (done), and add a retrieval-diagnostic field (did the top-5 contain the gold page?).
 2. Inline the `docs_src` includes during ingest, so the code examples become searchable and citable (Q1, Q4).
 3. Move converted Q3 to the answerable set. The hard refuse set stays at 19.
 4. To check Q7/Q15-style false negatives, use a semantic support check (NLI or LLM judge) rather than lowering the lexical threshold.

@@ -1,0 +1,1246 @@
+[
+  {
+    "method": "bm25",
+    "n": 30,
+    "recall_at_5": 0.7333333333333333,
+    "mrr": 0.5244444444444444,
+    "p50_latency_s": 0.007632774000740028,
+    "p95_latency_s": 0.011291150000033667,
+    "mean_latency_s": 0.007732496966855251,
+    "details": [
+      {
+        "q": "How do I enable CORS in FastAPI?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/middleware.md",
+          "fastapi:docs/en/docs/deployment/server-workers.md",
+          "fastapi:docs/en/docs/tutorial/middleware.md"
+        ]
+      },
+      {
+        "q": "How to define a path parameter in FastAPI?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/security/first-steps.md",
+          "fastapi:docs/en/docs/tutorial/path-params.md",
+          "fastapi:docs/en/docs/reference/request.md"
+        ]
+      },
+      {
+        "q": "How to use query parameters in FastAPI?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/query-param-models.md",
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/tutorial/query-params-str-validations.md"
+        ]
+      },
+      {
+        "q": "How do I upload a file with FastAPI?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "fastapi:docs/en/docs/deployment/server-workers.md",
+          "fastapi:docs/en/docs/deployment/docker.md",
+          "fastapi:docs/en/docs/async.md"
+        ]
+      },
+      {
+        "q": "How to return a JSON response in FastAPI?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "fastapi:docs/en/docs/release-notes.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md",
+          "fastapi:docs/en/docs/advanced/response-directly.md"
+        ]
+      },
+      {
+        "q": "How to add middleware in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/middleware.md",
+          "fastapi:docs/en/docs/tutorial/middleware.md",
+          "fastapi:docs/en/docs/advanced/middleware.md"
+        ]
+      },
+      {
+        "q": "How does FastAPI dependency injection work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/alternatives.md"
+        ]
+      },
+      {
+        "q": "How to use background tasks in FastAPI?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/dependencies/dependencies-with-yield.md",
+          "fastapi:docs/en/docs/tutorial/background-tasks.md",
+          "fastapi:docs/en/docs/tutorial/background-tasks.md"
+        ]
+      },
+      {
+        "q": "How to handle WebSockets in FastAPI?",
+        "hit": true,
+        "mrr": 0.2,
+        "got": [
+          "fastapi:docs/en/docs/advanced/middleware.md",
+          "fastapi:docs/en/docs/deployment/server-workers.md",
+          "fastapi:docs/en/docs/tutorial/middleware.md"
+        ]
+      },
+      {
+        "q": "How to secure FastAPI with OAuth2 password flow?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "fastapi:docs/en/docs/advanced/security/oauth2-scopes.md",
+          "fastapi:docs/en/docs/tutorial/security/oauth2-jwt.md",
+          "fastapi:docs/en/docs/tutorial/extra-models.md"
+        ]
+      },
+      {
+        "q": "How to configure CORSMiddleware allow_origins?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/advanced/middleware.md",
+          "fastapi:docs/en/docs/how-to/custom-docs-ui-assets.md"
+        ]
+      },
+      {
+        "q": "What is FastAPI lifespan event handler?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/events.md",
+          "fastapi:docs/en/docs/advanced/events.md",
+          "fastapi:docs/en/docs/_llm-test.md"
+        ]
+      },
+      {
+        "q": "How do I define a Pydantic BaseModel?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "fastapi:docs/en/docs/deployment/server-workers.md",
+          "langgraph:src/oss/langgraph/graph-api.mdx",
+          "fastapi:docs/en/docs/deployment/docker.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic field validation work?",
+        "hit": true,
+        "mrr": 0.2,
+        "got": [
+          "pydantic:docs/api/standard_library_types.md",
+          "pydantic:docs/api/standard_library_types.md",
+          "pydantic:docs/api/standard_library_types.md"
+        ]
+      },
+      {
+        "q": "What are Pydantic computed fields?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/fields.md",
+          "fastapi:docs/en/docs/release-notes.md",
+          "pydantic:docs/concepts/fields.md"
+        ]
+      },
+      {
+        "q": "How to use Pydantic Settings for environment variables?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "fastapi:docs/en/docs/environment-variables.md",
+          "fastapi:docs/en/docs/advanced/settings.md",
+          "fastapi:docs/en/docs/environment-variables.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic serialize models to JSON?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/serialization.md",
+          "pydantic:docs/concepts/serialization.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md"
+        ]
+      },
+      {
+        "q": "What is TypeAdapter in Pydantic v2?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/type_adapter.md",
+          "pydantic:docs/concepts/type_adapter.md",
+          "pydantic:docs/migration.md"
+        ]
+      },
+      {
+        "q": "How to configure model_config in Pydantic v2?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "pydantic:docs/migration.md",
+          "fastapi:docs/en/docs/release-notes.md",
+          "fastapi:docs/en/docs/how-to/separate-openapi-schemas.md"
+        ]
+      },
+      {
+        "q": "How do Pydantic discriminated unions work?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "pydantic:docs/concepts/fields.md",
+          "pydantic:docs/concepts/unions.md",
+          "pydantic:docs/concepts/unions.md"
+        ]
+      },
+      {
+        "q": "What is a LangGraph StateGraph?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "langgraph:src/oss/langgraph/errors/GRAPH_RECURSION_LIMIT.mdx",
+          "langgraph:src/oss/langgraph/errors/MISSING_CHECKPOINTER.mdx",
+          "langgraph:src/oss/langgraph/pregel.mdx"
+        ]
+      },
+      {
+        "q": "How do I add memory to a LangGraph agent?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/add-memory.mdx",
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/checkpointers.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph streaming work?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "langgraph:src/oss/langgraph/errors/MULTIPLE_SUBGRAPHS.mdx",
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/functional-api.mdx"
+        ]
+      },
+      {
+        "q": "How to use human-in-the-loop interrupts in LangGraph?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "langgraph:src/oss/langgraph/sql-agent.mdx",
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/checkpointers.mdx"
+        ]
+      },
+      {
+        "q": "What is the LangGraph functional API?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/functional-api.mdx",
+          "langgraph:src/oss/langgraph/graph-api.mdx"
+        ]
+      },
+      {
+        "q": "How to build agentic RAG with LangGraph?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/agentic-rag.mdx",
+          "langgraph:src/oss/langgraph/agentic-rag.mdx",
+          "langgraph:src/oss/langgraph/agentic-rag.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph persistence / checkpointer work?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "langgraph:src/oss/langgraph/errors/MULTIPLE_SUBGRAPHS.mdx",
+          "langgraph:src/oss/langgraph/use-subgraphs.mdx",
+          "langgraph:src/oss/langgraph/use-subgraphs.mdx"
+        ]
+      },
+      {
+        "q": "How to use tools and tool calling in LangGraph?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/workflows-agents.mdx",
+          "langgraph:src/oss/langgraph/overview.mdx",
+          "langgraph:src/oss/langgraph/workflows-agents.mdx"
+        ]
+      },
+      {
+        "q": "What is LangGraph Command for graph control flow?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/use-graph-api.mdx",
+          "langgraph:src/oss/langgraph/use-graph-api.mdx",
+          "langgraph:src/oss/langgraph/graph-api.mdx"
+        ]
+      },
+      {
+        "q": "How to deploy a LangGraph application?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/application-structure.mdx",
+          "langgraph:src/oss/langgraph/application-structure.mdx",
+          "langgraph:src/oss/langgraph/application-structure.mdx"
+        ]
+      }
+    ]
+  },
+  {
+    "method": "vector",
+    "n": 30,
+    "recall_at_5": 0.8666666666666667,
+    "mrr": 0.6761111111111112,
+    "p50_latency_s": 0.04001224950025062,
+    "p95_latency_s": 0.04854322099890851,
+    "mean_latency_s": 0.047890259933531826,
+    "details": [
+      {
+        "q": "How do I enable CORS in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/advanced/dataclasses.md"
+        ]
+      },
+      {
+        "q": "How to define a path parameter in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/path-params.md",
+          "fastapi:docs/en/docs/advanced/using-request-directly.md",
+          "fastapi:docs/en/docs/tutorial/body.md"
+        ]
+      },
+      {
+        "q": "How to use query parameters in FastAPI?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/query-params-str-validations.md",
+          "fastapi:docs/en/docs/tutorial/query-params-str-validations.md",
+          "fastapi:docs/en/docs/tutorial/body.md"
+        ]
+      },
+      {
+        "q": "How do I upload a file with FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/request-files.md",
+          "fastapi:docs/en/docs/deployment/docker.md",
+          "fastapi:docs/en/docs/deployment/docker.md"
+        ]
+      },
+      {
+        "q": "How to return a JSON response in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/response-directly.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md",
+          "fastapi:docs/en/docs/advanced/additional-status-codes.md"
+        ]
+      },
+      {
+        "q": "How to add middleware in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/middleware.md",
+          "fastapi:docs/en/docs/advanced/middleware.md",
+          "fastapi:docs/en/docs/advanced/middleware.md"
+        ]
+      },
+      {
+        "q": "How does FastAPI dependency injection work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/features.md",
+          "fastapi:docs/en/docs/features.md"
+        ]
+      },
+      {
+        "q": "How to use background tasks in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/background-tasks.md",
+          "fastapi:docs/en/docs/tutorial/background-tasks.md",
+          "fastapi:docs/en/docs/reference/background.md"
+        ]
+      },
+      {
+        "q": "How to handle WebSockets in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/websockets.md",
+          "fastapi:docs/en/docs/advanced/websockets.md",
+          "fastapi:docs/en/docs/advanced/websockets.md"
+        ]
+      },
+      {
+        "q": "How to secure FastAPI with OAuth2 password flow?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/security/first-steps.md",
+          "fastapi:docs/en/docs/advanced/security/oauth2-scopes.md",
+          "fastapi:docs/en/docs/tutorial/security/first-steps.md"
+        ]
+      },
+      {
+        "q": "How to configure CORSMiddleware allow_origins?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/tutorial/cors.md"
+        ]
+      },
+      {
+        "q": "What is FastAPI lifespan event handler?",
+        "hit": true,
+        "mrr": 0.2,
+        "got": [
+          "fastapi:docs/en/docs/release-notes.md",
+          "fastapi:docs/en/docs/tutorial/stream-json-lines.md",
+          "fastapi:docs/en/docs/features.md"
+        ]
+      },
+      {
+        "q": "How do I define a Pydantic BaseModel?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/body.md",
+          "pydantic:docs/internals/architecture.md",
+          "pydantic:docs/concepts/models.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic field validation work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/fields.md",
+          "pydantic:docs/concepts/validators.md",
+          "pydantic:docs/concepts/validators.md"
+        ]
+      },
+      {
+        "q": "What are Pydantic computed fields?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "pydantic:docs/api/dataclasses.md",
+          "fastapi:docs/en/docs/tutorial/request-form-models.md",
+          "pydantic:docs/examples/orms.md"
+        ]
+      },
+      {
+        "q": "How to use Pydantic Settings for environment variables?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "pydantic:docs/api/pydantic_settings.md",
+          "fastapi:docs/en/docs/advanced/settings.md",
+          "pydantic:docs/concepts/pydantic_settings.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic serialize models to JSON?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/serialization.md",
+          "pydantic:docs/concepts/serialization.md",
+          "fastapi:docs/en/docs/advanced/json-base64-bytes.md"
+        ]
+      },
+      {
+        "q": "What is TypeAdapter in Pydantic v2?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "pydantic:docs/api/type_adapter.md",
+          "pydantic:docs/concepts/type_adapter.md",
+          "pydantic:docs/errors/usage_errors.md"
+        ]
+      },
+      {
+        "q": "How to configure model_config in Pydantic v2?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "pydantic:docs/migration.md",
+          "fastapi:docs/en/docs/advanced/settings.md",
+          "pydantic:docs/concepts/dataclasses.md"
+        ]
+      },
+      {
+        "q": "How do Pydantic discriminated unions work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/unions.md",
+          "pydantic:docs/concepts/unions.md",
+          "pydantic:docs/errors/usage_errors.md"
+        ]
+      },
+      {
+        "q": "What is a LangGraph StateGraph?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "langgraph:src/oss/langgraph/use-graph-api.mdx",
+          "langgraph:src/oss/langgraph/errors/MISSING_CHECKPOINTER.mdx",
+          "langgraph:src/oss/langgraph/quickstart.mdx"
+        ]
+      },
+      {
+        "q": "How do I add memory to a LangGraph agent?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/add-memory.mdx",
+          "langgraph:src/oss/langgraph/add-memory.mdx",
+          "langgraph:src/oss/langgraph/deploy.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph streaming work?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/event-streaming.mdx",
+          "langgraph:src/oss/langgraph/streaming.mdx"
+        ]
+      },
+      {
+        "q": "How to use human-in-the-loop interrupts in LangGraph?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "langgraph:src/oss/langgraph/use-time-travel.mdx",
+          "langgraph:src/oss/langgraph/interrupts.mdx",
+          "langgraph:src/oss/langgraph/thinking-in-langgraph.mdx"
+        ]
+      },
+      {
+        "q": "What is the LangGraph functional API?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "langgraph:src/oss/langgraph/choosing-apis.mdx",
+          "langgraph:src/oss/langgraph/functional-api.mdx",
+          "langgraph:src/oss/langgraph/choosing-apis.mdx"
+        ]
+      },
+      {
+        "q": "How to build agentic RAG with LangGraph?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/agentic-rag.mdx",
+          "langgraph:src/oss/langgraph/thinking-in-langgraph.mdx",
+          "langgraph:src/oss/langgraph/sql-agent.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph persistence / checkpointer work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/persistence.mdx",
+          "langgraph:src/oss/langgraph/checkpointers.mdx",
+          "langgraph:src/oss/langgraph/persistence.mdx"
+        ]
+      },
+      {
+        "q": "How to use tools and tool calling in LangGraph?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "langgraph:src/oss/langgraph/quickstart.mdx",
+          "langgraph:src/oss/langgraph/event-streaming.mdx",
+          "langgraph:src/oss/langgraph/workflows-agents.mdx"
+        ]
+      },
+      {
+        "q": "What is LangGraph Command for graph control flow?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/use-graph-api.mdx",
+          "langgraph:src/oss/langgraph/sql-agent.mdx",
+          "langgraph:src/oss/langgraph/quickstart.mdx"
+        ]
+      },
+      {
+        "q": "How to deploy a LangGraph application?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/application-structure.mdx",
+          "langgraph:src/oss/langgraph/deploy.mdx",
+          "langgraph:src/oss/langgraph/local-server.mdx"
+        ]
+      }
+    ]
+  },
+  {
+    "method": "hybrid",
+    "n": 30,
+    "recall_at_5": 0.9,
+    "mrr": 0.7233333333333333,
+    "p50_latency_s": 0.05397130100027425,
+    "p95_latency_s": 0.06785656099964399,
+    "mean_latency_s": 0.052259694900142976,
+    "details": [
+      {
+        "q": "How do I enable CORS in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/advanced/middleware.md"
+        ]
+      },
+      {
+        "q": "How to define a path parameter in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/path-params.md",
+          "fastapi:docs/en/docs/advanced/using-request-directly.md",
+          "fastapi:docs/en/docs/tutorial/security/first-steps.md"
+        ]
+      },
+      {
+        "q": "How to use query parameters in FastAPI?",
+        "hit": true,
+        "mrr": 0.2,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/query-params-str-validations.md",
+          "fastapi:docs/en/docs/tutorial/query-param-models.md",
+          "fastapi:docs/en/docs/tutorial/query-param-models.md"
+        ]
+      },
+      {
+        "q": "How do I upload a file with FastAPI?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "fastapi:docs/en/docs/deployment/docker.md",
+          "fastapi:docs/en/docs/deployment/server-workers.md",
+          "fastapi:docs/en/docs/tutorial/request-files.md"
+        ]
+      },
+      {
+        "q": "How to return a JSON response in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/response-directly.md",
+          "fastapi:docs/en/docs/advanced/response-directly.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md"
+        ]
+      },
+      {
+        "q": "How to add middleware in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/middleware.md",
+          "fastapi:docs/en/docs/tutorial/middleware.md",
+          "fastapi:docs/en/docs/advanced/middleware.md"
+        ]
+      },
+      {
+        "q": "How does FastAPI dependency injection work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md"
+        ]
+      },
+      {
+        "q": "How to use background tasks in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/background-tasks.md",
+          "fastapi:docs/en/docs/tutorial/background-tasks.md",
+          "fastapi:docs/en/docs/tutorial/background-tasks.md"
+        ]
+      },
+      {
+        "q": "How to handle WebSockets in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/websockets.md",
+          "fastapi:docs/en/docs/advanced/websockets.md",
+          "fastapi:docs/en/docs/reference/websockets.md"
+        ]
+      },
+      {
+        "q": "How to secure FastAPI with OAuth2 password flow?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "fastapi:docs/en/docs/advanced/security/oauth2-scopes.md",
+          "fastapi:docs/en/docs/tutorial/security/simple-oauth2.md",
+          "fastapi:docs/en/docs/tutorial/security/oauth2-jwt.md"
+        ]
+      },
+      {
+        "q": "How to configure CORSMiddleware allow_origins?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/advanced/middleware.md",
+          "fastapi:docs/en/docs/advanced/response-headers.md"
+        ]
+      },
+      {
+        "q": "What is FastAPI lifespan event handler?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/events.md",
+          "fastapi:docs/en/docs/release-notes.md",
+          "fastapi:docs/en/docs/advanced/events.md"
+        ]
+      },
+      {
+        "q": "How do I define a Pydantic BaseModel?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "pydantic:docs/concepts/dataclasses.md",
+          "pydantic:docs/concepts/config.md",
+          "fastapi:docs/en/docs/deployment/server-workers.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic field validation work?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "pydantic:docs/concepts/alias.md",
+          "fastapi:docs/en/docs/tutorial/body-fields.md",
+          "pydantic:docs/api/standard_library_types.md"
+        ]
+      },
+      {
+        "q": "What are Pydantic computed fields?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/fields.md",
+          "pydantic:docs/api/dataclasses.md",
+          "fastapi:docs/en/docs/release-notes.md"
+        ]
+      },
+      {
+        "q": "How to use Pydantic Settings for environment variables?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/pydantic_settings.md",
+          "fastapi:docs/en/docs/advanced/settings.md",
+          "fastapi:docs/en/docs/advanced/settings.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic serialize models to JSON?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "fastapi:docs/en/docs/advanced/custom-response.md",
+          "pydantic:docs/concepts/serialization.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md"
+        ]
+      },
+      {
+        "q": "What is TypeAdapter in Pydantic v2?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/type_adapter.md",
+          "pydantic:docs/concepts/type_adapter.md",
+          "pydantic:docs/concepts/type_adapter.md"
+        ]
+      },
+      {
+        "q": "How to configure model_config in Pydantic v2?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "pydantic:docs/migration.md",
+          "fastapi:docs/en/docs/release-notes.md",
+          "fastapi:docs/en/docs/advanced/settings.md"
+        ]
+      },
+      {
+        "q": "How do Pydantic discriminated unions work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/unions.md",
+          "pydantic:docs/errors/usage_errors.md",
+          "pydantic:docs/concepts/unions.md"
+        ]
+      },
+      {
+        "q": "What is a LangGraph StateGraph?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "langgraph:src/oss/langgraph/pregel.mdx",
+          "langgraph:src/oss/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE.mdx",
+          "langgraph:src/oss/langgraph/errors/GRAPH_RECURSION_LIMIT.mdx"
+        ]
+      },
+      {
+        "q": "How do I add memory to a LangGraph agent?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/add-memory.mdx",
+          "langgraph:src/oss/langgraph/add-memory.mdx",
+          "langgraph:src/oss/langgraph/use-functional-api.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph streaming work?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/event-streaming.mdx",
+          "langgraph:src/oss/langgraph/event-streaming.mdx"
+        ]
+      },
+      {
+        "q": "How to use human-in-the-loop interrupts in LangGraph?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/thinking-in-langgraph.mdx",
+          "langgraph:src/oss/langgraph/interrupts.mdx"
+        ]
+      },
+      {
+        "q": "What is the LangGraph functional API?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/functional-api.mdx",
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/choosing-apis.mdx"
+        ]
+      },
+      {
+        "q": "How to build agentic RAG with LangGraph?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/agentic-rag.mdx",
+          "langgraph:src/oss/langgraph/agentic-rag.mdx",
+          "langgraph:src/oss/langgraph/agentic-rag.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph persistence / checkpointer work?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "langgraph:src/oss/langgraph/errors/MULTIPLE_SUBGRAPHS.mdx",
+          "langgraph:src/oss/langgraph/use-subgraphs.mdx",
+          "langgraph:src/oss/langgraph/persistence.mdx"
+        ]
+      },
+      {
+        "q": "How to use tools and tool calling in LangGraph?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/workflows-agents.mdx",
+          "langgraph:src/oss/langgraph/quickstart.mdx",
+          "langgraph:src/oss/langgraph/workflows-agents.mdx"
+        ]
+      },
+      {
+        "q": "What is LangGraph Command for graph control flow?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/use-graph-api.mdx",
+          "langgraph:src/oss/langgraph/graph-api.mdx",
+          "langgraph:src/oss/langgraph/use-graph-api.mdx"
+        ]
+      },
+      {
+        "q": "How to deploy a LangGraph application?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/application-structure.mdx",
+          "langgraph:src/oss/langgraph/local-server.mdx",
+          "langgraph:src/oss/langgraph/application-structure.mdx"
+        ]
+      }
+    ]
+  },
+  {
+    "method": "hybrid+rerank",
+    "n": 30,
+    "recall_at_5": 0.9333333333333333,
+    "mrr": 0.6694444444444444,
+    "p50_latency_s": 0.1984629099997619,
+    "p95_latency_s": 0.22734355099964887,
+    "mean_latency_s": 0.20735877913351336,
+    "details": [
+      {
+        "q": "How do I enable CORS in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/advanced/response-headers.md"
+        ]
+      },
+      {
+        "q": "How to define a path parameter in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/path-params.md",
+          "fastapi:docs/en/docs/tutorial/body.md",
+          "fastapi:docs/en/docs/tutorial/body.md"
+        ]
+      },
+      {
+        "q": "How to use query parameters in FastAPI?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/query-params-str-validations.md",
+          "fastapi:docs/en/docs/tutorial/query-param-models.md",
+          "fastapi:docs/en/docs/tutorial/query-param-models.md"
+        ]
+      },
+      {
+        "q": "How do I upload a file with FastAPI?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "fastapi:docs/en/docs/reference/uploadfile.md",
+          "fastapi:docs/en/docs/deployment/docker.md",
+          "fastapi:docs/en/docs/tutorial/request-files.md"
+        ]
+      },
+      {
+        "q": "How to return a JSON response in FastAPI?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "fastapi:docs/en/docs/advanced/custom-response.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md"
+        ]
+      },
+      {
+        "q": "How to add middleware in FastAPI?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/middleware.md",
+          "fastapi:docs/en/docs/tutorial/middleware.md",
+          "fastapi:docs/en/docs/advanced/middleware.md"
+        ]
+      },
+      {
+        "q": "How does FastAPI dependency injection work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md",
+          "fastapi:docs/en/docs/tutorial/dependencies/index.md"
+        ]
+      },
+      {
+        "q": "How to use background tasks in FastAPI?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "fastapi:docs/en/docs/reference/background.md",
+          "fastapi:docs/en/docs/tutorial/background-tasks.md",
+          "fastapi:docs/en/docs/tutorial/background-tasks.md"
+        ]
+      },
+      {
+        "q": "How to handle WebSockets in FastAPI?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "fastapi:docs/en/docs/reference/websockets.md",
+          "fastapi:docs/en/docs/reference/websockets.md",
+          "fastapi:docs/en/docs/advanced/websockets.md"
+        ]
+      },
+      {
+        "q": "How to secure FastAPI with OAuth2 password flow?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/security/simple-oauth2.md",
+          "fastapi:docs/en/docs/tutorial/security/first-steps.md",
+          "fastapi:docs/en/docs/tutorial/security/first-steps.md"
+        ]
+      },
+      {
+        "q": "How to configure CORSMiddleware allow_origins?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/cors.md",
+          "fastapi:docs/en/docs/advanced/response-headers.md",
+          "fastapi:docs/en/docs/tutorial/cors.md"
+        ]
+      },
+      {
+        "q": "What is FastAPI lifespan event handler?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "fastapi:docs/en/docs/advanced/events.md",
+          "fastapi:docs/en/docs/deployment/docker.md",
+          "fastapi:docs/en/docs/release-notes.md"
+        ]
+      },
+      {
+        "q": "How do I define a Pydantic BaseModel?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "pydantic:docs/internals/architecture.md",
+          "pydantic:docs/concepts/dataclasses.md",
+          "pydantic:docs/concepts/config.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic field validation work?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "fastapi:docs/en/docs/tutorial/body-fields.md",
+          "pydantic:docs/concepts/validators.md",
+          "pydantic:docs/concepts/alias.md"
+        ]
+      },
+      {
+        "q": "What are Pydantic computed fields?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/fields.md",
+          "pydantic:docs/concepts/fields.md",
+          "pydantic:docs/examples/orms.md"
+        ]
+      },
+      {
+        "q": "How to use Pydantic Settings for environment variables?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/pydantic_settings.md",
+          "fastapi:docs/en/docs/advanced/settings.md",
+          "fastapi:docs/en/docs/release-notes.md"
+        ]
+      },
+      {
+        "q": "How does Pydantic serialize models to JSON?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "pydantic:docs/why.md",
+          "fastapi:docs/en/docs/advanced/custom-response.md",
+          "pydantic:docs/concepts/serialization.md"
+        ]
+      },
+      {
+        "q": "What is TypeAdapter in Pydantic v2?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "pydantic:docs/migration.md",
+          "pydantic:docs/concepts/type_adapter.md",
+          "pydantic:docs/concepts/type_adapter.md"
+        ]
+      },
+      {
+        "q": "How to configure model_config in Pydantic v2?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "pydantic:docs/migration.md",
+          "pydantic:docs/concepts/config.md",
+          "pydantic:docs/migration.md"
+        ]
+      },
+      {
+        "q": "How do Pydantic discriminated unions work?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "pydantic:docs/concepts/unions.md",
+          "pydantic:docs/concepts/unions.md",
+          "pydantic:docs/concepts/fields.md"
+        ]
+      },
+      {
+        "q": "What is a LangGraph StateGraph?",
+        "hit": false,
+        "mrr": 0.0,
+        "got": [
+          "langgraph:src/oss/langgraph/pregel.mdx",
+          "langgraph:src/oss/langgraph/errors/INVALID_CONCURRENT_GRAPH_UPDATE.mdx",
+          "langgraph:src/oss/langgraph/use-graph-api.mdx"
+        ]
+      },
+      {
+        "q": "How do I add memory to a LangGraph agent?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/add-memory.mdx",
+          "langgraph:src/oss/langgraph/add-memory.mdx",
+          "langgraph:src/oss/langgraph/use-functional-api.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph streaming work?",
+        "hit": true,
+        "mrr": 0.25,
+        "got": [
+          "langgraph:src/oss/langgraph/event-streaming.mdx",
+          "langgraph:src/oss/langgraph/use-functional-api.mdx",
+          "langgraph:src/oss/langgraph/event-streaming.mdx"
+        ]
+      },
+      {
+        "q": "How to use human-in-the-loop interrupts in LangGraph?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/interrupts.mdx",
+          "langgraph:src/oss/langgraph/use-time-travel.mdx",
+          "langgraph:src/oss/langgraph/sql-agent.mdx"
+        ]
+      },
+      {
+        "q": "What is the LangGraph functional API?",
+        "hit": true,
+        "mrr": 0.3333333333333333,
+        "got": [
+          "langgraph:src/oss/langgraph/choosing-apis.mdx",
+          "langgraph:src/oss/langgraph/choosing-apis.mdx",
+          "langgraph:src/oss/langgraph/functional-api.mdx"
+        ]
+      },
+      {
+        "q": "How to build agentic RAG with LangGraph?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/agentic-rag.mdx",
+          "langgraph:src/oss/langgraph/thinking-in-langgraph.mdx",
+          "langgraph:src/oss/langgraph/overview.mdx"
+        ]
+      },
+      {
+        "q": "How does LangGraph persistence / checkpointer work?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "langgraph:src/oss/langgraph/checkpointers.mdx",
+          "langgraph:src/oss/langgraph/persistence.mdx",
+          "langgraph:src/oss/langgraph/graph-api.mdx"
+        ]
+      },
+      {
+        "q": "How to use tools and tool calling in LangGraph?",
+        "hit": true,
+        "mrr": 0.5,
+        "got": [
+          "langgraph:src/oss/langgraph/event-streaming.mdx",
+          "langgraph:src/oss/langgraph/workflows-agents.mdx",
+          "langgraph:src/oss/langgraph/quickstart.mdx"
+        ]
+      },
+      {
+        "q": "What is LangGraph Command for graph control flow?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/use-graph-api.mdx",
+          "langgraph:src/oss/langgraph/use-graph-api.mdx",
+          "langgraph:src/oss/langgraph/graph-api.mdx"
+        ]
+      },
+      {
+        "q": "How to deploy a LangGraph application?",
+        "hit": true,
+        "mrr": 1.0,
+        "got": [
+          "langgraph:src/oss/langgraph/deploy.mdx",
+          "langgraph:src/oss/langgraph/application-structure.mdx",
+          "langgraph:src/oss/langgraph/application-structure.mdx"
+        ]
+      }
+    ]
+  }
+]

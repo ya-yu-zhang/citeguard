@@ -22,17 +22,21 @@ def main() -> None:
     rows = []
     with httpx.Client(timeout=600) as c:
         for q in qs:
-            if q.get("screening") != "keep_refuse":
+            if q.get("screening") == "keep_refuse":
+                kind, question = "refuse", q["question"]
+            elif q.get("converted_answerable"):
+                kind, question = "converted_answerable", q["converted_answerable"]["question"]
+            else:
                 continue
-            res, lat = ask(c, BASE, q["question"])
-            sres, slat, _, _ = ask_stream(c, BASE, q["question"])
-            row = {"id": q["id"], "question": q["question"]}
+            res, lat = ask(c, BASE, question)
+            sres, slat, _, _ = ask_stream(c, BASE, question)
+            row = {"id": q["id"], "kind": kind, "question": question}
             for tag, r, l in (("ask", res, lat), ("stream", sres, slat)):
                 row[tag] = {"refused": r["refused"], "refusal_reason": r["refusal_reason"],
                             "answer": r["answer"], "citations": [x["chunk_id"] for x in r["citations"]],
                             "latency_s": round(l, 2)}
             rows.append(row)
-            print(q["id"], "ask:", res["refusal_reason"] or "ANSWERED", "| stream:", sres["refusal_reason"] or "ANSWERED", flush=True)
+            print(q["id"], kind, "ask:", res["refusal_reason"] or "ANSWERED", "| stream:", sres["refusal_reason"] or "ANSWERED", flush=True)
     (ROOT / "docs/refuse_hard_week3_results.json").write_text(json.dumps(rows, indent=1, ensure_ascii=False))
 
 

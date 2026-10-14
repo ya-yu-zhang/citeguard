@@ -1,5 +1,8 @@
 # Week 2 — live end-to-end `/ask` with a free local LLM (Ollama, CPU)
 
+> Note (2026-10-14): refusal reason `retrieval_miss` was renamed to `unsupported_citation`; this doc was updated to the new name. Raw JSON from runs before the rename still contains `retrieval_miss`.
+> Update: `docs/e2e_week2_ollama.json` now holds the post-inline rerun (`docs/ingest_inline_week3.md`); the v2 numbers below correspond to `docs/e2e_week2_ollama_pre_inline.json`.
+
 ## v2 (current): citation repair, wrong-source refusal, task filter, buffered stream
 
 Model `qwen2.5:3b-instruct`, same box, same 20 + 20 questions, same script (`scripts/e2e_ask.py`).
@@ -21,18 +24,18 @@ Raw results: `docs/e2e_week2_ollama.json`; v1 3B raw: `docs/e2e_week2_ollama_3b_
 \* **Not independent.** The repair step enforces the same lexical rule the metric measures, so 1.00 is guaranteed by construction. Independent check: I read all 15 v2 answers by hand. 13 are correct and supported. Q9 is **wrong** (it says `response_model` is a function parameter; it is a path-operation decorator argument). Q20 is correct but starts with a dangling "This is achieved…" because its first sentence was dropped. Latency is lower in v2 mainly because answers are shorter, and most refusals now happen before generation finishes or at the retrieval gate. Stream TTFT is now the full generation time, by design.
 
 ### Why each refusal happened (v2, `/ask` = stream)
-- Answerable, 5 refused: `ungrounded_answer:retrieval_miss` ×4 (Q1, Q4, Q7, Q15) and `no_evidence:model_declared_insufficient_evidence` ×1 (Q18). Zero refusals were caused by missing markers (v1: 4).
+- Answerable, 5 refused: `ungrounded_answer:unsupported_citation` ×4 (Q1, Q4, Q7, Q15) and `no_evidence:model_declared_insufficient_evidence` ×1 (Q18). Zero refusals were caused by missing markers (v1: 4).
   - Q1: the model claimed path params are declared via the `Request` object, which is wrong and unsupported. Refusing is correct.
   - Q4 (HTTPException) and Q7 (CORS): the facts are correct, but the retrieved top 5 doesn't contain them. These are retrieval-recall misses.
   - Q15: ConfigDict `extra='forbid'`, same pattern.
-- Refuse, 20 refused: retrieval gate ×13, `out_of_scope_task` ×1 (#7 toaster poem, now refused on **both** paths), model said insufficient ×4, `ungrounded_answer` ×2 (#3 `no_supported_sentences`, #14 `retrieval_miss`).
+- Refuse, 20 refused: retrieval gate ×13, `out_of_scope_task` ×1 (#7 toaster poem, now refused on **both** paths), model said insufficient ×4, `ungrounded_answer` ×2 (#3 `no_supported_sentences`, #14 `unsupported_citation`).
 
 ### What changed
 1. **Citation repair** (`src/citeguard/ask/attribution.py`). This replaces constrained JSON output: it is provider-agnostic, works with streaming, and needs no Ollama-specific `format`. The answer is split into sentences (code fences are one unit; "foo. [1]" is reattached; a literal `[n]` is stripped). Each sentence is scored against every retrieved chunk (share of its key terms, excluding question words). Rules:
    - cited chunk supports it → keep;
    - no marker, or wrong marker, but another retrieved chunk supports it → cite that chunk;
    - unsupported and uncited → drop the sentence;
-   - **cites a chunk but no retrieved chunk supports it** → the model is answering from its own knowledge, so refuse the whole answer (`ungrounded_answer:retrieval_miss`);
+   - **cites a chunk but no retrieved chunk supports it** → the model is answering from its own knowledge, so refuse the whole answer (`ungrounded_answer:unsupported_citation`);
    - nothing supported left → refuse (`no_supported_sentences`).
 2. **Refusal reasons** are now `no_evidence:<detail>` or `ungrounded_answer:<detail>`.
 3. **Task filter**: a narrow regex refuses creative/generic tasks ("write/compose … poem/song/story/joke…") before retrieval. "Write a FastAPI test" is still allowed.

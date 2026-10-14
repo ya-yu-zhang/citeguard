@@ -70,10 +70,32 @@ def _strip_frontmatter(md: str) -> str:
     return md
 
 
+_FENCE_LINE_RE = re.compile(r"^[ \t]*(```|~~~)", re.M)
+
+
+def _fence_spans(md: str) -> list[tuple[int, int]]:
+    """Spans of fenced code blocks; '# comments' inside them are not headings."""
+    spans, open_at = [], None
+    for m in _FENCE_LINE_RE.finditer(md):
+        if open_at is None:
+            open_at = m.start()
+        else:
+            spans.append((open_at, m.end()))
+            open_at = None
+    if open_at is not None:
+        spans.append((open_at, len(md)))
+    return spans
+
+
+def _inside(pos: int, spans: list[tuple[int, int]]) -> bool:
+    return any(a <= pos < b for a, b in spans)
+
+
 def iter_sections(md: str) -> Iterator[tuple[str, str]]:
     """Yield (title_path, section_body) using ATX headings."""
     md = _strip_frontmatter(md)
-    matches = list(_HEADING_RE.finditer(md))
+    fences = _fence_spans(md)
+    matches = [m for m in _HEADING_RE.finditer(md) if not _inside(m.start(), fences)]
     if not matches:
         yield ("", md.strip())
         return
