@@ -77,7 +77,7 @@ curl -X POST localhost:8000/ask \
 ### Docker Compose
 
 ```bash
-cp .env.example .env   # set LLM_API_KEY when Week 2 /ask lands
+cp .env.example .env   # defaults to local Ollama (qwen2.5:3b-instruct)
 docker compose up -d --build
 curl -X POST localhost:8000/search -H 'Content-Type: application/json' \
   -d '{"query":"How do I add CORS in FastAPI?","top_k":5}'
@@ -115,7 +115,14 @@ LangGraph path: `retrieve → evidence_judge → (refuse | generate) → self_ch
 ### `POST /ask/stream`
 Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` (`final.data` matches `/ask` JSON).
 
-**LLM:** leave `LLM_API_KEY` empty → deterministic **stub** generator (extractive quotes + `[n]` markers, no paid API). Set `LLM_API_KEY` (+ optional `LLM_BASE_URL` / `LLM_MODEL`) for an OpenAI-compatible chat model. CI tests never require a live key.
+**LLM (provider-agnostic, OpenAI-compatible):** configured by `LLM_BASE_URL`, `LLM_MODEL`, `LLM_API_KEY` (optional for Ollama). Leave `LLM_MODEL` empty → deterministic **stub** generator (no network). CI/unit tests always use the stub; a live test is opt-in (`CITEGUARD_OLLAMA_TEST=1 pytest -m ollama`, auto-skips if Ollama is down).
+
+| Provider | `LLM_BASE_URL` | `LLM_MODEL` example | `LLM_API_KEY` |
+|---|---|---|---|
+| Ollama (default, free, local CPU) | `http://localhost:11434/v1` | `qwen2.5:3b-instruct` | not needed |
+| OpenRouter (planned) | `https://openrouter.ai/api/v1` | `qwen/qwen-2.5-7b-instruct` | required |
+
+The LLM sees up to 1200 chars per retrieved chunk; the API response keeps the short `excerpt`. Live end-to-end results with Ollama: [`docs/e2e_week2_ollama.md`](docs/e2e_week2_ollama.md).
 
 ## Design Decisions
 - **Hybrid retrieval (API default)**: BM25 + `bge-small-en-v1.5` vectors fused with RRF (`k=60`). Best MRR on the Week-1 30-query set; HTTP p95 ~0.04s on CPU.
@@ -124,7 +131,7 @@ Same body; **SSE** (`text/event-stream`) with events `status`, `token`, `final` 
 - **Qdrant URL optional**: empty → embedded path under `data/indexes/qdrant_local` (Spaces-friendly).
 - **Unique `chunk_id`**: `sha1(doc_id)[:12]-NNNN` (per-doc index) — no collisions.
 - **Cite-or-abstain `/ask` (LangGraph)**: evidence gate (top score &lt; 0.02 or top-3 chars &lt; 200) → generate with mandatory `[n]` citations → self-check.
-- **LLM optional**: stub without `LLM_API_KEY`; OpenAI-compatible when set.
+- **LLM optional**: stub without `LLM_MODEL`; any OpenAI-compatible endpoint (Ollama by default, OpenRouter next).
 
 ## Roadmap
 - [x] Week 1: ingest + hybrid `/search` + eval

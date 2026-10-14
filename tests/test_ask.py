@@ -180,3 +180,33 @@ def test_ask_refuse_endpoint(monkeypatch):
         body = r.json()
         assert body["refused"] is True
         assert body["answer"] == ""
+
+
+def test_normalize_multi_citations():
+    from citeguard.ask.llm import normalize_citations
+
+    assert normalize_citations("Foo [1, 2]. Bar [3].") == "Foo [1][2]. Bar [3]."
+    ok, _ = self_check_answer("Foo [1, 2].", [{"chunk_id": "a"}, {"chunk_id": "b"}])
+    assert ok
+
+
+def test_self_check_grounding_rejects_hallucination():
+    cites = [{"chunk_id": "a"}]
+    ctx = ["Use model_dump() to convert a model instance into a Python dict."]
+    ok, _ = self_check_answer(
+        "Call model_dump() to convert the instance into a Python dict [1].",
+        cites, question="How do I serialize a Pydantic model to a dict?", contexts=ctx,
+    )
+    assert ok
+    ok, reason = self_check_answer(
+        "Alice said hello in her private Slack message yesterday [1].",
+        cites, question="What did Alice say on Slack?", contexts=ctx,
+    )
+    assert not ok and reason.startswith("low_grounding")
+
+
+def test_self_check_rejects_not_in_evidence_phrasing():
+    ok, reason = self_check_answer(
+        "The password is not provided in the given evidence [1].", [{"chunk_id": "a"}]
+    )
+    assert not ok and reason == "model_declared_insufficient_evidence"

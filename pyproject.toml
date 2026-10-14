@@ -38,3 +38,4 @@ packages = ["src/citeguard"]
 asyncio_mode = "auto"
 testpaths = ["tests"]
 pythonpath = ["src"]
+markers = ["ollama: live test against a local Ollama (opt-in: CITEGUARD_OLLAMA_TEST=1)"]

@@ -1,0 +1,22 @@
+[
+ {"id": 1, "question": "How do I declare a path parameter in FastAPI?", "source": "fastapi", "expect": "use {item_id} in the path string and a function argument of the same name"},
+ {"id": 2, "question": "How does FastAPI treat function parameters that are not part of the path?", "source": "fastapi", "expect": "interpreted as query parameters"},
+ {"id": 3, "question": "How do I declare a request body in FastAPI?", "source": "fastapi", "expect": "Pydantic model (BaseModel) as a parameter type"},
+ {"id": 4, "question": "How do I return a custom HTTP error with a status code in FastAPI?", "source": "fastapi", "expect": "raise HTTPException(status_code=..., detail=...)"},
+ {"id": 5, "question": "What is Depends used for in FastAPI?", "source": "fastapi", "expect": "dependency injection"},
+ {"id": 6, "question": "How do I run a function after returning a response in FastAPI?", "source": "fastapi", "expect": "BackgroundTasks"},
+ {"id": 7, "question": "How can I add CORS support to a FastAPI application?", "source": "fastapi", "expect": "CORSMiddleware with allow_origins"},
+ {"id": 8, "question": "How do I test a FastAPI app with TestClient?", "source": "fastapi", "expect": "from fastapi.testclient import TestClient; client.get(...)"},
+ {"id": 9, "question": "How do I set the response_model of a FastAPI path operation?", "source": "fastapi", "expect": "response_model parameter on the decorator"},
+ {"id": 10, "question": "How do I organize a bigger FastAPI application into multiple files with APIRouter?", "source": "fastapi", "expect": "APIRouter + app.include_router"},
+ {"id": 11, "question": "How do I define a custom validator on a field in Pydantic v2?", "source": "pydantic", "expect": "@field_validator"},
+ {"id": 12, "question": "How do I serialize a Pydantic model to a dict?", "source": "pydantic", "expect": "model_dump()"},
+ {"id": 13, "question": "How do I generate a JSON Schema from a Pydantic model?", "source": "pydantic", "expect": "model_json_schema()"},
+ {"id": 14, "question": "What does Field(default_factory=...) do in Pydantic?", "source": "pydantic", "expect": "callable producing default value"},
+ {"id": 15, "question": "How do I configure a Pydantic model to forbid extra fields?", "source": "pydantic", "expect": "model_config = ConfigDict(extra='forbid')"},
+ {"id": 16, "question": "What is a TypeAdapter in Pydantic used for?", "source": "pydantic", "expect": "validate/serialize arbitrary types without a BaseModel"},
+ {"id": 17, "question": "What is a StateGraph in LangGraph?", "source": "langgraph", "expect": "graph whose nodes read/update a shared state"},
+ {"id": 18, "question": "How do I add a conditional edge in LangGraph?", "source": "langgraph", "expect": "add_conditional_edges with routing function"},
+ {"id": 19, "question": "What is a checkpointer in LangGraph and why use one?", "source": "langgraph", "expect": "persistence of graph state per thread (memory, resume, HITL)"},
+ {"id": 20, "question": "How does human-in-the-loop interrupt work in LangGraph?", "source": "langgraph", "expect": "interrupt() pauses graph; resume with Command(resume=...)"}
+]

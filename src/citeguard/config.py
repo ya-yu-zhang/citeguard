@@ -35,9 +35,13 @@ EVIDENCE_MIN_TOP3_CHARS = 200  # refuse if sum of top-3 chunk text lengths < thi
 ASK_TOP_K = 5
 ASK_USE_RERANK = False  # config-only; /ask always uses hybrid unless True
 
-# LLM (OpenAI-compatible). Empty key → deterministic stub generator (no paid API).
-LLM_BASE_URL = "https://api.openai.com/v1"
-LLM_MODEL = "gpt-4o-mini"
+# LLM (OpenAI-compatible: Ollama, OpenRouter, DeepSeek, ...).
+# Empty LLM_MODEL → deterministic stub generator (no network, used by unit tests).
+LLM_BASE_URL = "http://localhost:11434/v1"  # Ollama default
+LLM_MODEL = ""  # e.g. qwen2.5:3b-instruct (Ollama) or qwen/qwen-2.5-7b-instruct (OpenRouter)
+LLM_CONTEXT_CHARS = 1200  # per-chunk text sent to the LLM (excerpt in response stays short)
+LLM_MAX_TOKENS = 400
+LLM_TIMEOUT_S = 180.0
 
 
 class Settings(BaseSettings):
@@ -52,6 +56,8 @@ class Settings(BaseSettings):
     qdrant_path: str = str(QDRANT_PATH)
     llm_base_url: str = LLM_BASE_URL
     llm_model: str = LLM_MODEL
+    llm_max_tokens: int = LLM_MAX_TOKENS
+    llm_timeout_s: float = LLM_TIMEOUT_S
     ask_use_rerank: bool = ASK_USE_RERANK
 
 
