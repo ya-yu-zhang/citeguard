@@ -1,0 +1,15 @@
+.env
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+data/raw/
+data/indexes/qdrant_local/
+*.onnx
+.cache/
+dist/
+*.egg-info/
+docs/eval_week1.json

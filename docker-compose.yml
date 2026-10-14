@@ -1,0 +1,18 @@
+# CiteGuard Week 1 — api on 8000 + Qdrant on 6333
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      PORT: "8000"
+    depends_on: [qdrant]
+    volumes:
+      - ./data:/app/data
+  qdrant:
+    image: qdrant/qdrant:v1.12.5
+    ports: ["6333:6333"]
+    volumes: ["qdrant_data:/qdrant/storage"]
+volumes:
+  qdrant_data:
