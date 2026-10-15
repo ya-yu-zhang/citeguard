@@ -2,7 +2,11 @@
 
 > Agentic RAG for technical docs that answers **only with evidence**: every claim is cited, and it refuses when evidence is insufficient.
 
-**Demo:** no public hosted demo. Run locally (or with Docker Compose) — see [Quickstart](#quickstart).
+**Demo** (local Swagger `/docs` recording — answer with citations, then refuse off-corpus):
+
+![CiteGuard local demo](assets/demo.gif)
+
+No public hosted demo. Run locally (or with Docker Compose) — see [Quickstart](#quickstart).
 
 ## What it is
 CiteGuard answers questions about the **FastAPI, Pydantic and LangGraph docs** with a *cite-or-abstain* contract:
