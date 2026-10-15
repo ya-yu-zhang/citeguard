@@ -1,0 +1,837 @@
+{
+  "status": "ready_for_independent_judge_eval",
+  "labeler": "项目小助手1",
+  "note": "Holdout set for Week4 independent judge eval. Not used to tune prompts. 20 wrong + 20 correct. Wrong patterns mirror 3B failures (wrong API name, concept confusion, invented numeric claim, fabricated version, citation mismatch). Correct answers are short and grounded in listed chunks. Gold labels file remains frozen. Suggested pass bar agreed before scores: catch >=18/20 wrong and mis-refuse <=2/20 correct.",
+  "design": {
+    "n_wrong": 20,
+    "n_correct": 20,
+    "held_out_from_prompt_tuning": true,
+    "pass_criteria_suggested": "catch >= 18/20 wrong AND mis-refuse <= 2/20 correct on frozen prompt; do not retune on this set"
+  },
+  "cases": [
+    {
+      "case": "holdout/wrong/W01",
+      "model": "holdout",
+      "question": "How do I run a function after returning a response in FastAPI?",
+      "answer": "To run a function after returning a response, set `response_class=BackgroundResponse` on the path operation decorator [1]. FastAPI will then call your cleanup hook after the client receives the body [1].",
+      "chunk_ids": [
+        "de4625b764d1-0000",
+        "8027ae2f3842-0001"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "To run a function after returning a response, set `response_class=BackgroundResponse` on the path operation decorator .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "FastAPI will then call your cleanup hook after the client receives the body .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "wrong_api_name"
+    },
+    {
+      "case": "holdout/wrong/W02",
+      "model": "holdout",
+      "question": "What is Depends used for in FastAPI?",
+      "answer": "`Depends` is used to declare query parameters and request bodies that are not path parameters [1]. Pass any Python type to `Depends()` and FastAPI treats it like `Query` [1].",
+      "chunk_ids": [
+        "8ae3a6c03c9b-0001",
+        "8ae3a6c03c9b-0003"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "`Depends` is used to declare query parameters and request bodies that are not path parameters .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Pass any Python type to `Depends()` and FastAPI treats it like `Query` .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "concept_confusion"
+    },
+    {
+      "case": "holdout/wrong/W03",
+      "model": "holdout",
+      "question": "How do I set the response_model of a FastAPI path operation?",
+      "answer": "Declare `response_model` as a parameter of the path operation *function*, for example `def read_item(response_model: Item)` [1]. FastAPI reads that annotation to build the OpenAPI response schema [1].",
+      "chunk_ids": [
+        "dbd3ea82da8f-0004",
+        "8f2d8f78db8e-0005"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Declare `response_model` as a parameter of the path operation *function*, for example `def read_item(response_model: Item)` .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "FastAPI reads that annotation to build the OpenAPI response schema .",
+          "supported": true
+        }
+      ],
+      "error_pattern": "wrong_parameter_location"
+    },
+    {
+      "case": "holdout/wrong/W04",
+      "model": "holdout",
+      "question": "When deploying, how many times the number of CPU cores should the number of uvicorn workers be set to?",
+      "answer": "The FastAPI docs state uvicorn workers should be set to exactly the number of CPU cores [1]. Using more workers than cores is unsupported and will crash the process [1].",
+      "chunk_ids": [
+        "de9cd06037c6-0018",
+        "de9cd06037c6-0021"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "The FastAPI docs state uvicorn workers should be set to exactly the number of CPU cores .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Using more workers than cores is unsupported and will crash the process .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "invented_numeric_claim"
+    },
+    {
+      "case": "holdout/wrong/W05",
+      "model": "holdout",
+      "question": "How do I configure a Pydantic model to forbid extra fields?",
+      "answer": "Set `model_config = ConfigDict(extra='forbid')` to reject extra fields [1]. This configuration became mandatory in Pydantic v3.2.0 and cannot be disabled [1].",
+      "chunk_ids": [
+        "13b45477775a-0007"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Set `model_config = ConfigDict(extra='forbid')` to reject extra fields .",
+          "supported": true
+        },
+        {
+          "i": 2,
+          "sentence": "This configuration became mandatory in Pydantic v3.2.0 and cannot be disabled .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "fabricated_version"
+    },
+    {
+      "case": "holdout/wrong/W06",
+      "model": "holdout",
+      "question": "How can I add CORS support to a FastAPI application?",
+      "answer": "Import `CORSMiddleware` from `fastapi.security` and register it with `app.add_security(CORSMiddleware)` [1]. Origins are then read from the `CORS_ORIGIN` environment variable automatically [1].",
+      "chunk_ids": [
+        "0e60b3828d2a-0000",
+        "0e60b3828d2a-0001"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Import `CORSMiddleware` from `fastapi.security` and register it with `app.add_security(CORSMiddleware)` .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Origins are then read from the `CORS_ORIGIN` environment variable automatically .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "wrong_api_name"
+    },
+    {
+      "case": "holdout/wrong/W07",
+      "model": "holdout",
+      "question": "How do I test a FastAPI app with TestClient?",
+      "answer": "`TestClient` starts a real TCP server on a random port and you must call `client.start()` before requests [1]. Tests that forget `start()` hang forever [1].",
+      "chunk_ids": [
+        "192ba115005d-0000",
+        "80c62924b95c-0001"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "`TestClient` starts a real TCP server on a random port and you must call `client.start()` before requests .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Tests that forget `start()` hang forever .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "false_mechanism"
+    },
+    {
+      "case": "holdout/wrong/W08",
+      "model": "holdout",
+      "question": "How do I return a custom HTTP error with a status code in FastAPI?",
+      "answer": "Return a plain dict `{\"status_code\": 404, \"detail\": \"...\"}` from the path operation and FastAPI converts it into an error response [1]. Raising exceptions is deprecated [1].",
+      "chunk_ids": [
+        "b05842751c15-0002"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Return a plain dict `{\"status_code\": 404, \"detail\": \"...\"}` from the path operation and FastAPI converts it into an error response .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Raising exceptions is deprecated .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "false_mechanism"
+    },
+    {
+      "case": "holdout/wrong/W09",
+      "model": "holdout",
+      "question": "How do I define a custom validator on a field in Pydantic v2?",
+      "answer": "Use the `@validator` decorator from Pydantic v1; in v2 it is the only supported field validator API [1]. `@field_validator` was removed [1].",
+      "chunk_ids": [
+        "6abe05815c50-0001",
+        "6abe05815c50-0002"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Use the `@validator` decorator from Pydantic v1; in v2 it is the only supported field validator API .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "`@field_validator` was removed .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "outdated_api"
+    },
+    {
+      "case": "holdout/wrong/W10",
+      "model": "holdout",
+      "question": "How do I serialize a Pydantic model to a dict?",
+      "answer": "Call `.dict()` on the model; `model_dump` only exists on TypeAdapter objects [1]. Passing `mode='json'` to `.dict()` is required [1].",
+      "chunk_ids": [
+        "92eb102c6b17-0003"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Call `.dict()` on the model; `model_dump` only exists on TypeAdapter objects .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Passing `mode='json'` to `.dict()` is required .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "outdated_api"
+    },
+    {
+      "case": "holdout/wrong/W11",
+      "model": "holdout",
+      "question": "What is a StateGraph in LangGraph?",
+      "answer": "A `StateGraph` is a database table that stores agent messages; you query it with SQL through LangGraph [1]. Compiling a graph creates an index on that table [1].",
+      "chunk_ids": [
+        "8c9c196dbe78-0003"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "A `StateGraph` is a database table that stores agent messages; you query it with SQL through LangGraph .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Compiling a graph creates an index on that table .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "concept_confusion"
+    },
+    {
+      "case": "holdout/wrong/W12",
+      "model": "holdout",
+      "question": "What is a checkpointer in LangGraph and why use one?",
+      "answer": "A checkpointer compresses LLM prompts to save tokens; it is optional for human-in-the-loop and only used in batch training [1].",
+      "chunk_ids": [
+        "4a50ddd9115d-0001",
+        "4a50ddd9115d-0021"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "A checkpointer compresses LLM prompts to save tokens; it is optional for human-in-the-loop and only used in batch training .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "concept_confusion"
+    },
+    {
+      "case": "holdout/wrong/W13",
+      "model": "holdout",
+      "question": "How do I organize a bigger FastAPI application into multiple files with APIRouter?",
+      "answer": "Create one `APIRouter` per file and register them with `FastAPI.mount_router()` [1]. Routers cannot share dependencies across files [1].",
+      "chunk_ids": [
+        "3fb1de8d14b6-0000",
+        "3fb1de8d14b6-0001"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Create one `APIRouter` per file and register them with `FastAPI.mount_router()` .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Routers cannot share dependencies across files .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "wrong_api_name"
+    },
+    {
+      "case": "holdout/wrong/W14",
+      "model": "holdout",
+      "question": "How do I declare a path parameter in FastAPI?",
+      "answer": "The only supported way to declare a path parameter is the `{name:path}` converter; plain `{item_id}` is ignored by FastAPI [1].",
+      "chunk_ids": [
+        "c3fbe41174be-0002",
+        "1a5eac750e39-0008"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "The only supported way to declare a path parameter is the `{name:path}` converter; plain `{item_id}` is ignored by FastAPI .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "overclaim"
+    },
+    {
+      "case": "holdout/wrong/W15",
+      "model": "holdout",
+      "question": "How does FastAPI treat function parameters that are not part of the path?",
+      "answer": "Function parameters that are not path parameters are treated as HTTP headers by default [1]. You must wrap them in `Header()` or FastAPI rejects the request [1].",
+      "chunk_ids": [
+        "1a5eac750e39-0009",
+        "d359b58baa7d-0001"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Function parameters that are not path parameters are treated as HTTP headers by default .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "You must wrap them in `Header()` or FastAPI rejects the request .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "concept_confusion"
+    },
+    {
+      "case": "holdout/wrong/W16",
+      "model": "holdout",
+      "question": "What is a TypeAdapter in Pydantic used for?",
+      "answer": "A `TypeAdapter` replaces `BaseModel` entirely in Pydantic v2 and is required for every schema [1]. Models without a TypeAdapter will not validate [1].",
+      "chunk_ids": [
+        "5def92a9554e-0003",
+        "99b638b42340-0012"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "A `TypeAdapter` replaces `BaseModel` entirely in Pydantic v2 and is required for every schema .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Models without a TypeAdapter will not validate .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "overclaim"
+    },
+    {
+      "case": "holdout/wrong/W17",
+      "model": "holdout",
+      "question": "How do I add custom middleware to a FastAPI application?",
+      "answer": "Subclass `fastapi.Middleware` and register it with `app.middleware = MyMiddleware()` [1]. Only one middleware is allowed per app [1].",
+      "chunk_ids": [
+        "3f77cbd4da36-0000",
+        "3f77cbd4da36-0001"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Subclass `fastapi.Middleware` and register it with `app.middleware = MyMiddleware()` .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Only one middleware is allowed per app .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "wrong_api_name"
+    },
+    {
+      "case": "holdout/wrong/W18",
+      "model": "holdout",
+      "question": "How do I declare a request body in FastAPI?",
+      "answer": "Wrap every body field in `Body(...)` individually; using a Pydantic model as a parameter is not supported [1].",
+      "chunk_ids": [
+        "1a5eac750e39-0008",
+        "1a5eac750e39-0009"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Wrap every body field in `Body(...)` individually; using a Pydantic model as a parameter is not supported .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "false_mechanism"
+    },
+    {
+      "case": "holdout/wrong/W19",
+      "model": "holdout",
+      "question": "Is the result of a FastAPI dependency (Depends) cached, and for what scope?",
+      "answer": "Dependency results are cached process-wide for the lifetime of the worker so every request reuses the first call [1]. Setting `use_cache=False` has no effect in production [1].",
+      "chunk_ids": [
+        "667e40148410-0004",
+        "038cc1d73481-0904"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Dependency results are cached process-wide for the lifetime of the worker so every request reuses the first call .",
+          "supported": false
+        },
+        {
+          "i": 2,
+          "sentence": "Setting `use_cache=False` has no effect in production .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "wrong_scope"
+    },
+    {
+      "case": "holdout/wrong/W20",
+      "model": "holdout",
+      "question": "How do I use GraphQL with FastAPI?",
+      "answer": "Strawberry is unsupported for FastAPI; use the built-in `fastapi.graphql` module instead [1].",
+      "chunk_ids": [
+        "81142cbac393-0001"
+      ],
+      "answer_label": "wrong",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Strawberry is unsupported for FastAPI; use the built-in `fastapi.graphql` module instead .",
+          "supported": false
+        }
+      ],
+      "error_pattern": "unsupported_citation"
+    },
+    {
+      "case": "holdout/correct/C01",
+      "model": "holdout",
+      "question": "How do I run a function after returning a response in FastAPI?",
+      "answer": "Declare a `BackgroundTasks` parameter in your path operation function and call `background_tasks.add_task(...)` to schedule work after the response [1].",
+      "chunk_ids": [
+        "de4625b764d1-0000",
+        "8027ae2f3842-0001"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Declare a `BackgroundTasks` parameter in your path operation function and call `background_tasks.add_task(...)` to schedule work after the response.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C02",
+      "model": "holdout",
+      "question": "How can I add CORS support to a FastAPI application?",
+      "answer": "Add Starlette's `CORSMiddleware` to your FastAPI app and configure allowed origins, credentials, methods, and headers [1].",
+      "chunk_ids": [
+        "0e60b3828d2a-0000",
+        "0e60b3828d2a-0001"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Add Starlette's `CORSMiddleware` to your FastAPI app and configure allowed origins, credentials, methods, and headers.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C03",
+      "model": "holdout",
+      "question": "How do I test a FastAPI app with TestClient?",
+      "answer": "Import `TestClient` from `fastapi.testclient`, create it with your app, and call it from pytest functions whose names start with `test_` [1].",
+      "chunk_ids": [
+        "192ba115005d-0000",
+        "80c62924b95c-0001"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Import `TestClient` from `fastapi.testclient`, create it with your app, and call it from pytest functions whose names start with `test_`.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C04",
+      "model": "holdout",
+      "question": "How do I organize a bigger FastAPI application into multiple files with APIRouter?",
+      "answer": "Put routes on `APIRouter` instances in submodules and include them in the main app with `app.include_router()` [1].",
+      "chunk_ids": [
+        "3fb1de8d14b6-0000",
+        "3fb1de8d14b6-0001"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Put routes on `APIRouter` instances in submodules and include them in the main app with `app.include_router()`.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C05",
+      "model": "holdout",
+      "question": "What is a StateGraph in LangGraph?",
+      "answer": "StateGraph is the main graph class in LangGraph; it is parameterized by a user-defined State object [1].",
+      "chunk_ids": [
+        "8c9c196dbe78-0003"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "StateGraph is the main graph class in LangGraph; it is parameterized by a user-defined State object.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C06",
+      "model": "holdout",
+      "question": "What is a checkpointer in LangGraph and why use one?",
+      "answer": "Checkpointers persist thread graph state and are required for features like human-in-the-loop workflows [1].",
+      "chunk_ids": [
+        "4a50ddd9115d-0001",
+        "4a50ddd9115d-0021"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Checkpointers persist thread graph state and are required for features like human-in-the-loop workflows.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C07",
+      "model": "holdout",
+      "question": "How do I define a custom validator on a field in Pydantic v2?",
+      "answer": "Use the `@field_validator` decorator to attach validation logic to a model field [1].",
+      "chunk_ids": [
+        "6abe05815c50-0001",
+        "6abe05815c50-0002"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Use the `@field_validator` decorator to attach validation logic to a model field.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C08",
+      "model": "holdout",
+      "question": "How do I serialize a Pydantic model to a dict?",
+      "answer": "Call `model_dump()` on the model instance; for partial updates you can pass `exclude_unset=True` [1].",
+      "chunk_ids": [
+        "92eb102c6b17-0003"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Call `model_dump()` on the model instance; for partial updates you can pass `exclude_unset=True`.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C09",
+      "model": "holdout",
+      "question": "How do I declare a request body in FastAPI?",
+      "answer": "Use a Pydantic model as a function parameter; FastAPI treats it as the request body and can mix it with path and query parameters [1].",
+      "chunk_ids": [
+        "1a5eac750e39-0008",
+        "1a5eac750e39-0009"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Use a Pydantic model as a function parameter; FastAPI treats it as the request body and can mix it with path and query parameters.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C10",
+      "model": "holdout",
+      "question": "How does FastAPI treat function parameters that are not part of the path?",
+      "answer": "Parameters that are not path parameters are treated as query parameters by default [1].",
+      "chunk_ids": [
+        "a5290b01d8ee-0000"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Parameters that are not path parameters are treated as query parameters by default.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C11",
+      "model": "holdout",
+      "question": "How do I return a custom HTTP error with a status code in FastAPI?",
+      "answer": "Raise an `HTTPException` with a `status_code` and `detail` to return a custom HTTP error response [1].",
+      "chunk_ids": [
+        "b05842751c15-0002"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Raise an `HTTPException` with a `status_code` and `detail` to return a custom HTTP error response .",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C12",
+      "model": "holdout",
+      "question": "How do I set the response_model of a FastAPI path operation?",
+      "answer": "Pass `response_model` to the path operation decorator; FastAPI uses it to serialize the response and document the schema [1].",
+      "chunk_ids": [
+        "dbd3ea82da8f-0004",
+        "8f2d8f78db8e-0005"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Pass `response_model` to the path operation decorator; FastAPI uses it to serialize the response and document the schema.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C13",
+      "model": "holdout",
+      "question": "How do I add ASGI middleware to a FastAPI application?",
+      "answer": "Because FastAPI implements ASGI, you can add any ASGI middleware to the application [1].",
+      "chunk_ids": [
+        "3f77cbd4da36-0001"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Because FastAPI implements ASGI, you can add any ASGI middleware to the application.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C14",
+      "model": "holdout",
+      "question": "What does Field(default_factory=...) do in Pydantic?",
+      "answer": "You can pass a callable to Field's `default_factory` argument; it is called to generate the field's default value [1].",
+      "chunk_ids": [
+        "bc9c8dfb40a5-0004"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "You can pass a callable to Field's `default_factory` argument; it is called to generate the field's default value .",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C15",
+      "model": "holdout",
+      "question": "How do I generate a JSON Schema from a Pydantic model?",
+      "answer": "Call `model_json_schema()` on a Pydantic model to get its JSON Schema, including field properties [1].",
+      "chunk_ids": [
+        "bc9c8dfb40a5-0020"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Call `model_json_schema()` on a Pydantic model to get its JSON Schema, including field properties .",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C16",
+      "model": "holdout",
+      "question": "What is a TypeAdapter in Pydantic used for?",
+      "answer": "TypeAdapter applies Pydantic parsing and validation to arbitrary types, not only BaseModel subclasses [1].",
+      "chunk_ids": [
+        "5def92a9554e-0003"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "TypeAdapter applies Pydantic parsing and validation to arbitrary types, not only BaseModel subclasses.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C17",
+      "model": "holdout",
+      "question": "How do I declare path parameters and a request body together in FastAPI?",
+      "answer": "You can declare path parameters and a request body at the same time; FastAPI matches path parameter names and treats the Pydantic model as the body [1].",
+      "chunk_ids": [
+        "1a5eac750e39-0008"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "You can declare path parameters and a request body at the same time; FastAPI matches path parameter names and treats the Pydantic model as the body.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C18",
+      "model": "holdout",
+      "question": "What is an origin in the CORS sense used by FastAPI's docs?",
+      "answer": "An origin is the combination of protocol, domain, and port [1].",
+      "chunk_ids": [
+        "0e60b3828d2a-0001"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "An origin is the combination of protocol, domain, and port.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C19",
+      "model": "holdout",
+      "question": "How do I use BackgroundTasks in a FastAPI path operation?",
+      "answer": "Import `BackgroundTasks`, add a parameter with that type, and schedule work with `add_task` [1].",
+      "chunk_ids": [
+        "8027ae2f3842-0001",
+        "de4625b764d1-0000"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "Import `BackgroundTasks`, add a parameter with that type, and schedule work with `add_task`.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    },
+    {
+      "case": "holdout/correct/C20",
+      "model": "holdout",
+      "question": "Why might you run multiple processes when deploying a FastAPI app?",
+      "answer": "If a single process cannot handle all clients and the server has multiple CPU cores, you can run multiple processes [1].",
+      "chunk_ids": [
+        "de9cd06037c6-0018"
+      ],
+      "answer_label": "correct",
+      "sentences": [
+        {
+          "i": 1,
+          "sentence": "If a single process cannot handle all clients and the server has multiple CPU cores, you can run multiple processes.",
+          "supported": true
+        }
+      ],
+      "error_pattern": null
+    }
+  ]
+}
