@@ -8,6 +8,12 @@
 
 No public hosted demo. Run locally (or with Docker Compose) — see [Quickstart](#quickstart).
 
+## 项目简介 / Elevator pitch
+
+**中文：** CiteGuard 是一个面向技术文档的 cite-or-abstain Agentic RAG：基于 FastAPI / LangGraph，用 BM25 + 向量混合检索回答 FastAPI、Pydantic、LangGraph 文档问题；每句回答必须带可追溯引用，证据不足时明确拒答而不是瞎编。本地可一键跑通，README 里有 Swagger 演示动图（有据回答 → 语料外拒答）。
+
+**English:** CiteGuard is an agentic RAG for technical docs with a cite-or-abstain contract. Built with FastAPI and LangGraph, it answers questions over the FastAPI / Pydantic / LangGraph docs via hybrid BM25 + vector retrieval; every claim is cited, and the API refuses when evidence is insufficient instead of hallucinating. Clone-and-run locally; the README includes a Swagger demo GIF of cite-then-refuse.
+
 ## What it is
 CiteGuard answers questions about the **FastAPI, Pydantic and LangGraph docs** with a *cite-or-abstain* contract:
 
